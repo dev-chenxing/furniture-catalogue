@@ -1,0 +1,5119 @@
+[
+  {
+    "type": "Header",
+    "flags": [
+      0,
+      0
+    ],
+    "version": 1.3,
+    "file_type": "Esp",
+    "author": "JosephMcKean",
+    "description": "",
+    "num_objects": 61,
+    "masters": [
+      [
+        "Morrowind.esm",
+        79837557
+      ],
+      [
+        "Tribunal.esm",
+        4565686
+      ],
+      [
+        "Bloodmoon.esm",
+        9631798
+      ]
+    ]
+  },
+  {
+    "type": "Creature",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "retail_cus_uni_ancestor",
+    "data": {
+      "creature_type": 2,
+      "level": 10,
+      "strength": 50,
+      "intelligence": 100,
+      "willpower": 100,
+      "agility": 50,
+      "speed": 18,
+      "endurance": 50,
+      "personality": 50,
+      "luck": 50,
+      "health": 150,
+      "magicka": 400,
+      "fatigue": 400,
+      "soul_points": 200,
+      "combat": 30,
+      "magic": 80,
+      "steath": 20,
+      "attack1": [
+        10,
+        30
+      ],
+      "attack2": [
+        10,
+        30
+      ],
+      "attack3": [
+        10,
+        30
+      ],
+      "gold": 0
+    },
+    "name": "Ancestor Ghost",
+    "mesh": "r\\AncestorGhost.NIF",
+    "sound": "ancestor_ghost",
+    "creature_flags": 1096,
+    "scale": 1.3000001,
+    "inventory": [
+      [
+        1,
+        "random_ectoplasm"
+      ]
+    ],
+    "spells": [
+      "immune to poison",
+      "immune to frost",
+      "immune to shock",
+      "immune to disease",
+      "immune to normal weapons",
+      "immune to fire",
+      "Ghost Curse"
+    ],
+    "ai_data": {
+      "hello": 0,
+      "fight": 30,
+      "flee": 20,
+      "alarm": 0,
+      "services": 0
+    },
+    "ai_packages": [
+      {
+        "type": "Wander",
+        "distance": 512,
+        "duration": 5,
+        "game_hour": 0,
+        "idle2": 60,
+        "idle3": 20,
+        "idle4": 10,
+        "idle5": 0,
+        "idle6": 0,
+        "idle7": 0,
+        "idle8": 0,
+        "idle9": 0,
+        "reset": 1
+      }
+    ],
+    "travel_destinations": []
+  },
+  {
+    "type": "Npc",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "retail_cus_adv_01",
+    "name": "retail_cus_adv_1",
+    "race": "Dark Elf",
+    "class": "Knight",
+    "faction": "",
+    "head": "b_n_dark elf_m_head_01",
+    "hair": "b_n_dark elf_m_hair_01",
+    "npc_flags": 24,
+    "data": {
+      "level": 19,
+      "stats": null,
+      "disposition": 50,
+      "reputation": 0,
+      "rank": 0,
+      "gold": 0
+    },
+    "inventory": [
+      [
+        1,
+        "common_pants_03_c"
+      ],
+      [
+        1,
+        "common_shirt_02"
+      ],
+      [
+        1,
+        "iron boots"
+      ],
+      [
+        1,
+        "iron_gauntlet_left"
+      ],
+      [
+        1,
+        "iron_gauntlet_right"
+      ],
+      [
+        1,
+        "iron_greaves"
+      ],
+      [
+        1,
+        "iron_pauldron_left"
+      ],
+      [
+        1,
+        "iron_pauldron_right"
+      ],
+      [
+        1,
+        "l_b_amulets"
+      ],
+      [
+        1,
+        "silver longsword"
+      ],
+      [
+        1,
+        "silver_cuirass"
+      ],
+      [
+        1,
+        "silver_helm"
+      ],
+      [
+        1,
+        "steel_shield"
+      ]
+    ],
+    "spells": [],
+    "ai_data": {
+      "hello": 30,
+      "fight": 30,
+      "flee": 30,
+      "alarm": 100,
+      "services": 0
+    },
+    "ai_packages": [
+      {
+        "type": "Wander",
+        "distance": 256,
+        "duration": 5,
+        "game_hour": 0,
+        "idle2": 50,
+        "idle3": 20,
+        "idle4": 10,
+        "idle5": 10,
+        "idle6": 0,
+        "idle7": 0,
+        "idle8": 0,
+        "idle9": 10,
+        "reset": 1
+      }
+    ],
+    "travel_destinations": []
+  },
+  {
+    "type": "Npc",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "retail_cus_adv_02",
+    "name": "retail_cus_adv_2",
+    "race": "Dark Elf",
+    "class": "Hunter",
+    "faction": "",
+    "head": "b_n_dark elf_f_head_07",
+    "hair": "b_n_dark elf_f_hair_03",
+    "npc_flags": 25,
+    "data": {
+      "level": 14,
+      "stats": null,
+      "disposition": 50,
+      "reputation": 0,
+      "rank": 0,
+      "gold": 0
+    },
+    "inventory": [
+      [
+        1,
+        "chitin cuirass"
+      ],
+      [
+        2,
+        "chitin dagger"
+      ],
+      [
+        1,
+        "chitin greaves"
+      ],
+      [
+        1,
+        "chitin pauldron - left"
+      ],
+      [
+        1,
+        "chitin pauldron - right"
+      ],
+      [
+        1,
+        "cloth bracer left"
+      ],
+      [
+        1,
+        "cloth bracer right"
+      ],
+      [
+        1,
+        "common_pants_02"
+      ],
+      [
+        1,
+        "netch_leather_boots"
+      ]
+    ],
+    "spells": [],
+    "ai_data": {
+      "hello": 30,
+      "fight": 30,
+      "flee": 30,
+      "alarm": 90,
+      "services": 0
+    },
+    "ai_packages": [
+      {
+        "type": "Wander",
+        "distance": 512,
+        "duration": 5,
+        "game_hour": 0,
+        "idle2": 60,
+        "idle3": 20,
+        "idle4": 10,
+        "idle5": 0,
+        "idle6": 0,
+        "idle7": 0,
+        "idle8": 0,
+        "idle9": 0,
+        "reset": 1
+      }
+    ],
+    "travel_destinations": []
+  },
+  {
+    "type": "Npc",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "retail_cus_adv_03",
+    "name": "retail_cus_adv_3",
+    "race": "Dark Elf",
+    "class": "Bard",
+    "faction": "",
+    "head": "b_n_dark elf_f_head_08",
+    "hair": "b_n_dark elf_f_hair_15",
+    "npc_flags": 25,
+    "data": {
+      "level": 15,
+      "stats": null,
+      "disposition": 50,
+      "reputation": 0,
+      "rank": 0,
+      "gold": 0
+    },
+    "inventory": [
+      [
+        1,
+        "bonemold_cuirass"
+      ],
+      [
+        1,
+        "common_pants_03_c"
+      ],
+      [
+        1,
+        "common_shirt_02"
+      ],
+      [
+        1,
+        "common_shoes_01"
+      ],
+      [
+        1,
+        "iron longsword"
+      ]
+    ],
+    "spells": [],
+    "ai_data": {
+      "hello": 30,
+      "fight": 30,
+      "flee": 30,
+      "alarm": 90,
+      "services": 0
+    },
+    "ai_packages": [
+      {
+        "type": "Wander",
+        "distance": 128,
+        "duration": 5,
+        "game_hour": 0,
+        "idle2": 60,
+        "idle3": 20,
+        "idle4": 10,
+        "idle5": 10,
+        "idle6": 0,
+        "idle7": 0,
+        "idle8": 0,
+        "idle9": 0,
+        "reset": 1
+      }
+    ],
+    "travel_destinations": []
+  },
+  {
+    "type": "Npc",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "retail_cus_adv_04",
+    "name": "retail_cus_adv_4",
+    "race": "Imperial",
+    "class": "Archer",
+    "faction": "",
+    "head": "b_n_imperial_m_head_04",
+    "hair": "b_n_imperial_m_hair_02",
+    "npc_flags": 24,
+    "data": {
+      "level": 5,
+      "stats": null,
+      "disposition": 50,
+      "reputation": 0,
+      "rank": 0,
+      "gold": 0
+    },
+    "inventory": [
+      [
+        1,
+        "common_pants_01"
+      ],
+      [
+        29,
+        "iron arrow"
+      ],
+      [
+        1,
+        "netch_leather_boots"
+      ],
+      [
+        1,
+        "netch_leather_cuirass"
+      ],
+      [
+        1,
+        "netch_leather_gauntlet_left"
+      ],
+      [
+        1,
+        "netch_leather_gauntlet_right"
+      ],
+      [
+        1,
+        "netch_leather_greaves"
+      ],
+      [
+        1,
+        "netch_leather_pauldron_left"
+      ],
+      [
+        1,
+        "netch_leather_pauldron_right"
+      ],
+      [
+        1,
+        "steel dagger"
+      ],
+      [
+        1,
+        "steel longbow"
+      ]
+    ],
+    "spells": [],
+    "ai_data": {
+      "hello": 30,
+      "fight": 30,
+      "flee": 30,
+      "alarm": 90,
+      "services": 0
+    },
+    "ai_packages": [
+      {
+        "type": "Wander",
+        "distance": 175,
+        "duration": 5,
+        "game_hour": 0,
+        "idle2": 60,
+        "idle3": 20,
+        "idle4": 10,
+        "idle5": 0,
+        "idle6": 0,
+        "idle7": 0,
+        "idle8": 0,
+        "idle9": 0,
+        "reset": 1
+      }
+    ],
+    "travel_destinations": []
+  },
+  {
+    "type": "Npc",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "retail_cus_adv_05",
+    "name": "Customer",
+    "race": "Nord",
+    "class": "Barbarian",
+    "faction": "",
+    "head": "b_n_nord_m_head_02",
+    "hair": "B_N_Nord_M_hair08",
+    "npc_flags": 24,
+    "data": {
+      "level": 3,
+      "stats": null,
+      "disposition": 50,
+      "reputation": 0,
+      "rank": 0,
+      "gold": 0
+    },
+    "inventory": [
+      [
+        1,
+        "common_pants_02"
+      ],
+      [
+        1,
+        "common_shirt_01"
+      ],
+      [
+        1,
+        "fur_bearskin_cuirass"
+      ],
+      [
+        1,
+        "fur_boots"
+      ],
+      [
+        1,
+        "fur_bracer_left"
+      ],
+      [
+        1,
+        "fur_bracer_right"
+      ],
+      [
+        1,
+        "iron battle axe"
+      ],
+      [
+        1,
+        "nordic_leather_shield"
+      ]
+    ],
+    "spells": [],
+    "ai_data": {
+      "hello": 30,
+      "fight": 30,
+      "flee": 30,
+      "alarm": 80,
+      "services": 0
+    },
+    "ai_packages": [
+      {
+        "type": "Wander",
+        "distance": 512,
+        "duration": 5,
+        "game_hour": 0,
+        "idle2": 10,
+        "idle3": 20,
+        "idle4": 30,
+        "idle5": 0,
+        "idle6": 0,
+        "idle7": 50,
+        "idle8": 0,
+        "idle9": 0,
+        "reset": 1
+      }
+    ],
+    "travel_destinations": []
+  },
+  {
+    "type": "Npc",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "retail_cus_adv_06",
+    "name": "Customer",
+    "race": "Nord",
+    "class": "Merchant",
+    "faction": "",
+    "head": "b_n_nord_f_head_05",
+    "hair": "b_n_nord_f_hair_03",
+    "npc_flags": 25,
+    "data": {
+      "level": 8,
+      "stats": null,
+      "disposition": 50,
+      "reputation": 0,
+      "rank": 0,
+      "gold": 0
+    },
+    "inventory": [
+      [
+        1,
+        "BM_Nordic02_shirt"
+      ],
+      [
+        1,
+        "BM_NordicMail_Boots"
+      ],
+      [
+        1,
+        "BM_NordicMail_greaves"
+      ],
+      [
+        1,
+        "common_glove_left_01"
+      ],
+      [
+        1,
+        "common_glove_right_01"
+      ],
+      [
+        1,
+        "silver dagger"
+      ]
+    ],
+    "spells": [],
+    "ai_data": {
+      "hello": 30,
+      "fight": 30,
+      "flee": 30,
+      "alarm": 90,
+      "services": 0
+    },
+    "ai_packages": [
+      {
+        "type": "Wander",
+        "distance": 512,
+        "duration": 5,
+        "game_hour": 0,
+        "idle2": 60,
+        "idle3": 20,
+        "idle4": 10,
+        "idle5": 0,
+        "idle6": 0,
+        "idle7": 0,
+        "idle8": 0,
+        "idle9": 0,
+        "reset": 1
+      }
+    ],
+    "travel_destinations": []
+  },
+  {
+    "type": "Npc",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "retail_cus_adv_07",
+    "name": "Customer",
+    "race": "Imperial",
+    "class": "Nightblade",
+    "faction": "",
+    "head": "b_n_imperial_m_head_01",
+    "hair": "b_n_imperial_m_hair_02",
+    "npc_flags": 8,
+    "data": {
+      "level": 6,
+      "stats": {
+        "attributes": [
+          45,
+          46,
+          54,
+          41,
+          60,
+          43,
+          57,
+          40
+        ],
+        "skills": [
+          6,
+          6,
+          6,
+          6,
+          10,
+          16,
+          6,
+          6,
+          6,
+          13,
+          28,
+          42,
+          42,
+          13,
+          42,
+          13,
+          13,
+          28,
+          20,
+          35,
+          6,
+          42,
+          35,
+          20,
+          16,
+          16,
+          10
+        ],
+        "health": 59,
+        "magicka": 92,
+        "fatigue": 183
+      },
+      "disposition": 50,
+      "reputation": 0,
+      "rank": 0,
+      "gold": 0
+    },
+    "inventory": [
+      [
+        1,
+        "common_pants_03"
+      ],
+      [
+        1,
+        "common_shirt_04"
+      ],
+      [
+        1,
+        "fur_boots"
+      ],
+      [
+        1,
+        "fur_cuirass"
+      ],
+      [
+        1,
+        "fur_helm"
+      ],
+      [
+        1,
+        "steel dagger"
+      ]
+    ],
+    "spells": [
+      "burden",
+      "great open",
+      "strong open",
+      "wild open",
+      "ondusi's open door",
+      "soothe the savage beast",
+      "calming touch",
+      "chameleon",
+      "shadow form",
+      "sanctuary",
+      "silence",
+      "wild earwig",
+      "mark",
+      "recall",
+      "absorb health",
+      "detect_key"
+    ],
+    "ai_data": {
+      "hello": 30,
+      "fight": 30,
+      "flee": 30,
+      "alarm": 80,
+      "services": 0
+    },
+    "ai_packages": [
+      {
+        "type": "Wander",
+        "distance": 40,
+        "duration": 5,
+        "game_hour": 0,
+        "idle2": 60,
+        "idle3": 20,
+        "idle4": 10,
+        "idle5": 0,
+        "idle6": 0,
+        "idle7": 0,
+        "idle8": 0,
+        "idle9": 0,
+        "reset": 1
+      }
+    ],
+    "travel_destinations": []
+  },
+  {
+    "type": "Npc",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "retail_cus_adv_08",
+    "name": "Customer",
+    "mesh": "base_animKnA.nif",
+    "race": "Argonian",
+    "class": "Rogue",
+    "faction": "",
+    "head": "b_n_argonian_m_head_03",
+    "hair": "b_n_argonian_m_hair03",
+    "npc_flags": 24,
+    "data": {
+      "level": 9,
+      "stats": null,
+      "disposition": 50,
+      "reputation": 0,
+      "rank": 0,
+      "gold": 0
+    },
+    "inventory": [
+      [
+        1,
+        "chitin pauldron - left"
+      ],
+      [
+        1,
+        "chitin pauldron - right"
+      ],
+      [
+        1,
+        "common_pants_01"
+      ],
+      [
+        1,
+        "common_shirt_02"
+      ],
+      [
+        1,
+        "netch_leather_boiled_cuirass"
+      ],
+      [
+        1,
+        "netch_leather_boiled_helm"
+      ],
+      [
+        1,
+        "nordic battle axe"
+      ]
+    ],
+    "spells": [],
+    "ai_data": {
+      "hello": 30,
+      "fight": 30,
+      "flee": 30,
+      "alarm": 80,
+      "services": 0
+    },
+    "ai_packages": [
+      {
+        "type": "Wander",
+        "distance": 512,
+        "duration": 5,
+        "game_hour": 0,
+        "idle2": 60,
+        "idle3": 20,
+        "idle4": 10,
+        "idle5": 0,
+        "idle6": 0,
+        "idle7": 0,
+        "idle8": 0,
+        "idle9": 0,
+        "reset": 1
+      }
+    ],
+    "travel_destinations": []
+  },
+  {
+    "type": "Npc",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "retail_cus_adv_09",
+    "name": "Customer",
+    "race": "Redguard",
+    "class": "Archer",
+    "faction": "",
+    "head": "b_n_redguard_m_head_01",
+    "hair": "b_n_redguard_m_hair_05",
+    "npc_flags": 24,
+    "data": {
+      "level": 8,
+      "stats": null,
+      "disposition": 50,
+      "reputation": 0,
+      "rank": 0,
+      "gold": 0
+    },
+    "inventory": [
+      [
+        15,
+        "bonemold arrow"
+      ],
+      [
+        1,
+        "bonemold long bow"
+      ],
+      [
+        1,
+        "bonemold_boots"
+      ],
+      [
+        1,
+        "chitin greaves"
+      ],
+      [
+        1,
+        "chitin pauldron - left"
+      ],
+      [
+        1,
+        "chitin pauldron - right"
+      ],
+      [
+        1,
+        "common_pants_04_b"
+      ],
+      [
+        1,
+        "nordic_ringmail_cuirass"
+      ]
+    ],
+    "spells": [],
+    "ai_data": {
+      "hello": 30,
+      "fight": 30,
+      "flee": 30,
+      "alarm": 80,
+      "services": 0
+    },
+    "ai_packages": [
+      {
+        "type": "Wander",
+        "distance": 512,
+        "duration": 5,
+        "game_hour": 0,
+        "idle2": 60,
+        "idle3": 20,
+        "idle4": 10,
+        "idle5": 0,
+        "idle6": 0,
+        "idle7": 0,
+        "idle8": 0,
+        "idle9": 0,
+        "reset": 1
+      }
+    ],
+    "travel_destinations": []
+  },
+  {
+    "type": "Npc",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "retail_cus_adv_10",
+    "name": "Customer",
+    "race": "Imperial",
+    "class": "Spellsword",
+    "faction": "",
+    "head": "b_n_imperial_m_head_01",
+    "hair": "B_N_Imperial_M_Hair_09",
+    "npc_flags": 24,
+    "data": {
+      "level": 10,
+      "stats": null,
+      "disposition": 50,
+      "reputation": 0,
+      "rank": 0,
+      "gold": 0
+    },
+    "inventory": [
+      [
+        1,
+        "common_pants_02"
+      ],
+      [
+        1,
+        "imperial boots"
+      ],
+      [
+        1,
+        "imperial left pauldron"
+      ],
+      [
+        1,
+        "imperial_chain_cuirass"
+      ],
+      [
+        1,
+        "imperial_chain_greaves"
+      ],
+      [
+        1,
+        "imperial_chain_pauldron_left"
+      ],
+      [
+        1,
+        "imperial_chain_pauldron_right"
+      ],
+      [
+        1,
+        "netch_leather_gauntlet_left"
+      ],
+      [
+        1,
+        "netch_leather_gauntlet_right"
+      ],
+      [
+        1,
+        "steel saber"
+      ]
+    ],
+    "spells": [],
+    "ai_data": {
+      "hello": 30,
+      "fight": 30,
+      "flee": 30,
+      "alarm": 80,
+      "services": 0
+    },
+    "ai_packages": [
+      {
+        "type": "Wander",
+        "distance": 512,
+        "duration": 5,
+        "game_hour": 0,
+        "idle2": 60,
+        "idle3": 20,
+        "idle4": 10,
+        "idle5": 0,
+        "idle6": 0,
+        "idle7": 0,
+        "idle8": 0,
+        "idle9": 0,
+        "reset": 1
+      }
+    ],
+    "travel_destinations": []
+  },
+  {
+    "type": "Npc",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "retail_cus_adv_11",
+    "name": "Customer",
+    "race": "Orc",
+    "class": "Warrior",
+    "faction": "",
+    "head": "B_N_Orc_M_Head_04",
+    "hair": "b_n_orc_m_hair_04",
+    "npc_flags": 24,
+    "data": {
+      "level": 16,
+      "stats": null,
+      "disposition": 50,
+      "reputation": 0,
+      "rank": 0,
+      "gold": 0
+    },
+    "inventory": [
+      [
+        1,
+        "imperial boots"
+      ],
+      [
+        1,
+        "imperial_greaves"
+      ],
+      [
+        1,
+        "merisan club"
+      ],
+      [
+        1,
+        "steel_cuirass"
+      ]
+    ],
+    "spells": [],
+    "ai_data": {
+      "hello": 30,
+      "fight": 30,
+      "flee": 30,
+      "alarm": 80,
+      "services": 0
+    },
+    "ai_packages": [
+      {
+        "type": "Wander",
+        "distance": 512,
+        "duration": 5,
+        "game_hour": 0,
+        "idle2": 60,
+        "idle3": 20,
+        "idle4": 10,
+        "idle5": 0,
+        "idle6": 0,
+        "idle7": 0,
+        "idle8": 0,
+        "idle9": 0,
+        "reset": 1
+      }
+    ],
+    "travel_destinations": []
+  },
+  {
+    "type": "Npc",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "retail_cus_adv_12",
+    "name": "Customer",
+    "race": "Redguard",
+    "class": "Rogue",
+    "faction": "",
+    "head": "b_n_redguard_f_head_04",
+    "hair": "b_n_redguard_f_hair_03",
+    "npc_flags": 25,
+    "data": {
+      "level": 16,
+      "stats": null,
+      "disposition": 50,
+      "reputation": 0,
+      "rank": 0,
+      "gold": 0
+    },
+    "inventory": [
+      [
+        1,
+        "common_glove_left_01"
+      ],
+      [
+        1,
+        "common_glove_right_01"
+      ],
+      [
+        1,
+        "common_pants_05"
+      ],
+      [
+        1,
+        "common_shirt_02"
+      ],
+      [
+        1,
+        "dragonscale_cuirass"
+      ],
+      [
+        1,
+        "dragonscale_helm"
+      ],
+      [
+        1,
+        "heavy_leather_boots"
+      ],
+      [
+        1,
+        "steel stormsword"
+      ]
+    ],
+    "spells": [],
+    "ai_data": {
+      "hello": 30,
+      "fight": 30,
+      "flee": 30,
+      "alarm": 80,
+      "services": 0
+    },
+    "ai_packages": [
+      {
+        "type": "Wander",
+        "distance": 512,
+        "duration": 5,
+        "game_hour": 0,
+        "idle2": 60,
+        "idle3": 20,
+        "idle4": 10,
+        "idle5": 0,
+        "idle6": 0,
+        "idle7": 0,
+        "idle8": 0,
+        "idle9": 0,
+        "reset": 1
+      }
+    ],
+    "travel_destinations": []
+  },
+  {
+    "type": "Npc",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "retail_cus_adv_13",
+    "name": "Customer",
+    "race": "Imperial",
+    "class": "Witchhunter",
+    "faction": "",
+    "head": "b_n_imperial_f_head_03",
+    "hair": "B_N_Imperial_F_Hair_07",
+    "npc_flags": 25,
+    "data": {
+      "level": 13,
+      "stats": null,
+      "disposition": 50,
+      "reputation": 0,
+      "rank": 0,
+      "gold": 0
+    },
+    "inventory": [
+      [
+        1,
+        "common_pants_06"
+      ],
+      [
+        1,
+        "common_shirt_04"
+      ],
+      [
+        1,
+        "heavy_leather_boots"
+      ],
+      [
+        1,
+        "imperial_studded_cuirass"
+      ],
+      [
+        25,
+        "iron bolt"
+      ],
+      [
+        1,
+        "steel crossbow"
+      ]
+    ],
+    "spells": [],
+    "ai_data": {
+      "hello": 30,
+      "fight": 30,
+      "flee": 30,
+      "alarm": 80,
+      "services": 0
+    },
+    "ai_packages": [
+      {
+        "type": "Wander",
+        "distance": 512,
+        "duration": 5,
+        "game_hour": 0,
+        "idle2": 60,
+        "idle3": 20,
+        "idle4": 10,
+        "idle5": 0,
+        "idle6": 0,
+        "idle7": 0,
+        "idle8": 0,
+        "idle9": 0,
+        "reset": 1
+      }
+    ],
+    "travel_destinations": []
+  },
+  {
+    "type": "Npc",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "retail_cus_adv_14",
+    "name": "Customer",
+    "race": "Dark Elf",
+    "class": "Rogue",
+    "faction": "",
+    "head": "b_n_dark elf_f_head_08",
+    "hair": "b_n_dark elf_f_hair_02",
+    "npc_flags": 25,
+    "data": {
+      "level": 11,
+      "stats": null,
+      "disposition": 50,
+      "reputation": 0,
+      "rank": 0,
+      "gold": 0
+    },
+    "inventory": [
+      [
+        1,
+        "common_pants_03_c"
+      ],
+      [
+        1,
+        "common_shirt_03_c"
+      ],
+      [
+        1,
+        "common_shoes_04"
+      ],
+      [
+        1,
+        "iron wakizashi"
+      ],
+      [
+        1,
+        "newtscale_cuirass"
+      ]
+    ],
+    "spells": [],
+    "ai_data": {
+      "hello": 30,
+      "fight": 30,
+      "flee": 30,
+      "alarm": 80,
+      "services": 0
+    },
+    "ai_packages": [
+      {
+        "type": "Wander",
+        "distance": 128,
+        "duration": 5,
+        "game_hour": 0,
+        "idle2": 60,
+        "idle3": 20,
+        "idle4": 10,
+        "idle5": 10,
+        "idle6": 0,
+        "idle7": 10,
+        "idle8": 0,
+        "idle9": 0,
+        "reset": 1
+      }
+    ],
+    "travel_destinations": []
+  },
+  {
+    "type": "Npc",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "retail_cus_adv_15",
+    "name": "Customer",
+    "race": "Nord",
+    "class": "Barbarian",
+    "faction": "",
+    "head": "B_N_Nord_F_head_13",
+    "hair": "b_n_nord_f_hair_02",
+    "npc_flags": 25,
+    "data": {
+      "level": 13,
+      "stats": null,
+      "disposition": 50,
+      "reputation": 0,
+      "rank": 0,
+      "gold": 0
+    },
+    "inventory": [
+      [
+        1,
+        "BM bear boots"
+      ],
+      [
+        1,
+        "BM bear cuirass"
+      ],
+      [
+        1,
+        "BM bear greaves"
+      ],
+      [
+        1,
+        "bm bear left gauntlet"
+      ],
+      [
+        1,
+        "BM Bear left Pauldron"
+      ],
+      [
+        1,
+        "BM bear right gauntlet"
+      ],
+      [
+        1,
+        "BM bear right pauldron"
+      ],
+      [
+        1,
+        "BM bear shield"
+      ],
+      [
+        1,
+        "common_pants_01"
+      ],
+      [
+        1,
+        "common_shirt_01"
+      ],
+      [
+        1,
+        "orcish battle axe"
+      ]
+    ],
+    "spells": [],
+    "ai_data": {
+      "hello": 30,
+      "fight": 30,
+      "flee": 30,
+      "alarm": 80,
+      "services": 0
+    },
+    "ai_packages": [
+      {
+        "type": "Wander",
+        "distance": 512,
+        "duration": 5,
+        "game_hour": 0,
+        "idle2": 60,
+        "idle3": 20,
+        "idle4": 10,
+        "idle5": 0,
+        "idle6": 0,
+        "idle7": 0,
+        "idle8": 0,
+        "idle9": 0,
+        "reset": 1
+      }
+    ],
+    "travel_destinations": []
+  },
+  {
+    "type": "Npc",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "retail_cus_com_01",
+    "name": "retail_cus_com_1",
+    "race": "Dark Elf",
+    "class": "Farmer",
+    "faction": "",
+    "head": "b_n_dark elf_f_head_07",
+    "hair": "b_n_dark elf_f_hair_11",
+    "npc_flags": 25,
+    "data": {
+      "level": 5,
+      "stats": null,
+      "disposition": 50,
+      "reputation": 0,
+      "rank": 0,
+      "gold": 0
+    },
+    "inventory": [
+      [
+        1,
+        "common_shirt_01"
+      ],
+      [
+        1,
+        "common_shoes_01"
+      ],
+      [
+        1,
+        "common_skirt_01"
+      ],
+      [
+        1,
+        "light_de_paper_lantern_02"
+      ]
+    ],
+    "spells": [],
+    "ai_data": {
+      "hello": 30,
+      "fight": 30,
+      "flee": 30,
+      "alarm": 80,
+      "services": 0
+    },
+    "ai_packages": [
+      {
+        "type": "Wander",
+        "distance": 512,
+        "duration": 5,
+        "game_hour": 0,
+        "idle2": 60,
+        "idle3": 20,
+        "idle4": 10,
+        "idle5": 0,
+        "idle6": 0,
+        "idle7": 0,
+        "idle8": 0,
+        "idle9": 0,
+        "reset": 1
+      }
+    ],
+    "travel_destinations": []
+  },
+  {
+    "type": "Npc",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "retail_cus_com_02",
+    "name": "retail_cus_com_2",
+    "race": "Dark Elf",
+    "class": "Noble",
+    "faction": "",
+    "head": "b_n_dark elf_m_head_01",
+    "hair": "b_n_dark elf_m_hair_13",
+    "npc_flags": 24,
+    "data": {
+      "level": 15,
+      "stats": null,
+      "disposition": 50,
+      "reputation": 0,
+      "rank": 0,
+      "gold": 0
+    },
+    "inventory": [
+      [
+        1,
+        "extravagant_amulet_01"
+      ],
+      [
+        1,
+        "extravagant_ring_01"
+      ],
+      [
+        1,
+        "extravagant_robe_01_r"
+      ],
+      [
+        1,
+        "extravagant_shirt_01_t"
+      ]
+    ],
+    "spells": [],
+    "ai_data": {
+      "hello": 30,
+      "fight": 30,
+      "flee": 30,
+      "alarm": 90,
+      "services": 0
+    },
+    "ai_packages": [
+      {
+        "type": "Wander",
+        "distance": 512,
+        "duration": 5,
+        "game_hour": 0,
+        "idle2": 40,
+        "idle3": 0,
+        "idle4": 10,
+        "idle5": 0,
+        "idle6": 0,
+        "idle7": 0,
+        "idle8": 10,
+        "idle9": 10,
+        "reset": 1
+      }
+    ],
+    "travel_destinations": []
+  },
+  {
+    "type": "Npc",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "retail_cus_com_03",
+    "name": "retail_cus_com_3",
+    "race": "Dark Elf",
+    "class": "Commoner",
+    "faction": "",
+    "head": "b_n_dark elf_m_head_08",
+    "hair": "b_n_dark elf_m_hair_06",
+    "npc_flags": 24,
+    "data": {
+      "level": 5,
+      "stats": null,
+      "disposition": 50,
+      "reputation": 0,
+      "rank": 0,
+      "gold": 0
+    },
+    "inventory": [
+      [
+        1,
+        "chitin shortsword"
+      ],
+      [
+        1,
+        "common_pants_04"
+      ],
+      [
+        1,
+        "common_shirt_02_rr"
+      ],
+      [
+        1,
+        "common_shoes_05"
+      ]
+    ],
+    "spells": [],
+    "ai_data": {
+      "hello": 30,
+      "fight": 30,
+      "flee": 30,
+      "alarm": 90,
+      "services": 0
+    },
+    "ai_packages": [
+      {
+        "type": "Wander",
+        "distance": 512,
+        "duration": 5,
+        "game_hour": 0,
+        "idle2": 60,
+        "idle3": 30,
+        "idle4": 10,
+        "idle5": 0,
+        "idle6": 0,
+        "idle7": 0,
+        "idle8": 0,
+        "idle9": 0,
+        "reset": 1
+      }
+    ],
+    "travel_destinations": []
+  },
+  {
+    "type": "Npc",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "retail_cus_com_04",
+    "name": "retail_cus_com_4",
+    "race": "Dark Elf",
+    "class": "Noble",
+    "faction": "",
+    "head": "b_n_dark elf_f_head_07",
+    "hair": "b_n_dark elf_f_hair_18",
+    "npc_flags": 25,
+    "data": {
+      "level": 10,
+      "stats": null,
+      "disposition": 50,
+      "reputation": 0,
+      "rank": 0,
+      "gold": 0
+    },
+    "inventory": [
+      [
+        1,
+        "dwarven mace"
+      ],
+      [
+        1,
+        "expensive_pants_02"
+      ],
+      [
+        1,
+        "expensive_shirt_02"
+      ],
+      [
+        1,
+        "exquisite_shoes_01"
+      ]
+    ],
+    "spells": [],
+    "ai_data": {
+      "hello": 30,
+      "fight": 30,
+      "flee": 30,
+      "alarm": 100,
+      "services": 0
+    },
+    "ai_packages": [
+      {
+        "type": "Wander",
+        "distance": 512,
+        "duration": 5,
+        "game_hour": 0,
+        "idle2": 60,
+        "idle3": 20,
+        "idle4": 10,
+        "idle5": 0,
+        "idle6": 0,
+        "idle7": 0,
+        "idle8": 0,
+        "idle9": 0,
+        "reset": 1
+      }
+    ],
+    "travel_destinations": []
+  },
+  {
+    "type": "Npc",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "retail_cus_com_05",
+    "name": "retail_cus_com_5",
+    "race": "Dark Elf",
+    "class": "Sorcerer",
+    "faction": "",
+    "head": "b_n_dark elf_f_head_05",
+    "hair": "b_n_dark elf_f_hair_22",
+    "npc_flags": 25,
+    "data": {
+      "level": 12,
+      "stats": null,
+      "disposition": 50,
+      "reputation": 0,
+      "rank": 0,
+      "gold": 0
+    },
+    "inventory": [
+      [
+        1,
+        "bonemold_cuirass"
+      ],
+      [
+        1,
+        "bonemold_pauldron_l"
+      ],
+      [
+        1,
+        "bonemold_pauldron_r"
+      ],
+      [
+        1,
+        "common_robe_05_c"
+      ],
+      [
+        1,
+        "common_shoes_02"
+      ],
+      [
+        1,
+        "iron dagger"
+      ]
+    ],
+    "spells": [],
+    "ai_data": {
+      "hello": 30,
+      "fight": 30,
+      "flee": 30,
+      "alarm": 80,
+      "services": 0
+    },
+    "ai_packages": [
+      {
+        "type": "Wander",
+        "distance": 512,
+        "duration": 5,
+        "game_hour": 0,
+        "idle2": 60,
+        "idle3": 20,
+        "idle4": 10,
+        "idle5": 10,
+        "idle6": 0,
+        "idle7": 0,
+        "idle8": 10,
+        "idle9": 0,
+        "reset": 1
+      }
+    ],
+    "travel_destinations": []
+  },
+  {
+    "type": "Npc",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "retail_cus_com_06",
+    "name": "retail_cus_com_6",
+    "race": "Dark Elf",
+    "class": "Sorcerer",
+    "faction": "",
+    "head": "b_n_dark elf_m_head_04",
+    "hair": "b_n_dark elf_m_hair_14",
+    "npc_flags": 24,
+    "data": {
+      "level": 16,
+      "stats": null,
+      "disposition": 50,
+      "reputation": 0,
+      "rank": 0,
+      "gold": 0
+    },
+    "inventory": [
+      [
+        1,
+        "extravagant_pants_02"
+      ],
+      [
+        1,
+        "extravagant_shirt_01"
+      ],
+      [
+        1,
+        "extravagant_shoes_01"
+      ],
+      [
+        1,
+        "steel claymore"
+      ],
+      [
+        1,
+        "steel_gauntlet_left"
+      ],
+      [
+        1,
+        "steel_gauntlet_right"
+      ]
+    ],
+    "spells": [],
+    "ai_data": {
+      "hello": 30,
+      "fight": 30,
+      "flee": 30,
+      "alarm": 80,
+      "services": 0
+    },
+    "ai_packages": [
+      {
+        "type": "Wander",
+        "distance": 128,
+        "duration": 5,
+        "game_hour": 0,
+        "idle2": 60,
+        "idle3": 20,
+        "idle4": 10,
+        "idle5": 10,
+        "idle6": 0,
+        "idle7": 0,
+        "idle8": 10,
+        "idle9": 0,
+        "reset": 1
+      }
+    ],
+    "travel_destinations": []
+  },
+  {
+    "type": "Npc",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "retail_cus_com_07",
+    "name": "retail_cus_com_7",
+    "race": "Dark Elf",
+    "class": "Alchemist",
+    "faction": "",
+    "head": "b_n_dark elf_f_head_05",
+    "hair": "b_n_dark elf_f_hair_05",
+    "npc_flags": 25,
+    "data": {
+      "level": 18,
+      "stats": null,
+      "disposition": 50,
+      "reputation": 0,
+      "rank": 0,
+      "gold": 0
+    },
+    "inventory": [
+      [
+        1,
+        "common_robe_01"
+      ],
+      [
+        1,
+        "common_shoes_01"
+      ]
+    ],
+    "spells": [],
+    "ai_data": {
+      "hello": 30,
+      "fight": 30,
+      "flee": 30,
+      "alarm": 80,
+      "services": 0
+    },
+    "ai_packages": [
+      {
+        "type": "Wander",
+        "distance": 512,
+        "duration": 5,
+        "game_hour": 0,
+        "idle2": 60,
+        "idle3": 20,
+        "idle4": 10,
+        "idle5": 0,
+        "idle6": 0,
+        "idle7": 0,
+        "idle8": 0,
+        "idle9": 0,
+        "reset": 1
+      }
+    ],
+    "travel_destinations": []
+  },
+  {
+    "type": "Npc",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "retail_cus_com_08",
+    "name": "retail_cus_com_8",
+    "race": "High Elf",
+    "class": "Witch",
+    "faction": "",
+    "head": "b_n_high elf_f_head_02",
+    "hair": "b_n_high elf_f_hair_02",
+    "npc_flags": 25,
+    "data": {
+      "level": 17,
+      "stats": null,
+      "disposition": 50,
+      "reputation": 0,
+      "rank": 0,
+      "gold": 0
+    },
+    "inventory": [
+      [
+        1,
+        "expensive_robe_03"
+      ],
+      [
+        1,
+        "expensive_shoes_01"
+      ],
+      [
+        1,
+        "steel club"
+      ]
+    ],
+    "spells": [],
+    "ai_data": {
+      "hello": 30,
+      "fight": 30,
+      "flee": 30,
+      "alarm": 80,
+      "services": 0
+    },
+    "ai_packages": [
+      {
+        "type": "Wander",
+        "distance": 512,
+        "duration": 5,
+        "game_hour": 0,
+        "idle2": 60,
+        "idle3": 20,
+        "idle4": 10,
+        "idle5": 0,
+        "idle6": 0,
+        "idle7": 0,
+        "idle8": 0,
+        "idle9": 0,
+        "reset": 1
+      }
+    ],
+    "travel_destinations": []
+  },
+  {
+    "type": "Npc",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "retail_cus_com_09",
+    "name": "retail_cus_com_9",
+    "race": "High Elf",
+    "class": "Sorcerer",
+    "faction": "",
+    "head": "b_n_high elf_m_head_02",
+    "hair": "b_n_high elf_m_hair_01",
+    "npc_flags": 24,
+    "data": {
+      "level": 20,
+      "stats": null,
+      "disposition": 50,
+      "reputation": 0,
+      "rank": 0,
+      "gold": 0
+    },
+    "inventory": [
+      [
+        1,
+        "extravagant_robe_02"
+      ],
+      [
+        1,
+        "silver staff"
+      ],
+      [
+        1,
+        "steel_boots"
+      ],
+      [
+        1,
+        "steel_cuirass"
+      ],
+      [
+        1,
+        "steel_gauntlet_left"
+      ],
+      [
+        1,
+        "steel_gauntlet_right"
+      ]
+    ],
+    "spells": [],
+    "ai_data": {
+      "hello": 30,
+      "fight": 30,
+      "flee": 30,
+      "alarm": 80,
+      "services": 0
+    },
+    "ai_packages": [
+      {
+        "type": "Wander",
+        "distance": 512,
+        "duration": 5,
+        "game_hour": 0,
+        "idle2": 60,
+        "idle3": 20,
+        "idle4": 10,
+        "idle5": 0,
+        "idle6": 0,
+        "idle7": 0,
+        "idle8": 0,
+        "idle9": 0,
+        "reset": 1
+      }
+    ],
+    "travel_destinations": []
+  },
+  {
+    "type": "Npc",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "retail_cus_com_10",
+    "name": "retail_cus_com_10",
+    "race": "Dark Elf",
+    "class": "Noble",
+    "faction": "",
+    "head": "b_n_dark elf_m_head_12",
+    "hair": "b_n_dark elf_m_hair_11",
+    "npc_flags": 24,
+    "data": {
+      "level": 8,
+      "stats": null,
+      "disposition": 50,
+      "reputation": 0,
+      "rank": 0,
+      "gold": 0
+    },
+    "inventory": [
+      [
+        1,
+        "common_robe_03_a"
+      ],
+      [
+        1,
+        "steel viperblade"
+      ]
+    ],
+    "spells": [],
+    "ai_data": {
+      "hello": 30,
+      "fight": 30,
+      "flee": 30,
+      "alarm": 100,
+      "services": 0
+    },
+    "ai_packages": [
+      {
+        "type": "Wander",
+        "distance": 512,
+        "duration": 5,
+        "game_hour": 0,
+        "idle2": 60,
+        "idle3": 20,
+        "idle4": 10,
+        "idle5": 0,
+        "idle6": 0,
+        "idle7": 0,
+        "idle8": 0,
+        "idle9": 0,
+        "reset": 1
+      }
+    ],
+    "travel_destinations": []
+  },
+  {
+    "type": "Npc",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "retail_cus_com_11",
+    "name": "retail_cus_com_11",
+    "race": "Dark Elf",
+    "class": "Monk",
+    "faction": "Temple",
+    "head": "b_n_dark elf_m_head_16",
+    "hair": "b_n_dark elf_m_hair_01",
+    "npc_flags": 24,
+    "data": {
+      "level": 11,
+      "stats": null,
+      "disposition": 50,
+      "reputation": 10,
+      "rank": 4,
+      "gold": 0
+    },
+    "inventory": [
+      [
+        1,
+        "common_robe_05_b"
+      ]
+    ],
+    "spells": [],
+    "ai_data": {
+      "hello": 30,
+      "fight": 30,
+      "flee": 30,
+      "alarm": 100,
+      "services": 0
+    },
+    "ai_packages": [
+      {
+        "type": "Wander",
+        "distance": 100,
+        "duration": 5,
+        "game_hour": 0,
+        "idle2": 60,
+        "idle3": 20,
+        "idle4": 10,
+        "idle5": 0,
+        "idle6": 0,
+        "idle7": 0,
+        "idle8": 0,
+        "idle9": 0,
+        "reset": 1
+      }
+    ],
+    "travel_destinations": []
+  },
+  {
+    "type": "Npc",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "retail_cus_com_12",
+    "name": "retail_cus_com_12",
+    "mesh": "base_animKnA.nif",
+    "race": "Argonian",
+    "class": "Nightblade",
+    "faction": "Mages Guild",
+    "head": "b_n_argonian_m_head_03",
+    "hair": "b_n_argonian_m_hair03",
+    "npc_flags": 24,
+    "data": {
+      "level": 9,
+      "stats": null,
+      "disposition": 50,
+      "reputation": 4,
+      "rank": 1,
+      "gold": 0
+    },
+    "inventory": [
+      [
+        1,
+        "common_pants_03_c"
+      ],
+      [
+        1,
+        "common_shirt_03_c"
+      ],
+      [
+        1,
+        "silver shardblade"
+      ]
+    ],
+    "spells": [],
+    "ai_data": {
+      "hello": 30,
+      "fight": 30,
+      "flee": 30,
+      "alarm": 80,
+      "services": 0
+    },
+    "ai_packages": [
+      {
+        "type": "Wander",
+        "distance": 128,
+        "duration": 5,
+        "game_hour": 0,
+        "idle2": 60,
+        "idle3": 20,
+        "idle4": 10,
+        "idle5": 10,
+        "idle6": 0,
+        "idle7": 0,
+        "idle8": 0,
+        "idle9": 0,
+        "reset": 1
+      }
+    ],
+    "travel_destinations": []
+  },
+  {
+    "type": "Npc",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "retail_cus_com_13",
+    "name": "retail_cus_com_13",
+    "race": "Breton",
+    "class": "Spellsword",
+    "faction": "",
+    "head": "b_n_breton_f_head_03",
+    "hair": "b_n_breton_f_hair_05",
+    "npc_flags": 25,
+    "data": {
+      "level": 5,
+      "stats": null,
+      "disposition": 50,
+      "reputation": 0,
+      "rank": 0,
+      "gold": 0
+    },
+    "inventory": [
+      [
+        1,
+        "common_robe_02_t"
+      ],
+      [
+        1,
+        "common_shoes_02"
+      ],
+      [
+        1,
+        "Light_De_Lantern_01"
+      ]
+    ],
+    "spells": [],
+    "ai_data": {
+      "hello": 30,
+      "fight": 30,
+      "flee": 50,
+      "alarm": 80,
+      "services": 0
+    },
+    "ai_packages": [
+      {
+        "type": "Wander",
+        "distance": 512,
+        "duration": 5,
+        "game_hour": 0,
+        "idle2": 60,
+        "idle3": 20,
+        "idle4": 10,
+        "idle5": 10,
+        "idle6": 0,
+        "idle7": 0,
+        "idle8": 10,
+        "idle9": 10,
+        "reset": 1
+      }
+    ],
+    "travel_destinations": []
+  },
+  {
+    "type": "Npc",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "retail_cus_com_14",
+    "name": "retail_cus_com_14",
+    "race": "Wood Elf",
+    "class": "Archer",
+    "faction": "",
+    "head": "b_n_wood elf_f_head_03",
+    "hair": "b_n_wood elf_f_hair_04",
+    "npc_flags": 25,
+    "data": {
+      "level": 4,
+      "stats": null,
+      "disposition": 50,
+      "reputation": 0,
+      "rank": 0,
+      "gold": 0
+    },
+    "inventory": [
+      [
+        1,
+        "common_pants_02"
+      ],
+      [
+        1,
+        "common_shirt_02_r"
+      ],
+      [
+        1,
+        "common_shoes_02"
+      ],
+      [
+        1,
+        "common_skirt_05"
+      ]
+    ],
+    "spells": [],
+    "ai_data": {
+      "hello": 30,
+      "fight": 30,
+      "flee": 30,
+      "alarm": 80,
+      "services": 0
+    },
+    "ai_packages": [
+      {
+        "type": "Wander",
+        "distance": 512,
+        "duration": 5,
+        "game_hour": 0,
+        "idle2": 60,
+        "idle3": 20,
+        "idle4": 10,
+        "idle5": 10,
+        "idle6": 0,
+        "idle7": 0,
+        "idle8": 0,
+        "idle9": 0,
+        "reset": 1
+      }
+    ],
+    "travel_destinations": []
+  },
+  {
+    "type": "Npc",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "retail_cus_com_15",
+    "name": "retail_cus_com_15",
+    "mesh": "base_animKnA.nif",
+    "race": "Khajiit",
+    "class": "Commoner",
+    "faction": "",
+    "head": "b_n_khajiit_m_head_03",
+    "hair": "b_n_khajiit_m_hair01",
+    "npc_flags": 24,
+    "data": {
+      "level": 2,
+      "stats": null,
+      "disposition": 50,
+      "reputation": 0,
+      "rank": 0,
+      "gold": 0
+    },
+    "inventory": [
+      [
+        1,
+        "common_pants_05"
+      ],
+      [
+        1,
+        "common_ring_03"
+      ],
+      [
+        1,
+        "common_shirt_05"
+      ],
+      [
+        1,
+        "potion_skooma_01"
+      ]
+    ],
+    "spells": [],
+    "ai_data": {
+      "hello": 30,
+      "fight": 30,
+      "flee": 30,
+      "alarm": 0,
+      "services": 0
+    },
+    "ai_packages": [
+      {
+        "type": "Wander",
+        "distance": 512,
+        "duration": 5,
+        "game_hour": 0,
+        "idle2": 60,
+        "idle3": 20,
+        "idle4": 10,
+        "idle5": 10,
+        "idle6": 0,
+        "idle7": 0,
+        "idle8": 0,
+        "idle9": 0,
+        "reset": 1
+      }
+    ],
+    "travel_destinations": []
+  },
+  {
+    "type": "Npc",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "retail_cus_com_16",
+    "name": "retail_cus_com_16",
+    "race": "Nord",
+    "class": "Acrobat",
+    "faction": "",
+    "head": "B_N_Nord_F_Head_06",
+    "hair": "b_n_nord_f_hair_03",
+    "npc_flags": 25,
+    "data": {
+      "level": 3,
+      "stats": null,
+      "disposition": 50,
+      "reputation": 0,
+      "rank": 0,
+      "gold": 0
+    },
+    "inventory": [
+      [
+        1,
+        "common_belt_02"
+      ],
+      [
+        1,
+        "common_pants_01"
+      ],
+      [
+        1,
+        "common_ring_05"
+      ],
+      [
+        1,
+        "common_shirt_02_t"
+      ],
+      [
+        1,
+        "common_shoes_05"
+      ],
+      [
+        1,
+        "common_skirt_05"
+      ]
+    ],
+    "spells": [],
+    "ai_data": {
+      "hello": 30,
+      "fight": 30,
+      "flee": 30,
+      "alarm": 0,
+      "services": 0
+    },
+    "ai_packages": [
+      {
+        "type": "Wander",
+        "distance": 512,
+        "duration": 5,
+        "game_hour": 0,
+        "idle2": 60,
+        "idle3": 20,
+        "idle4": 10,
+        "idle5": 10,
+        "idle6": 0,
+        "idle7": 0,
+        "idle8": 0,
+        "idle9": 0,
+        "reset": 1
+      }
+    ],
+    "travel_destinations": []
+  },
+  {
+    "type": "Npc",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "retail_cus_com_17",
+    "name": "retail_cus_com_17",
+    "race": "Orc",
+    "class": "Barbarian",
+    "faction": "",
+    "head": "b_n_orc_m_head_01",
+    "hair": "b_n_orc_m_hair_02",
+    "npc_flags": 24,
+    "data": {
+      "level": 8,
+      "stats": null,
+      "disposition": 50,
+      "reputation": 0,
+      "rank": 0,
+      "gold": 0
+    },
+    "inventory": [
+      [
+        1,
+        "common_shirt_07"
+      ],
+      [
+        1,
+        "fur_boots"
+      ],
+      [
+        1,
+        "fur_gauntlet_left"
+      ],
+      [
+        1,
+        "fur_gauntlet_right"
+      ],
+      [
+        1,
+        "fur_greaves"
+      ],
+      [
+        1,
+        "orcish warhammer"
+      ]
+    ],
+    "spells": [],
+    "ai_data": {
+      "hello": 10,
+      "fight": 30,
+      "flee": 20,
+      "alarm": 80,
+      "services": 0
+    },
+    "ai_packages": [
+      {
+        "type": "Wander",
+        "distance": 128,
+        "duration": 5,
+        "game_hour": 0,
+        "idle2": 50,
+        "idle3": 20,
+        "idle4": 10,
+        "idle5": 10,
+        "idle6": 0,
+        "idle7": 0,
+        "idle8": 0,
+        "idle9": 10,
+        "reset": 1
+      }
+    ],
+    "travel_destinations": []
+  },
+  {
+    "type": "Npc",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "retail_cus_com_18",
+    "name": "retail_cus_com_18",
+    "race": "Redguard",
+    "class": "Commoner",
+    "faction": "",
+    "head": "b_n_redguard_m_head_04",
+    "hair": "b_n_redguard_m_hair_05",
+    "npc_flags": 24,
+    "data": {
+      "level": 3,
+      "stats": null,
+      "disposition": 50,
+      "reputation": 0,
+      "rank": 0,
+      "gold": 0
+    },
+    "inventory": [
+      [
+        1,
+        "common_belt_01"
+      ],
+      [
+        1,
+        "common_glove_left_01"
+      ],
+      [
+        1,
+        "common_glove_right_01"
+      ],
+      [
+        1,
+        "common_pants_04_b"
+      ],
+      [
+        1,
+        "common_shirt_04_c"
+      ],
+      [
+        1,
+        "common_shoes_03"
+      ]
+    ],
+    "spells": [],
+    "ai_data": {
+      "hello": 30,
+      "fight": 30,
+      "flee": 30,
+      "alarm": 80,
+      "services": 0
+    },
+    "ai_packages": [
+      {
+        "type": "Wander",
+        "distance": 200,
+        "duration": 5,
+        "game_hour": 0,
+        "idle2": 60,
+        "idle3": 20,
+        "idle4": 10,
+        "idle5": 10,
+        "idle6": 0,
+        "idle7": 0,
+        "idle8": 0,
+        "idle9": 0,
+        "reset": 1
+      }
+    ],
+    "travel_destinations": []
+  },
+  {
+    "type": "Npc",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "retail_cus_com_19",
+    "name": "retail_cus_com_19",
+    "race": "Imperial",
+    "class": "Noble",
+    "faction": "Hlaalu",
+    "head": "b_n_imperial_f_head_05",
+    "hair": "b_n_imperial_f_hair_01",
+    "npc_flags": 25,
+    "data": {
+      "level": 13,
+      "stats": null,
+      "disposition": 50,
+      "reputation": 6,
+      "rank": 2,
+      "gold": 0
+    },
+    "inventory": [
+      [
+        1,
+        "common_shirt_02_h"
+      ],
+      [
+        1,
+        "expensive_ring_03"
+      ],
+      [
+        1,
+        "expensive_shoes_03"
+      ],
+      [
+        1,
+        "expensive_skirt_03"
+      ],
+      [
+        1,
+        "silver dagger"
+      ]
+    ],
+    "spells": [],
+    "ai_data": {
+      "hello": 30,
+      "fight": 30,
+      "flee": 30,
+      "alarm": 90,
+      "services": 0
+    },
+    "ai_packages": [
+      {
+        "type": "Wander",
+        "distance": 32,
+        "duration": 5,
+        "game_hour": 0,
+        "idle2": 60,
+        "idle3": 20,
+        "idle4": 10,
+        "idle5": 10,
+        "idle6": 0,
+        "idle7": 0,
+        "idle8": 0,
+        "idle9": 0,
+        "reset": 1
+      }
+    ],
+    "travel_destinations": []
+  },
+  {
+    "type": "Npc",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "retail_cus_com_20",
+    "name": "retail_cus_com_20",
+    "race": "Orc",
+    "class": "Commoner",
+    "faction": "",
+    "head": "b_n_orc_f_head_02",
+    "hair": "b_n_orc_f_hair03",
+    "npc_flags": 25,
+    "data": {
+      "level": 7,
+      "stats": null,
+      "disposition": 50,
+      "reputation": 0,
+      "rank": 0,
+      "gold": 0
+    },
+    "inventory": [
+      [
+        1,
+        "common_pants_04"
+      ],
+      [
+        1,
+        "common_shirt_04"
+      ],
+      [
+        1,
+        "common_shoes_04"
+      ]
+    ],
+    "spells": [],
+    "ai_data": {
+      "hello": 30,
+      "fight": 30,
+      "flee": 30,
+      "alarm": 0,
+      "services": 0
+    },
+    "ai_packages": [
+      {
+        "type": "Wander",
+        "distance": 512,
+        "duration": 5,
+        "game_hour": 0,
+        "idle2": 60,
+        "idle3": 20,
+        "idle4": 10,
+        "idle5": 10,
+        "idle6": 0,
+        "idle7": 0,
+        "idle8": 0,
+        "idle9": 0,
+        "reset": 1
+      }
+    ],
+    "travel_destinations": []
+  },
+  {
+    "type": "Npc",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "retail_cus_com_21",
+    "name": "retail_cus_com_21",
+    "race": "Dark Elf",
+    "class": "Farmer",
+    "faction": "",
+    "head": "b_n_dark elf_f_head_08",
+    "hair": "b_n_dark elf_f_hair_22",
+    "npc_flags": 25,
+    "data": {
+      "level": 6,
+      "stats": null,
+      "disposition": 50,
+      "reputation": 0,
+      "rank": 0,
+      "gold": 0
+    },
+    "inventory": [
+      [
+        1,
+        "common_pants_03"
+      ],
+      [
+        1,
+        "common_shirt_03_b"
+      ],
+      [
+        1,
+        "common_shoes_03"
+      ],
+      [
+        1,
+        "iron dagger"
+      ]
+    ],
+    "spells": [],
+    "ai_data": {
+      "hello": 30,
+      "fight": 30,
+      "flee": 30,
+      "alarm": 90,
+      "services": 0
+    },
+    "ai_packages": [
+      {
+        "type": "Wander",
+        "distance": 128,
+        "duration": 5,
+        "game_hour": 0,
+        "idle2": 60,
+        "idle3": 20,
+        "idle4": 10,
+        "idle5": 0,
+        "idle6": 0,
+        "idle7": 0,
+        "idle8": 0,
+        "idle9": 0,
+        "reset": 1
+      }
+    ],
+    "travel_destinations": []
+  },
+  {
+    "type": "Npc",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "retail_cus_com_22",
+    "name": "retail_cus_com_22",
+    "race": "Breton",
+    "class": "Savant",
+    "faction": "East Empire Company",
+    "head": "b_n_breton_m_head_03",
+    "hair": "b_n_breton_m_hair_03",
+    "npc_flags": 24,
+    "data": {
+      "level": 8,
+      "stats": null,
+      "disposition": 50,
+      "reputation": 6,
+      "rank": 2,
+      "gold": 0
+    },
+    "inventory": [
+      [
+        1,
+        "extravagant_glove_left_01"
+      ],
+      [
+        1,
+        "extravagant_glove_right_01"
+      ],
+      [
+        1,
+        "extravagant_pants_02"
+      ],
+      [
+        1,
+        "extravagant_shirt_02"
+      ],
+      [
+        1,
+        "extravagant_shoes_02"
+      ],
+      [
+        1,
+        "silver dagger"
+      ]
+    ],
+    "spells": [],
+    "ai_data": {
+      "hello": 30,
+      "fight": 30,
+      "flee": 30,
+      "alarm": 80,
+      "services": 0
+    },
+    "ai_packages": [
+      {
+        "type": "Wander",
+        "distance": 512,
+        "duration": 5,
+        "game_hour": 0,
+        "idle2": 60,
+        "idle3": 20,
+        "idle4": 10,
+        "idle5": 0,
+        "idle6": 0,
+        "idle7": 0,
+        "idle8": 0,
+        "idle9": 0,
+        "reset": 1
+      }
+    ],
+    "travel_destinations": []
+  },
+  {
+    "type": "Npc",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "retail_cus_com_23",
+    "name": "retail_cus_com_23",
+    "race": "Dark Elf",
+    "class": "Sorcerer",
+    "faction": "Telvanni",
+    "head": "b_n_dark elf_m_head_01",
+    "hair": "b_n_dark elf_m_hair_24",
+    "npc_flags": 24,
+    "data": {
+      "level": 12,
+      "stats": null,
+      "disposition": 50,
+      "reputation": 6,
+      "rank": 2,
+      "gold": 0
+    },
+    "inventory": [
+      [
+        1,
+        "common_shoes_02"
+      ],
+      [
+        1,
+        "extravagant_robe_01_t"
+      ],
+      [
+        1,
+        "wooden staff"
+      ]
+    ],
+    "spells": [],
+    "ai_data": {
+      "hello": 30,
+      "fight": 30,
+      "flee": 30,
+      "alarm": 80,
+      "services": 0
+    },
+    "ai_packages": [
+      {
+        "type": "Wander",
+        "distance": 128,
+        "duration": 5,
+        "game_hour": 0,
+        "idle2": 60,
+        "idle3": 20,
+        "idle4": 10,
+        "idle5": 10,
+        "idle6": 0,
+        "idle7": 0,
+        "idle8": 10,
+        "idle9": 0,
+        "reset": 1
+      }
+    ],
+    "travel_destinations": []
+  },
+  {
+    "type": "Npc",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "retail_cus_com_24",
+    "name": "retail_cus_com_24",
+    "race": "Dark Elf",
+    "class": "Noble",
+    "faction": "Hlaalu",
+    "head": "b_n_dark elf_f_head_05",
+    "hair": "b_n_dark elf_f_hair_09",
+    "npc_flags": 25,
+    "data": {
+      "level": 7,
+      "stats": null,
+      "disposition": 50,
+      "reputation": 12,
+      "rank": 5,
+      "gold": 0
+    },
+    "inventory": [
+      [
+        1,
+        "expensive_shoes_03"
+      ],
+      [
+        1,
+        "extravagant_pants_01"
+      ],
+      [
+        1,
+        "extravagant_shirt_01_h"
+      ],
+      [
+        1,
+        "glass dagger"
+      ]
+    ],
+    "spells": [],
+    "ai_data": {
+      "hello": 45,
+      "fight": 30,
+      "flee": 30,
+      "alarm": 100,
+      "services": 0
+    },
+    "ai_packages": [
+      {
+        "type": "Wander",
+        "distance": 256,
+        "duration": 5,
+        "game_hour": 0,
+        "idle2": 60,
+        "idle3": 20,
+        "idle4": 10,
+        "idle5": 0,
+        "idle6": 0,
+        "idle7": 0,
+        "idle8": 0,
+        "idle9": 0,
+        "reset": 1
+      }
+    ],
+    "travel_destinations": []
+  },
+  {
+    "type": "Npc",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "retail_cus_com_25",
+    "name": "retail_cus_com_25",
+    "race": "Dark Elf",
+    "class": "Enforcer",
+    "faction": "Camonna Tong",
+    "head": "b_n_dark elf_m_head_03",
+    "hair": "b_n_dark elf_m_hair_05",
+    "npc_flags": 24,
+    "data": {
+      "level": 3,
+      "stats": null,
+      "disposition": 25,
+      "reputation": 2,
+      "rank": 0,
+      "gold": 0
+    },
+    "inventory": [
+      [
+        1,
+        "common_pants_01"
+      ],
+      [
+        1,
+        "common_shirt_02_hh"
+      ],
+      [
+        1,
+        "common_shoes_02"
+      ],
+      [
+        1,
+        "steel shortsword"
+      ]
+    ],
+    "spells": [],
+    "ai_data": {
+      "hello": 30,
+      "fight": 40,
+      "flee": 30,
+      "alarm": 100,
+      "services": 0
+    },
+    "ai_packages": [
+      {
+        "type": "Wander",
+        "distance": 120,
+        "duration": 5,
+        "game_hour": 0,
+        "idle2": 60,
+        "idle3": 20,
+        "idle4": 10,
+        "idle5": 0,
+        "idle6": 0,
+        "idle7": 0,
+        "idle8": 0,
+        "idle9": 0,
+        "reset": 1
+      }
+    ],
+    "travel_destinations": []
+  },
+  {
+    "type": "Npc",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "retail_cus_com_26",
+    "name": "retail_cus_com_26",
+    "race": "Dark Elf",
+    "class": "Farmer",
+    "faction": "",
+    "head": "b_n_dark elf_m_head_13",
+    "hair": "b_n_dark elf_m_hair_03",
+    "npc_flags": 24,
+    "data": {
+      "level": 3,
+      "stats": null,
+      "disposition": 50,
+      "reputation": 0,
+      "rank": 0,
+      "gold": 0
+    },
+    "inventory": [
+      [
+        1,
+        "common_pants_04"
+      ],
+      [
+        1,
+        "common_shirt_04_a"
+      ],
+      [
+        1,
+        "common_shoes_04"
+      ],
+      [
+        1,
+        "iron shortsword"
+      ],
+      [
+        1,
+        "light_com_lantern_01"
+      ]
+    ],
+    "spells": [],
+    "ai_data": {
+      "hello": 30,
+      "fight": 30,
+      "flee": 30,
+      "alarm": 100,
+      "services": 0
+    },
+    "ai_packages": [
+      {
+        "type": "Wander",
+        "distance": 512,
+        "duration": 5,
+        "game_hour": 0,
+        "idle2": 60,
+        "idle3": 20,
+        "idle4": 10,
+        "idle5": 0,
+        "idle6": 0,
+        "idle7": 0,
+        "idle8": 0,
+        "idle9": 0,
+        "reset": 1
+      }
+    ],
+    "travel_destinations": []
+  },
+  {
+    "type": "Npc",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "retail_cus_com_27",
+    "name": "retail_cus_com_27",
+    "mesh": "base_anim.nif",
+    "race": "Dark Elf",
+    "class": "Farmer",
+    "faction": "",
+    "head": "b_n_dark elf_m_head_05",
+    "hair": "b_n_dark elf_m_hair_15",
+    "npc_flags": 24,
+    "data": {
+      "level": 6,
+      "stats": null,
+      "disposition": 50,
+      "reputation": 0,
+      "rank": 0,
+      "gold": 0
+    },
+    "inventory": [
+      [
+        1,
+        "expensive_belt_03"
+      ],
+      [
+        1,
+        "Expensive_pants_Mournhold"
+      ],
+      [
+        1,
+        "expensive_shirt_01"
+      ],
+      [
+        1,
+        "expensive_shoes_02"
+      ],
+      [
+        1,
+        "iron warhammer"
+      ]
+    ],
+    "spells": [],
+    "ai_data": {
+      "hello": 30,
+      "fight": 30,
+      "flee": 30,
+      "alarm": 80,
+      "services": 0
+    },
+    "ai_packages": [
+      {
+        "type": "Wander",
+        "distance": 512,
+        "duration": 5,
+        "game_hour": 0,
+        "idle2": 60,
+        "idle3": 20,
+        "idle4": 10,
+        "idle5": 0,
+        "idle6": 0,
+        "idle7": 0,
+        "idle8": 0,
+        "idle9": 0,
+        "reset": 1
+      }
+    ],
+    "travel_destinations": []
+  },
+  {
+    "type": "Npc",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "retail_cus_com_28",
+    "name": "retail_cus_com_28",
+    "mesh": "base_animKnA.nif",
+    "race": "Argonian",
+    "class": "Savant",
+    "faction": "",
+    "head": "b_n_argonian_f_head_02",
+    "hair": "b_n_argonian_f_hair02",
+    "npc_flags": 25,
+    "data": {
+      "level": 6,
+      "stats": null,
+      "disposition": 50,
+      "reputation": 0,
+      "rank": 0,
+      "gold": 0
+    },
+    "inventory": [
+      [
+        1,
+        "common_shirt_04_b"
+      ],
+      [
+        1,
+        "extravagant_pants_02"
+      ]
+    ],
+    "spells": [],
+    "ai_data": {
+      "hello": 15,
+      "fight": 30,
+      "flee": 30,
+      "alarm": 100,
+      "services": 0
+    },
+    "ai_packages": [
+      {
+        "type": "Wander",
+        "distance": 512,
+        "duration": 5,
+        "game_hour": 0,
+        "idle2": 60,
+        "idle3": 20,
+        "idle4": 10,
+        "idle5": 0,
+        "idle6": 0,
+        "idle7": 0,
+        "idle8": 0,
+        "idle9": 0,
+        "reset": 1
+      }
+    ],
+    "travel_destinations": []
+  },
+  {
+    "type": "Npc",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "retail_cus_com_29",
+    "name": "retail_cus_com_29",
+    "mesh": "base_animKnA.nif",
+    "race": "Khajiit",
+    "class": "Savant",
+    "faction": "",
+    "head": "b_n_khajiit_f_head_02",
+    "hair": "b_n_khajiit_f_hair05",
+    "npc_flags": 25,
+    "data": {
+      "level": 5,
+      "stats": null,
+      "disposition": 50,
+      "reputation": 0,
+      "rank": 0,
+      "gold": 0
+    },
+    "inventory": [
+      [
+        1,
+        "expensive_amulet_01"
+      ],
+      [
+        1,
+        "expensive_belt_02"
+      ],
+      [
+        1,
+        "expensive_pants_03"
+      ],
+      [
+        1,
+        "expensive_shirt_03"
+      ],
+      [
+        1,
+        "silver dagger"
+      ],
+      [
+        9,
+        "silver dart"
+      ]
+    ],
+    "spells": [],
+    "ai_data": {
+      "hello": 30,
+      "fight": 30,
+      "flee": 30,
+      "alarm": 100,
+      "services": 0
+    },
+    "ai_packages": [
+      {
+        "type": "Wander",
+        "distance": 512,
+        "duration": 5,
+        "game_hour": 0,
+        "idle2": 60,
+        "idle3": 20,
+        "idle4": 10,
+        "idle5": 0,
+        "idle6": 0,
+        "idle7": 0,
+        "idle8": 0,
+        "idle9": 0,
+        "reset": 1
+      }
+    ],
+    "travel_destinations": []
+  },
+  {
+    "type": "Npc",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "retail_cus_com_30",
+    "name": "retail_cus_com_30",
+    "mesh": "base_anim.nif",
+    "race": "Nord",
+    "class": "Commoner",
+    "faction": "",
+    "head": "b_n_nord_m_head_03",
+    "hair": "b_n_nord_m_hair02",
+    "npc_flags": 8,
+    "data": {
+      "level": 1,
+      "stats": {
+        "attributes": [
+          50,
+          30,
+          40,
+          30,
+          40,
+          60,
+          40,
+          40
+        ],
+        "skills": [
+          15,
+          5,
+          15,
+          35,
+          15,
+          10,
+          15,
+          10,
+          30,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          30,
+          20,
+          20,
+          20,
+          10,
+          20,
+          10,
+          35,
+          35,
+          35
+        ],
+        "health": 55,
+        "magicka": 60,
+        "fatigue": 180
+      },
+      "disposition": 50,
+      "reputation": 0,
+      "rank": 0,
+      "gold": 0
+    },
+    "inventory": [
+      [
+        1,
+        "common_pants_03"
+      ],
+      [
+        1,
+        "common_shoes_03"
+      ],
+      [
+        1,
+        "expensive_shirt_03"
+      ],
+      [
+        1,
+        "iron_cuirass"
+      ]
+    ],
+    "spells": [],
+    "ai_data": {
+      "hello": 30,
+      "fight": 30,
+      "flee": 30,
+      "alarm": 0,
+      "services": 0
+    },
+    "ai_packages": [
+      {
+        "type": "Wander",
+        "distance": 512,
+        "duration": 5,
+        "game_hour": 0,
+        "idle2": 60,
+        "idle3": 20,
+        "idle4": 10,
+        "idle5": 0,
+        "idle6": 0,
+        "idle7": 0,
+        "idle8": 0,
+        "idle9": 0,
+        "reset": 1
+      }
+    ],
+    "travel_destinations": []
+  },
+  {
+    "type": "Npc",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "retail_cus_com_31",
+    "name": "retail_cus_com_31",
+    "mesh": "base_anim_female.nif",
+    "race": "Redguard",
+    "class": "Merchant",
+    "faction": "East Empire Company",
+    "head": "b_n_redguard_f_head_04",
+    "hair": "b_n_redguard_f_hair_04",
+    "npc_flags": 25,
+    "data": {
+      "level": 4,
+      "stats": null,
+      "disposition": 50,
+      "reputation": 8,
+      "rank": 3,
+      "gold": 0
+    },
+    "inventory": [
+      [
+        1,
+        "common_robe_05"
+      ],
+      [
+        1,
+        "common_shoes_03"
+      ],
+      [
+        1,
+        "iron tanto"
+      ]
+    ],
+    "spells": [],
+    "ai_data": {
+      "hello": 30,
+      "fight": 30,
+      "flee": 30,
+      "alarm": 100,
+      "services": 0
+    },
+    "ai_packages": [
+      {
+        "type": "Wander",
+        "distance": 64,
+        "duration": 5,
+        "game_hour": 0,
+        "idle2": 60,
+        "idle3": 20,
+        "idle4": 10,
+        "idle5": 0,
+        "idle6": 0,
+        "idle7": 0,
+        "idle8": 0,
+        "idle9": 0,
+        "reset": 1
+      }
+    ],
+    "travel_destinations": []
+  },
+  {
+    "type": "Npc",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "retail_cus_com_32",
+    "name": "retail_cus_com_32",
+    "mesh": "base_anim.nif",
+    "race": "Wood Elf",
+    "class": "Noble",
+    "faction": "",
+    "head": "b_n_wood elf_m_head_01",
+    "hair": "b_n_wood elf_m_hair_05",
+    "npc_flags": 24,
+    "data": {
+      "level": 1,
+      "stats": null,
+      "disposition": 80,
+      "reputation": 0,
+      "rank": 0,
+      "gold": 0
+    },
+    "inventory": [
+      [
+        1,
+        "exquisite_pants_01"
+      ],
+      [
+        1,
+        "exquisite_shirt_01"
+      ],
+      [
+        1,
+        "exquisite_shoes_01"
+      ],
+      [
+        1,
+        "steel mace"
+      ]
+    ],
+    "spells": [],
+    "ai_data": {
+      "hello": 30,
+      "fight": 30,
+      "flee": 30,
+      "alarm": 100,
+      "services": 0
+    },
+    "ai_packages": [
+      {
+        "type": "Wander",
+        "distance": 512,
+        "duration": 5,
+        "game_hour": 0,
+        "idle2": 0,
+        "idle3": 0,
+        "idle4": 10,
+        "idle5": 5,
+        "idle6": 20,
+        "idle7": 30,
+        "idle8": 0,
+        "idle9": 10,
+        "reset": 1
+      }
+    ],
+    "travel_destinations": []
+  },
+  {
+    "type": "Npc",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "retail_cus_uni_brewer",
+    "name": "retail_cus_brewer",
+    "race": "Dark Elf",
+    "class": "Trader",
+    "faction": "Telvanni",
+    "head": "b_n_dark elf_f_head_03",
+    "hair": "b_n_dark elf_f_hair_22",
+    "npc_flags": 25,
+    "data": {
+      "level": 8,
+      "stats": null,
+      "disposition": 50,
+      "reputation": 2,
+      "rank": 0,
+      "gold": 150
+    },
+    "inventory": [
+      [
+        1,
+        "common_ring_03"
+      ],
+      [
+        1,
+        "common_robe_02_r"
+      ],
+      [
+        1,
+        "common_shoes_03"
+      ],
+      [
+        1,
+        "expensive_amulet_02"
+      ],
+      [
+        -3,
+        "potion_comberry_wine_01"
+      ],
+      [
+        -10,
+        "Potion_Local_Brew_01"
+      ],
+      [
+        -3,
+        "potion_local_liquor_01"
+      ],
+      [
+        1,
+        "steel katana"
+      ]
+    ],
+    "spells": [],
+    "ai_data": {
+      "hello": 10,
+      "fight": 30,
+      "flee": 20,
+      "alarm": 90,
+      "services": 0
+    },
+    "ai_packages": [
+      {
+        "type": "Wander",
+        "distance": 512,
+        "duration": 5,
+        "game_hour": 0,
+        "idle2": 50,
+        "idle3": 20,
+        "idle4": 10,
+        "idle5": 10,
+        "idle6": 0,
+        "idle7": 0,
+        "idle8": 10,
+        "idle9": 10,
+        "reset": 1
+      }
+    ],
+    "travel_destinations": []
+  },
+  {
+    "type": "Npc",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "retail_cus_uni_fisherma",
+    "name": "retail_cus_fisherman",
+    "race": "Dark Elf",
+    "class": "Shipmaster",
+    "faction": "",
+    "head": "b_n_dark elf_m_head_12",
+    "hair": "b_n_dark elf_m_hair_21",
+    "npc_flags": 8,
+    "data": {
+      "level": 10,
+      "stats": {
+        "attributes": [
+          49,
+          60,
+          40,
+          60,
+          74,
+          45,
+          60,
+          40
+        ],
+        "skills": [
+          24,
+          6,
+          6,
+          6,
+          6,
+          11,
+          6,
+          6,
+          44,
+          6,
+          16,
+          6,
+          6,
+          6,
+          29,
+          6,
+          6,
+          24,
+          34,
+          48,
+          15,
+          38,
+          58,
+          20,
+          48,
+          48,
+          15
+        ],
+        "health": 83,
+        "magicka": 120,
+        "fatigue": 194
+      },
+      "disposition": 50,
+      "reputation": 0,
+      "rank": 0,
+      "gold": 0
+    },
+    "inventory": [
+      [
+        1,
+        "common_pants_05"
+      ],
+      [
+        1,
+        "common_shirt_gondolier"
+      ],
+      [
+        1,
+        "common_shoes_04"
+      ],
+      [
+        1,
+        "iron tanto"
+      ]
+    ],
+    "spells": [],
+    "ai_data": {
+      "hello": 30,
+      "fight": 30,
+      "flee": 30,
+      "alarm": 100,
+      "services": 0
+    },
+    "ai_packages": [
+      {
+        "type": "Wander",
+        "distance": 512,
+        "duration": 5,
+        "game_hour": 0,
+        "idle2": 20,
+        "idle3": 20,
+        "idle4": 10,
+        "idle5": 0,
+        "idle6": 0,
+        "idle7": 0,
+        "idle8": 20,
+        "idle9": 0,
+        "reset": 1
+      }
+    ],
+    "travel_destinations": []
+  },
+  {
+    "type": "Npc",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "retail_cus_uni_ordinato",
+    "name": "retail_cus_ordinator",
+    "race": "Dark Elf",
+    "class": "Ordinator",
+    "faction": "Temple",
+    "head": "b_n_dark elf_m_head_05",
+    "hair": "b_n_dark elf_m_hair_19",
+    "npc_flags": 24,
+    "data": {
+      "level": 15,
+      "stats": null,
+      "disposition": 50,
+      "reputation": 12,
+      "rank": 5,
+      "gold": 0
+    },
+    "inventory": [
+      [
+        1,
+        "expensive_pants_02"
+      ],
+      [
+        1,
+        "expensive_shirt_03"
+      ],
+      [
+        1,
+        "expensive_shoes_02"
+      ],
+      [
+        1,
+        "indoril boots"
+      ],
+      [
+        1,
+        "indoril cuirass"
+      ],
+      [
+        1,
+        "indoril left gauntlet"
+      ],
+      [
+        1,
+        "indoril pauldron left"
+      ],
+      [
+        1,
+        "indoril pauldron right"
+      ],
+      [
+        1,
+        "indoril right gauntlet"
+      ],
+      [
+        1,
+        "indoril_belt"
+      ],
+      [
+        1,
+        "silver claymore"
+      ]
+    ],
+    "spells": [],
+    "ai_data": {
+      "hello": 30,
+      "fight": 30,
+      "flee": 30,
+      "alarm": 100,
+      "services": 0
+    },
+    "ai_packages": [
+      {
+        "type": "Wander",
+        "distance": 220,
+        "duration": 5,
+        "game_hour": 0,
+        "idle2": 30,
+        "idle3": 20,
+        "idle4": 10,
+        "idle5": 0,
+        "idle6": 0,
+        "idle7": 0,
+        "idle8": 20,
+        "idle9": 0,
+        "reset": 1
+      }
+    ],
+    "travel_destinations": []
+  },
+  {
+    "type": "Npc",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "retail_cus_uni_sorcerer",
+    "name": "retail_cus_sorcerer",
+    "race": "Dark Elf",
+    "class": "Sorcerer",
+    "faction": "Telvanni",
+    "head": "b_n_dark elf_m_head_12",
+    "hair": "b_n_dark elf_m_hair_14",
+    "npc_flags": 24,
+    "data": {
+      "level": 14,
+      "stats": null,
+      "disposition": 50,
+      "reputation": 2,
+      "rank": 0,
+      "gold": 0
+    },
+    "inventory": [
+      [
+        1,
+        "common_robe_02_tt"
+      ],
+      [
+        1,
+        "common_shoes_02"
+      ],
+      [
+        1,
+        "ebony shortsword"
+      ]
+    ],
+    "spells": [],
+    "ai_data": {
+      "hello": 30,
+      "fight": 30,
+      "flee": 30,
+      "alarm": 80,
+      "services": 0
+    },
+    "ai_packages": [
+      {
+        "type": "Wander",
+        "distance": 512,
+        "duration": 5,
+        "game_hour": 0,
+        "idle2": 60,
+        "idle3": 20,
+        "idle4": 10,
+        "idle5": 10,
+        "idle6": 0,
+        "idle7": 0,
+        "idle8": 10,
+        "idle9": 0,
+        "reset": 1
+      }
+    ],
+    "travel_destinations": []
+  },
+  {
+    "type": "Npc",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "retail_tra_alchemist",
+    "name": "retail_tra_alchemist",
+    "mesh": "base_anim_female.nif",
+    "race": "Dark Elf",
+    "class": "Alchemist Service",
+    "faction": "",
+    "head": "b_n_dark elf_f_head_08",
+    "hair": "b_n_dark elf_f_hair_13",
+    "npc_flags": 25,
+    "data": {
+      "level": 5,
+      "stats": null,
+      "disposition": 50,
+      "reputation": 0,
+      "rank": 0,
+      "gold": 350
+    },
+    "inventory": [
+      [
+        1,
+        "common_pants_03"
+      ],
+      [
+        1,
+        "common_robe_02"
+      ],
+      [
+        1,
+        "common_shirt_02"
+      ],
+      [
+        1,
+        "common_shoes_02"
+      ],
+      [
+        5,
+        "p_cure_common_s"
+      ],
+      [
+        5,
+        "p_cure_paralyzation_s"
+      ],
+      [
+        5,
+        "p_cure_poison_s"
+      ],
+      [
+        2,
+        "p_detect_creatures_s"
+      ],
+      [
+        2,
+        "p_restore_endurance_s"
+      ],
+      [
+        2,
+        "p_restore_fatigue_q"
+      ],
+      [
+        2,
+        "p_restore_fatigue_s"
+      ],
+      [
+        2,
+        "p_restore_health_q"
+      ],
+      [
+        2,
+        "p_restore_health_s"
+      ],
+      [
+        2,
+        "p_restore_magicka_q"
+      ],
+      [
+        2,
+        "p_restore_magicka_s"
+      ],
+      [
+        1,
+        "p_water_breathing_s"
+      ],
+      [
+        1,
+        "p_water_walking_s"
+      ]
+    ],
+    "spells": [],
+    "ai_data": {
+      "hello": 30,
+      "fight": 30,
+      "flee": 30,
+      "alarm": 80,
+      "services": 8464
+    },
+    "ai_packages": [
+      {
+        "type": "Wander",
+        "distance": 512,
+        "duration": 5,
+        "game_hour": 0,
+        "idle2": 60,
+        "idle3": 20,
+        "idle4": 10,
+        "idle5": 0,
+        "idle6": 0,
+        "idle7": 0,
+        "idle8": 0,
+        "idle9": 0,
+        "reset": 1
+      }
+    ],
+    "travel_destinations": []
+  },
+  {
+    "type": "Npc",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "retail_tra_herbalist_01",
+    "name": "retail_tra_herbalist_1",
+    "mesh": "base_anim.nif",
+    "race": "Redguard",
+    "class": "Alchemist Service",
+    "faction": "",
+    "head": "b_n_redguard_m_head_05",
+    "hair": "b_n_redguard_m_hair_03",
+    "npc_flags": 8,
+    "data": {
+      "level": 8,
+      "stats": {
+        "attributes": [
+          59,
+          62,
+          47,
+          48,
+          50,
+          54,
+          36,
+          50
+        ],
+        "skills": [
+          22,
+          6,
+          11,
+          11,
+          27,
+          21,
+          11,
+          6,
+          11,
+          46,
+          14,
+          46,
+          14,
+          46,
+          46,
+          14,
+          46,
+          30,
+          6,
+          6,
+          6,
+          6,
+          11,
+          6,
+          6,
+          22,
+          22
+        ],
+        "health": 77,
+        "magicka": 124,
+        "fatigue": 208
+      },
+      "disposition": 55,
+      "reputation": 0,
+      "rank": 0,
+      "gold": 50
+    },
+    "inventory": [
+      [
+        1,
+        "common_belt_03"
+      ],
+      [
+        1,
+        "common_pants_05"
+      ],
+      [
+        1,
+        "common_ring_01"
+      ],
+      [
+        1,
+        "common_shirt_06"
+      ],
+      [
+        1,
+        "common_shoes_05"
+      ],
+      [
+        -1,
+        "ingred_bc_coda_flower"
+      ],
+      [
+        5,
+        "ingred_bittergreen_petals_01"
+      ],
+      [
+        -8,
+        "ingred_gold_kanet_01"
+      ],
+      [
+        -5,
+        "ingred_heather_01"
+      ],
+      [
+        -2,
+        "ingred_stoneflower_petals_01"
+      ],
+      [
+        -2,
+        "Ingred_timsa-come-by_01"
+      ]
+    ],
+    "spells": [
+      "heavy burden touch",
+      "strong feather",
+      "ulms juicedaw's feather",
+      "saintly word",
+      "summon ancestral ghost",
+      "mark",
+      "recall",
+      "sotha's mirror",
+      "vivec's feast",
+      "spell absorption",
+      "dispel",
+      "detect_creature"
+    ],
+    "ai_data": {
+      "hello": 30,
+      "fight": 30,
+      "flee": 30,
+      "alarm": 100,
+      "services": 8208
+    },
+    "ai_packages": [
+      {
+        "type": "Wander",
+        "distance": 512,
+        "duration": 5,
+        "game_hour": 0,
+        "idle2": 0,
+        "idle3": 0,
+        "idle4": 30,
+        "idle5": 30,
+        "idle6": 0,
+        "idle7": 0,
+        "idle8": 30,
+        "idle9": 0,
+        "reset": 1
+      }
+    ],
+    "travel_destinations": []
+  },
+  {
+    "type": "Npc",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "retail_tra_herbalist_02",
+    "name": "retail_tra_herbalist_2",
+    "mesh": "base_anim_female.nif",
+    "race": "Dark Elf",
+    "class": "Alchemist Service",
+    "faction": "",
+    "head": "b_n_dark elf_f_head_02",
+    "hair": "b_n_dark elf_f_hair_07",
+    "npc_flags": 9,
+    "data": {
+      "level": 6,
+      "stats": {
+        "attributes": [
+          46,
+          66,
+          42,
+          46,
+          57,
+          33,
+          44,
+          50
+        ],
+        "skills": [
+          20,
+          6,
+          6,
+          6,
+          20,
+          10,
+          6,
+          6,
+          10,
+          42,
+          23,
+          42,
+          13,
+          42,
+          48,
+          13,
+          42,
+          28,
+          6,
+          6,
+          6,
+          28,
+          16,
+          10,
+          6,
+          20,
+          20
+        ],
+        "health": 54,
+        "magicka": 132,
+        "fatigue": 167
+      },
+      "disposition": 50,
+      "reputation": 0,
+      "rank": 0,
+      "gold": 0
+    },
+    "inventory": [
+      [
+        1,
+        "chitin boots"
+      ],
+      [
+        1,
+        "chitin guantlet - left"
+      ],
+      [
+        1,
+        "chitin guantlet - right"
+      ],
+      [
+        1,
+        "chitin pauldron - left"
+      ],
+      [
+        1,
+        "chitin pauldron - right"
+      ],
+      [
+        1,
+        "common_pants_04"
+      ],
+      [
+        1,
+        "common_ring_05"
+      ],
+      [
+        1,
+        "common_shirt_02"
+      ],
+      [
+        5,
+        "ingred_bc_bungler's_bane"
+      ],
+      [
+        5,
+        "ingred_bc_hypha_facia"
+      ],
+      [
+        5,
+        "ingred_coprinus_01"
+      ],
+      [
+        5,
+        "ingred_russula_01"
+      ],
+      [
+        1,
+        "iron mace"
+      ]
+    ],
+    "spells": [
+      "great open",
+      "strong open",
+      "wild open",
+      "ondusi's open door",
+      "saintly touch",
+      "mark",
+      "recall",
+      "sotha's mirror",
+      "vivec's feast",
+      "spell absorption",
+      "dispel",
+      "detect_creature"
+    ],
+    "ai_data": {
+      "hello": 30,
+      "fight": 30,
+      "flee": 50,
+      "alarm": 80,
+      "services": 8208
+    },
+    "ai_packages": [
+      {
+        "type": "Wander",
+        "distance": 512,
+        "duration": 5,
+        "game_hour": 0,
+        "idle2": 60,
+        "idle3": 20,
+        "idle4": 10,
+        "idle5": 0,
+        "idle6": 0,
+        "idle7": 0,
+        "idle8": 0,
+        "idle9": 0,
+        "reset": 1
+      }
+    ],
+    "travel_destinations": []
+  },
+  {
+    "type": "Npc",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "retail_tra_miner",
+    "name": "retail_tra_miner",
+    "mesh": "base_anim.nif",
+    "race": "Dark Elf",
+    "class": "Miner",
+    "faction": "",
+    "head": "b_n_dark elf_m_head_06",
+    "hair": "b_n_dark elf_m_hair_17",
+    "npc_flags": 8,
+    "data": {
+      "level": 2,
+      "stats": {
+        "attributes": [
+          53,
+          41,
+          31,
+          42,
+          52,
+          51,
+          31,
+          40
+        ],
+        "skills": [
+          36,
+          22,
+          11,
+          22,
+          36,
+          16,
+          36,
+          22,
+          16,
+          5,
+          15,
+          5,
+          5,
+          5,
+          10,
+          16,
+          5,
+          31,
+          5,
+          5,
+          5,
+          36,
+          15,
+          10,
+          5,
+          5,
+          16
+        ],
+        "health": 58,
+        "magicka": 82,
+        "fatigue": 177
+      },
+      "disposition": 50,
+      "reputation": 0,
+      "rank": 0,
+      "gold": 1500
+    },
+    "inventory": [
+      [
+        1,
+        "common_pants_02"
+      ],
+      [
+        1,
+        "common_shirt_03"
+      ],
+      [
+        1,
+        "common_shoes_02"
+      ],
+      [
+        5,
+        "ingred_diamond_01"
+      ],
+      [
+        5,
+        "ingred_emerald_01"
+      ],
+      [
+        2,
+        "ingred_ruby_01"
+      ],
+      [
+        1,
+        "miner's pick"
+      ]
+    ],
+    "spells": [],
+    "ai_data": {
+      "hello": 30,
+      "fight": 30,
+      "flee": 30,
+      "alarm": 90,
+      "services": 16
+    },
+    "ai_packages": [
+      {
+        "type": "Wander",
+        "distance": 100,
+        "duration": 5,
+        "game_hour": 0,
+        "idle2": 60,
+        "idle3": 20,
+        "idle4": 10,
+        "idle5": 0,
+        "idle6": 0,
+        "idle7": 0,
+        "idle8": 0,
+        "idle9": 0,
+        "reset": 1
+      }
+    ],
+    "travel_destinations": []
+  },
+  {
+    "type": "Npc",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "retail_tra_traveling_me",
+    "name": "retail_tra_traveling_me",
+    "race": "Redguard",
+    "class": "Trader Service",
+    "faction": "",
+    "head": "b_n_redguard_m_head_04",
+    "hair": "b_n_redguard_m_hair_01",
+    "npc_flags": 8,
+    "data": {
+      "level": 9,
+      "stats": {
+        "attributes": [
+          73,
+          43,
+          43,
+          55,
+          51,
+          55,
+          58,
+          40
+        ],
+        "skills": [
+          32,
+          15,
+          20,
+          20,
+          37,
+          30,
+          20,
+          15,
+          20,
+          6,
+          6,
+          6,
+          6,
+          6,
+          38,
+          6,
+          6,
+          23,
+          38,
+          38,
+          23,
+          6,
+          11,
+          6,
+          38,
+          38,
+          23
+        ],
+        "health": 104,
+        "magicka": 86,
+        "fatigue": 226
+      },
+      "disposition": 50,
+      "reputation": 0,
+      "rank": 0,
+      "gold": 250
+    },
+    "inventory": [
+      [
+        1,
+        "common_robe_05_a"
+      ],
+      [
+        1,
+        "common_shoes_03"
+      ],
+      [
+        1,
+        "light_com_lantern_02"
+      ]
+    ],
+    "spells": [
+      "almsivi intervention",
+      "almalexia's grace",
+      "divine intervention",
+      "telekinesis",
+      "absorb health [ranged]"
+    ],
+    "ai_data": {
+      "hello": 30,
+      "fight": 30,
+      "flee": 30,
+      "alarm": 100,
+      "services": 13855
+    },
+    "ai_packages": [
+      {
+        "type": "Wander",
+        "distance": 512,
+        "duration": 5,
+        "game_hour": 0,
+        "idle2": 60,
+        "idle3": 20,
+        "idle4": 10,
+        "idle5": 10,
+        "idle6": 10,
+        "idle7": 0,
+        "idle8": 0,
+        "idle9": 0,
+        "reset": 1
+      }
+    ],
+    "travel_destinations": []
+  },
+  {
+    "type": "Book",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "retail_ledger",
+    "data": {
+      "weight": 3.0,
+      "value": 0,
+      "flags": 0,
+      "skill": "None",
+      "enchantment": 0
+    },
+    "name": "Ledger",
+    "mesh": "m\\Text_Octavo_open_03.nif",
+    "icon": "m\\Tx_octavo_open_03.tga",
+    "text": "<DIV ALIGN=\"LEFT\"><FONT COLOR=\"000000\" SIZE=\"3\" FACE=\"Magic Cards\"><BR>\r\n[This book shows figures on goods being traded.]<BR>\r\n"
+  },
+  {
+    "type": "Cell",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "Holamayan Monastery",
+    "data": {
+      "flags": 5,
+      "grid": [
+        2498846,
+        1061158912
+      ]
+    },
+    "water_height": 0.0,
+    "atmosphere_data": {
+      "ambient_color": [
+        50,
+        50,
+        50,
+        0
+      ],
+      "sunlight_color": [
+        50,
+        30,
+        20,
+        0
+      ],
+      "fog_color": [
+        30,
+        33,
+        38,
+        0
+      ],
+      "fog_density": 0.75
+    },
+    "references": [
+      {
+        "mast_index": 0,
+        "refr_index": 1,
+        "id": "retail_ledger",
+        "temporary": true,
+        "translation": [
+          -1446.9476,
+          119.06714,
+          -571.0253
+        ],
+        "rotation": [
+          0.0,
+          -0.0,
+          0.9000001
+        ]
+      }
+    ]
+  },
+  {
+    "type": "Cell",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "Vivec, Telvanni Temple",
+    "data": {
+      "flags": 5,
+      "grid": [
+        4337186,
+        1061158912
+      ]
+    },
+    "water_height": 0.0,
+    "atmosphere_data": {
+      "ambient_color": [
+        55,
+        50,
+        45,
+        0
+      ],
+      "sunlight_color": [
+        53,
+        29,
+        17,
+        0
+      ],
+      "fog_color": [
+        34,
+        46,
+        66,
+        0
+      ],
+      "fog_density": 0.75
+    },
+    "references": [
+      {
+        "mast_index": 0,
+        "refr_index": 2,
+        "id": "retail_ledger",
+        "temporary": true,
+        "translation": [
+          729.1313,
+          328.11893,
+          -188.8519
+        ],
+        "rotation": [
+          0.0,
+          -0.0,
+          4.600005
+        ]
+      }
+    ]
+  },
+  {
+    "type": "Cell",
+    "flags": [
+      0,
+      0
+    ],
+    "id": "JosephTest",
+    "data": {
+      "flags": 1,
+      "grid": [
+        0,
+        1065353216
+      ]
+    },
+    "water_height": 0.0,
+    "atmosphere_data": {
+      "ambient_color": [
+        78,
+        79,
+        70,
+        0
+      ],
+      "sunlight_color": [
+        104,
+        105,
+        78,
+        0
+      ],
+      "fog_color": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "fog_density": 1.0
+    },
+    "references": [
+      {
+        "mast_index": 0,
+        "refr_index": 3,
+        "id": "retail_cus_com_27",
+        "temporary": false,
+        "translation": [
+          217.11607,
+          426.6636,
+          47.187347
+        ],
+        "rotation": [
+          0.0,
+          -0.0,
+          4.783188
+        ]
+      },
+      {
+        "mast_index": 0,
+        "refr_index": 4,
+        "id": "retail_cus_com_28",
+        "temporary": false,
+        "translation": [
+          232.21413,
+          391.24472,
+          48.3058
+        ],
+        "rotation": [
+          0.0,
+          -0.0,
+          4.683187
+        ]
+      },
+      {
+        "mast_index": 0,
+        "refr_index": 5,
+        "id": "retail_cus_com_29",
+        "temporary": false,
+        "translation": [
+          224.21413,
+          357.2008,
+          48.095398
+        ],
+        "rotation": [
+          0.0,
+          -0.0,
+          4.583187
+        ]
+      },
+      {
+        "mast_index": 0,
+        "refr_index": 6,
+        "id": "retail_cus_com_31",
+        "temporary": false,
+        "translation": [
+          203.6664,
+          273.15002,
+          47.25911
+        ],
+        "rotation": [
+          0.0,
+          -0.0,
+          4.583187
+        ]
+      },
+      {
+        "mast_index": 0,
+        "refr_index": 7,
+        "id": "retail_cus_com_32",
+        "temporary": false,
+        "translation": [
+          216.85042,
+          234.0853,
+          47.066193
+        ],
+        "rotation": [
+          0.0,
+          -0.0,
+          4.6831865
+        ]
+      },
+      {
+        "mast_index": 0,
+        "refr_index": 8,
+        "id": "retail_tra_alchemist",
+        "temporary": false,
+        "translation": [
+          227.77444,
+          186.47276,
+          47.198486
+        ],
+        "rotation": [
+          0.0,
+          -0.0,
+          4.583189
+        ]
+      },
+      {
+        "mast_index": 0,
+        "refr_index": 9,
+        "id": "retail_tra_herbalist_01",
+        "temporary": false,
+        "translation": [
+          215.80896,
+          144.39812,
+          51.707825
+        ],
+        "rotation": [
+          0.0,
+          -0.0,
+          4.683187
+        ]
+      },
+      {
+        "mast_index": 0,
+        "refr_index": 10,
+        "id": "retail_tra_miner",
+        "temporary": false,
+        "translation": [
+          218.21686,
+          105.66653,
+          47.198578
+        ],
+        "rotation": [
+          0.0,
+          -0.0,
+          4.6831884
+        ]
+      },
+      {
+        "mast_index": 0,
+        "refr_index": 11,
+        "id": "retail_tra_herbalist_02",
+        "temporary": false,
+        "translation": [
+          222.39656,
+          67.297676,
+          47.199486
+        ],
+        "rotation": [
+          0.0,
+          -0.0,
+          4.5831866
+        ]
+      },
+      {
+        "mast_index": 0,
+        "refr_index": 12,
+        "id": "retail_cus_com_30",
+        "temporary": false,
+        "translation": [
+          201.73943,
+          315.623,
+          47.233444
+        ],
+        "rotation": [
+          0.0,
+          -0.0,
+          4.783187
+        ]
+      },
+      {
+        "mast_index": 0,
+        "refr_index": 13,
+        "id": "in_redoran_hut_door_01",
+        "temporary": false,
+        "translation": [
+          -400.95874,
+          237.9432,
+          175.1721
+        ],
+        "rotation": [
+          0.0,
+          -0.0,
+          4.712389
+        ],
+        "door_destination_coords": [
+          705.36957,
+          532.62775,
+          -176.31248,
+          0.0,
+          -0.0,
+          2.7000034
+        ],
+        "door_destination_cell": "Vivec, Telvanni Temple"
+      },
+      {
+        "mast_index": 0,
+        "refr_index": 14,
+        "id": "in_redoran_hut_01",
+        "temporary": true,
+        "translation": [
+          -16.0,
+          239.99998,
+          304.0
+        ],
+        "rotation": [
+          0.0,
+          -0.0,
+          1.5707964
+        ]
+      },
+      {
+        "mast_index": 0,
+        "refr_index": 15,
+        "id": "in_redoran_hut_jamb_01",
+        "temporary": true,
+        "translation": [
+          -534.2969,
+          238.17287,
+          175.8123
+        ],
+        "rotation": [
+          0.0,
+          -0.0,
+          1.5707954
+        ]
+      },
+      {
+        "mast_index": 0,
+        "refr_index": 16,
+        "id": "furn_de_roped_pole_01",
+        "temporary": true,
+        "translation": [
+          232.06836,
+          323.46387,
+          363.8505
+        ],
+        "rotation": [
+          0.10201957,
+          0.1989871,
+          3.061827
+        ]
+      },
+      {
+        "mast_index": 0,
+        "refr_index": 17,
+        "id": "furn_de_roped_pole_01",
+        "temporary": true,
+        "translation": [
+          223.448,
+          155.6733,
+          369.18253
+        ],
+        "rotation": [
+          0.10201957,
+          0.1989871,
+          3.061827
+        ]
+      },
+      {
+        "mast_index": 0,
+        "refr_index": 18,
+        "id": "furn_de_rope1_01",
+        "temporary": true,
+        "translation": [
+          213.2052,
+          237.22499,
+          346.59756
+        ],
+        "rotation": [
+          0.0,
+          -0.0,
+          1.3707956
+        ]
+      },
+      {
+        "mast_index": 0,
+        "refr_index": 19,
+        "id": "light_de_paper_lantern_01",
+        "temporary": true,
+        "translation": [
+          208.0,
+          231.22731,
+          280.04514
+        ],
+        "rotation": [
+          0.0,
+          -0.0,
+          0.070797026
+        ],
+        "scale": 1.21
+      },
+      {
+        "mast_index": 0,
+        "refr_index": 20,
+        "id": "Misc_SoulGem_Greater",
+        "temporary": true,
+        "translation": [
+          33.94757,
+          380.3039,
+          53.937508
+        ],
+        "rotation": [
+          0.0,
+          -0.0,
+          0.39999995
+        ]
+      },
+      {
+        "mast_index": 0,
+        "refr_index": 21,
+        "id": "retail_ledger",
+        "temporary": true,
+        "translation": [
+          -28.629532,
+          375.26978,
+          51.16117
+        ],
+        "rotation": [
+          0.0,
+          -0.0,
+          4.3831873
+        ],
+        "scale": 0.8
+      }
+    ]
+  }
+]
