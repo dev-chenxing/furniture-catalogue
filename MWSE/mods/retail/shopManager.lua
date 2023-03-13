@@ -4,22 +4,6 @@ local displayTable = require("retail.displayTable")
 local log = common.createLogger("shopManager")
 local this = {}
 
----@param e uiObjectTooltipEventData
-local function shopManagerTooltip(e)
-	if common.isShopManager(e.reference) then
-		local block = e.tooltip:createBlock()
-		block.minWidth = 1
-		block.maxWidth = 440
-		block.autoWidth = true
-		block.autoHeight = true
-		block.paddingAllSides = 4
-		local label = block:createLabel({ id = tes3ui.registerID("Retail_shop_manager"), text = "Shop Manager" })
-		label.wrapText = true
-		label.color = tes3ui.getPalette(tes3.palette.activeColor)
-	end
-end
-event.register("uiObjectTooltip", shopManagerTooltip)
-
 --- @class shopManager.renameShop.params
 --- @field activator tes3reference
 --- @field init boolean?
@@ -115,8 +99,21 @@ local buttonList = {
 		callback = function(shopManager)
 			shopManager.data.moreFurniture = shopManager.data.moreFurniture or 0
 			timer.delayOneFrame(function()
-				displayTable.createPurchaseFurnitureMenu()
 				event.trigger("Retail:PurchaseFurniture")
+			end)
+		end,
+	},
+	{
+		text = "Edit Barter Type",
+		showRequirements = function(shopManager)
+			return shopManager.cell.id == shopManager.data.cellId
+		end,
+		callback = function(shopManager)
+			if not tes3.player.data.retail.tutorialFinished then
+				shopManager.data.editBarterTypeClicked = true
+			end
+			timer.delayOneFrame(function()
+				event.trigger("Retail:EditBarterType", { shopManager = shopManager })
 			end)
 		end,
 	},
@@ -167,7 +164,7 @@ local function activateShopManager(e)
 	tes3ui.showMessageMenu({ message = "Shop Manager", buttons = buttons, cancels = true, cancelText = "Cancel" })
 	return false
 end
-event.register("activate", activateShopManager, { priority = 572 })
+event.register("activate", activateShopManager, { priority = 581 })
 
 local function initializeShopManager(e)
 	local isShopManager = e.reference.data and e.reference.data.isShopManager

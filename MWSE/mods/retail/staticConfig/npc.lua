@@ -55,11 +55,11 @@ this.npcs = {
 		"retail_tra_miner", -- dunmer m common_shirt_03
 		"retail_tra_herbalist_02", -- dunmer f common_shirt_02
 		"retail_tra_traveling_me", -- redguard m common_robe_05_a
-		"retail_cus_uni_ancestor_ghost", -- ancestor ghost
-		"retail_cus_uni_brewer", -- dunmer f common_robe_02_r
-		"retail_cus_uni_fisherman", -- dunmer m common_shirt_gondolier
-		"retail_cus_uni_ordinator", -- dunmer m indoril cuirass
-		"retail_cus_uni_sorcerer", -- dunmer m common_robe_02_tt
+		"retail_cus_u_ghost", -- ancestor ghost
+		"retail_cus_u_brewer", -- dunmer f common_robe_02_r
+		"retail_cus_u_fisherman", -- dunmer m common_shirt_gondolier
+		"retail_cus_u_ordinator", -- dunmer m indoril cuirass
+		"retail_cus_u_sorcerer", -- dunmer m common_robe_02_tt
 	},
 }
 this.customerOutfits = {

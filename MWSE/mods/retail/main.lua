@@ -1,7 +1,5 @@
 local common = require("retail.common")
 local log = common.createLogger("main")
-local this = {}
-this.priority = -571
 
 local function onInit()
 	if not tes3.isModActive("Retail.esp") then
@@ -26,16 +24,17 @@ local function onInit()
 	end
 	event.register("loaded", initPlayerData)
 	event.register("cellChanged", checkIfInShop)
-	require("retail.customer")
 	require("retail.frontDoor")
+	require("retail.customer")
+	require("retail.customer").bodyPartIter()
 	require("retail.shopManager")
 	require("retail.displayTable")
+	require("retail.purchase")
 	require("retail.wares")
+	require("retail.ui.tooltip")
 	require("retail.tutorial")
 	require("retail.interop")
 end
-event.register("initialized", onInit, { priority = this.priority })
+event.register("initialized", onInit, { priority = 551 })
 
 require("retail.mcm")
-
-return this

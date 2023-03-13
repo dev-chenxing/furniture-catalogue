@@ -1,34 +1,28 @@
 local common = require("retail.common")
 local config = require("retail.config")
 
-local modConfig = {}
-function modConfig.onCreate(parent)
-	local pane = parent:createThinBorder{}
-	pane.flowDirection = "top_to_bottom"
-	pane.layoutHeightFraction = 1.0
-	pane.layoutWidthFraction = 1.0
-	pane.paddingAllSides = 12
-	local header = pane:createLabel({ text = common.mod })
-	header.color = tes3ui.getPalette("header_color")
-	header.borderAllSides = 12
-	local logLevelDropdown = mwse.mcm.createDropdown(pane, {
-		class = "Dropdown",
+local function registerModConfig()
+	local template = mwse.mcm.createTemplate({ name = common.mod })
+	template:saveOnClose(common.mod, config)
+	local settings = template:createSideBarPage({ label = "Settings" })
+	local devOptions = template:createSideBarPage({ label = "Developer Options" })
+	devOptions:createDropdown({
 		label = "Log Level",
+		description = "Set the logging level for mwse.log. Keep on INFO unless you are debugging.",
 		options = { { label = "DEBUG", value = "DEBUG" }, { label = "INFO", value = "INFO" } },
-		variable = mwse.mcm.createTableVariable({ class = "TableVariable", id = "logLevel", table = config }),
+		variable = mwse.mcm.createTableVariable { id = "logLevel", table = config },
 		callback = function(self)
 			for _, log in ipairs(common.loggers) do
-				mwse.log("Setting %s to log level %s", log.name, self.variable.value)
 				log:setLogLevel(self.variable.value)
 			end
 		end,
 	})
-	logLevelDropdown.elements.border.widthProportional = 0.3
-end
-function modConfig.onClose()
-	mwse.saveConfig(common.mod, config)
+	devOptions:createOnOffButton{
+		label = "Instant Delivery",
+		description = "Furniture bought from the Shop Manager get crafted instantly, i.e. noResult flag will be false.",
+		variable = mwse.mcm.createTableVariable { id = "devInstantDelivery", table = config },
+	}
+	template:register()
 end
 
-event.register("modConfigReady", function()
-	mwse.registerModConfig(common.mod, modConfig)
-end)
+event.register("modConfigReady", registerModConfig)

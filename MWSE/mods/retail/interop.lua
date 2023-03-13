@@ -2,7 +2,6 @@ local furnConfig = require("retail.staticConfig.furniture")
 local npcConfig = require("retail.staticConfig.npc")
 
 local interop = {
-	priority = require("retail.main").priority,
 	registerCustomers = function(npcs)
 		for type, _ in pairs(npcConfig.npcs) do
 			if npcs[type] then

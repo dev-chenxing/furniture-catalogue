@@ -1,6 +1,4 @@
 local configPath = "Retail"
-local defaultConfig = {}
-
-defaultConfig.logLevel = "INFO"
+local defaultConfig = { logLevel = "INFO", devInstantDelivery = false }
 
 return mwse.loadConfig(configPath, defaultConfig)

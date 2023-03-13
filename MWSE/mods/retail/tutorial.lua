@@ -31,38 +31,34 @@ local steps = {
 	[4] = {
 		header = "Edit Barter Item Types",
 		desc = "It is recommended to specify the types of wares you sell, so customers are more likely to buy your wares. To do that, activate the Shop Manager and Edit Barter Item Types.",
-		condition = function()
-			return false
+		condition = function(shopManager)
+			return shopManager.data.editBarterTypeClicked
 		end,
 	},
 	[5] = {
 		header = "Open the Shop",
 		desc = "The shop is now ready to welcome its first customer. To open the shop, activate the Front Door of the shop.",
-		condition = function()
-			return false
+		condition = function(shopManager)
+			return shopManager.data.openShopOnce
 		end,
 	},
 	[6] = {
 		header = "Sale Tactics",
-		desc = "If you have high enough Mercantile skill, you can persuade the customer to buy your product.",
-		condition = function()
-			return false
+		desc = "Customers sometimes want items that your shop currently does not have. Talk to them and ask May I help you. If you have high enough Mercantile skill, you can also persuade the customer to buy your product.",
+		lastPopup = true,
+		condition = function(shopManager)
+			return shopManager.data.customerCommandsShownOnce
 		end,
 	},
-	[7] = {
-		header = "May I Help You",
-		desc = "Customers sometimes want items that your shop currently does not have. Talk to them and ask May I help you.",
-		condition = function()
-			return false
-		end,
-	},
-	[8] = {
+	--[[[7] = {
 		header = "Enjoy",
-		desc = "This is the gist of the mod. If you enjoy this mod, remember to hit the endorse button. It really helps out.",
-		condition = function()
-			return false
+		desc = "If you enjoy this mod, remember to hit the endorse button. It really helps out.",
+		condition = function(shopManager)
+			tes3.player.data.retail.tutorialFinished = true
+			hideTutorial = true
+			return true
 		end,
-	},
+	},]]
 }
 
 ---@type tes3uiElement
@@ -99,28 +95,36 @@ end
 event.register("loaded", createTutorialPopup)
 
 local function setTutorialPopupVisible()
-	if tes3.player and tes3.player.data.retail.tutorialStep and tes3.player.data.retail.tutorialStep ~= 0 then
-		local shopManager = common.getShopManager()
-		if shopManager then
-			for i, step in ipairs(steps) do
-				if i == tes3.player.data.retail.tutorialStep then
-					if step.condition(shopManager) then
-						tes3.player.data.retail.tutorialStep = i + 1
+	if not tes3.player then
+		return
+	end
+	if not tes3.player.data.retail.tutorialStep then
+		return
+	end
+	local shopManager = common.getShopManager()
+	if shopManager then
+		for i, step in ipairs(steps) do
+			if i == tes3.player.data.retail.tutorialStep then
+				if step.condition(shopManager) then
+					if step.lastPopup then
+						tutorialPopup.visible = false
 						return
 					end
-					tutorialHeader.text = step.header:upper()
-					if step.additionalCondition and step.additionalCondition(shopManager) then
-						tutorialDesc.text = step.additionalDesc
-					else
-						tutorialDesc.text = step.desc
-					end
-					tutorialPopup:updateLayout()
+					tes3.player.data.retail.tutorialStep = i + 1
+					return
 				end
+				tutorialHeader.text = step.header:upper()
+				if step.additionalCondition and step.additionalCondition(shopManager) then
+					tutorialDesc.text = step.additionalDesc
+				else
+					tutorialDesc.text = step.desc
+				end
+				tutorialPopup:updateLayout()
 			end
-			tutorialPopup.visible = true
-		else
-			tutorialPopup.visible = false -- tutorials should only be shown in shop cell
 		end
+		tutorialPopup.visible = true
+	else
+		tutorialPopup.visible = false -- tutorials should only be shown in shop cell
 	end
 end
 event.register("loaded", function()
