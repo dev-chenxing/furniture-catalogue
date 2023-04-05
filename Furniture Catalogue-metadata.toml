@@ -1,22 +1,18 @@
 [package]
-name = "Retail"
-description = "A retail shop management mod for Morrowind."
+name = "Furniture Catalogue"
 authors = [ "JosephMcKean",]
-version = "0.1"
-
-[tools.mwse]
-lua-mod = "retail"
+version = "0.3"
 
 [dependencies]
-assets = [ "Retail.esp", "MWSE/mods/retail",]
+assets = [ "Furniture Catalogue.esp", "MWSE/mods/JosephMcKean/furnitureCatalogue",]
 
 [dependencies.mwse]
-buildnumber = 3066
+buildnumber = 3150
 
 [dependencies.mge-xe]
 version = ">=0.15.2"
 
 [dependencies.mods."The Crafting Framework"]
 mwse-module = "CraftingFramework"
-version = "^1.4.1"
+version = "^1.6.0"
 url = "https://www.nexusmods.com/morrowind/mods/51009"

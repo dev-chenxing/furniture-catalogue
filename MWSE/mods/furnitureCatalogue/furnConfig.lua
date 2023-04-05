@@ -1,6 +1,6 @@
 local this = {}
 
-this.shopManagers = { ["retail_ledger"] = { type = "ledger" } }
+this.catalogue = { ["jsmk_fc_catalogue_01"] = true, ["jsmk_fc_catalogue_02"] = true }
 
 this.stockAmount = 50
 this.furniture = {

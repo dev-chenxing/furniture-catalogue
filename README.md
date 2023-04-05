@@ -1,2 +1,2 @@
-# retail
+# Furniture Catalogue
  

@@ -1,5 +1,5 @@
-local common = require("retail.common")
-local config = require("retail.config")
+local common = require("JosephMcKean.furnitureCatalogue.common")
+local config = require("JosephMcKean.furnitureCatalogue.config")
 
 local function registerModConfig()
 	local template = mwse.mcm.createTemplate({ name = common.mod })
@@ -20,7 +20,7 @@ local function registerModConfig()
 	devOptions:createOnOffButton{
 		label = "Instant Delivery",
 		description = "Furniture bought from the Shop Manager get crafted instantly, i.e. noResult flag will be false.",
-		variable = mwse.mcm.createTableVariable { id = "devInstantDelivery", table = config },
+		variable = mwse.mcm.createTableVariable { id = "devInstantDelivery", table = config, restartRequired = true },
 	}
 	template:register()
 end
