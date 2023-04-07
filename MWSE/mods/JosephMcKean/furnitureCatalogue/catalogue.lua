@@ -34,7 +34,7 @@ local function activateCatalogue(e)
 	end
 	local catalogue = e.target
 	if tes3ui.menuMode() then
-		return false
+		return
 	end
 	local buttons = {}
 	for _, buttonData in pairs(buttonList) do
@@ -88,6 +88,7 @@ local function getNewStock()
 end
 
 this.customRequirements = {
+	---@param furniture furnitureCatalogue.furniture
 	inStock = function(furniture)
 		return {
 			getLabel = function()
@@ -108,65 +109,6 @@ this.customRequirements = {
 		}
 	end,
 }
-
----@class furnitureCatalogue.order
----@field shop string
----@field dayPassed number
----@field date string
----@field status furnitureCatalogue.order.status
----@field product furnitureCatalogue.order.product
----@field discount number
----@field shippingCost number
----@field total number
----@field localPickup boolean?
----@field shippingAddress furnitureCatalogue.order.shoppingAddress
-
----@alias furnitureCatalogue.order.status
----| '"Processing"'
----| '"On hold"'
----| '"Completed"'
----| '"Cancelled"'
----| '"Refunded"'
-
----@class furnitureCatalogue.order.product
----@field id string
----@field quantity number?
----@field size furnitureCatalogue.order.product.size
----@field price number
-
----@alias furnitureCatalogue.order.product.size
----| '"Tall"' AB_o_ComCrate02
----| '"Grande"' AB_o_ComCrate01
----| '"Venti"' AB_o_ComCrate03
-
----@class furnitureCatalogue.order.shoppingAddress
----@field name string
----@field cell string
----@field position furnitureCatalogue.order.shoppingAddress.position
----@field orientation furnitureCatalogue.order.shoppingAddress.orientation
-
----@class furnitureCatalogue.order.shoppingAddress.position
----@field x number
----@field y number
----@field z number
-
----@class furnitureCatalogue.order.shoppingAddress.orientation
----@field x number
----@field y number
----@field z number
-
-local currentActivator ---@type tes3reference
-local localPickup ---@type boolean?
-local discountPerc = 0.1
-local freeShipping = false
-local flatRate = 60
-
----@param e furnitureCatalogue.MenuActivator.RegisteredEvent
-local function getCurrentActivator(e)
-	currentActivator = e.activator
-	localPickup = not common.isCatalogue(e.activator)
-end
-event.register("FurnitureCatalogue", getCurrentActivator)
 
 local GUI_ID = {
 	MenuDialog = tes3ui.registerID("MenuDialog"),
@@ -241,54 +183,20 @@ local function onMenuDialogActivated(e)
 end
 event.register("uiActivated", onMenuDialogActivated, { filter = "MenuDialog", priority = -100 })
 
----@param furnId string
-local function placeOrder(furnId, price)
-	if not furnId then
-		return
-	end
-	tes3.messageBox("Thank you. Your order has been received.")
-	tes3.player.data.furnitureCatalogue.order = tes3.player.data.furnitureCatalogue.order or {}
-	local number = #tes3.player.data.furnitureCatalogue.order + 1
-	local day = tes3.findGlobal("Day").value
-	local month = tes3.findGMST(table.find(tes3.gmst, tes3.findGlobal("Month").value)).value
-	local daysPassed = tes3.findGlobal("DaysPassed").value
-	local date = string.format("%s %s (Day %s)", day, month, daysPassed)
-	local quantity = 1
-	local discount = discountPerc * price * quantity
-	local shippingCost = freeShipping and 0 or flatRate
-	local total = price - discount + shippingCost
-	local cell = nil
-	if tes3.player.cell.isInterior then
-		cell = tes3.player.cell.id
-	end
-	local position = tes3.player.position
-	local orientation = tes3.player.orientation
-	local shippingAddress = {
-		name = tes3.player.cell.editorName,
-		cell = cell,
-		position = { x = position.x, y = position.y, z = position.z },
-		orientation = { x = orientation.x, y = orientation.y, z = orientation.z },
-	}
-	---@type furnitureCatalogue.order
-	tes3.player.data.furnitureCatalogue.order[number] = {
-		activator = currentActivator.id,
-		dayPassed = daysPassed,
-		date = date,
-		status = "Processing",
-		product = { id = furnId, quantity = quantity, price = price, size = "Venti" },
-		discount = discount,
-		shippingCost = shippingCost,
-		total = total,
-		localPickup = localPickup,
-		shippingAddress = shippingAddress,
-	}
-	log:debug(
-	"order[%s] = { activator = %s, days passed = %s, date = %s, status = Processing, product = { id = %s, quantity = 1, price = %s }, discount = %s, shipping cost = %s, total = %s, local pickup = %s, shipping address = %s }",
-	number, currentActivator.id, daysPassed, date, furnId, price, discount, shippingCost, total, localPickup,
-	shippingAddress.name)
+---@param furn furnitureCatalogue.furniture
+local function purchase(furn)
+	local crate = furnConfig.deliveryCrate[furn.size]
+	tes3.addItem({ reference = tes3.player, item = crate })
+	local itemData
+	itemData = tes3.addItemData({ to = tes3.player, item = crate })
+	itemData.data.furnitureCatalogue = { furniture = { id = furn.id, name = furn.name } }
+	tes3.messageBox("%s has been added to your inventory.", furn.name)
 end
 
+---@param recipes CraftingFramework.Recipe.data[]
+---@param furniture furnitureCatalogue.furniture
 local function addRecipe(recipes, furniture)
+	log:debug("Adding recipe: %s", furniture.id)
 	local furnitureObj = tes3.getObject(furniture.id)
 	if not furnitureObj then
 		return
@@ -305,21 +213,22 @@ local function addRecipe(recipes, furniture)
 	---@type CraftingFramework.Recipe
 	local recipe = {
 		id = "FurnitureCatalogue:" .. furniture.id,
-		craftableId = furniture.id,
+		craftableId = furnConfig.deliveryCrate[furniture.size],
+		placedObject = furniture.id,
 		description = furniture.description,
-		noResult = not config.devInstantDelivery,
+		-- noResult = not config.devInstantDelivery,
 		materials = { { material = "gold_001", count = furniture.cost } },
 		customRequirements = { this.customRequirements.inStock(furniture) },
 		category = furniture.category,
 		name = furniture.name,
 		additionalMenuOptions = bedrollButtons,
 		soundId = "jsmk_fc_spendMoney01",
-		---@param self CraftingFramework.Craftable
+		--[[---@param self CraftingFramework.Craftable
 		---@param e CraftingFramework.Craftable.craftCallback.params
 		craftCallback = function(self, e)
 			log:debug("craftCallback(%s)", furniture.id)
-			placeOrder(furniture.id, furniture.cost)
-		end,
+			purchase(furniture)
+		end,]]
 		previewMesh = furnitureObj.mesh,
 	}
 	table.insert(recipes, recipe)
@@ -341,7 +250,7 @@ do
 		defaultSort = "name",
 		defaultFilter = "canCraft",
 		defaultShowCategories = true,
-		craftButtonText = "Place Order",
+		craftButtonText = "Purchase",
 		materialsHeaderText = "Cost",
 	})
 end

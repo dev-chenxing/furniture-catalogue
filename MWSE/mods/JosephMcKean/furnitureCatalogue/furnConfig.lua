@@ -2,167 +2,205 @@ local this = {}
 
 this.catalogue = { ["jsmk_fc_catalogue_01"] = true, ["jsmk_fc_catalogue_02"] = true }
 this.deliveryCrate = {
-	["Tall"] = "jsmk_fc_crate01",
-	["Grande"] = "jsmk_fc_crate02",
-	["Venti"] = "jsmk_fc_crate03",
+	["Short"] = "jsmk_fc_crate01",
+	["Tall"] = "jsmk_fc_crate02",
+	["Grande"] = "jsmk_fc_crate03",
+	["Venti"] = "jsmk_fc_crate04",
 }
 
 this.stockAmount = 50
+
+---@class furnitureCatalogue.furniture
+---@field id string The id of the furniture
+---@field name string The name of the furniture
+---@field description string?
+---@field category string
+---@field cost number
+---@field size string
+---@field alwaysInStock boolean?
+
+---@type furnitureCatalogue.furniture[]
 this.furniture = {
 	-- Oldwood pack
-	{ id = "dr_asrt_p_f_bookcase_01", name = "Bookcase", category = "Shelves", cost = 28, tier = 0 }, -- DR
-	{ id = "furn_de_p_bench_03", name = "Cheap Bench", category = "Seats", cost = 14, tier = 0 }, -- MW
-	{ id = "furn_de_p_bookshelf_01", name = "Bookshelf", category = "Shelves", cost = 28, tier = 0, alwaysInStock = true }, -- MW
-	{ id = "furn_de_p_shelf_02", name = "Shelf", category = "Shelves", cost = 5, tier = 0 }, -- MW
-	{ id = "furn_de_p_table_01", name = "Round Table", category = "Tables", cost = 75, tier = 0 }, -- MW
-	{ id = "furn_de_p_table_02", name = "Small Telvanni Table", category = "Tables", cost = 50, tier = 0 }, -- MW
-	{ id = "furn_de_p_table_04", name = "Large Table", category = "Tables", cost = 80, tier = 0 }, -- MW
-	{ id = "furn_de_p_table_05", name = "End Table", category = "Tables", cost = 15, tier = 0 }, -- MW
-	{ id = "furn_de_rm_winerack", name = "Winerack", category = "Shelves", cost = 120, tier = 0 }, -- MW
-	{ id = "light_de_lantern_05_128", name = "Paper Lantern, Orange", category = "Lights", cost = 10, tier = 0 }, -- MW
-	{ id = "mwg_vivec_market_05", name = "Market Stand", category = "Shelves", cost = 28, tier = 0 }, -- MwG
-	{ id = "de_p_desk_01", name = "Desk", category = "Containers", cost = 140, tier = 0 }, -- MW
-	{ id = "de_drawers_02", name = "Chest of Drawers", category = "Containers", cost = 90, tier = 0 }, -- MW
-	{ id = "ab_o_deplntable01", name = "End Table", category = "Containers", cost = 85, tier = 0 }, -- OAAB
-	{ id = "ab_furn_deplnscrollrack1", name = "Scroll Rack", category = "Shelves", cost = 175, tier = 0 }, -- OAAB
-	{ id = "ab_furn_deplnscrollrack2", name = "Scroll Rack", category = "Shelves", cost = 175, tier = 0 }, -- OAAB
+	{ id = "dr_asrt_p_f_bookcase_01", name = "Bookcase", category = "Shelves", cost = 28, size = "Short" }, -- DR
+	{ id = "furn_de_p_bench_03", name = "Cheap Bench", category = "Seats", cost = 14, size = "Short" }, -- MW
+	{
+		id = "furn_de_p_bookshelf_01",
+		name = "Bookshelf",
+		category = "Shelves",
+		cost = 28,
+		size = "Short",
+		alwaysInStock = true,
+	}, -- MW
+	{ id = "furn_de_p_shelf_02", name = "Shelf", category = "Shelves", cost = 5, size = "Short" }, -- MW
+	{ id = "furn_de_p_table_01", name = "Round Table", category = "Tables", cost = 75, size = "Short" }, -- MW
+	{ id = "furn_de_p_table_02", name = "Small Telvanni Table", category = "Tables", cost = 50, size = "Short" }, -- MW
+	{ id = "furn_de_p_table_04", name = "Large Table", category = "Tables", cost = 80, size = "Short" }, -- MW
+	{ id = "furn_de_p_table_05", name = "End Table", category = "Tables", cost = 15, size = "Short" }, -- MW
+	{ id = "furn_de_rm_winerack", name = "Winerack", category = "Shelves", cost = 120, size = "Short" }, -- MW
+	{ id = "light_de_lantern_05_128", name = "Paper Lantern, Orange", category = "Lights", cost = 10, size = "Short" }, -- MW
+	{ id = "mwg_vivec_market_05", name = "Market Stand", category = "Shelves", cost = 28, size = "Short" }, -- MwG
+	{ id = "de_p_desk_01", name = "Desk", category = "Containers", cost = 140, size = "Short" }, -- MW
+	{ id = "de_drawers_02", name = "Chest of Drawers", category = "Containers", cost = 90, size = "Short" }, -- MW
+	{ id = "ab_o_deplntable01", name = "End Table", category = "Containers", cost = 85, size = "Short" }, -- OAAB
+	{ id = "ab_furn_deplnscrollrack1", name = "Scroll Rack", category = "Shelves", cost = 175, size = "Short" }, -- OAAB
+	{ id = "ab_furn_deplnscrollrack2", name = "Scroll Rack", category = "Shelves", cost = 175, size = "Short" }, -- OAAB
 
 	-- Metal Iron Rusty pack
-	{ id = "light_com_candle_01_64", name = "Iron Candlestick, White", category = "Lights", cost = 3, tier = 0 }, -- MW
-	{ id = "light_com_lamp_02_128", name = "Lamp", category = "Lights", cost = 30, tier = 0 }, -- MW
-	{ id = "light_de_lantern_07", name = "Paper Lantern, Blue", category = "Lights", cost = 10, tier = 0 }, -- MW
+	{ id = "light_com_candle_01_64", name = "Iron Candlestick, White", category = "Lights", cost = 3, size = "Short" }, -- MW
+	{ id = "light_com_lamp_02_128", name = "Lamp", category = "Lights", cost = 30, size = "Short" }, -- MW
+	{ id = "light_de_lantern_07", name = "Paper Lantern, Blue", category = "Lights", cost = 10, size = "Short" }, -- MW
 
 	-- Khaki Wood pack
-	{ id = "active_com_bed_03", name = "Single Bed, Brown", category = "Beds", cost = 60, tier = 0 }, -- MW
-	{ id = "furn_com_p_bench_01", name = "Bench", category = "Seats", cost = 60, tier = 0 }, -- MW
-	{ id = "active_com_bunk_02", name = "Bunk Bed, Grey", category = "Beds", cost = 60, tier = 0 }, -- MW
-	{ id = "furn_com_p_shelf_03", name = "Shelf", category = "Shelves", cost = 60, tier = 0 }, -- MW
-	{ id = "furn_com_p_table_01", name = "Table", category = "Tables", cost = 60, tier = 0 }, -- MW
-	{ id = "light_com_chandelier_01", name = "Wooden Chandelier", category = "Lights", cost = 60, tier = 0 }, -- MW
-	{ id = "t_imp_furnp_rack_02", name = "Rack", category = "Shelves", cost = 60, tier = 0 }, -- PC
-	{ id = "t_imp_furnp_wallscreen_01", name = "Wallscreen", category = "Other", cost = 60, tier = 0 }, -- PC
-	{ id = "t_cyrimp_furnp_st1empty", name = "Side Table", category = "Containers", cost = 60, tier = 0 }, -- PC
-	{ id = "t_com_furn_ladder_01", name = "Ladder", category = "Other", cost = 60, tier = 0 }, -- TR
+	{ id = "active_com_bed_03", name = "Single Bed, Brown", category = "Beds", cost = 60, size = "Short" }, -- MW
+	{ id = "furn_com_p_bench_01", name = "Bench", category = "Seats", cost = 60, size = "Short" }, -- MW
+	{ id = "active_com_bunk_02", name = "Bunk Bed, Grey", category = "Beds", cost = 60, size = "Short" }, -- MW
+	{ id = "furn_com_p_shelf_03", name = "Shelf", category = "Shelves", cost = 60, size = "Short" }, -- MW
+	{ id = "furn_com_p_table_01", name = "Table", category = "Tables", cost = 60, size = "Short" }, -- MW
+	{ id = "light_com_chandelier_01", name = "Wooden Chandelier", category = "Lights", cost = 60, size = "Short" }, -- MW
+	{ id = "t_imp_furnp_rack_02", name = "Rack", category = "Shelves", cost = 60, size = "Short" }, -- PC
+	{ id = "t_imp_furnp_wallscreen_01", name = "Wallscreen", category = "Other", cost = 60, size = "Short" }, -- PC
+	{ id = "t_cyrimp_furnp_st1empty", name = "Side Table", category = "Containers", cost = 60, size = "Short" }, -- PC
+	{ id = "t_com_furn_ladder_01", name = "Ladder", category = "Other", cost = 60, size = "Short" }, -- TR
 
 	-- Canvas Wrap pack
-	{ id = "furn_com_pm_chair_02", name = "Chair", category = "Seats", cost = 60, tier = 0 }, -- MW
-	{ id = "furn_de_cushion_round_03", name = "Cushion", category = "Seats", cost = 10, tier = 0 }, -- MW
-	{ id = "furn_de_practice_mat", name = "Practice Mat", category = "Rugs", cost = 10, tier = 0 }, -- MW
+	{ id = "furn_com_pm_chair_02", name = "Chair", category = "Seats", cost = 60, size = "Short" }, -- MW
+	{ id = "furn_de_cushion_round_03", name = "Cushion", category = "Seats", cost = 10, size = "Short" }, -- MW
+	{ id = "furn_de_practice_mat", name = "Practice Mat", category = "Rugs", cost = 10, size = "Short" }, -- MW
 
 	-- Skyrim Wood Furniture 01 pack
-	{ id = "t_nor_furnp_bench_01", name = "Bench", category = "Seats", cost = 100, tier = 1 }, -- SKY
-	{ id = "t_nor_furnp_bookshelf_01", name = "Bookshelf", category = "Shelves", cost = 100, tier = 1 }, -- SKY
-	{ id = "t_nor_furnp_chair_01", name = "Chair", category = "Seats", cost = 100, tier = 1 }, -- SKY
-	{ id = "t_nor_furnp_bar_01", name = "Counter", category = "Shelves", cost = 100, tier = 1 }, -- SKY
-	{ id = "t_nor_furnp_shelf_01", name = "Bookshelf", category = "Shelves", cost = 100, tier = 1 }, -- SKY
-	{ id = "t_nor_furnp_shelf_04", name = "Bookshelf", category = "Shelves", cost = 100, tier = 1 }, -- SKY
-	{ id = "t_nor_furnp_stool_01", name = "Stool", category = "Seats", cost = 100, tier = 1 }, -- SKY
-	{ id = "t_nor_furnp_table_02", name = "Round Table", category = "Tables", cost = 100, tier = 1 }, -- SKY
-	{ id = "t_skynor_furnp_cb1empty", name = "Cupboard", category = "Containers", cost = 100, tier = 1 }, -- SKY
-	{ id = "t_skynor_furnp_cl1empty", name = "Closet", category = "Containers", cost = 100, tier = 1 }, -- SKY
-	{ id = "t_skynor_furnp_dw1empty", name = "Drawers", category = "Containers", cost = 100, tier = 1 }, -- SKY
-	{ id = "t_skynor_furnp_ds1empty", name = "Desk", category = "Containers", cost = 100, tier = 1 }, -- SKY
+	{ id = "t_nor_furnp_bench_01", name = "Bench", category = "Seats", cost = 100, size = "Tall" }, -- SKY
+	{ id = "t_nor_furnp_bookshelf_01", name = "Bookshelf", category = "Shelves", cost = 100, size = "Tall" }, -- SKY
+	{ id = "t_nor_furnp_chair_01", name = "Chair", category = "Seats", cost = 100, size = "Tall" }, -- SKY
+	{ id = "t_nor_furnp_bar_01", name = "Counter", category = "Shelves", cost = 100, size = "Tall" }, -- SKY
+	{ id = "t_nor_furnp_shelf_01", name = "Bookshelf", category = "Shelves", cost = 100, size = "Tall" }, -- SKY
+	{ id = "t_nor_furnp_shelf_04", name = "Bookshelf", category = "Shelves", cost = 100, size = "Tall" }, -- SKY
+	{ id = "t_nor_furnp_stool_01", name = "Stool", category = "Seats", cost = 100, size = "Tall" }, -- SKY
+	{ id = "t_nor_furnp_table_02", name = "Round Table", category = "Tables", cost = 100, size = "Tall" }, -- SKY
+	{ id = "t_skynor_furnp_cb1empty", name = "Cupboard", category = "Containers", cost = 100, size = "Tall" }, -- SKY
+	{ id = "t_skynor_furnp_cl1empty", name = "Closet", category = "Containers", cost = 100, size = "Tall" }, -- SKY
+	{ id = "t_skynor_furnp_dw1empty", name = "Drawers", category = "Containers", cost = 100, size = "Tall" }, -- SKY
+	{ id = "t_skynor_furnp_ds1empty", name = "Desk", category = "Containers", cost = 100, size = "Tall" }, -- SKY
 
 	-- Wood Brown pack
-	{ id = "furn_com_rm_shelf_02", name = "Shelf", category = "Shelves", cost = 10, tier = 1 }, -- MW
-	{ id = "com_chest_11_empty", name = "Chest", category = "Containers", cost = 25, tier = 1 }, -- MW
-	{ id = "crate_01_empty", name = "Crate", category = "Containers", cost = 10, tier = 1 }, -- MW
-	{ id = "furn_com_rm_bookshelf_02", name = "Bookshelf", category = "Shelves", cost = 80, tier = 1 }, -- MW
-	{ id = "furn_com_rm_table_03", name = "Round Table", category = "Tables", cost = 50, tier = 1 }, -- MW
-	{ id = "furn_com_rm_table_04", name = "Table", category = "Tables", cost = 50, tier = 1 }, -- MW
-	{ id = "furn_com_rm_table_05", name = "Small Table", category = "Tables", cost = 40, tier = 1, alwaysInStock = true }, -- MW
-	{ id = "barrel_01_empty", name = "Barrel", category = "Containers", cost = 30, tier = 1 }, -- MW
-	{ id = "t_imp_furnm_bookshelf_04", name = "Bookshelf", category = "Shelves", cost = 60, tier = 1 }, -- PC
+	{ id = "furn_com_rm_shelf_02", name = "Shelf", category = "Shelves", cost = 10, size = "Tall" }, -- MW
+	{ id = "com_chest_11_empty", name = "Chest", category = "Containers", cost = 25, size = "Tall" }, -- MW
+	{ id = "crate_01_empty", name = "Crate", category = "Containers", cost = 10, size = "Tall" }, -- MW
+	{ id = "furn_com_rm_bookshelf_02", name = "Bookshelf", category = "Shelves", cost = 80, size = "Tall" }, -- MW
+	{ id = "furn_com_rm_table_03", name = "Round Table", category = "Tables", cost = 50, size = "Tall" }, -- MW
+	{ id = "furn_com_rm_table_04", name = "Table", category = "Tables", cost = 50, size = "Tall" }, -- MW
+	{
+		id = "furn_com_rm_table_05",
+		name = "Small Table",
+		category = "Tables",
+		cost = 40,
+		size = "Tall",
+		alwaysInStock = true,
+	}, -- MW
+	{ id = "barrel_01_empty", name = "Barrel", category = "Containers", cost = 30, size = "Tall" }, -- MW
+	{ id = "t_imp_furnm_bookshelf_04", name = "Bookshelf", category = "Shelves", cost = 60, size = "Tall" }, -- PC
 
 	-- Wood Wethered pack
-	{ id = "furn_de_ex_bench_01", name = "Bench", category = "Seats", cost = 35, tier = 1 }, -- MW
-	{ id = "furn_de_ex_stool_02", name = "Stool", category = "Seats", cost = 35, tier = 1 }, -- MW
-	{ id = "furn_de_ex_table_02", name = "Small Cheap Table", category = "Tables", cost = 35, tier = 1 }, -- MW
-	{ id = "furn_de_ex_table_03", name = "Large Cheap Table", category = "Tables", cost = 35, tier = 1 }, -- MW
-	{ id = "light_torch_01", name = "Torch", category = "Lights", cost = 35, tier = 1 }, -- MW
-	{ id = "de_p_chest_02", name = "Chest", category = "Containers", cost = 25, tier = 1 }, -- MW
-	{ id = "ab_furn_deexdisplay01", name = "Display Shelf", category = "Shelves", cost = 50, tier = 1 }, -- OAAB
-	{ id = "ab_furn_deexdisplay02", name = "Display Shelf", category = "Shelves", cost = 100, tier = 1 }, -- OAAB
-	{ id = "ab_o_boxflour", name = "Box of Flour", category = "Containers", cost = 100, tier = 1 }, -- OAAB
+	{ id = "furn_de_ex_bench_01", name = "Bench", category = "Seats", cost = 35, size = "Tall" }, -- MW
+	{ id = "furn_de_ex_stool_02", name = "Stool", category = "Seats", cost = 35, size = "Tall" }, -- MW
+	{ id = "furn_de_ex_table_02", name = "Small Cheap Table", category = "Tables", cost = 35, size = "Tall" }, -- MW
+	{ id = "furn_de_ex_table_03", name = "Large Cheap Table", category = "Tables", cost = 35, size = "Tall" }, -- MW
+	{ id = "light_torch_01", name = "Torch", category = "Lights", cost = 35, size = "Tall" }, -- MW
+	{ id = "de_p_chest_02", name = "Chest", category = "Containers", cost = 25, size = "Tall" }, -- MW
+	{ id = "ab_furn_deexdisplay01", name = "Display Shelf", category = "Shelves", cost = 50, size = "Tall" }, -- OAAB
+	{ id = "ab_furn_deexdisplay02", name = "Display Shelf", category = "Shelves", cost = 100, size = "Tall" }, -- OAAB
+	{ id = "ab_o_boxflour", name = "Box of Flour", category = "Containers", cost = 100, size = "Tall" }, -- OAAB
 
 	-- Rug pack
-	{ id = "furn_de_rug_01", name = "Small Rectangular Rug", category = "Rugs", cost = 60, tier = 1 }, -- MW
-	{ id = "furn_de_rug_02", name = "Small Rectangular Rug", category = "Rugs", cost = 60, tier = 1 }, -- MW
-	{ id = "furn_de_rug_big_01", name = "Large Oval Rug", category = "Rugs", cost = 120, tier = 1 }, -- MW
-	{ id = "furn_de_rug_big_02", name = "Large Oval Rug", category = "Rugs", cost = 120, tier = 1 }, -- MW
-	{ id = "furn_de_rug_big_03", name = "Large Oval Rug", category = "Rugs", cost = 120, tier = 1 }, -- MW
-	{ id = "furn_de_rug_big_05", name = "Large Rectangular Rug", category = "Rugs", cost = 120, tier = 1 }, -- MW
-	{ id = "furn_de_rug_big_06", name = "Large Rectangular Rug", category = "Rugs", cost = 120, tier = 1 }, -- MW
-	{ id = "furn_de_rug_big_07", name = "Large Rectangular Rug", category = "Rugs", cost = 120, tier = 1 }, -- MW
-	{ id = "furn_de_rug_big_08", name = "Large Oval Rug", category = "Rugs", cost = 120, tier = 1 }, -- MW
-	{ id = "furn_de_rug_big_09", name = "Large Rectangular Rug", category = "Rugs", cost = 120, tier = 1 }, -- MW
+	{ id = "furn_de_rug_01", name = "Small Rectangular Rug", category = "Rugs", cost = 60, size = "Tall" }, -- MW
+	{ id = "furn_de_rug_02", name = "Small Rectangular Rug", category = "Rugs", cost = 60, size = "Tall" }, -- MW
+	{ id = "furn_de_rug_big_01", name = "Large Oval Rug", category = "Rugs", cost = 120, size = "Tall" }, -- MW
+	{ id = "furn_de_rug_big_02", name = "Large Oval Rug", category = "Rugs", cost = 120, size = "Tall" }, -- MW
+	{ id = "furn_de_rug_big_03", name = "Large Oval Rug", category = "Rugs", cost = 120, size = "Tall" }, -- MW
+	{ id = "furn_de_rug_big_05", name = "Large Rectangular Rug", category = "Rugs", cost = 120, size = "Tall" }, -- MW
+	{ id = "furn_de_rug_big_06", name = "Large Rectangular Rug", category = "Rugs", cost = 120, size = "Tall" }, -- MW
+	{ id = "furn_de_rug_big_07", name = "Large Rectangular Rug", category = "Rugs", cost = 120, size = "Tall" }, -- MW
+	{ id = "furn_de_rug_big_08", name = "Large Oval Rug", category = "Rugs", cost = 120, size = "Tall" }, -- MW
+	{ id = "furn_de_rug_big_09", name = "Large Rectangular Rug", category = "Rugs", cost = 120, size = "Tall" }, -- MW
 
 	-- Cushion pack: All Cushion needs to be named exactly "Cushion"
-	{ id = "furn_de_cushion_round_01", name = "Cushion", category = "Seats", cost = 10, tier = 2 }, -- MW
-	{ id = "furn_de_cushion_round_02", name = "Cushion", category = "Seats", cost = 10, tier = 2 }, -- MW
-	{ id = "furn_de_cushion_round_04", name = "Cushion", category = "Seats", cost = 10, tier = 2 }, -- MW
-	{ id = "furn_de_cushion_square_01", name = "Cushion", category = "Seats", cost = 10, tier = 2 }, -- MW
-	{ id = "furn_de_cushion_square_02", name = "Cushion", category = "Seats", cost = 10, tier = 2 }, -- MW
+	{ id = "furn_de_cushion_round_01", name = "Cushion", category = "Seats", cost = 10, size = "Grande" }, -- MW
+	{ id = "furn_de_cushion_round_02", name = "Cushion", category = "Seats", cost = 10, size = "Grande" }, -- MW
+	{ id = "furn_de_cushion_round_04", name = "Cushion", category = "Seats", cost = 10, size = "Grande" }, -- MW
+	{ id = "furn_de_cushion_square_01", name = "Cushion", category = "Seats", cost = 10, size = "Grande" }, -- MW
+	{ id = "furn_de_cushion_square_02", name = "Cushion", category = "Seats", cost = 10, size = "Grande" }, -- MW
 
 	-- TR Wood Dunmer rm 
-	{ id = "ab_furn_demidbench", name = "Bench", category = "Seats", cost = 110, tier = 2 }, -- OAAB
-	{ id = "ab_furn_demidscrollrack", name = "Scroll Rack", category = "Shelves", cost = 175, tier = 2 }, -- OAAB
-	{ id = "ab_furn_demidshelf", name = "Shelf", category = "Shelves", cost = 25, tier = 2 }, -- OAAB
-	{ id = "ab_furn_demidtable01", name = "Large Table", category = "Tables", cost = 85, tier = 2 }, -- OAAB
-	{ id = "t_de_furnm_bed_b_01", name = "Bunk Bed, Green", category = "Beds", cost = 85, tier = 2 }, -- TR
-	{ id = "t_de_furnm_bed_d_02", name = "Double Bed, Brown", category = "Beds", cost = 85, tier = 2 }, -- TR
-	{ id = "t_de_furnm_bed_s_03", name = "Single Bed, Olive", category = "Beds", cost = 85, tier = 2 }, -- TR
-	{ id = "t_de_furnm_bookshelf_01", name = "Bookshelf", category = "Shelves", cost = 85, tier = 2 }, -- TR
-	{ id = "t_de_furnm_chair_01", name = "Chair", category = "Seats", cost = 85, tier = 2 }, -- TR
-	{ id = "t_de_furnm_bench_01", name = "Bench", category = "Seats", cost = 110, tier = 2 }, -- TR
-	{ id = "t_de_furnm_table_01", name = "Table", category = "Tables", cost = 110, tier = 2 }, -- TR
-	{ id = "t_de_furnm_table_03", name = "Table", category = "Tables", cost = 110, tier = 2 }, -- TR
+	{ id = "ab_furn_demidbench", name = "Bench", category = "Seats", cost = 110, size = "Grande" }, -- OAAB
+	{ id = "ab_furn_demidscrollrack", name = "Scroll Rack", category = "Shelves", cost = 175, size = "Grande" }, -- OAAB
+	{ id = "ab_furn_demidshelf", name = "Shelf", category = "Shelves", cost = 25, size = "Grande" }, -- OAAB
+	{ id = "ab_furn_demidtable01", name = "Large Table", category = "Tables", cost = 85, size = "Grande" }, -- OAAB
+	{ id = "t_de_furnm_bed_b_01", name = "Bunk Bed, Green", category = "Beds", cost = 85, size = "Grande" }, -- TR
+	{ id = "t_de_furnm_bed_d_02", name = "Double Bed, Brown", category = "Beds", cost = 85, size = "Grande" }, -- TR
+	{ id = "t_de_furnm_bed_s_03", name = "Single Bed, Olive", category = "Beds", cost = 85, size = "Grande" }, -- TR
+	{ id = "t_de_furnm_bookshelf_01", name = "Bookshelf", category = "Shelves", cost = 85, size = "Grande" }, -- TR
+	{ id = "t_de_furnm_chair_01", name = "Chair", category = "Seats", cost = 85, size = "Grande" }, -- TR
+	{ id = "t_de_furnm_bench_01", name = "Bench", category = "Seats", cost = 110, size = "Grande" }, -- TR
+	{ id = "t_de_furnm_table_01", name = "Table", category = "Tables", cost = 110, size = "Grande" }, -- TR
+	{ id = "t_de_furnm_table_03", name = "Table", category = "Tables", cost = 110, size = "Grande" }, -- TR
 
 	-- Skyrim Wood pack
-	{ id = "t_nor_furnm_bar_04", name = "Bar", category = "Tables", cost = 100, tier = 2 }, -- SKY
-	{ id = "t_imp_furnsky_bench_01a", name = "Bench", category = "Seats", cost = 100, tier = 2 }, -- SKY
-	{ id = "t_nor_furnm_bookshelf_01", name = "Bookshelf", category = "Shelves", cost = 100, tier = 2 }, -- SKY
-	{ id = "t_nor_furnm_chair_01", name = "Chair", category = "Seats", cost = 100, tier = 2 }, -- SKY
-	{ id = "t_nor_furnm_table_01", name = "Table", category = "Tables", cost = 100, tier = 2 }, -- SKY
-	{ id = "t_imp_furnsky_table_01", name = "Table", category = "Tables", cost = 100, tier = 2 }, -- SKY
-	{ id = "t_imp_furnsky_table_03", name = "Table", category = "Tables", cost = 100, tier = 2 }, -- SKY
-	{ id = "t_skycom_var_cr6empty", name = "Crate", category = "Containers", cost = 100, tier = 2 }, -- SKY
-	{ id = "t_skynor_furnm_cb1empty", name = "Cupboard", category = "Containers", cost = 100, tier = 2 }, -- SKY
-	{ id = "t_skynor_furnm_cl1empty", name = "Closet", category = "Containers", cost = 100, tier = 2 }, -- SKY
+	{ id = "t_nor_furnm_bar_04", name = "Bar", category = "Tables", cost = 100, size = "Grande" }, -- SKY
+	{ id = "t_imp_furnsky_bench_01a", name = "Bench", category = "Seats", cost = 100, size = "Grande" }, -- SKY
+	{ id = "t_nor_furnm_bookshelf_01", name = "Bookshelf", category = "Shelves", cost = 100, size = "Grande" }, -- SKY
+	{ id = "t_nor_furnm_chair_01", name = "Chair", category = "Seats", cost = 100, size = "Grande" }, -- SKY
+	{ id = "t_nor_furnm_table_01", name = "Table", category = "Tables", cost = 100, size = "Grande" }, -- SKY
+	{ id = "t_imp_furnsky_table_01", name = "Table", category = "Tables", cost = 100, size = "Grande" }, -- SKY
+	{ id = "t_imp_furnsky_table_03", name = "Table", category = "Tables", cost = 100, size = "Grande" }, -- SKY
+	{ id = "t_skycom_var_cr6empty", name = "Crate", category = "Containers", cost = 100, size = "Grande" }, -- SKY
+	{ id = "t_skynor_furnm_cb1empty", name = "Cupboard", category = "Containers", cost = 100, size = "Grande" }, -- SKY
+	{ id = "t_skynor_furnm_cl1empty", name = "Closet", category = "Containers", cost = 100, size = "Grande" }, -- SKY
 
 	-- Metal Silver pack
-	{ id = "light_com_candle_14", name = "Silver Candlestick, Blue", category = "Lights", cost = 12, tier = 3 }, -- MW
-	{ id = "light_com_candle_15", name = "Silver Candlestick, Red", category = "Lights", cost = 12, tier = 3 }, -- MW
-	{ id = "light_com_candle_16", name = "Silver Candlestick, Blue", category = "Lights", cost = 12, tier = 3 }, -- MW
-	{ id = "ab_light_comsconsilvblu_128", name = "Silver Sconce, Blue Candles", category = "Lights", cost = 12, tier = 3 }, -- OAAB
-	{ id = "ab_light_comsconsilvwht_128", name = "Silver Sconce, White Candles", category = "Lights", cost = 12, tier = 3 }, -- OAAB
-	{ id = "t_imp_furn_incense_02_16", name = "Silver Incense", category = "Lights", cost = 12, tier = 3 }, -- PC
+	{ id = "light_com_candle_14", name = "Silver Candlestick, Blue", category = "Lights", cost = 12, size = "Venti" }, -- MW
+	{ id = "light_com_candle_15", name = "Silver Candlestick, Red", category = "Lights", cost = 12, size = "Venti" }, -- MW
+	{ id = "light_com_candle_16", name = "Silver Candlestick, Blue", category = "Lights", cost = 12, size = "Venti" }, -- MW
+	{
+		id = "ab_light_comsconsilvblu_128",
+		name = "Silver Sconce, Blue Candles",
+		category = "Lights",
+		cost = 12,
+		size = "Venti",
+	}, -- OAAB
+	{
+		id = "ab_light_comsconsilvwht_128",
+		name = "Silver Sconce, White Candles",
+		category = "Lights",
+		cost = 12,
+		size = "Venti",
+	}, -- OAAB
+	{ id = "t_imp_furn_incense_02_16", name = "Silver Incense", category = "Lights", cost = 12, size = "Venti" }, -- PC
 
 	-- Swirlwood pack
-	{ id = "active_de_r_bed_01", name = "Single Bed, Aqua", category = "Beds", cost = 55, tier = 3 }, -- MW
-	{ id = "furn_de_r_bench_01", name = "Bench", category = "Seats", cost = 55, tier = 3 }, -- MW
-	{ id = "furn_de_r_bookshelf_02", name = "Bookshelf", category = "Shelves", cost = 120, tier = 3 }, -- MW
-	{ id = "furn_de_r_table_03", name = "Oval Table", category = "Tables", cost = 120, tier = 3 }, -- MW
-	{ id = "furn_de_r_table_07", name = "Large Table", category = "Tables", cost = 140, tier = 3 }, -- MW
-	{ id = "furn_de_r_table_09", name = "Table", category = "Tables", cost = 75, tier = 3 }, -- MW
-	{ id = "de_r_drawers_01_empty", name = "Dresser", category = "Containers", cost = 180, tier = 3 }, -- MW
-	{ id = "ab_furn_derchbookshelftall", name = "Bookshelf", category = "Shelves", cost = 240, tier = 3 }, -- OAAB
-	{ id = "t_de_furnr_bookstand_01", name = "Bookstand", category = "Other", cost = 240, tier = 3 }, -- TR
-	{ id = "t_de_furnr_chair_01", name = "Chair", category = "Seats", cost = 240, tier = 3 }, -- TR
-	{ id = "t_mwde_furnr_ds1empty", name = "Desk", category = "Containers", cost = 180, tier = 3 }, -- TR
+	{ id = "active_de_r_bed_01", name = "Single Bed, Aqua", category = "Beds", cost = 55, size = "Venti" }, -- MW
+	{ id = "furn_de_r_bench_01", name = "Bench", category = "Seats", cost = 55, size = "Venti" }, -- MW
+	{ id = "furn_de_r_bookshelf_02", name = "Bookshelf", category = "Shelves", cost = 120, size = "Venti" }, -- MW
+	{ id = "furn_de_r_table_03", name = "Oval Table", category = "Tables", cost = 120, size = "Venti" }, -- MW
+	{ id = "furn_de_r_table_07", name = "Large Table", category = "Tables", cost = 140, size = "Venti" }, -- MW
+	{ id = "furn_de_r_table_09", name = "Table", category = "Tables", cost = 75, size = "Venti" }, -- MW
+	{ id = "de_r_drawers_01_empty", name = "Dresser", category = "Containers", cost = 180, size = "Venti" }, -- MW
+	{ id = "ab_furn_derchbookshelftall", name = "Bookshelf", category = "Shelves", cost = 240, size = "Venti" }, -- OAAB
+	{ id = "t_de_furnr_bookstand_01", name = "Bookstand", category = "Other", cost = 240, size = "Venti" }, -- TR
+	{ id = "t_de_furnr_chair_01", name = "Chair", category = "Seats", cost = 240, size = "Venti" }, -- TR
+	{ id = "t_mwde_furnr_ds1empty", name = "Desk", category = "Containers", cost = 180, size = "Venti" }, -- TR
 
 	-- Cherry Wood pack
-	{ id = "active_com_bed_01", name = "Single Bed, Blue", category = "Beds", cost = 100, tier = 3 }, -- MW
-	{ id = "furn_com_r_bookshelf_01", name = "Bookshelf", category = "Shelves", cost = 100, tier = 3 }, -- MW
-	{ id = "furn_com_r_chair_01", name = "Chair", category = "Seats", cost = 100, tier = 3 }, -- MW
-	{ id = "furn_com_r_table_01", name = "Table", category = "Tables", cost = 150, tier = 3 }, -- MW
-	{ id = "com_drawers_01", name = "Chest of Drawers", category = "Containers", cost = 110, tier = 3 }, -- MW
-	{ id = "ab_o_comrchfootlckempty", name = "Footlocker", category = "Containers", cost = 110, tier = 3 }, -- OAAB
-	{ id = "ab_o_comrchdesk2empty", name = "Desk", category = "Containers", cost = 110, tier = 3 }, -- OAAB
-	{ id = "t_imp_furnr_shelf_01", name = "Shelf", category = "Shelves", cost = 150, tier = 3 }, -- PC
-	{ id = "t_cyrimp_furnr_display1", name = "Display Case", category = "Containers", cost = 360, tier = 3 }, -- PC
-	{ id = "t_cyrimp_furnr_ht1empty", name = "Hutch", category = "Containers", cost = 360, tier = 3 }, -- PC
-	{ id = "t_cyrimp_furnr_lc1empty", name = "Lecturn", category = "Containers", cost = 360, tier = 3 }, -- PC
+	{ id = "active_com_bed_01", name = "Single Bed, Blue", category = "Beds", cost = 100, size = "Venti" }, -- MW
+	{ id = "furn_com_r_bookshelf_01", name = "Bookshelf", category = "Shelves", cost = 100, size = "Venti" }, -- MW
+	{ id = "furn_com_r_chair_01", name = "Chair", category = "Seats", cost = 100, size = "Venti" }, -- MW
+	{ id = "furn_com_r_table_01", name = "Table", category = "Tables", cost = 150, size = "Venti" }, -- MW
+	{ id = "com_drawers_01", name = "Chest of Drawers", category = "Containers", cost = 110, size = "Venti" }, -- MW
+	{ id = "ab_o_comrchfootlckempty", name = "Footlocker", category = "Containers", cost = 110, size = "Venti" }, -- OAAB
+	{ id = "ab_o_comrchdesk2empty", name = "Desk", category = "Containers", cost = 110, size = "Venti" }, -- OAAB
+	{ id = "t_imp_furnr_shelf_01", name = "Shelf", category = "Shelves", cost = 150, size = "Venti" }, -- PC
+	{ id = "t_cyrimp_furnr_display1", name = "Display Case", category = "Containers", cost = 360, size = "Venti" }, -- PC
+	{ id = "t_cyrimp_furnr_ht1empty", name = "Hutch", category = "Containers", cost = 360, size = "Venti" }, -- PC
+	{ id = "t_cyrimp_furnr_lc1empty", name = "Lecturn", category = "Containers", cost = 360, size = "Venti" }, -- PC
 }
 
 this.displayTables = {
