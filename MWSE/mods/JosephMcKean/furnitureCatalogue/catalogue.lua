@@ -1,4 +1,5 @@
 local ashfall = include("mer.ashfall.interop")
+local MenuActivator = include("CraftingFramework.components.MenuActivator")
 
 local common = require("JosephMcKean.furnitureCatalogue.common")
 local config = require("JosephMcKean.furnitureCatalogue.config")
@@ -115,6 +116,10 @@ this.customRequirements = {
 ---@field status furnitureCatalogue.order.status
 ---@field product furnitureCatalogue.order.product
 ---@field discount number
+---@field shippingCost number
+---@field total number
+---@field localPickup boolean?
+---@field shippingAddress furnitureCatalogue.order.shoppingAddress
 
 ---@alias furnitureCatalogue.order.status
 ---| '"Processing"'
@@ -126,7 +131,29 @@ this.customRequirements = {
 ---@class furnitureCatalogue.order.product
 ---@field id string
 ---@field quantity number?
+---@field size furnitureCatalogue.order.product.size
 ---@field price number
+
+---@alias furnitureCatalogue.order.product.size
+---| '"Tall"' AB_o_ComCrate02
+---| '"Grande"' AB_o_ComCrate01
+---| '"Venti"' AB_o_ComCrate03
+
+---@class furnitureCatalogue.order.shoppingAddress
+---@field name string
+---@field cell string
+---@field position furnitureCatalogue.order.shoppingAddress.position
+---@field orientation furnitureCatalogue.order.shoppingAddress.orientation
+
+---@class furnitureCatalogue.order.shoppingAddress.position
+---@field x number
+---@field y number
+---@field z number
+
+---@class furnitureCatalogue.order.shoppingAddress.orientation
+---@field x number
+---@field y number
+---@field z number
 
 local currentActivator ---@type tes3reference
 local localPickup ---@type boolean?
@@ -141,6 +168,79 @@ local function getCurrentActivator(e)
 end
 event.register("FurnitureCatalogue", getCurrentActivator)
 
+local GUI_ID = {
+	MenuDialog = tes3ui.registerID("MenuDialog"),
+	MenuDialog_TopicList = tes3ui.registerID("MenuDialog_topics_pane"),
+	MenuDialog_Divider = tes3ui.registerID("MenuDialog_divider"),
+	MenuDialog_PurchaseFurniture = tes3ui.registerID("MenuPurchaseFurniture"),
+}
+
+--- Checks if the npc sells furniture
+--- @param ref tes3reference
+--- @return boolean
+local function checkIfFurnitureMerchant(ref)
+	return config.furnitureMerchants[ref.baseObject.id:lower()]
+end
+
+-- To keep the service buttons visible after the menu updates
+local function setServiceButtonVisibilitiesToTrue()
+	local menu = tes3ui.findMenu(GUI_ID.MenuDialog)
+	if not menu then
+		return
+	end
+
+	local serviceButton = menu:findChild(GUI_ID.MenuDialog_PurchaseFurniture)
+	if serviceButton and not serviceButton.visible then
+		if checkIfFurnitureMerchant(tes3ui.getServiceActor().reference) then
+			serviceButton.visible = true
+			log:debug("Purchase Furniture button set to visible")
+		end
+	end
+end
+event.register("infoGetText", setServiceButtonVisibilitiesToTrue)
+event.register("uiEvent", setServiceButtonVisibilitiesToTrue)
+
+--- @param e uiActivatedEventData
+local function onMenuDialogActivated(e)
+	local actor = tes3ui.getServiceActor()
+	local actorRef = actor.reference ---@type tes3reference
+	log:debug("Talking to %s", actorRef.id)
+	local topicsScrollPane = e.element:findChild(GUI_ID.MenuDialog_TopicList)
+	local divider = topicsScrollPane:findChild(GUI_ID.MenuDialog_Divider)
+	local topicsList = divider.parent
+
+	-- Need to update the visibility once after the menu is updated for the
+	-- first time, after that, we update the visibility on each "uiEvent" event.
+	local updatedOnce = false
+	local function updateOnce()
+		if updatedOnce then
+			return
+		end
+		updatedOnce = true
+		setServiceButtonVisibilitiesToTrue()
+	end
+	e.element:registerAfter("update", updateOnce)
+
+	-- Add the service buttons
+	if checkIfFurnitureMerchant(actorRef) then
+		-- Create the new button
+		local button = topicsList:createTextSelect({ id = GUI_ID.MenuDialog_PurchaseFurniture, text = "Purchase Furniture" })
+		log:debug("Purchase Furniture button created")
+
+		-- By default move it above the divider, into the services section
+		topicsList:reorderChildren(divider, button, 1)
+
+		button:register("mouseClick", function()
+			---@type furnitureCatalogue.MenuActivator.RegisteredEvent
+			local eventData = { activator = actorRef }
+			timer.delayOneFrame(function()
+				event.trigger("FurnitureCatalogue", eventData)
+			end, timer.real)
+		end)
+	end
+end
+event.register("uiActivated", onMenuDialogActivated, { filter = "MenuDialog", priority = -100 })
+
 ---@param furnId string
 local function placeOrder(furnId, price)
 	if not furnId then
@@ -151,8 +251,8 @@ local function placeOrder(furnId, price)
 	local number = #tes3.player.data.furnitureCatalogue.order + 1
 	local day = tes3.findGlobal("Day").value
 	local month = tes3.findGMST(table.find(tes3.gmst, tes3.findGlobal("Month").value)).value
-	local dayPassed = tes3.findGlobal("DaysPassed").value
-	local date = string.format("%s %s (Day %s)", day, month, dayPassed)
+	local daysPassed = tes3.findGlobal("DaysPassed").value
+	local date = string.format("%s %s (Day %s)", day, month, daysPassed)
 	local quantity = 1
 	local discount = discountPerc * price * quantity
 	local shippingCost = freeShipping and 0 or flatRate
@@ -172,10 +272,10 @@ local function placeOrder(furnId, price)
 	---@type furnitureCatalogue.order
 	tes3.player.data.furnitureCatalogue.order[number] = {
 		activator = currentActivator.id,
-		dayPassed = dayPassed,
+		dayPassed = daysPassed,
 		date = date,
 		status = "Processing",
-		products = { id = furnId, quantity = quantity, price = price },
+		product = { id = furnId, quantity = quantity, price = price, size = "Venti" },
 		discount = discount,
 		shippingCost = shippingCost,
 		total = total,
@@ -183,8 +283,9 @@ local function placeOrder(furnId, price)
 		shippingAddress = shippingAddress,
 	}
 	log:debug(
-	"order[%s] = { activator = %s, dayPassed = %s, date = %s, status = Processing, product = { id = %s, quantity = 1, price = %s }, discount = %s, shipping cost = %s, total = %s, local pickup = %s, shipping address = %s }",
-	number, currentActivator.id, dayPassed, date, furnId, price, discount, shippingCost, total, localPickup, shippingAddress.name)
+	"order[%s] = { activator = %s, days passed = %s, date = %s, status = Processing, product = { id = %s, quantity = 1, price = %s }, discount = %s, shipping cost = %s, total = %s, local pickup = %s, shipping address = %s }",
+	number, currentActivator.id, daysPassed, date, furnId, price, discount, shippingCost, total, localPickup,
+	shippingAddress.name)
 end
 
 local function addRecipe(recipes, furniture)
@@ -225,6 +326,9 @@ local function addRecipe(recipes, furniture)
 end
 
 do
+	if not MenuActivator then
+		return
+	end
 	local recipes = {}
 	for _, furniture in ipairs(furnConfig.furniture) do
 		addRecipe(recipes, furniture)

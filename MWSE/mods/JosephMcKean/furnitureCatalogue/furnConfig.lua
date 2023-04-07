@@ -1,6 +1,11 @@
 local this = {}
 
 this.catalogue = { ["jsmk_fc_catalogue_01"] = true, ["jsmk_fc_catalogue_02"] = true }
+this.deliveryCrate = {
+	["Tall"] = "jsmk_fc_crate01",
+	["Grande"] = "jsmk_fc_crate02",
+	["Venti"] = "jsmk_fc_crate03",
+}
 
 this.stockAmount = 50
 this.furniture = {

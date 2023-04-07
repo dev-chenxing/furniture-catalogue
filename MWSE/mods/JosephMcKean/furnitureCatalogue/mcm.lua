@@ -5,6 +5,11 @@ local function registerModConfig()
 	local template = mwse.mcm.createTemplate({ name = common.mod })
 	template:saveOnClose(common.mod, config)
 	local settings = template:createSideBarPage({ label = "Settings" })
+	settings:createSlider{
+		label = "Delivery Time",
+		description = "Day(s) to take for the the arrival of the delivery",
+		variable = mwse.mcm.createTableVariable { id = "deliveryTime", table = config },
+	}
 	local devOptions = template:createSideBarPage({ label = "Developer Options" })
 	devOptions:createDropdown({
 		label = "Log Level",

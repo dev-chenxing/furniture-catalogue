@@ -1,16 +1,17 @@
 [package]
 name = "Furniture Catalogue"
-authors = [ "JosephMcKean",]
-version = "0.3"
+authors = ["JosephMcKean"]
+version = "0.4"
 
 [dependencies]
-assets = [ "Furniture Catalogue.esp", "MWSE/mods/JosephMcKean/furnitureCatalogue",]
+assets = [
+    "MWSE/mods/JosephMcKean/furnitureCatalogue",
+    "Sound/jsmk/fc",
+    "Furniture Catalogue.esp",
+]
 
 [dependencies.mwse]
-buildnumber = 3150
-
-[dependencies.mge-xe]
-version = ">=0.15.2"
+buildnumber = 3167
 
 [dependencies.mods."The Crafting Framework"]
 mwse-module = "CraftingFramework"
