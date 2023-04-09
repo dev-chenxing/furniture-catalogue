@@ -1,32 +1,19 @@
 local common = require("JosephMcKean.furnitureCatalogue.common")
 local config = require("JosephMcKean.furnitureCatalogue.config")
 
+local log = common.createLogger("mcm")
+
 local function registerModConfig()
 	local template = mwse.mcm.createTemplate({ name = common.mod })
 	template:saveOnClose(common.mod, config)
 	local settings = template:createSideBarPage({ label = "Settings" })
-	settings:createSlider{
-		label = "Delivery Time",
-		description = "Day(s) to take for the the arrival of the delivery",
-		variable = mwse.mcm.createTableVariable { id = "deliveryTime", table = config },
-	}
-	local devOptions = template:createSideBarPage({ label = "Developer Options" })
-	devOptions:createDropdown({
-		label = "Log Level",
-		description = "Set the logging level for mwse.log. Keep on INFO unless you are debugging.",
-		options = { { label = "DEBUG", value = "DEBUG" }, { label = "INFO", value = "INFO" } },
-		variable = mwse.mcm.createTableVariable { id = "logLevel", table = config },
+	settings:createOnOffButton({
+		label = "Debug mode",
+		variable = mwse.mcm.createTableVariable { id = "debugMode", table = config },
 		callback = function(self)
-			for _, log in ipairs(common.loggers) do
-				log:setLogLevel(self.variable.value)
-			end
+			log:setLogLevel(self.variable.value and "DEBUG" or "INFO")
 		end,
 	})
-	devOptions:createOnOffButton{
-		label = "Instant Delivery",
-		description = "Furniture bought from the Shop Manager get crafted instantly, i.e. noResult flag will be false.",
-		variable = mwse.mcm.createTableVariable { id = "devInstantDelivery", table = config, restartRequired = true },
-	}
 	template:register()
 end
 

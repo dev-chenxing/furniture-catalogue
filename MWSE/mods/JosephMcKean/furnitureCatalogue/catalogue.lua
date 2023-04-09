@@ -1,4 +1,5 @@
 local ashfall = include("mer.ashfall.interop")
+local CraftingFramework = require("CraftingFramework")
 local MenuActivator = include("CraftingFramework.components.MenuActivator")
 
 local common = require("JosephMcKean.furnitureCatalogue.common")
@@ -9,6 +10,8 @@ local this = {}
 
 ---@class furnitureCatalogue.MenuActivator.RegisteredEvent
 ---@field activator tes3reference
+
+local currentActivator ---@type tes3reference
 
 local buttonList = {
 	{
@@ -57,33 +60,63 @@ local function activateCatalogue(e)
 end
 event.register("activate", activateCatalogue, { priority = 581 })
 
-local spendMoneySound = {
-	"jsmk_fc_spendMoney01",
-	"jsmk_fc_spendMoney02",
-	"jsmk_fc_spendMoney03",
-	"jsmk_fc_spendMoney04",
-	"jsmk_fc_spendMoney05",
+CraftingFramework.SoundType.register {
+	id = "spendMoney",
+	soundPaths = {
+		"jsmk\\fc\\spendMoneyCoin1.wav",
+		"jsmk\\fc\\spendMoneyCoin2.wav",
+		"jsmk\\fc\\spendMoneyCoin3.wav",
+		"jsmk\\fc\\spendMoneyCoin4.wav",
+		"jsmk\\fc\\spendMoneyCoinBag1.wav",
+	},
 }
 
----@param e addSoundEventData
-local function moreSpendMoneySound(e)
-	if e.sound.id == "jsmk_fc_spendMoney01" then
-		local soundId = table.choice(spendMoneySound) ---@type string
-		e.sound = tes3.getSound(soundId)
+---@param e furnitureCatalogue.MenuActivator.RegisteredEvent
+local function getActivatorRef(e)
+	log:debug("currentActivator: %s", e.activator)
+	if e.activator.object.objectType == tes3.objectType.npc then
+		currentActivator = e.activator
+	else
+		currentActivator = tes3.player
 	end
 end
-event.register("addSound", moreSpendMoneySound)
+event.register("FurnitureCatalogue", getActivatorRef)
 
-local function getNewStock()
-	tes3.player.data.furnitureCatalogue.todayStock = {}
-	local picked = {}
-	for i = 1, furnConfig.stockAmount do
-		picked[math.random(1, #furnConfig.furniture)] = true
+local function isAshlander(ref)
+	local faction = ref.object.faction
+	if faction and faction.id == "Ashlanders" then
+		return true
 	end
-	for j, furniture in ipairs(furnConfig.furniture) do
+	return false
+end
+
+---@param ref tes3reference
+local function getNewStock(ref)
+	ref.data.furnitureCatalogue.todayStock = {}
+	local picked = {}
+	local stockAmount = 50
+	for i = 1, stockAmount do
+		picked[math.random(1, table.size(furnConfig.furniture))] = true
+	end
+	local j = 1
+	for index, furniture in pairs(furnConfig.furniture) do
 		if furniture.alwaysInStock or picked[j] then
-			tes3.player.data.furnitureCatalogue.todayStock[furniture.id] = true
+			if isAshlander(ref) then
+				log:debug("%s is an Ashlander, %s is %s", ref.id, furniture.id,
+				          (furniture.ashlandersAvailable and "ashlandersAvailable") or (furniture.ashlandersOnly and "ashlandersOnly") or "not available")
+				if furniture.ashlandersAvailable or furniture.ashlandersOnly then
+					log:debug("adding to todayStock")
+					ref.data.furnitureCatalogue.todayStock[furniture.id] = true
+				end
+			else
+				log:debug("%s is not an Ashlander, %s is %s", ref.id, furniture.id, (furniture.ashlandersOnly and "ashlandersOnly") or "not ashlandersOnly")
+				if not furniture.ashlandersOnly then
+					log:debug("adding to todayStock")
+					ref.data.furnitureCatalogue.todayStock[furniture.id] = true
+				end
+			end
 		end
+		j = j + 1
 	end
 end
 
@@ -96,11 +129,12 @@ this.customRequirements = {
 			end,
 			check = function()
 				local today = tes3.findGlobal("DaysPassed").value
-				if tes3.player.data.furnitureCatalogue.today ~= today then
-					getNewStock()
-					tes3.player.data.furnitureCatalogue.today = today
+				currentActivator.data.furnitureCatalogue = currentActivator.data.furnitureCatalogue or {}
+				if currentActivator.data.furnitureCatalogue.today ~= today then
+					getNewStock(currentActivator)
+					currentActivator.data.furnitureCatalogue.today = today
 				end
-				if tes3.player.data.furnitureCatalogue.todayStock[furniture.id] then
+				if currentActivator.data.furnitureCatalogue.todayStock[furniture.id] then
 					return true
 				else
 					return false, string.format("Unfortunately, this product is out of stock.")
@@ -183,24 +217,38 @@ local function onMenuDialogActivated(e)
 end
 event.register("uiActivated", onMenuDialogActivated, { filter = "MenuDialog", priority = -100 })
 
----@param furn furnitureCatalogue.furniture
-local function purchase(furn)
-	local crate = furnConfig.deliveryCrate[furn.size]
-	tes3.addItem({ reference = tes3.player, item = crate })
-	local itemData
-	itemData = tes3.addItemData({ to = tes3.player, item = crate })
-	itemData.data.furnitureCatalogue = { furniture = { id = furn.id, name = furn.name } }
-	tes3.messageBox("%s has been added to your inventory.", furn.name)
+---@param self CraftingFramework.Craftable
+---@param e CraftingFramework.Craftable.SuccessMessageCallback.params
+local function successMessageCallback(self, e)
+	return string.format("%s has been added to your inventory.", self.name)
 end
 
 ---@param recipes CraftingFramework.Recipe.data[]
+---@param index string
 ---@param furniture furnitureCatalogue.furniture
-local function addRecipe(recipes, furniture)
-	log:debug("Adding recipe: %s", furniture.id)
+local function addRecipe(recipes, index, furniture)
 	local furnitureObj = tes3.getObject(furniture.id)
 	if not furnitureObj then
 		return
 	end
+
+	local craftableId = "jsmk_fc_crate_" .. index
+	-- Generate the craftable if one doesn't exist
+	local craftable = tes3.getObject(craftableId)
+	if not craftable then
+		local icon = "jsmk\\fc\\crate.dds"
+		log:debug("Craftable %s for placedObject %s does not exist, creating a misc", craftableId, furniture.id)
+		craftable = tes3.createObject({
+			id = craftableId,
+			objectType = tes3.objectType.miscItem,
+			name = furniture.name,
+			icon = icon,
+			mesh = furnitureObj.mesh,
+			weight = furniture.weight,
+		})
+	end
+	local soundType = "spendMoney" ---@cast soundType CraftingFramework.Craftable.SoundType
+
 	local bedrollButtons = nil
 	-- Only register beds if Ashfall is installed
 	if furniture.category == "Beds" then
@@ -213,23 +261,20 @@ local function addRecipe(recipes, furniture)
 	---@type CraftingFramework.Recipe
 	local recipe = {
 		id = "FurnitureCatalogue:" .. furniture.id,
-		craftableId = furnConfig.deliveryCrate[furniture.size],
+		craftableId = craftableId,
 		placedObject = furniture.id,
 		description = furniture.description,
-		-- noResult = not config.devInstantDelivery,
 		materials = { { material = "gold_001", count = furniture.cost } },
 		customRequirements = { this.customRequirements.inStock(furniture) },
 		category = furniture.category,
 		name = furniture.name,
 		additionalMenuOptions = bedrollButtons,
-		soundId = "jsmk_fc_spendMoney01",
-		--[[---@param self CraftingFramework.Craftable
-		---@param e CraftingFramework.Craftable.craftCallback.params
-		craftCallback = function(self, e)
-			log:debug("craftCallback(%s)", furniture.id)
-			purchase(furniture)
-		end,]]
+		soundType = soundType,
+		scale = furniture.scale,
 		previewMesh = furnitureObj.mesh,
+		previewScale = furniture.previewScale,
+		previewHeight = furniture.previewHeight,
+		successMessageCallback = successMessageCallback,
 	}
 	table.insert(recipes, recipe)
 end
@@ -238,9 +283,11 @@ do
 	if not MenuActivator then
 		return
 	end
-	local recipes = {}
-	for _, furniture in ipairs(furnConfig.furniture) do
-		addRecipe(recipes, furniture)
+	local recipes = {} ---@type CraftingFramework.Recipe.data[]
+	---@param index string 
+	---@param furniture furnitureCatalogue.furniture
+	for index, furniture in pairs(furnConfig.furniture) do
+		addRecipe(recipes, index, furniture)
 	end
 	MenuActivator:new({
 		name = "Furniture Catalogue",

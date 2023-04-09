@@ -6,10 +6,9 @@ local function onInit()
 		tes3.player.data.furnitureCatalogue = tes3.player.data.furnitureCatalogue or {}
 	end)
 	require("JosephMcKean.furnitureCatalogue.catalogue")
-	require("JosephMcKean.furnitureCatalogue.deliveryCrate")
 	require("JosephMcKean.furnitureCatalogue.tooltip")
 	require("JosephMcKean.furnitureCatalogue.interop")
 end
-event.register("initialized", onInit, { priority = 551 })
+event.register("initialized", onInit)
 
 require("JosephMcKean.furnitureCatalogue.mcm")
