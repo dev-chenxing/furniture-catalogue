@@ -28,4 +28,14 @@ function common.isDeliveryCrate(obj)
 	return string.startswith(obj.id:lower(), "jsmk_fc_crate")
 end
 
+---@param ref tes3reference
+---@return boolean
+function common.isAshlander(ref)
+	local faction = ref.object.faction
+	if faction and faction.id == "Ashlanders" then
+		return true
+	end
+	return false
+end
+
 return common
