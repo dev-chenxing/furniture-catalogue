@@ -16,12 +16,6 @@ common.createLogger = function(serviceName)
 end
 
 ---@param obj tes3object
----@return string?
-function common.isCatalogue(obj)
-	return furnConfig.catalogue[obj.id:lower()]
-end
-
----@param obj tes3object
 ---@return furnitureCatalogue.furniture?
 function common.getFurniture(obj)
 	local craftableId = obj.id

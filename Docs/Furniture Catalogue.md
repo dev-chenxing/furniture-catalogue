@@ -1,14 +1,16 @@
 # Furniture Catalogue
 
-This mod adds two Furniture Catalogues and furniture merchants to the game, where you can purchase more than 270 furniture. Requires Crafting Framework.
+Shop Furniture Catalogue for modern, affordable furniture to make your housee a home. Our wide selection of pieces comes from base game, [Tamriel_Data](https://www.nexusmods.com/morrowind/mods/44537), [OAAB_Data](https://www.nexusmods.com/morrowind/mods/49042), and more. 
 
-## Furniture
+This mod adds two Furniture Catalogues and furniture merchants to the game, where you can purchase more than 270 furniture. Requires Crafting Framework. 
 
-- Morrowind: 157+
-- [Tamriel_Data](https://www.nexusmods.com/morrowind/mods/44537): 66+
-- [OAAB_Data](https://www.nexusmods.com/morrowind/mods/49042): 46+
-- [Foreign Quarter Market Square](https://www.nexusmods.com/morrowind/mods/51700): 2
-- [DR_Data](https://www.nexusmods.com/morrowind/mods/51776): 1
+You can buy Furniture Catalogues from furniture merchants. Furniture Catalogues come with two version. The standard version charges you extra shipping cost 60 gold. The deluxe version not only does not charges you shipping cost, the furniture is also free. Buying furniture directly from the merchants does not charge you shipping cost. 
+
+Every day, Furniture Catalogue will restock inventory. If you can't find a piece you want, try buying from other merchants, or wait a few days. 
+
+To add more furniture, either ping me on Discord, or add an interop yourself.
+
+Come visit us today to find the perfect furniture for your home. We have shops open across Morrowind, Skyrim, and Cyrodiil. Find Furniture Merchants near you using the list down below. 
 
 ## List of furniture merchants
 

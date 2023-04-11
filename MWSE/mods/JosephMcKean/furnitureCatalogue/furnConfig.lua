@@ -1,7 +1,5 @@
 local this = {}
 
-this.catalogue = { ["jsmk_fc_catalogue_01"] = "catalogueI", ["jsmk_fc_catalogue_02"] = "catalogueII" }
-
 ---@class furnitureCatalogue.furniture
 ---@field id string The id of the furniture
 ---@field name string The name of the furniture
@@ -19,69 +17,69 @@ this.catalogue = { ["jsmk_fc_catalogue_01"] = "catalogueI", ["jsmk_fc_catalogue_
 this.furniture = {
 	-- Oldwood pack
 	["001"] = { id = "active_de_p_bed_04", name = "Single Bed, Olive", category = "Beds", cost = 60, weight = 30 }, -- MW
-	["002"] = { id = "dr_asrt_p_f_bookcase_01", name = "Bookcase", category = "Shelves", cost = 30, weight = 5 }, -- DR
-	["003"] = { id = "de_p_closet_02", name = "Closet", category = "Containers", cost = 140, weight = 30 }, -- MW
-	["004"] = { id = "furn_de_p_bench_03", name = "Cheap Bench", category = "Seats", cost = 15, weight = 5 }, -- MW
-	["005"] = { id = "furn_de_p_bookshelf_01", name = "Bookshelf", category = "Shelves", cost = 60, weight = 20, alwaysInStock = true }, -- MW
-	["006"] = { id = "furn_de_p_chair_01", name = "Chair", category = "Seats", cost = 15, weight = 5 }, -- MW
-	["007"] = { id = "furn_de_p_chair_02", name = "Chair", category = "Seats", cost = 15, weight = 5 }, -- MW
-	["008"] = { id = "furn_de_p_shelf_02", name = "Shelf", category = "Shelves", cost = 10, weight = 5 }, -- MW
-	["009"] = { id = "furn_de_p_stool_01", name = "Stool", category = "Seats", cost = 10, weight = 5 }, -- MW
-	["010"] = { id = "furn_de_p_stool_02", name = "Stool", category = "Seats", cost = 10, weight = 5 }, -- MW
-	["011"] = { id = "furn_de_p_table_01", name = "Round Table", category = "Tables", cost = 75, weight = 20 }, -- MW
-	["012"] = { id = "furn_de_p_table_02", name = "Small Telvanni Table", category = "Tables", cost = 50, weight = 10 }, -- MW
-	["013"] = { id = "furn_de_p_table_04", name = "Large Table", category = "Tables", cost = 100, weight = 30 }, -- MW
-	["014"] = { id = "furn_de_p_table_05", name = "End Table", category = "Tables", cost = 40, weight = 10 }, -- MW
-	["015"] = { id = "furn_de_p_table_06", name = "Round Table", category = "Tables", cost = 150, weight = 30 }, -- MW
-	["016"] = { id = "furn_de_rm_winerack", name = "Winerack", category = "Shelves", cost = 150, weight = 30 }, -- MW
+	["002"] = { id = "dr_asrt_p_f_bookcase_01", name = "Bookcase, Cheap", category = "Shelves", cost = 30, weight = 5 }, -- DR
+	["003"] = { id = "de_p_closet_02", name = "Closet, Cheap", category = "Containers", cost = 140, weight = 30 }, -- MW
+	["004"] = { id = "furn_de_p_bench_03", name = "Bench, Cheap", category = "Seats", cost = 15, weight = 5 }, -- MW
+	["005"] = { id = "furn_de_p_bookshelf_01", name = "Bookshelf, Cheap", category = "Shelves", cost = 60, weight = 20, alwaysInStock = true }, -- MW
+	["006"] = { id = "furn_de_p_chair_01", name = "Chair, Cheap", category = "Seats", cost = 15, weight = 5 }, -- MW
+	["007"] = { id = "furn_de_p_chair_02", name = "Chair, Cheap", category = "Seats", cost = 15, weight = 5 }, -- MW
+	["008"] = { id = "furn_de_p_shelf_02", name = "Shelf, Cheap", category = "Shelves", cost = 10, weight = 5 }, -- MW
+	["009"] = { id = "furn_de_p_stool_01", name = "Stool, Cheap", category = "Seats", cost = 10, weight = 5 }, -- MW
+	["010"] = { id = "furn_de_p_stool_02", name = "Stool, Cheap", category = "Seats", cost = 10, weight = 5 }, -- MW
+	["011"] = { id = "furn_de_p_table_01", name = "Round Table, Cheap", category = "Tables", cost = 75, weight = 20 }, -- MW
+	["012"] = { id = "furn_de_p_table_02", name = "Small Telvanni Table, Cheap", category = "Tables", cost = 50, weight = 10 }, -- MW
+	["013"] = { id = "furn_de_p_table_04", name = "Large Table, Cheap", category = "Tables", cost = 100, weight = 30 }, -- MW
+	["014"] = { id = "furn_de_p_table_05", name = "End Table, Cheap", category = "Tables", cost = 40, weight = 10 }, -- MW
+	["015"] = { id = "furn_de_p_table_06", name = "Round Table, Stump", category = "Tables", cost = 150, weight = 30 }, -- MW
+	["016"] = { id = "furn_de_rm_winerack", name = "Winerack, Cheap", category = "Shelves", cost = 150, weight = 30 }, -- MW
 	["018"] = { id = "mwg_vivec_market_05", name = "Market Stand", category = "Shelves", cost = 30, weight = 10 }, -- MwG
-	["019"] = { id = "de_p_desk_01", name = "Desk", category = "Containers", cost = 140, weight = 30 }, -- MW
-	["020"] = { id = "de_drawers_02", name = "Chest of Drawers", category = "Containers", cost = 140, weight = 30 }, -- MW
-	["021"] = { id = "ab_o_deplntable01", name = "End Table", category = "Table", cost = 130, weight = 30 }, -- OAAB
-	["022"] = { id = "ab_furn_deplnscrollrack1", name = "Scroll Rack", category = "Shelves", cost = 175, weight = 30 }, -- OAAB
-	["023"] = { id = "ab_furn_deplnscrollrack2", name = "Scroll Rack", category = "Shelves", cost = 175, weight = 30 }, -- OAAB
+	["019"] = { id = "de_p_desk_01", name = "Desk, Cheap", category = "Containers", cost = 140, weight = 30 }, -- MW
+	["020"] = { id = "de_drawers_02", name = "Chest of Drawers, Cheap", category = "Containers", cost = 140, weight = 30 }, -- MW
+	["021"] = { id = "ab_o_deplntable01", name = "End Table, Cheap", category = "Table", cost = 130, weight = 30 }, -- OAAB
+	["022"] = { id = "ab_furn_deplnscrollrack1", name = "Scroll Rack, Cheap", category = "Shelves", cost = 175, weight = 30 }, -- OAAB
+	["023"] = { id = "ab_furn_deplnscrollrack2", name = "Scroll Rack, Cheap", category = "Shelves", cost = 175, weight = 30 }, -- OAAB
 
 	-- Metal Iron Rusty pack
 	["024"] = { id = "light_com_candle_01_64", name = "Iron Candlestick, White", category = "Lights", cost = 3, weight = 0 }, -- MW
-	["025"] = { id = "light_com_lamp_01", name = "Lamp", category = "Lights", cost = 20, weight = 10 }, -- MW
-	["026"] = { id = "light_com_lamp_02", name = "Lamp", category = "Lights", cost = 20, weight = 10 }, -- MW
-	["027"] = { id = "light_com_lantern_01", name = "Lantern", category = "Lights", cost = 10, weight = 5 }, -- MW
+	["025"] = { id = "light_com_lamp_01", name = "Lamp, Iron", category = "Lights", cost = 20, weight = 10 }, -- MW
+	["026"] = { id = "light_com_lamp_02", name = "Lamp, Iron", category = "Lights", cost = 20, weight = 10 }, -- MW
+	["027"] = { id = "light_com_lantern_01", name = "Lantern, Iron", category = "Lights", cost = 10, weight = 5 }, -- MW
 	["028"] = { id = "light_de_candle_03", name = "Candle, Orange", category = "Lights", cost = 12, weight = 1 }, -- MW
 	["029"] = { id = "light_de_lantern_07", name = "Paper Lantern, Blue", category = "Lights", cost = 10, weight = 3 }, -- MW
-	["030"] = { id = "ab_furn_dnghook", name = "Hook", category = "Other", cost = 10, weight = 5, scale = 0.5 }, -- OAAB
+	["030"] = { id = "ab_furn_dnghook", name = "Iron Hook", category = "Other", cost = 10, weight = 5, scale = 0.5 }, -- OAAB
 
 	-- Khaki Wood pack
 	["031"] = { id = "active_com_bed_03", name = "Single Bed, Brown", category = "Beds", cost = 60, weight = 30 }, -- MW
-	["032"] = { id = "furn_com_p_bench_01", name = "Bench", category = "Seats", cost = 15, weight = 5 }, -- MW
+	["032"] = { id = "furn_com_p_bench_01", name = "Bench, Khaki", category = "Seats", cost = 15, weight = 5 }, -- MW
 	["033"] = { id = "active_com_bunk_02", name = "Bunk Bed, Grey", category = "Beds", cost = 120, weight = 40 }, -- MW
-	["034"] = { id = "furn_com_p_shelf_03", name = "Shelf", category = "Shelves", cost = 10, weight = 2 }, -- MW
-	["035"] = { id = "furn_com_p_table_01", name = "Table", category = "Tables", cost = 120, weight = 30 }, -- MW
-	["036"] = { id = "light_com_chandelier_01", name = "Wooden Chandelier", category = "Lights", cost = 60, weight = 5 }, -- MW
-	["037"] = { id = "t_imp_furnp_rack_02", name = "Rack", category = "Shelves", cost = 120, weight = 30 }, -- PC
-	["038"] = { id = "t_imp_furnp_wallscreen_01", name = "Wallscreen", category = "Other", cost = 60, weight = 10 }, -- PC
-	["039"] = { id = "t_cyrimp_furnp_st1empty", name = "Side Table", category = "Containers", cost = 60, weight = 15 }, -- PC
-	["040"] = { id = "t_com_furn_ladder_01", name = "Ladder", category = "Other", cost = 60, weight = 15 }, -- TR
+	["034"] = { id = "furn_com_p_shelf_03", name = "Shelf, Khaki", category = "Shelves", cost = 10, weight = 2 }, -- MW
+	["035"] = { id = "furn_com_p_table_01", name = "Table, Khaki", category = "Tables", cost = 120, weight = 30 }, -- MW
+	["036"] = { id = "light_com_chandelier_01", name = "Chandelier, Khaki", category = "Lights", cost = 60, weight = 5 }, -- MW
+	["037"] = { id = "t_imp_furnp_rack_02", name = "Rack, Khaki", category = "Shelves", cost = 120, weight = 30 }, -- PC
+	["038"] = { id = "t_imp_furnp_wallscreen_01", name = "Wallscreen, Khaki", category = "Other", cost = 60, weight = 10 }, -- PC
+	["039"] = { id = "t_cyrimp_furnp_st1empty", name = "Side Table, Khaki", category = "Containers", cost = 60, weight = 15 }, -- PC
+	["040"] = { id = "t_com_furn_ladder_01", name = "Ladder, Khaki", category = "Other", cost = 60, weight = 15 }, -- TR
 
 	-- Canvas Wrap pack
 	["041"] = { id = "com_sack_01", name = "Sack", category = "Containers", cost = 6, weight = 2, ashlandersAvailable = true }, -- MW
-	["042"] = { id = "com_sack_03", name = "Sack", category = "Containers", cost = 6, weight = 2, ashlandersAvailable = true }, -- MW
-	["043"] = { id = "furn_com_pm_chair_02", name = "Chair", category = "Seats", cost = 15, weight = 7 }, -- MW
-	["044"] = { id = "furn_de_cushion_round_03", name = "Cushion", category = "Seats", cost = 30, weight = 3 }, -- MW
+	["042"] = { id = "com_sack_03", name = "Sack, Vertical", category = "Containers", cost = 6, weight = 2, ashlandersAvailable = true }, -- MW
+	["043"] = { id = "furn_com_pm_chair_02", name = "Chair, Foldable", category = "Seats", cost = 15, weight = 7 }, -- MW
+	["044"] = { id = "furn_de_cushion_round_03", name = "Cushion, Round", category = "Seats", cost = 30, weight = 3 }, -- MW
 	["045"] = { id = "furn_de_practice_mat", name = "Practice Mat", category = "Rugs", cost = 30, weight = 3 }, -- MW
 
 	-- Skyrim Wood Furniture 01 pack
-	["046"] = { id = "t_nor_furnp_bench_01", name = "Bench", category = "Seats", cost = 30, weight = 5 }, -- SKY
-	["047"] = { id = "t_nor_furnp_bookshelf_01", name = "Bookshelf", category = "Shelves", cost = 180, weight = 30 }, -- SKY
-	["048"] = { id = "t_nor_furnp_chair_01", name = "Chair", category = "Seats", cost = 60, weight = 10 }, -- SKY
-	["049"] = { id = "t_nor_furnp_bar_01", name = "Counter", category = "Shelves", cost = 150, weight = 25 }, -- SKY
-	["050"] = { id = "t_nor_furnp_shelf_01", name = "Bookshelf", category = "Shelves", cost = 450, weight = 40 }, -- SKY
-	["051"] = { id = "t_nor_furnp_shelf_04", name = "Bookshelf", category = "Shelves", cost = 75, weight = 15 }, -- SKY
-	["052"] = { id = "t_nor_furnp_stool_01", name = "Stool", category = "Seats", cost = 30, weight = 5 }, -- SKY
-	["053"] = { id = "t_nor_furnp_table_02", name = "Round Table", category = "Tables", cost = 150, weight = 30 }, -- SKY
-	["054"] = { id = "t_skynor_furnp_cb1empty", name = "Cupboard", category = "Containers", cost = 100, weight = 15 }, -- SKY
-	["055"] = { id = "t_skynor_furnp_cl1empty", name = "Closet", category = "Containers", cost = 400, weight = 40 }, -- SKY
-	["056"] = { id = "t_skynor_furnp_dw1empty", name = "Drawers", category = "Containers", cost = 200, weight = 20 }, -- SKY
-	["057"] = { id = "t_skynor_furnp_ds1empty", name = "Desk", category = "Containers", cost = 100, weight = 15 }, -- SKY
+	["046"] = { id = "t_nor_furnp_bench_01", name = "Bench, Nordic", category = "Seats", cost = 30, weight = 5 }, -- SKY
+	["047"] = { id = "t_nor_furnp_bookshelf_01", name = "Bookshelf, Nordic", category = "Shelves", cost = 180, weight = 30 }, -- SKY
+	["048"] = { id = "t_nor_furnp_chair_01", name = "Chair, Nordic", category = "Seats", cost = 60, weight = 10 }, -- SKY
+	["049"] = { id = "t_nor_furnp_bar_01", name = "Counter, Nordic", category = "Shelves", cost = 150, weight = 25 }, -- SKY
+	["050"] = { id = "t_nor_furnp_shelf_01", name = "Bookshelf, Nordic", category = "Shelves", cost = 450, weight = 40 }, -- SKY
+	["051"] = { id = "t_nor_furnp_shelf_04", name = "Bookshelf, Nordic", category = "Shelves", cost = 75, weight = 15 }, -- SKY
+	["052"] = { id = "t_nor_furnp_stool_01", name = "Stool, Nordic", category = "Seats", cost = 30, weight = 5 }, -- SKY
+	["053"] = { id = "t_nor_furnp_table_02", name = "Round Table, Nordic", category = "Tables", cost = 150, weight = 30 }, -- SKY
+	["054"] = { id = "t_skynor_furnp_cb1empty", name = "Cupboard, Nordic", category = "Containers", cost = 100, weight = 15 }, -- SKY
+	["055"] = { id = "t_skynor_furnp_cl1empty", name = "Closet, Nordic", category = "Containers", cost = 400, weight = 40 }, -- SKY
+	["056"] = { id = "t_skynor_furnp_dw1empty", name = "Drawers, Nordic", category = "Containers", cost = 200, weight = 20 }, -- SKY
+	["057"] = { id = "t_skynor_furnp_ds1empty", name = "Desk, Nordic", category = "Containers", cost = 100, weight = 15 }, -- SKY
 
 	-- Wood Brown pack
 	["058"] = { id = "furn_com_rm_shelf_02", name = "Shelf", category = "Shelves", cost = 20, weight = 10 }, -- MW
@@ -113,15 +111,14 @@ this.furniture = {
 	["082"] = { id = "ab_o_boxflour", name = "Box of Flour", category = "Containers", cost = 100, weight = 30 }, -- OAAB
 
 	-- Rug pack
-	["083"] = { id = "furn_de_rug_01", name = "Small Rectangular Rug", category = "Rugs", cost = 60, weight = 6 }, -- MW
-	["084"] = { id = "furn_de_rug_02", name = "Small Rectangular Rug", category = "Rugs", cost = 60, weight = 6, ashlandersAvailable = true }, -- MW     
-	["085"] = { id = "furn_de_rug_big_01", name = "Large Oval Rug", category = "Rugs", cost = 120, weight = 6, ashlandersAvailable = true }, -- MW       
-	["086"] = { id = "furn_de_rug_big_02", name = "Large Oval Rug", category = "Rugs", cost = 120, weight = 6, scale = 0.8, ashlandersAvailable = true }, -- MW
-	["087"] = { id = "furn_de_rug_big_03", name = "Large Oval Rug", category = "Rugs", cost = 120, weight = 6, ashlandersAvailable = true }, -- MW       
-	["088"] = { id = "furn_de_rug_big_05", name = "Large Rectangular Rug", category = "Rugs", cost = 120, weight = 6, ashlandersAvailable = true }, -- MW
-
-	["089"] = { id = "furn_de_rug_big_06", name = "Large Rectangular Rug", category = "Rugs", cost = 120, scale = 0.7, weight = 6, ashlanders = true }, -- MW
-	["090"] = { id = "furn_de_rug_big_07", name = "Large Rectangular Rug", category = "Rugs", cost = 120, weight = 6 }, -- MW
+	["083"] = { id = "furn_de_rug_01", name = "Small Rectangular Rug, Blue", category = "Rugs", cost = 60, weight = 6 }, -- MW
+	["084"] = { id = "furn_de_rug_02", name = "Small Rectangular Rug, Red", category = "Rugs", cost = 60, weight = 6, ashlandersAvailable = true }, -- MW     
+	["085"] = { id = "furn_de_rug_big_01", name = "Large Oval Rug, Purple", category = "Rugs", cost = 120, weight = 6, ashlandersAvailable = true }, -- MW       
+	["086"] = { id = "furn_de_rug_big_02", name = "Large Oval Rug, Red", category = "Rugs", cost = 120, weight = 6, scale = 0.8, ashlandersAvailable = true }, -- MW
+	["087"] = { id = "furn_de_rug_big_03", name = "Large Oval Rug, Green", category = "Rugs", cost = 120, weight = 6, ashlandersAvailable = true }, -- MW       
+	["088"] = { id = "furn_de_rug_big_05", name = "Large Rectangular Rug, Red", category = "Rugs", cost = 120, weight = 6, ashlandersAvailable = true }, -- MW
+	["089"] = { id = "furn_de_rug_big_06", name = "Large Rectangular Rug, Green", category = "Rugs", cost = 120, scale = 0.7, weight = 6, ashlanders = true }, -- MW
+	["090"] = { id = "furn_de_rug_big_07", name = "Large Rectangular Rug, Blue", category = "Rugs", cost = 120, weight = 6 }, -- MW
 	["091"] = { id = "furn_de_rug_big_08", name = "Large Oval Rug", category = "Rugs", cost = 120, weight = 6, ashlandersAvailable = true }, -- MW       
 	["092"] = { id = "furn_de_rug_big_09", name = "Large Rectangular Rug", category = "Rugs", cost = 120, weight = 6 }, -- MW
 	["093"] = { id = "furn_rug_whitewolf", name = "Faux White Wolf Rug", category = "Rugs", cost = 120, weight = 6, scale = 1.2 }, -- MW
@@ -134,8 +131,8 @@ this.furniture = {
 	-- Tapestry pack
 	["099"] = { id = "furn_de_tapestry_02", name = "Tapestry, Tribunal", category = "Tapestries", cost = 120, weight = 5 }, -- MW
 	["100"] = { id = "furn_de_tapestry_07", name = "Tapestry, Red", category = "Tapestries", cost = 120, weight = 5 }, -- MW
-	["101"] = { id = "furn_de_tapestry_09", name = "Tapestry, Green", category = "Tapestries", cost = 120, weight = 5 }, -- MW
-	["102"] = { id = "furn_de_tapestry_10", name = "Tapestry, Blue", category = "Tapestries", cost = 120, weight = 5 }, -- MW
+	["101"] = { id = "furn_de_tapestry_09", name = "Tapestry, Blue", category = "Tapestries", cost = 120, weight = 5 }, -- MW
+	["102"] = { id = "furn_de_tapestry_10", name = "Tapestry, Green", category = "Tapestries", cost = 120, weight = 5 }, -- MW
 	["103"] = { id = "furn_de_tapestry_11", name = "Tapestry, Purple", category = "Tapestries", cost = 120, weight = 5 }, -- MW
 	["104"] = { id = "furn_com_tapestry_01", name = "Tapestry, Forest", category = "Tapestries", cost = 120, weight = 5 }, -- MW
 	["105"] = { id = "furn_com_tapestry_02", name = "Tapestry, Blossom", category = "Tapestries", cost = 120, weight = 5 }, -- MW
@@ -156,14 +153,14 @@ this.furniture = {
 	["120"] = { id = "t_imp_furn_tapestry_29", name = "Tapestry, Indigo", category = "Tapestries", cost = 120, weight = 5 }, -- TR
 
 	-- Cushion pack: All Cushion needs to be named exactly "Cushion"
-	["121"] = { id = "furn_de_cushion_round_01", name = "Cushion", category = "Seats", cost = 30, weight = 3, scale = 0.9, ashlandersAvailable = true }, -- MW
-	["122"] = { id = "furn_de_cushion_round_02", name = "Cushion", category = "Seats", cost = 30, weight = 3, scale = 0.89, ashlandersAvailable = true }, -- MW
-	["123"] = { id = "furn_de_cushion_round_04", name = "Cushion", category = "Seats", cost = 30, weight = 3, scale = 0.9, ashlandersAvailable = true }, -- MW
-	["124"] = { id = "furn_de_cushion_round_07", name = "Cushion", category = "Seats", cost = 30, weight = 3, scale = 0.89, ashlandersAvailable = true }, -- MW
-	["125"] = { id = "furn_de_cushion_square_01", name = "Cushion", category = "Seats", cost = 30, weight = 3, ashlandersAvailable = true }, -- MW       
-	["126"] = { id = "furn_de_cushion_square_02", name = "Cushion", category = "Seats", cost = 30, weight = 3, scale = 0.667, ashlandersAvailable = true }, -- MW
-	["127"] = { id = "furn_de_cushion_square_05", name = "Cushion", category = "Seats", cost = 30, weight = 3, ashlandersAvailable = true }, -- MW       
-	["128"] = { id = "furn_de_cushion_square_06", name = "Cushion", category = "Seats", cost = 30, weight = 3, ashlandersAvailable = true }, -- MW
+	["121"] = { id = "furn_de_cushion_round_01", name = "Cushion, Round", category = "Seats", cost = 30, weight = 3, scale = 0.9, ashlandersAvailable = true }, -- MW
+	["122"] = { id = "furn_de_cushion_round_02", name = "Cushion, Round", category = "Seats", cost = 30, weight = 3, scale = 0.89, ashlandersAvailable = true }, -- MW
+	["123"] = { id = "furn_de_cushion_round_04", name = "Cushion, Round", category = "Seats", cost = 30, weight = 3, scale = 0.9, ashlandersAvailable = true }, -- MW
+	["124"] = { id = "furn_de_cushion_round_07", name = "Cushion, Round", category = "Seats", cost = 30, weight = 3, scale = 0.89, ashlandersAvailable = true }, -- MW
+	["125"] = { id = "furn_de_cushion_square_01", name = "Cushion, Square", category = "Seats", cost = 30, weight = 3, ashlandersAvailable = true }, -- MW       
+	["126"] = { id = "furn_de_cushion_square_02", name = "Cushion, Square", category = "Seats", cost = 30, weight = 3, scale = 0.667, ashlandersAvailable = true }, -- MW
+	["127"] = { id = "furn_de_cushion_square_05", name = "Cushion, Square", category = "Seats", cost = 30, weight = 3, ashlandersAvailable = true }, -- MW       
+	["128"] = { id = "furn_de_cushion_square_06", name = "Cushion, Square", category = "Seats", cost = 30, weight = 3, ashlandersAvailable = true }, -- MW
 
 	-- TR Wood Dunmer rm
 	["129"] = { id = "ab_furn_demidbench", name = "Bench", category = "Seats", cost = 50, weight = 10 }, -- OAAB
@@ -181,9 +178,9 @@ this.furniture = {
 
 	-- Skyrim Wood pack
 	["141"] = { id = "t_nor_furnm_bar_04", name = "Bar", category = "Tables", cost = 100, weight = 20 }, -- SKY
-	["142"] = { id = "t_imp_furnsky_bench_01a", name = "Bench", category = "Seats", cost = 50, weight = 10 }, -- SKY
+	["142"] = { id = "t_imp_furnsky_bench_01a", name = "Bench, Nordic", category = "Seats", cost = 50, weight = 10 }, -- SKY
 	["143"] = { id = "t_nor_furnm_bookshelf_01", name = "Bookshelf", category = "Shelves", cost = 150, weight = 30 }, -- SKY
-	["144"] = { id = "t_nor_furnm_chair_01", name = "Chair", category = "Seats", cost = 25, weight = 5 }, -- SKY
+	["144"] = { id = "t_nor_furnm_chair_01", name = "Chair, Nordic", category = "Seats", cost = 25, weight = 5 }, -- SKY
 	["145"] = { id = "t_nor_furnm_table_01", name = "Table", category = "Tables", cost = 100, weight = 20 }, -- SKY
 	["146"] = { id = "t_imp_furnsky_table_01", name = "Table", category = "Tables", cost = 100, weight = 20 }, -- SKY
 	["147"] = { id = "t_imp_furnsky_table_03", name = "Table", category = "Tables", cost = 100, weight = 20 }, -- SKY
@@ -216,26 +213,26 @@ this.furniture = {
 
 	-- Swirlwood pack
 	["170"] = { id = "active_de_r_bed_01", name = "Single Bed, Aqua", category = "Beds", cost = 150, weight = 40 }, -- MW
-	["171"] = { id = "furn_de_r_bench_01", name = "Bench", category = "Seats", cost = 55, weight = 10 }, -- MW
+	["171"] = { id = "furn_de_r_bench_01", name = "Bench, Swirlwood", category = "Seats", cost = 55, weight = 10 }, -- MW
 	["172"] = { id = "furn_de_r_bookshelf_02", name = "Bookshelf", category = "Shelves", cost = 120, weight = 35 }, -- MW
 	["173"] = { id = "furn_de_r_table_03", name = "Oval Table", category = "Tables", cost = 150, weight = 40 }, -- MW
-	["174"] = { id = "furn_de_r_table_07", name = "Large Table", category = "Tables", cost = 140, weight = 35 }, -- MW
+	["174"] = { id = "furn_de_r_table_07", name = "Large Table, Swirlwood", category = "Tables", cost = 140, weight = 35 }, -- MW
 	["175"] = { id = "furn_de_r_table_09", name = "Table", category = "Tables", cost = 70, weight = 20 }, -- MW
 	["176"] = { id = "de_r_drawers_01_empty", name = "Dresser", category = "Containers", cost = 180, weight = 35 }, -- MW
 	["177"] = { id = "ab_furn_derchbookshelftall", name = "Bookshelf", category = "Shelves", cost = 200, weight = 40 }, -- OAAB
 	["178"] = { id = "t_de_furnr_bookstand_01", name = "Bookstand", category = "Other", cost = 100, weight = 5 }, -- TR
-	["179"] = { id = "t_de_furnr_chair_01", name = "Chair", category = "Seats", cost = 50, weight = 5 }, -- TR
+	["179"] = { id = "t_de_furnr_chair_01", name = "Chair, Swirlwood", category = "Seats", cost = 50, weight = 5 }, -- TR
 	["180"] = { id = "t_mwde_furnr_ds1empty", name = "Desk", category = "Containers", cost = 200, weight = 35 }, -- TR
 
 	-- Cherry Wood pack
 	["181"] = { id = "active_com_bed_01", name = "Single Bed, Blue", category = "Beds", cost = 225, weight = 40 }, -- MW
-	["182"] = { id = "furn_com_r_bookshelf_01", name = "Bookshelf", category = "Shelves", cost = 100, weight = 40 }, -- MW
-	["183"] = { id = "furn_com_r_chair_01", name = "Chair", category = "Seats", cost = 60, weight = 20 }, -- MW
-	["184"] = { id = "furn_com_r_table_01", name = "Table", category = "Tables", cost = 100, weight = 40 }, -- MW
-	["185"] = { id = "com_drawers_01", name = "Chest of Drawers", category = "Containers", cost = 120, weight = 35 }, -- MW
-	["186"] = { id = "ab_o_comrchfootlckempty", name = "Footlocker", category = "Containers", cost = 65, weight = 20 }, -- OAAB
-	["187"] = { id = "ab_o_comrchdesk2empty", name = "Desk", category = "Containers", cost = 200, weight = 35 }, -- OAAB
-	["188"] = { id = "t_imp_furnr_shelf_01", name = "Shelf", category = "Shelves", cost = 60, weight = 10 }, -- PC
+	["182"] = { id = "furn_com_r_bookshelf_01", name = "Bookshelf, Cherry Wood", category = "Shelves", cost = 100, weight = 40 }, -- MW
+	["183"] = { id = "furn_com_r_chair_01", name = "Chair, Cherry Wood", category = "Seats", cost = 60, weight = 20 }, -- MW
+	["184"] = { id = "furn_com_r_table_01", name = "Table, Cherry Wood", category = "Tables", cost = 100, weight = 40 }, -- MW
+	["185"] = { id = "com_drawers_01", name = "Chest of Drawers, Cherry Wood", category = "Containers", cost = 120, weight = 35 }, -- MW
+	["186"] = { id = "ab_o_comrchfootlckempty", name = "Footlocker, Cherry Wood", category = "Containers", cost = 65, weight = 20 }, -- OAAB
+	["187"] = { id = "ab_o_comrchdesk2empty", name = "Desk, Cherry Wood", category = "Containers", cost = 200, weight = 35 }, -- OAAB
+	["188"] = { id = "t_imp_furnr_shelf_01", name = "Shelf, Cherry Wood", category = "Shelves", cost = 60, weight = 10 }, -- PC
 	["189"] = { id = "t_cyrimp_furnr_display1", name = "Display Case", category = "Containers", cost = 360, weight = 40 }, -- PC
 	["190"] = { id = "t_cyrimp_furnr_ht1empty", name = "Hutch", category = "Containers", cost = 360, weight = 40 }, -- PC
 	["191"] = { id = "t_cyrimp_furnr_lc1empty", name = "Lecturn", category = "Containers", cost = 120, weight = 15 }, -- PC
@@ -245,18 +242,8 @@ this.furniture = {
 	["193"] = { id = "furn_planter_02", name = "Planter Med, AI Soil", category = "Planters", cost = 80, weight = 30, scale = 0.64 }, -- MW
 	["194"] = { id = "furn_planter_04", name = "Planter Large", category = "Planters", cost = 120, weight = 40, scale = 0.76 }, -- MW
 	["195"] = { id = "urn_01", name = "Urn", category = "Containers", cost = 30, weight = 20, ashlandersAvailable = true }, -- MW
-	["196"] = {
-		id = "urn_02",
-		name = "Urn",
-		category = "Containers",
-		cost = 120,
-		weight = 6,
-		scale = 0.7,
-		ashlandersAvailable = true,
-		previewScale = 0.5,
-		previewHeight = 40,
-	}, -- MW
-	["197"] = { id = "ab_furn_deflagon_01", name = "Flagon", category = "Containers", cost = 20, weight = 15, scale = 0.66 }, -- OAAB
+	["196"] = { id = "urn_02", name = "Urn", category = "Containers", cost = 120, weight = 6, scale = 0.7, ashlandersAvailable = true }, -- MW
+	["197"] = { id = "ab_furn_deflagon_01", name = "Flagon", category = "Other", cost = 20, weight = 15, scale = 0.66 }, -- OAAB
 	["198"] = { id = "ab_furn_deplanter01ash", name = "Planter, Ashland Soil", category = "Planters", cost = 40, weight = 15, scale = 0.5 }, -- OAAB     
 	["199"] = { id = "ab_furn_deplanterbonsai", name = "Planter, Bonsai", category = "Planters", cost = 50, weight = 15, scale = 0.5 }, -- OAAB
 	["200"] = { id = "ab_o_urnash_01", name = "Urn, with Ash", category = "Containers", cost = 100, weight = 15 }, -- OAAB
@@ -282,26 +269,18 @@ this.furniture = {
 	["216"] = { id = "furn_com_pm_stool_02", name = "Stool", category = "Seats", cost = 20, weight = 5 }, -- MW
 	["217"] = { id = "ab_furn_comincense01", name = "Incense", category = "Other", cost = 100, weight = 5, ashlandersAvailable = true }, -- OAAB
 	["218"] = { id = "ab_furn_lwbowlwater", name = "Limeware Bowl of Water", category = "Other", cost = 200, weight = 5, ashlandersAvailable = true }, -- OAAB
-	["219"] = {
-		id = "ab_furn_pracmarkstarget02",
-		name = "Marksman Pratice Target",
-		category = "Other",
-		cost = 200,
-		weight = 5,
-		ashlandersAvailable = true,
-	}, -- OAAB
+	["219"] = { id = "ab_furn_pracmarkstarget02", name = "Marksman Pratice Target", category = "Other", cost = 200, weight = 5, ashlandersAvailable = true }, -- OAAB
 	["220"] = { id = "active_de_p_bed_28", name = "Hammock", category = "Beds", cost = 50, weight = 10, ashlandersAvailable = true }, -- MW
 	["221"] = { id = "furn_de_rope_03", name = "Rope", category = "Other", cost = 10, weight = 1, ashlandersAvailable = true }, -- MW
 	["222"] = { id = "furn_de_shack_basket_01", name = "Basket", category = "Other", cost = 20, weight = 5, ashlandersAvailable = true }, -- MW
 	["223"] = { id = "furn_de_shack_basket_02", name = "Basket", category = "Other", cost = 20, weight = 5, ashlandersAvailable = true }, -- MW
-	["224"] = { id = "furn_de_shack_hook", name = "Hook", category = "Other", cost = 10, weight = 1 }, -- MW
+	["224"] = { id = "furn_de_shack_hook", name = "Iron Hook", category = "Other", cost = 10, weight = 1 }, -- MW
 	["225"] = { id = "light_de_candle_07", name = "Candle, Orange", category = "Lights", cost = 12, weight = 5 }, -- MW
 	["226"] = { id = "t_nor_furnp_table_01", name = "Table, Nordic", category = "Tables", cost = 120, weight = 35 }, -- SKY
 	["227"] = { id = "furn_rug_bearskin", name = "Rug, Bearskin", category = "Rugs", cost = 100, weight = 2, scale = 1.5 }, -- MW
 	["228"] = { id = "t_nor_furn_chandelier01_256", name = "Chandelier, Nordic", category = "Lights", cost = 120, weight = 5 }, -- SKY
 	["229"] = { id = "ex_siltstrider_02", name = "Silt Strider Shell", category = "Other", cost = 120, weight = 35, scale = 0.82, ashlandersOnly = true }, -- MW
-	["230"] = { id = "flora_ash_grass_r_01", name = "Grass, Ashland", category = "Plants", cost = 10, weight = 1, scale = 0.9,
-             ashlandersAvailable = true }, -- MW
+	["230"] = { id = "flora_ash_grass_r_01", name = "Grass, Ashland", category = "Plants", cost = 10, weight = 1, scale = 0.9, ashlandersAvailable = true }, -- MW
 	["231"] = { id = "active_de_bedroll", name = "Bedroll", category = "Beds", cost = 50, weight = 5, ashlandersAvailable = true }, -- MW
 	["232"] = { id = "light_ashl_lantern_03", name = "Lantern, Ashlanders", category = "Lights", cost = 12, weight = 5, ashlandersOnly = true }, -- MW   
 	["233"] = { id = "com_basket_01_empty", name = "Basket", category = "Containers", cost = 20, weight = 5, ashlandersAvailable = true }, -- MW

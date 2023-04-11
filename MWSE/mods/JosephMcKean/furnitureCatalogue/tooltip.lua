@@ -2,6 +2,7 @@ local common = require("JosephMcKean.furnitureCatalogue.common")
 
 local log = common.createLogger("tooptip")
 
+--- In the tooltip, hides the icon, value, and UI Expansion icon bar
 ---@param tooltip tes3uiElement
 ---@param text string
 local function hideTooltipElements(tooltip, text)
@@ -9,26 +10,25 @@ local function hideTooltipElements(tooltip, text)
 	if icon then
 		icon.visible = false
 	end
-	local name = tooltip:findChild("HelpMenu_name")
-	if name then
-		name.text = text
-	end
 	local value = tooltip:findChild("HelpMenu_value")
 	if value then
 		value.visible = false
 	end
 	local uiexpIconBar = tooltip:findChild("UIEXP_Tooltip_IconBar")
+	--- If UI Expansion is installed, 
 	if uiexpIconBar then
-		log:debug("UI Expansion Installed, hide icon bar")
 		local weight = tooltip:findChild("HelpMenu_weight")
 		if weight then
+			--- set vanilla weight to visible, 
 			weight.visible = true
 		end
+		--- icon bar to invisible
 		uiexpIconBar.visible = false
 	end
 	tooltip:updateLayout()
 end
 
+--- Add colored text to tooltip
 ---@param tooltip tes3uiElement
 ---@param uiID string
 ---@param text string
@@ -46,6 +46,7 @@ local function addLabel(tooltip, uiID, text, color)
 	tooltip:updateLayout()
 end
 
+--- Customize the tooltip if the object is a furniture crate
 ---@param e uiObjectTooltipEventData
 local function customTooltip(e)
 	local uiID, text, color

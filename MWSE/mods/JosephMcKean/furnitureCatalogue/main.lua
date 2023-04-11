@@ -1,6 +1,4 @@
-local common = require("JosephMcKean.furnitureCatalogue.common")
-local log = common.createLogger("main")
-
+--- Initialzing
 local function onInit()
 	event.register("loaded", function()
 		tes3.player.data.furnitureCatalogue = tes3.player.data.furnitureCatalogue or {}
