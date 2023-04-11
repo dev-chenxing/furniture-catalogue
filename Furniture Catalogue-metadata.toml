@@ -1,19 +1,21 @@
 [package]
 name = "Furniture Catalogue"
 authors = ["Amalie"]
-version = "0.5"
+version = "0.6"
 
 [dependencies]
 assets = [
+    "Meshes/jsmk/fc/",
     "MWSE/mods/JosephMcKean/furnitureCatalogue",
     "Sound/jsmk/fc",
+    "Textures/jsmk/fc",
     "Furniture Catalogue.esp",
 ]
 
 [dependencies.mwse]
-buildnumber = 3177
+buildnumber = 3180
 
 [dependencies.mods."The Crafting Framework"]
 mwse-module = "CraftingFramework"
-version = "^1.7.5"
+version = "^1.7.7"
 url = "https://www.nexusmods.com/morrowind/mods/51009"

@@ -46,9 +46,6 @@ local function registerFurniture(e)
 		if furnitureData.description then
 			assert(type(furnitureData.description) == 'string', "description must be a string")
 		end
-		if furnitureData.size then
-			assert(type(furnitureData.size) == 'string', "size must be a string")
-		end
 		if furnitureData.alwaysInStock then
 			assert(type(furnitureData.alwaysInStock) == 'boolean', "alwaysInStock must be a boolean")
 		end

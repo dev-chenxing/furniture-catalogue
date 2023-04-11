@@ -5,8 +5,8 @@ local function onInit()
 	event.register("loaded", function()
 		tes3.player.data.furnitureCatalogue = tes3.player.data.furnitureCatalogue or {}
 	end)
-	require("JosephMcKean.furnitureCatalogue.recipes")
 	require("JosephMcKean.furnitureCatalogue.catalogue")
+	require("JosephMcKean.furnitureCatalogue.recipes")
 	require("JosephMcKean.furnitureCatalogue.tooltip")
 	require("JosephMcKean.furnitureCatalogue.interop")
 end

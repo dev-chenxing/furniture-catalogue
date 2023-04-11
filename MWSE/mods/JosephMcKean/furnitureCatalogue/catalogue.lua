@@ -3,6 +3,11 @@ local config = require("JosephMcKean.furnitureCatalogue.config")
 local log = common.createLogger("catalogue")
 local this = {}
 
+---@alias furnitureCatalogue.type
+---|  "merchants"
+---|  "catalogueI"
+---|  "catalogueII"
+
 ---@class furnitureCatalogue.MenuActivator.RegisteredEvent
 ---@field activator tes3reference
 
@@ -10,25 +15,51 @@ this.currentActivator = nil ---@type tes3reference
 
 ---@param e furnitureCatalogue.MenuActivator.RegisteredEvent
 local function getActivatorRef(e)
-	log:debug("currentActivator: %s", e.activator)
+	log:debug("FurnitureCatalogueMerchants: %s", e.activator)
 	if e.activator.object.objectType == tes3.objectType.npc then
 		this.currentActivator = e.activator
-	else
-		this.currentActivator = tes3.player
 	end
 end
-event.register("FurnitureCatalogue", getActivatorRef)
+event.register("FurnitureCatalogueMerchants", getActivatorRef)
+
+---@param e furnitureCatalogue.MenuActivator.RegisteredEvent
+local function getActivatorRef(e)
+	log:debug("Triggered FurnitureCatalogueI")
+	this.currentActivator = tes3.player
+end
+event.register("FurnitureCatalogueI", getActivatorRef)
+
+---@param e furnitureCatalogue.MenuActivator.RegisteredEvent
+local function getActivatorRef(e)
+	log:debug("Triggered FurnitureCatalogueII")
+	this.currentActivator = tes3.player
+end
+event.register("FurnitureCatalogueII", getActivatorRef)
 
 local buttonList = {
 	{
 		text = "Purchase Furniture",
 		---@param activator tes3reference
-		callback = function(activator)
+		---@param type furnitureCatalogue.type
+		callback = function(activator, type)
 			---@type furnitureCatalogue.MenuActivator.RegisteredEvent
 			local eventData = { activator = activator }
 			timer.delayOneFrame(function()
-				event.trigger("FurnitureCatalogue", eventData)
+				if type == "catalogueI" then
+					event.trigger("FurnitureCatalogueI", eventData)
+				elseif type == "catalogueII" then
+					event.trigger("FurnitureCatalogueII", eventData)
+				end
 			end)
+		end,
+	},
+	{
+		text = "Pick Up",
+		---@param activator tes3reference
+		callback = function(activator)
+			tes3.addItem({ reference = tes3.player, item = activator.id })
+			activator:disable()
+			activator:delete()
 		end,
 	},
 }
@@ -38,7 +69,8 @@ local function activateCatalogue(e)
 	if e.activator ~= tes3.player then
 		return
 	end
-	if not common.isCatalogue(e.target) then
+	local type = common.isCatalogue(e.target)
+	if not type then
 		return
 	end
 	local catalogue = e.target
@@ -57,7 +89,7 @@ local function activateCatalogue(e)
 				return (buttonData.showRequirements == nil or buttonData.showRequirements(catalogue))
 			end,
 			callback = function()
-				buttonData.callback(catalogue)
+				buttonData.callback(catalogue, type)
 			end,
 		})
 	end
@@ -132,11 +164,28 @@ local function onMenuDialogActivated(e)
 			---@type furnitureCatalogue.MenuActivator.RegisteredEvent
 			local eventData = { activator = actorRef }
 			timer.delayOneFrame(function()
-				event.trigger("FurnitureCatalogue", eventData)
+				event.trigger("FurnitureCatalogueMerchants", eventData)
 			end, timer.real)
 		end)
 	end
 end
 event.register("uiActivated", onMenuDialogActivated, { filter = "MenuDialog", priority = -100 })
+
+local function merchantMobileActivated(e)
+	local merchant = e.reference
+	if config.furnitureMerchants[merchant.baseObject.id:lower()] then
+		if not merchant.data.furnitureCatalogueAdded then
+			merchant.data.furnitureCatalogueAdded = true
+			local container = tes3.createReference({
+				object = "jsmk_fc_merchant_inventory",
+				position = merchant.position:copy(),
+				orientation = merchant.orientation:copy(),
+				cell = merchant.cell,
+			})
+			tes3.setOwner({ reference = container, owner = merchant })
+		end
+	end
+end
+event.register("mobileActivated", merchantMobileActivated)
 
 return this

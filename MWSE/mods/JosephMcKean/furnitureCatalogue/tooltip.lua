@@ -17,14 +17,14 @@ local function hideTooltipElements(tooltip, text)
 	if value then
 		value.visible = false
 	end
-	local uiexpIconGold = tooltip:findChild("UIEXP_Tooltip_IconGoldBlock")
-	if uiexpIconGold then
-		log:debug("Setting uiexpIconGold to not visible")
-		uiexpIconGold.visible = false
-	end
-	local uiexpIconRatio = tooltip:findChild("UIEXP_Tooltip_IconRatioBlock")
-	if uiexpIconRatio then
-		uiexpIconRatio.visible = false
+	local uiexpIconBar = tooltip:findChild("UIEXP_Tooltip_IconBar")
+	if uiexpIconBar then
+		log:debug("UI Expansion Installed, hide icon bar")
+		local weight = tooltip:findChild("HelpMenu_weight")
+		if weight then
+			weight.visible = true
+		end
+		uiexpIconBar.visible = false
 	end
 	tooltip:updateLayout()
 end
@@ -49,21 +49,15 @@ end
 ---@param e uiObjectTooltipEventData
 local function customTooltip(e)
 	local uiID, text, color
-	if common.isCatalogue(e.object) then
-		uiID = "FurnitureCatalogue"
-		text = "Furniture Catalogue"
-		color = tes3.palette.activeColor
-	elseif common.isDeliveryCrate(e.object) then
+	local furniture = common.getFurniture(e.object)
+	if furniture then
 		uiID = "FurnitureCrate"
 		text = "Furniture Crate"
 		color = tes3.palette.answerPressedColor
-		if e.itemData and e.itemData.data and e.itemData.data.furnitureCatalogue and
-		e.itemData.data.furnitureCatalogue.furniture then
-			hideTooltipElements(e.tooltip, e.itemData.data.furnitureCatalogue.furniture.name)
-		end
+		hideTooltipElements(e.tooltip, furniture.name)
 	else
 		return
 	end
 	addLabel(e.tooltip, uiID, text, color)
 end
-event.register("uiObjectTooltip", customTooltip)
+event.register("uiObjectTooltip", customTooltip, { priority = -200 })

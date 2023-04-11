@@ -1,6 +1,6 @@
 local this = {}
 
-this.catalogue = { ["jsmk_fc_catalogue_01"] = true, ["jsmk_fc_catalogue_02"] = true }
+this.catalogue = { ["jsmk_fc_catalogue_01"] = "catalogueI", ["jsmk_fc_catalogue_02"] = "catalogueII" }
 
 ---@class furnitureCatalogue.furniture
 ---@field id string The id of the furniture
@@ -8,7 +8,6 @@ this.catalogue = { ["jsmk_fc_catalogue_01"] = true, ["jsmk_fc_catalogue_02"] = t
 ---@field description string?
 ---@field category string
 ---@field cost number
----@field size furnitureCatalogue.furniture.size?
 ---@field alwaysInStock boolean?
 ---@field scale number?
 ---@field ashlandersAvailable boolean?
@@ -17,15 +16,9 @@ this.catalogue = { ["jsmk_fc_catalogue_01"] = true, ["jsmk_fc_catalogue_02"] = t
 ---@field previewHeight number?
 ---@field weight number?
 
----@alias furnitureCatalogue.furniture.size
----| '"s"'
----| '"m"'
----| '"l"'
----| '"xl"'
-
 this.furniture = {
 	-- Oldwood pack
-	["001"] = { id = "active_de_p_bed_04", name = "Single Bed, Olive", category = "Beds", cost = 60, weight = 30 },
+	["001"] = { id = "active_de_p_bed_04", name = "Single Bed, Olive", category = "Beds", cost = 60, weight = 30 }, -- MW
 	["002"] = { id = "dr_asrt_p_f_bookcase_01", name = "Bookcase", category = "Shelves", cost = 30, weight = 5 }, -- DR
 	["003"] = { id = "de_p_closet_02", name = "Closet", category = "Containers", cost = 140, weight = 30 }, -- MW
 	["004"] = { id = "furn_de_p_bench_03", name = "Cheap Bench", category = "Seats", cost = 15, weight = 5 }, -- MW
@@ -53,7 +46,7 @@ this.furniture = {
 	["025"] = { id = "light_com_lamp_01", name = "Lamp", category = "Lights", cost = 20, weight = 10 }, -- MW
 	["026"] = { id = "light_com_lamp_02", name = "Lamp", category = "Lights", cost = 20, weight = 10 }, -- MW
 	["027"] = { id = "light_com_lantern_01", name = "Lantern", category = "Lights", cost = 10, weight = 5 }, -- MW
-	["028"] = { id = "light_de_candle_03", name = "Candle, Orange", category = "Lights", cost = 2, weight = 1 }, -- MW
+	["028"] = { id = "light_de_candle_03", name = "Candle, Orange", category = "Lights", cost = 12, weight = 1 }, -- MW
 	["029"] = { id = "light_de_lantern_07", name = "Paper Lantern, Blue", category = "Lights", cost = 10, weight = 3 }, -- MW
 	["030"] = { id = "ab_furn_dnghook", name = "Hook", category = "Other", cost = 10, weight = 5, scale = 0.5 }, -- OAAB
 
@@ -311,7 +304,7 @@ this.furniture = {
              ashlandersAvailable = true }, -- MW
 	["231"] = { id = "active_de_bedroll", name = "Bedroll", category = "Beds", cost = 50, weight = 5, ashlandersAvailable = true }, -- MW
 	["232"] = { id = "light_ashl_lantern_03", name = "Lantern, Ashlanders", category = "Lights", cost = 12, weight = 5, ashlandersOnly = true }, -- MW   
-	["233"] = { id = "com_basket_01", name = "Basket", category = "Containers", cost = 20, weight = 5, ashlandersAvailable = true }, -- MW
+	["233"] = { id = "com_basket_01_empty", name = "Basket", category = "Containers", cost = 20, weight = 5, ashlandersAvailable = true }, -- MW
 	["234"] = { id = "furn_de_basket_01", name = "Basket", category = "Other", cost = 20, weight = 5, ashlandersAvailable = true }, -- MW
 	["235"] = { id = "in_ashl_tent_banner_02", name = "Banner, Ashlanders", category = "Tapestries", cost = 120, weight = 5, ashlandersOnly = true }, -- MW
 	["236"] = { id = "in_ashl_tent_banner_08", name = "Banner, Ashlanders", category = "Tapestries", cost = 120, weight = 5, ashlandersOnly = true }, -- MW
