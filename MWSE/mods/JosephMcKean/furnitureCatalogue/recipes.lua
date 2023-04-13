@@ -1,7 +1,7 @@
 local ashfall = include("mer.ashfall.interop")
 local CraftingFramework = require("CraftingFramework")
-local Craftable = require("CraftingFramework.components.Craftable")
-local MenuActivator = require("CraftingFramework.components.MenuActivator")
+local Craftable = CraftingFramework.Craftable
+local MenuActivator = CraftingFramework.MenuActivator
 
 local catalogue = require("JosephMcKean.furnitureCatalogue.catalogue")
 local common = require("JosephMcKean.furnitureCatalogue.common")

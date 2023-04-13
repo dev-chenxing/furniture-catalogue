@@ -1,3 +1,5 @@
+local MerchantManager = require("CraftingFramework").MerchantManager
+
 local common = require("JosephMcKean.furnitureCatalogue.common")
 local config = require("JosephMcKean.furnitureCatalogue.config")
 
@@ -179,7 +181,6 @@ end
 event.register("uiActivated", onMenuDialogActivated, { filter = "MenuDialog", priority = -100 })
 
 --- This section creates the essential objects so I don't need a plugin file
-local merchantInventoryId = "jsmk_fc_merchant_inventory"
 do
 	--- Creating Furniture Catalogue: Standard
 	local catalogueIObj = tes3.getObject(catalogueI)
@@ -195,7 +196,7 @@ do
 		})
 	end
 	--- Creating Furniture Catalogue: Deluxe
-	local catalogueIIObj = tes3.getObject(catalogueII)
+	--[[local catalogueIIObj = tes3.getObject(catalogueII)
 	if not catalogueIIObj then
 		catalogueIIObj = tes3.createObject({
 			id = catalogueII,
@@ -206,18 +207,7 @@ do
 			weight = 3,
 			value = 30000, -- still unsure if this is a reasonable price
 		})
-	end
-	--- Creating invisible container
-	local merchantInventory = tes3.getObject(merchantInventoryId)
-	if not merchantInventory then
-		merchantInventory = tes3.createObject({
-			id = merchantInventoryId,
-			objectType = tes3.objectType.container,
-			name = "Furniture Catalogues",
-			mesh = "EditorMarker.nif",
-			capacity = 1000,
-		})
-	end
+	end]]
 end
 
 --- Upon cell changed, place the catalogue in Dondril, Craftsmer's Hall and Vivec, The Abbey of St. Delyn the Wise
@@ -225,7 +215,7 @@ end
 --- Because people can't check in tes3view and the construction set
 ---@param e cellChangedEventData
 local function placeCatalogue(e)
-	if e.cell.id == "Dondril, Craftsmer's Hall" and not tes3.player.data.furnitureCatalogue.catalogueIPlaced then
+	if e.cell.id == "Vivec, The Abbey of St. Delyn the Wise" and not tes3.player.data.furnitureCatalogue.catalogueIPlaced then
 		tes3.player.data.furnitureCatalogue.catalogueIPlaced = true
 		tes3.createReference({
 			object = catalogueI,
@@ -233,38 +223,26 @@ local function placeCatalogue(e)
 			orientation = tes3vector3.new(0, 0, 5.16),
 			cell = e.cell,
 		})
-	elseif e.cell.id == "Vivec, The Abbey of St. Delyn the Wise" and not tes3.player.data.furnitureCatalogue.catalogueIIPlaced then
+		--[[elseif e.cell.id == "Dondril, Craftsmer's Hall" and not tes3.player.data.furnitureCatalogue.catalogueIIPlaced then
 		tes3.player.data.furnitureCatalogue.catalogueIIPlaced = true
 		tes3.createReference({
 			object = catalogueII,
 			position = tes3vector3.new(1312.389, 346.616, -373.685),
 			orientation = tes3vector3.new(0, 0, 0.67),
 			cell = e.cell,
-		})
+		})]]
 	end
 end
 event.register("cellChanged", placeCatalogue)
 
---- When talking to the merchant, place the invisible container at merchant's feet and add the catalogues to the container
-local function merchantMobileActivated(e)
-	local merchant = e.reference
-	if config.furnitureMerchants[merchant.baseObject.id:lower()] then
-		if not merchant.data.furnitureCatalogueAdded then
-			merchant.data.furnitureCatalogueAdded = true
-			log:debug("Adding catalogues to merchant %s", merchant.id)
-			local container = tes3.createReference({
-				object = merchantInventoryId,
-				position = merchant.position:copy(),
-				orientation = merchant.orientation:copy(),
-				cell = merchant.cell,
-			})
-			tes3.player.tempData.container = container
-			tes3.setOwner({ reference = container, owner = merchant })
-			tes3.addItem({ reference = container, item = catalogueI })
-			tes3.addItem({ reference = container, item = catalogueII })
-		end
+local containers = {}
+for merchantId, active in pairs(config.furnitureMerchants) do
+	if active then
+		table.insert(containers, { merchantId = merchantId, contents = { [catalogueI] = 1 } })
 	end
 end
-event.register("mobileActivated", merchantMobileActivated)
+local merchantManager = MerchantManager.new({ modName = "Furniture Catalogue", containers = containers })
+merchantManager.logger:setLogLevel("INFO")
+merchantManager:registerEvents()
 
 return this
