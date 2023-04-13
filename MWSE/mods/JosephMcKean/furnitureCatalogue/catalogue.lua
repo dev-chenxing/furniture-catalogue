@@ -74,7 +74,7 @@ local function triggerMenu(catalogue, type)
 		elseif type == "catalogueII" then
 			event.trigger("FurnitureCatalogueII", eventData)
 		end
-	end)
+	end, timer.real) --- timer type real so CF menu can open in menu mode
 end
 
 --- Triggered the MenuActivator FurnitureCatalogueI or FurnitureCatalogueII when activating the book
@@ -97,7 +97,7 @@ local function activateCatalogue(e)
 end
 event.register("activate", activateCatalogue, { priority = -10 }) -- low priority to make sure player cannot activate the book while perfect placement-ing
 
---- Triggered the MenuActivator FurnitureCatalogueI or FurnitureCatalogueII when equipping the book
+--- Triggered the MenuActivator via equip is bugged
 ---@param e equipEventData
 local function equipCatalogue(e)
 	if e.reference ~= tes3.player then
@@ -111,7 +111,7 @@ local function equipCatalogue(e)
 	triggerMenu(catalogue, type)
 	return false
 end
-event.register("equip", equipCatalogue, { priority = 581 })
+--- event.register("equip", equipCatalogue, { priority = 581 })
 
 --- Checks if the npc sells furniture
 --- @param ref tes3reference

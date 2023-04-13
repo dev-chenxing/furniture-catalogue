@@ -44,19 +44,13 @@ end
 ---@param furniture furnitureCatalogue.furniture
 ---@param craftable CraftingFramework.Craftable
 ---@param reference tes3reference
----@param destroy boolean 
-local function refund(furniture, craftable, reference, destroy)
+local function refund(furniture, craftable, reference)
 	craftable:recoverItemsFromContainer(reference)
-	if not destroy then
-		craftable:playCraftingSound() -- plays the spend money sound
-		local refundMessage = string.format("%s has been refunded.", furniture.name)
-		local recoverMessage = string.format("%s gold has been added to your inventory.", furniture.cost)
-		refundMessage = refundMessage .. "\n" .. recoverMessage
-		tes3.messageBox(refundMessage)
-	else
-		local destroyMessage = string.format("%s has been destroyed.", furniture.name)
-		tes3.messageBox(destroyMessage)
-	end
+	craftable:playCraftingSound() -- plays the spend money sound
+	local refundMessage = string.format("%s has been refunded.", furniture.name)
+	local recoverMessage = string.format("%s gold has been added to your inventory.", furniture.cost)
+	refundMessage = refundMessage .. "\n" .. recoverMessage
+	tes3.messageBox(refundMessage)
 	-- the following code is from Merlord's CF, not sure why it's this complicated
 	-- i thought disable then delete is good enough
 	reference.sceneNode.appCulled = true
@@ -70,29 +64,37 @@ local function refund(furniture, craftable, reference, destroy)
 	end)
 end
 
+local ashfallOnlyCategory = {
+	["Beds"] = include("mer.ashfall.items.bedroll").buttons.sleep,
+	["Water"] = {
+		text = "Ashfall: Water Menu",
+		callback = function(e)
+			event.trigger("Ashfall:WaterMenu")
+		end,
+	},
+}
+
 --- Returns the additionalMenuOptions for furniture recipes
 ---@param index string
 ---@param furniture furnitureCatalogue.furniture
----@param type furnitureCatalogue.type
-local function additionalMenuOptions(index, furniture, type)
-	local destroy = (type == "catalogueII")
-	local refundText = destroy and "Destroy" or "Refund"
+local function additionalMenuOptions(index, furniture)
 	local buttons = {
 		{
-			text = refundText,
+			text = "Refund",
 			showRequirements = function(e)
 				return e.reference.data.crafted
 			end,
 			callback = function(e)
 				-- Ask you sure wanna destroy this? Yes, or Cancel
+				local refundMessage = string.format("Refund %s?", furniture.name)
 				tes3ui.showMessageMenu({
-					message = string.format("%s %s?", refundText, furniture.name),
+					message = refundMessage,
 					buttons = {
 						{
 							text = "Yes",
 							callback = function()
 								local craftable = Craftable.getCraftable(craftableId(index, furniture))
-								refund(furniture, craftable, e.reference, destroy)
+								refund(furniture, craftable, e.reference)
 							end,
 						},
 					},
@@ -102,12 +104,8 @@ local function additionalMenuOptions(index, furniture, type)
 		},
 	}
 	-- Only register beds if Ashfall is installed
-	if furniture.category == "Beds" then
-		if ashfall then
-			table.insert(buttons, include("mer.ashfall.items.bedroll").buttons.sleep)
-		else
-			return
-		end
+	if ashfallOnlyCategory[furniture.category] and ashfall then
+		table.insert(buttons, ashfallOnlyCategory[furniture.category])
 	end
 	return buttons
 end
@@ -124,7 +122,7 @@ local function goldCount(furniture, type)
 		return furniture.cost
 		--- Buying from the standard catalogue though, you need to pay 60g shipping fee
 	elseif type == "catalogueI" then
-		local shippingCost = 60
+		local shippingCost = 50
 		return furniture.cost + shippingCost
 	else
 		--- There's also the deluxe version where all furniture is free.
@@ -212,7 +210,9 @@ local soundType = "spendMoney" ---@cast soundType CraftingFramework.Craftable.So
 
 ---@param self CraftingFramework.Craftable
 ---@param e CraftingFramework.Craftable.SuccessMessageCallback.params
-local function successMessageCallback(self, e)
+---@param type string
+---@return string successMessage
+local function successMessageCallback(self, e, type)
 	return string.format("%s has been added to your inventory.", self.name)
 end
 
@@ -237,16 +237,19 @@ local function addRecipe(recipes, index, furniture, type)
 		id = recipeId(furniture),
 		craftableId = craftableId(index, furniture),
 		placedObject = furniture.id,
-		additionalMenuOptions = additionalMenuOptions(index, furniture, type),
+		additionalMenuOptions = additionalMenuOptions(index, furniture),
 		description = furniture.description,
 		materials = { { material = "gold_001", count = goldCount(furniture, type) } }, --- It would be cool if the count parameter here can accept function
+		knownByDefault = not furniture.notForSale, --- this is for duplicate furniture
 		customRequirements = { customRequirements.inStock(furniture) },
 		category = furniture.category,
 		name = furniture.name,
 		soundType = soundType,
 		scale = furniture.scale,
 		previewMesh = furnitureObj.mesh,
-		successMessageCallback = successMessageCallback,
+		successMessageCallback = function(self, e)
+			return successMessageCallback(self, e, type)
+		end,
 	}
 	table.insert(recipes, recipe)
 end
@@ -265,7 +268,7 @@ do
 	for index, furniture in pairs(furnConfig.furniture) do
 		addRecipe(recipesMerchants, index, furniture, "merchants")
 		addRecipe(recipesCatalogueI, index, furniture, "catalogueI")
-		addRecipe(recipesCatalogueII, index, furniture, "catalogueII")
+		-- addRecipe(recipesCatalogueII, index, furniture, "catalogueII")
 	end
 	--- These MenuActivator are event type, trigger the event to openCraftingMenu
 	MenuActivator:new({
@@ -280,7 +283,7 @@ do
 		materialsHeaderText = "Cost",
 	})
 	MenuActivator:new({
-		name = "Furniture Catalogue",
+		name = "Furniture Catalogue: Standard",
 		id = "FurnitureCatalogueI",
 		type = "event",
 		recipes = recipesCatalogueI,
@@ -290,8 +293,8 @@ do
 		craftButtonText = "Purchase",
 		materialsHeaderText = "Cost plus Shipping Fee 60 gold",
 	})
-	MenuActivator:new({
-		name = "Furniture Catalogue",
+	--[[MenuActivator:new({
+		name = "Furniture Catalogue: Deluxe",
 		id = "FurnitureCatalogueII",
 		type = "event",
 		recipes = recipesCatalogueII,
@@ -300,5 +303,5 @@ do
 		defaultShowCategories = true,
 		craftButtonText = "Add to Cart",
 		materialsHeaderText = "Free Furniture Catalogue",
-	})
+	})]]
 end
