@@ -6,8 +6,6 @@ local function onInit()
 	require("JosephMcKean.furnitureCatalogue.interop")
 	require("JosephMcKean.furnitureCatalogue.catalogue")
 	require("JosephMcKean.furnitureCatalogue.recipes")
-	require("JosephMcKean.furnitureCatalogue.tooltip")
-	-- require("JosephMcKean.furnitureCatalogue.hammer") -- Had trouble implementing it
 end
 event.register("initialized", onInit)
 

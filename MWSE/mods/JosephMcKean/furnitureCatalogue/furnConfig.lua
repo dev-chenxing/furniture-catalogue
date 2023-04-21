@@ -373,9 +373,9 @@ this.furniture = {
 	["340"] = { id = "ab_light_delantpaper03_256", name = "Paper Lantern, Orange", category = "Lights", cost = 12, weight = 2 }, -- OAAB
 	["341"] = { id = "furn_de_rope1_01", name = "Rope", category = "Other", cost = 10, weight = 1 }, -- MW
 	["342"] = { id = "furn_de_bannerpost_01", name = "Banner Post", category = "Other", cost = 10, weight = 4 }, -- MW
-	["343"] = { id = "furn_banner_temple_01_indoors", name = "Banner, Tribunal", category = "Other", cost = 100, weight = 1 }, -- MW
-	["344"] = { id = "furn_banner_temple_02_indoors", name = "Banner, Tribunal", category = "Other", cost = 100, weight = 1 }, -- MW
-	["345"] = { id = "furn_banner_temple_03_indoors", name = "Banner, Tribunal", category = "Other", cost = 100, weight = 1 }, -- MW
+	["343"] = { id = "furn_banner_temple_01_indoors", name = "Banner, Tribunal", category = "Tapestries", cost = 100, weight = 1 }, -- MW
+	["344"] = { id = "furn_banner_temple_02_indoors", name = "Banner, Tribunal", category = "Tapestries", cost = 100, weight = 1 }, -- MW
+	["345"] = { id = "furn_banner_temple_03_indoors", name = "Banner, Tribunal", category = "Tapestries", cost = 100, weight = 1 }, -- MW
 	["346"] = { id = "furn_de_screen_guar_01", name = "Wallscreen, Guar Skin", category = "Other", cost = 100, weight = 5 }, -- MW
 	["347"] = { id = "furn_de_tapestry_12", name = "Tapestry, Red", category = "Tapestries", cost = 120, weight = 5 }, -- MW
 	["348"] = { id = "furn_de_tapestry_13", name = "Tapestry, Red", category = "Tapestries", cost = 120, weight = 5 }, -- MW

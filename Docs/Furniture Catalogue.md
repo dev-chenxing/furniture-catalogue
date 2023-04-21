@@ -2,11 +2,9 @@
 
 Shop Furniture Catalogue for modern, affordable furniture to make your housee a home. Our wide selection of pieces comes from base game, [Tamriel_Data](https://www.nexusmods.com/morrowind/mods/44537), [OAAB_Data](https://www.nexusmods.com/morrowind/mods/49042), and more. 
 
-This mod adds a Furniture Catalogues and furniture merchants to the game, where you can purchase more than 350 furniture and home decoration. Requires Crafting Framework. 
+This mod adds a Furniture Catalogues to the game, where you can purchase more than 350 furniture and home decoration. Requires Crafting Framework. 
 
-You can buy the Furniture Catalogue from furniture merchants. It charges you extra shipping cost 60 gold. Buying furniture directly from the merchants does not charge you shipping cost. 
-
-Every day, Furniture Catalogue will restock the inventory. If you can't find a piece you want, try buying from other merchants, or wait a few days. 
+You can buy the Furniture Catalogue from furniture merchants. Every day, Furniture Catalogue will restock the inventory. If you can't find a piece you want, wait a few days. 
 
 To add more furniture, either ping me on Discord, or add an interop yourself.
 

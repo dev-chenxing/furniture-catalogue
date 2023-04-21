@@ -16,54 +16,6 @@ local function recipeId(furniture)
 	return "FurnitureCatalogue:" .. furniture.id
 end
 
----@param index string
----@param furniture furnitureCatalogue.furniture
----@return string id
-local function craftableId(index, furniture)
-	local furnitureObj = tes3.getObject(furniture.id)
-	local id = "jsmk_fc_crate_" .. index
-	-- Generate the craftable if one doesn't exist
-	local craftable = tes3.getObject(id)
-	if not craftable then
-		log:debug("Craftable %s for placedObject %s does not exist, creating a misc", id, furniture.id)
-		craftable = tes3.createObject({
-			id = id,
-			objectType = tes3.objectType.miscItem,
-			name = furniture.name,
-			icon = "jsmk\\fc\\crate.dds",
-			mesh = furnitureObj.mesh, -- the dummy misc has the same model with the furniture so it can be placed in world with correct position
-			value = 0,
-			weight = furniture.weight,
-		})
-	end
-	return id
-end
-
---- If the destroy flag is true, delete the reference. If the destroy flag is false, give player money then delete the reference.
---- Basically the same function as Craftable:destroy
----@param furniture furnitureCatalogue.furniture
----@param craftable CraftingFramework.Craftable
----@param reference tes3reference
-local function refund(furniture, craftable, reference)
-	craftable:recoverItemsFromContainer(reference)
-	craftable:playCraftingSound() -- plays the spend money sound
-	local refundMessage = string.format("%s has been refunded.", furniture.name)
-	local recoverMessage = string.format("%s gold has been added to your inventory.", furniture.cost)
-	refundMessage = refundMessage .. "\n" .. recoverMessage
-	tes3.messageBox(refundMessage)
-	-- the following code is from Merlord's CF, not sure why it's this complicated
-	-- i thought disable then delete is good enough
-	reference.sceneNode.appCulled = true
-	tes3.positionCell({ reference = reference, position = { 0, 0, 0 } })
-	reference:disable()
-	if craftable.destroyCallback then
-		craftable:destroyCallback({ reference = reference })
-	end
-	timer.delayOneFrame(function()
-		reference:delete()
-	end)
-end
-
 local ashfallOnlyCategory = {
 	["Beds"] = include("mer.ashfall.items.bedroll").buttons.sleep,
 	["Water"] = {
@@ -78,31 +30,7 @@ local ashfallOnlyCategory = {
 ---@param index string
 ---@param furniture furnitureCatalogue.furniture
 local function additionalMenuOptions(index, furniture)
-	local buttons = {
-		{
-			text = "Refund",
-			showRequirements = function(e)
-				return e.reference.data.crafted
-			end,
-			callback = function(e)
-				-- Ask you sure wanna destroy this? Yes, or Cancel
-				local refundMessage = string.format("Refund %s?", furniture.name)
-				tes3ui.showMessageMenu({
-					message = refundMessage,
-					buttons = {
-						{
-							text = "Yes",
-							callback = function()
-								local craftable = Craftable.getCraftable(craftableId(index, furniture))
-								refund(furniture, craftable, e.reference)
-							end,
-						},
-					},
-					cancels = true,
-				})
-			end,
-		},
-	}
+	local buttons = {}
 	-- Only register beds if Ashfall is installed
 	if ashfallOnlyCategory[furniture.category] and ashfall then
 		table.insert(buttons, ashfallOnlyCategory[furniture.category])
@@ -110,24 +38,10 @@ local function additionalMenuOptions(index, furniture)
 	return buttons
 end
 
---- Returns the amount of gold the furniture costs. 
---- At the time of writing, I can't change the cost after the recipes have been added.
---- So I'm registering multiple MenuActivator to change the price. 
 ---@param furniture furnitureCatalogue.furniture
----@param type string
 ---@return number
-local function goldCount(furniture, type)
-	--- Buying furniture from merchants directly doesn't cost you extras
-	if type == "merchants" then
-		return furniture.cost
-		--- Buying from the standard catalogue though, you need to pay 60g shipping fee
-	elseif type == "catalogueI" then
-		local shippingCost = 50
-		return furniture.cost + shippingCost
-	else
-		--- There's also the deluxe version where all furniture is free.
-		return 0
-	end
+local function goldCount(furniture)
+	return furniture.cost
 end
 
 ---@param ref tes3reference
@@ -177,13 +91,13 @@ local customRequirements = {
 			end,
 			check = function()
 				local today = tes3.findGlobal("DaysPassed").value
-				catalogue.currentActivator.data.furnitureCatalogue = catalogue.currentActivator.data.furnitureCatalogue or {}
+				tes3.player.data.furnitureCatalogue = tes3.player.data.furnitureCatalogue or {}
 				--- Get new stock every day
-				if catalogue.currentActivator.data.furnitureCatalogue.today ~= today then
-					getNewStock(catalogue.currentActivator)
-					catalogue.currentActivator.data.furnitureCatalogue.today = today
+				if tes3.player.data.furnitureCatalogue.today ~= today then
+					getNewStock(tes3.player)
+					tes3.player.data.furnitureCatalogue.today = today
 				end
-				if catalogue.currentActivator.data.furnitureCatalogue.todayStock[furniture.id] then
+				if tes3.player.data.furnitureCatalogue.todayStock[furniture.id] then
 					return true
 				else
 					return false, string.format("Unfortunately, this product is out of stock.")
@@ -210,17 +124,15 @@ local soundType = "spendMoney" ---@cast soundType CraftingFramework.Craftable.So
 
 ---@param self CraftingFramework.Craftable
 ---@param e CraftingFramework.Craftable.SuccessMessageCallback.params
----@param type string
 ---@return string successMessage
-local function successMessageCallback(self, e, type)
+local function successMessageCallback(self, e)
 	return string.format("%s has been added to your inventory.", self.name)
 end
 
 ---@param recipes CraftingFramework.Recipe.data[]
 ---@param index string
 ---@param furniture furnitureCatalogue.furniture
----@param type string
-local function addRecipe(recipes, index, furniture, type)
+local function addRecipe(recipes, index, furniture)
 	local furnitureObj = tes3.getObject(furniture.id)
 	if not furnitureObj then
 		return
@@ -235,11 +147,10 @@ local function addRecipe(recipes, index, furniture, type)
 	---@type CraftingFramework.Recipe 
 	local recipe = {
 		id = recipeId(furniture),
-		craftableId = craftableId(index, furniture),
-		placedObject = furniture.id,
+		craftableId = furniture.id,
 		additionalMenuOptions = additionalMenuOptions(index, furniture),
 		description = furniture.description,
-		materials = { { material = "gold_001", count = goldCount(furniture, type) } }, --- It would be cool if the count parameter here can accept function
+		materials = { { material = "gold_001", count = goldCount(furniture) } }, --- It would be cool if the count parameter here can accept function
 		knownByDefault = not furniture.notForSale, --- this is for duplicate furniture
 		customRequirements = { customRequirements.inStock(furniture) },
 		category = furniture.category,
@@ -248,7 +159,7 @@ local function addRecipe(recipes, index, furniture, type)
 		scale = furniture.scale,
 		previewMesh = furnitureObj.mesh,
 		successMessageCallback = function(self, e)
-			return successMessageCallback(self, e, type)
+			return successMessageCallback(self, e)
 		end,
 	}
 	table.insert(recipes, recipe)
@@ -259,29 +170,12 @@ do
 	if not MenuActivator then
 		return
 	end
-	local recipesMerchants = {} ---@type CraftingFramework.Recipe.data[]
 	local recipesCatalogueI = {} ---@type CraftingFramework.Recipe.data[]
-	local recipesCatalogueII = {} ---@type CraftingFramework.Recipe.data[]
-	--- I registered thrice almost the same recipes because I need different prices for furniture
 	---@param index string 
 	---@param furniture furnitureCatalogue.furniture
 	for index, furniture in pairs(furnConfig.furniture) do
-		addRecipe(recipesMerchants, index, furniture, "merchants")
-		addRecipe(recipesCatalogueI, index, furniture, "catalogueI")
-		-- addRecipe(recipesCatalogueII, index, furniture, "catalogueII")
+		addRecipe(recipesCatalogueI, index, furniture)
 	end
-	--- These MenuActivator are event type, trigger the event to openCraftingMenu
-	MenuActivator:new({
-		name = "Furniture Catalogue",
-		id = "FurnitureCatalogueMerchants",
-		type = "event",
-		recipes = recipesMerchants,
-		defaultSort = "name",
-		defaultFilter = "canCraft",
-		defaultShowCategories = true,
-		craftButtonText = "Purchase",
-		materialsHeaderText = "Cost",
-	})
 	MenuActivator:new({
 		name = "Furniture Catalogue: Standard",
 		id = "FurnitureCatalogueI",
@@ -291,17 +185,6 @@ do
 		defaultFilter = "canCraft",
 		defaultShowCategories = true,
 		craftButtonText = "Purchase",
-		materialsHeaderText = "Cost plus Shipping Fee 60 gold",
+		materialsHeaderText = "Cost",
 	})
-	--[[MenuActivator:new({
-		name = "Furniture Catalogue: Deluxe",
-		id = "FurnitureCatalogueII",
-		type = "event",
-		recipes = recipesCatalogueII,
-		defaultSort = "name",
-		defaultFilter = "canCraft",
-		defaultShowCategories = true,
-		craftButtonText = "Add to Cart",
-		materialsHeaderText = "Free Furniture Catalogue",
-	})]]
 end
