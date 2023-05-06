@@ -5,6 +5,7 @@ local MenuActivator = CraftingFramework.MenuActivator
 
 local catalogue = require("JosephMcKean.furnitureCatalogue.catalogue")
 local common = require("JosephMcKean.furnitureCatalogue.common")
+local config = require("JosephMcKean.furnitureCatalogue.config")
 local furnConfig = require("JosephMcKean.furnitureCatalogue.furnConfig")
 
 local log = common.createLogger("recipes")
@@ -48,13 +49,15 @@ end
 local function getNewStock(ref)
 	ref.data.furnitureCatalogue.todayStock = {}
 	local picked = {}
-	local stockAmount = 50 --- Change this if you want more furniture available each day
+	local stockAmount = config.stockAmount
 	--- From the list of furniture, we randomly pick 50
 	for i = 1, stockAmount do
 		picked[math.random(1, table.size(furnConfig.furniture))] = true
 	end
 	local j = 1
-	local isAshlander = common.isAshlander(ref)
+	-- Faction specific furniture feature is still in development
+	-- local isAshlander = common.isAshlander(ref)
+	local isAshlander = true
 	--- Loop through the list of furniture again
 	for index, furniture in pairs(furnConfig.furniture) do
 		--- if it should always be in stock, or is one of the picked ones

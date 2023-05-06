@@ -88,7 +88,7 @@ do
 			mesh = "jsmk\\fc\\catalogue_01.nif",
 			icon = "jsmk\\fc\\catalogue_01.dds",
 			weight = 3,
-			value = 3000,
+			value = 500,
 		})
 	end
 end

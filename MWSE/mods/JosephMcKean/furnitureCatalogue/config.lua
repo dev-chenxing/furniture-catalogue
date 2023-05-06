@@ -1,5 +1,6 @@
 local configPath = "Furniture Catalogue"
 local defaultConfig = {
+	stockAmount = 50,
 	debugMode = false,
 	furnitureMerchants = {
 		["ababael timsar-dadisun"] = true, -- Ashlander, Zainab Camp

@@ -4,7 +4,7 @@ Shop Furniture Catalogue for modern, affordable furniture to make your housee a 
 
 This mod adds a Furniture Catalogues to the game, where you can purchase more than 350 furniture and home decoration. Requires Crafting Framework. 
 
-You can buy the Furniture Catalogue from furniture merchants. Every day, Furniture Catalogue will restock the inventory. If you can't find a piece you want, wait a few days. 
+You can buy the Furniture Catalogue from furniture merchants. Every day, Furniture Catalogue will restock the inventory. If you can't find a piece you want, wait a few days. Or you can change the stock amount in the mod config menu.
 
 To add more furniture, either ping me on Discord, or add an interop yourself.
 
