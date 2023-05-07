@@ -57,13 +57,12 @@ local function getNewStock(ref)
 	local j = 1
 	-- Faction specific furniture feature is still in development
 	-- local isAshlander = common.isAshlander(ref)
-	local isAshlander = true
 	--- Loop through the list of furniture again
 	for index, furniture in pairs(furnConfig.furniture) do
 		--- if it should always be in stock, or is one of the picked ones
 		if furniture.alwaysInStock or picked[j] then
 			--- if the player or the merchant selling the furniture is an Ashlander
-			if isAshlander then
+			--[[if isAshlander then
 				--- and the furniture is available at Ashlander merchant
 				if furniture.ashlandersAvailable or furniture.ashlandersOnly then
 					log:debug("%s is %s, adding to todayStock", furniture.id,
@@ -78,7 +77,8 @@ local function getNewStock(ref)
 					log:debug("%s is %s, adding to todayStock", furniture.id, (furniture.ashlandersOnly and "ashlandersOnly") or "not ashlandersOnly")
 					ref.data.furnitureCatalogue.todayStock[furniture.id] = true
 				end
-			end
+			end]]
+			ref.data.furnitureCatalogue.todayStock[furniture.id] = true
 		end
 		j = j + 1
 	end
