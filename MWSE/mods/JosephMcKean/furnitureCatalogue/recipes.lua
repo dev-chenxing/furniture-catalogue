@@ -1,4 +1,5 @@
 local ashfall = include("mer.ashfall.interop")
+local bedroll = include("mer.ashfall.items.bedroll")
 local CraftingFramework = require("CraftingFramework")
 local Craftable = CraftingFramework.Craftable
 local MenuActivator = CraftingFramework.MenuActivator
@@ -18,7 +19,7 @@ local function recipeId(furniture)
 end
 
 local ashfallOnlyCategory = {
-	["Beds"] = include("mer.ashfall.items.bedroll").buttons.sleep,
+	["Beds"] = bedroll and bedroll.buttons.sleep,
 	["Water"] = {
 		text = "Ashfall: Water Menu",
 		callback = function(e)
