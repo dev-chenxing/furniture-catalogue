@@ -34,7 +34,7 @@ this.furniture = {
 	["018"] = { id = "mwg_vivec_market_05", name = "Market Stand", category = "Shelves", cost = 30, weight = 10 }, -- MwG
 	["019"] = { id = "de_p_desk_01", name = "Desk, Cheap", category = "Containers", cost = 140, weight = 30 }, -- MW
 	["020"] = { id = "de_drawers_02", name = "Chest of Drawers, Cheap", category = "Containers", cost = 140, weight = 30 }, -- MW
-	["021"] = { id = "ab_o_deplntable01", name = "End Table, Cheap", category = "Table", cost = 130, weight = 30 }, -- OAAB
+	["021"] = { id = "ab_o_deplntable01", name = "End Table, Cheap", category = "Tables", cost = 130, weight = 30 }, -- OAAB
 	["022"] = { id = "ab_furn_deplnscrollrack1", name = "Scroll Rack, Cheap", category = "Shelves", cost = 175, weight = 30 }, -- OAAB
 	["023"] = { id = "ab_furn_deplnscrollrack2", name = "Scroll Rack, Cheap", category = "Shelves", cost = 175, weight = 30 }, -- OAAB
 
