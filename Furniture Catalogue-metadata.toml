@@ -1,7 +1,7 @@
 [package]
 name = "Furniture Catalogue"
 authors = ["Amalie"]
-version = "1.1.5"
+version = "1.2.1"
 
 [dependencies]
 assets = [
@@ -13,9 +13,9 @@ assets = [
 ]
 
 [dependencies.mwse]
-buildnumber = 3210
+buildnumber = 3236
 
 [dependencies.mods."The Crafting Framework"]
 mwse-module = "CraftingFramework"
-version = "^1.10.0"
+version = "^1.12.0"
 url = "https://www.nexusmods.com/morrowind/mods/51009"

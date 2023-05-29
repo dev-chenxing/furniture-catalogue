@@ -134,7 +134,7 @@ local function addRecipe(recipes, index, furniture)
 		additionalMenuOptions = additionalMenuOptions(index, furniture),
 		description = furniture.description,
 		materials = { { material = "gold_001", count = goldCount(furniture) } }, --- It would be cool if the count parameter here can accept function
-		knowledgeRequirement = function() return not (furniture.notForSale or (furniture.category == "Debug" and not config.debugMode)) end, --- this is for duplicate or debug furniture
+		knowledgeRequirement = function() return not (furniture.notForSale or furniture.deprecated or (furniture.category == "Debug" and not config.debugMode)) end, --- this is for duplicate or debug furniture
 		customRequirements = { customRequirements.inStock(furniture) },
 		category = furniture.category,
 		name = furniture.name,

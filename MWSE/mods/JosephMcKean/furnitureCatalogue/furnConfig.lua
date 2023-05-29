@@ -13,6 +13,7 @@ local this = {}
 ---@field weight number?
 ---@field notForSale boolean?
 ---@field base string?
+---@field deprecated boolean?
 
 this.furniture = {
 	-- Oldwood pack
@@ -233,7 +234,7 @@ this.furniture = {
 	["197"] = { id = "ab_furn_deflagon_01", name = "Flagon", category = "Other", cost = 20, weight = 15, scale = 0.66 }, -- OAAB
 	["198"] = { id = "ab_furn_deplanter01ash", name = "Planter, Ashland Soil", category = "Planters", cost = 40, weight = 15, scale = 0.5 }, -- OAAB     
 	["199"] = { id = "ab_furn_deplanterbonsai", name = "Planter, Bonsai", category = "Planters", cost = 50, weight = 15, scale = 0.5 }, -- OAAB
-	["200"] = { id = "ab_o_urnash_01", name = "Urn, with Ash", category = "Containers", cost = 100, weight = 15 }, -- OAAB
+	["200"] = { id = "ab_o_urnash_01", name = "Urn", category = "Containers", cost = 100, weight = 15 }, -- OAAB
 	["201"] = { id = "t_de_furn_urnopen_01", name = "Urn, Open", category = "Other", cost = 30, weight = 20 }, -- TR
 	["203"] = { id = "t_mwde_furn_urntapempty", name = "Urn, with Tapestry", category = "Containers", cost = 40, weight = 20 }, -- TR
 
@@ -302,7 +303,7 @@ this.furniture = {
 	["265"] = { id = "t_de_furn_rug_06", name = "Rug", category = "Rugs", cost = 120, weight = 6, scale = 0.5, ashlandersAvailable = true }, -- TR
 	["266"] = { id = "furn_ashl_bugbowl", name = "Bug Bowl, Ashlanders", category = "Other", cost = 40, weight = 5, ashlandersOnly = true }, -- MW       
 	["267"] = { id = "ab_furn_debasket_01", name = "Basket", category = "Other", cost = 20, weight = 5, ashlandersAvailable = true }, -- OAAB
-	["268"] = { id = "ab_o_ashltrinketbox", name = "Trinket Box", category = "Containers", cost = 40, weight = 5, scale = 0.6, ashlandersOnly = true }, -- OAAB
+	["268"] = { id = "ab_o_ashltrinketbox", name = "Trinket Box", category = "Containers", cost = 340, weight = 5, scale = 0.6, ashlandersOnly = true }, -- OAAB
 	["269"] = { id = "flora_wickwheat_01", name = "Wickwheat", category = "Plants", cost = 100, weight = 1, scale = 0.6, ashlandersAvailable = true }, -- MW
 	["270"] = { id = "furn_ashl_bugbowl_02", name = "Bug Bowl, Ashlanders", category = "Other", cost = 40, weight = 5, ashlandersOnly = true }, -- MW
 	["272"] = { id = "t_de_furn_rugsmall_01", name = "Rug", category = "Rugs", cost = 60, weight = 6, scale = 0.5, ashlandersAvailable = true }, -- TR
@@ -323,7 +324,7 @@ this.furniture = {
 	["287"] = { id = "ab_ex_derack02", name = "Rack, Wooden", category = "Other", cost = 20, weight = 10 }, -- OAAB
 	["288"] = { id = "ab_ex_velchimney", name = "Chimney, Velothi", category = "Structures", cost = 20, weight = 10 }, -- OAAB
 	["289"] = { id = "ab_f_dustcap_04", name = "Dustcap", category = "Plants", cost = 100, weight = 1, scale = 0.78 }, -- OAAB
-	["290"] = { id = "ab_f_fomentarius_03", name = "Blistering Fomentarius", category = "Plants", cost = 100, weight = 1 }, -- OAAB
+	["290"] = { id = "ab_f_fomentarius_03", name = "Blistering Fomentarius", category = "Plants", cost = 100, weight = 1, deprecated = true }, -- OAAB
 	["291"] = { id = "ab_f_glowingmuscaria_02", name = "Glowing Chanterelle", category = "Plants", cost = 100, weight = 1, scale = 0.87 }, -- OAAB
 	["292"] = { id = "ab_f_hacklelo3_o", name = "Hackle-lo", category = "Plants", cost = 100, weight = 1, scale = 0.54 }, -- OAAB
 	["293"] = { id = "ab_f_urnula_03", name = "Veiled Urnula", category = "Plants", cost = 100, weight = 1 }, -- OAAB
@@ -341,10 +342,10 @@ this.furniture = {
 	["305"] = { id = "ab_o_alchjarresin", name = "Jar of Resin", category = "Containers", cost = 50, weight = 1 }, -- OAAB
 	["306"] = { id = "ab_o_ashlscathecraw", name = "Scathecraw Bundle", category = "Plants", cost = 50, weight = 1 }, -- OAAB
 	["307"] = { id = "ab_o_comclosetthin", name = "Closet", category = "Containers", cost = 100, weight = 20 }, -- OAAB
-	["308"] = { id = "ab_o_comrchdeskpos", name = "Desk, Cherry Wood", category = "Containers", cost = 200, weight = 35 }, -- OAAB
+	["308"] = { id = "ab_o_comrchdeskpos", name = "Desk, Cherry Wood", category = "Containers", cost = 200, weight = 35, deprecated = true }, -- OAAB
 	["309"] = { id = "ab_o_velothicoffer_01", name = "Coffer, Velothi", category = "Containers", cost = 100, weight = 5 }, -- OAAB
-	["310"] = { id = "ab_r_sfishdeadhang", name = "Slaughterfish", category = "Containers", cost = 100, weight = 5 }, -- OAAB
-	["311"] = { id = "ab_r_sfishsmallhang", name = "Slaughterfish, Small", category = "Containers", cost = 50, weight = 2 }, -- OAAB
+	["310"] = { id = "ab_r_sfishdeadhang", name = "Slaughterfish", category = "Containers", cost = 100, weight = 5, deprecated = true }, -- OAAB
+	["311"] = { id = "ab_r_sfishsmallhang", name = "Slaughterfish, Small", category = "Containers", cost = 50, weight = 2, deprecated = true }, -- OAAB
 	["312"] = { id = "active_de_r_bed_20", name = "Double Bed, Red", category = "Beds", cost = 300, weight = 40 }, -- MW
 	["313"] = { id = "flora_bc_shelffungus_03", name = "Hypha Facia", category = "Plants", cost = 100, weight = 1, scale = 0.55 }, -- MW
 	["314"] = { id = "flora_black_lichen_02", name = "Black Lichen", category = "Plants", cost = 100, weight = 1 }, -- MW
@@ -370,7 +371,7 @@ this.furniture = {
 	["335"] = { id = "furn_com_p_shelf_04", name = "Shelf, Khaki", category = "Shelves", cost = 20, weight = 5 }, -- MW
 	["336"] = { id = "furn_com_torch_ring_01", name = "Torch Ring", category = "Other", cost = 10, weight = 1 }, -- MW
 	["338"] = { id = "flora_ashtree_03", name = "Tree, Ashland", category = "Plants", cost = 100, weight = 10, scale = 1.15 }, -- MW
-	["339"] = { id = "flora_red_lichen_01", name = "Red Lichen", category = "Plants", cost = 100, weight = 1 }, -- MW
+	["339"] = { id = "flora_red_lichen_01", name = "Red Lichen", category = "Plants", cost = 100, weight = 1, deprecated = true }, -- MW
 	["340"] = { id = "ab_light_delantpaper03_256", name = "Paper Lantern, Orange", category = "Lights", cost = 12, weight = 2 }, -- OAAB
 	["341"] = { id = "furn_de_rope1_01", name = "Rope", category = "Ropes", cost = 10, weight = 1 }, -- MW
 	["342"] = { id = "furn_de_bannerpost_01", name = "Banner Post", category = "Other", cost = 10, weight = 4 }, -- MW
@@ -395,13 +396,13 @@ this.furniture = {
 	["361"] = { id = "flora_fire_fern_02", name = "Fire Fern", category = "Plants", cost = 100, weight = 1, scale = 0.5 }, -- MW
 	["362"] = { id = "nm_red_banner_s", name = "Banner, Redoran", category = "Tapestries", cost = 100, weight = 1 }, -- N'Wah and Mushroom Team
 	["363"] = { id = "ab_furn_comcandlered02", name = "Fake Candles, Red", category = "Lights", cost = 12, weight = 1 }, -- OAAB
-	["364"] = { id = "com_sack_02", name = "Sack", category = "Containers", cost = 6, weight = 2, ashlandersAvailable = true }, -- MW
+	["364"] = { id = "com_sack_02", name = "Cloth Sack", category = "Containers", cost = 6, weight = 2, ashlandersAvailable = true }, -- MW
 	["365"] = { id = "flora_black_anther_01", name = "Black Anther", category = "Plants", cost = 100, weight = 1 }, -- MW
 	["366"] = { id = "flora_muckspunge_01", name = "Muckspunge", category = "Plants", cost = 100, weight = 1 }, -- MW
 	["367"] = { id = "furn_com_cauldron_02", name = "Cauldron", category = "Other", cost = 100, weight = 10 }, -- MW
 	["368"] = { id = "t_mw_flora_bluefoot02", name = "Bluefoot", category = "Plants", cost = 100, weight = 1 }, -- TR
 	["369"] = { id = "t_mw_flora_munzur_01", name = "Munzur", category = "Plants", cost = 100, weight = 1 }, -- TR
-	["370"] = { id = "t_mw_flora_templedom01", name = "Temple Dome", category = "Plants", cost = 100, weight = 1, scale = 1.4 }, -- TR
+	["370"] = { id = "t_mw_flora_templedom01", name = "Temple Dome", category = "Plants", cost = 100, weight = 1, scale = 1.4, deprecated = true }, -- TR
 	["371"] = { id = "t_mw_flora_terrastree_02", name = "Terras Tree", category = "Plants", cost = 100, weight = 1, scale = 1.4 }, -- TR
 	["372"] = { id = "t_mw_flora_treecine_05", name = "Cine Tree", category = "Plants", cost = 100, weight = 1, scale = 1.4 }, -- TR
 	["373"] = { id = "ex_de_railing_01", name = "Railing", category = "Ropes", cost = 10, weight = 2 }, -- MW
@@ -477,6 +478,7 @@ this.furniture = {
 	["443"] = { id = "rpnr_ashl_weapon_rack", name = "Weapon Rack, Ashlander", category = "Other", cost = 100 }, -- BCOM
 	["444"] = { id = "rpnr_dr_asrt_p_f_bookcase_02", name = "Shelves", category = "Other", cost = 100 }, -- BCOM
 	["445"] = { id = "t_imp_furnm_weaponrack_01", name = "Weapon Rack", category = "Other", cost = 100 }, -- TR
+	["446"] = { id = "ab_o_comrchdeskempty", name = "Desk, Cherry Wood", category = "Containers", cost = 200, weight = 35 }, -- OAAB
 }
 
 this.furnitureIndices = {}
