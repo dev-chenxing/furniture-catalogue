@@ -12,7 +12,7 @@ local function registerModConfig()
 		label = "Stock Amount",
 		description = "Set the maximim number of in stock furniture every day. Default: 50",
 		min = 0,
-		max = 400,
+		max = 500,
 		step = 1,
 		variable = mwse.mcm.createTableVariable { id = "stockAmount", table = config },
 	})

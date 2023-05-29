@@ -5,8 +5,8 @@ local config = require("JosephMcKean.furnitureCatalogue.config")
 
 local log = common.createLogger("catalogue")
 
-local catalogueI = "jsmk_fc_catalogue_01" -- the id of the Furniture Catalogue
-local catalogueType = { [catalogueI] = "catalogueI" }
+local catalogue = "jsmk_fc_catalogue_01" -- the id of the Furniture Catalogue
+local catalogueType = { [catalogue] = "catalogue" }
 
 --- Returns the type of catalogue of the object with the specified id
 ---@param id string
@@ -38,11 +38,11 @@ local function triggerMenu(catalogue)
 	---@type furnitureCatalogue.MenuActivator.RegisteredEvent
 	local eventData = { item = catalogue }
 	timer.delayOneFrame(function()
-		event.trigger("FurnitureCatalogueI", eventData)
+		event.trigger("FurnitureCatalogue", eventData)
 	end, timer.real) --- timer type real so CF menu can open in menu mode
 end
 
---- Triggered the MenuActivator FurnitureCatalogueI or FurnitureCatalogueII when activating the book
+--- Triggered the MenuActivator FurnitureCatalogue when activating the book
 ---@param e activateEventData
 local function activateCatalogue(e)
 	if e.activator ~= tes3.player then
@@ -78,13 +78,13 @@ event.register("equip", equipCatalogue, { priority = 581 })
 
 --- This section creates the essential objects so I don't need a plugin file
 do
-	--- Creating Furniture Catalogue: Standard
-	local catalogueIObj = tes3.getObject(catalogueI)
-	if not catalogueIObj then
-		catalogueIObj = tes3.createObject({
-			id = catalogueI,
+	--- Creating Furniture Catalogue
+	local catalogueObj = tes3.getObject(catalogue)
+	if not catalogueObj then
+		catalogueObj = tes3.createObject({
+			id = catalogue,
 			objectType = tes3.objectType.miscItem,
-			name = "Furniture Catalogue: Standard",
+			name = "Furniture Catalogue",
 			mesh = "jsmk\\fc\\catalogue_01.nif",
 			icon = "jsmk\\fc\\catalogue_01.dds",
 			weight = 3,
@@ -95,10 +95,10 @@ end
 
 ---@param e cellChangedEventData
 local function placeCatalogue(e)
-	if e.cell.id == "Vivec, The Abbey of St. Delyn the Wise" and not tes3.player.data.furnitureCatalogue.catalogueIPlaced then
-		tes3.player.data.furnitureCatalogue.catalogueIPlaced = true
+	if e.cell.id == "Vivec, The Abbey of St. Delyn the Wise" and not tes3.player.data.furnitureCatalogue.cataloguePlaced then
+		tes3.player.data.furnitureCatalogue.cataloguePlaced = true
 		tes3.createReference({
-			object = catalogueI,
+			object = catalogue,
 			position = tes3vector3.new(1312.389, 346.616, -373.685),
 			orientation = tes3vector3.new(0, 0, 0.67),
 			cell = e.cell,
@@ -110,9 +110,9 @@ event.register("cellChanged", placeCatalogue)
 local containers = {}
 for merchantId, active in pairs(config.furnitureMerchants) do
 	if active then
-		table.insert(containers, { merchantId = merchantId, contents = { [catalogueI] = 1 } })
+		table.insert(containers, { merchantId = merchantId, contents = { [catalogue] = 1 } })
 	end
 end
 local merchantManager = MerchantManager.new({ modName = "Furniture Catalogue", containers = containers })
-merchantManager.logger:setLogLevel("INFO")
+merchantManager.logger:setLogLevel("DEBUG")
 merchantManager:registerEvents()

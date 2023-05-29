@@ -14,18 +14,11 @@ local log = common.createLogger("recipes")
 --- Returns the recipe id of the furniture recipe
 ---@param furniture furnitureCatalogue.furniture
 ---@return string id
-local function recipeId(furniture)
-	return "FurnitureCatalogue:" .. furniture.id
-end
+local function recipeId(furniture) return "FurnitureCatalogue:" .. furniture.id end
 
 local ashfallOnlyCategory = {
 	["Beds"] = bedroll and bedroll.buttons.sleep,
-	["Water"] = {
-		text = "Ashfall: Water Menu",
-		callback = function(e)
-			event.trigger("Ashfall:WaterMenu")
-		end,
-	},
+	["Water"] = { text = "Ashfall: Water Menu", callback = function(e) event.trigger("Ashfall:WaterMenu") end },
 }
 
 --- Returns the additionalMenuOptions for furniture recipes
@@ -34,17 +27,13 @@ local ashfallOnlyCategory = {
 local function additionalMenuOptions(index, furniture)
 	local buttons = {}
 	-- Only register beds if Ashfall is installed
-	if ashfallOnlyCategory[furniture.category] and ashfall then
-		table.insert(buttons, ashfallOnlyCategory[furniture.category])
-	end
+	if ashfallOnlyCategory[furniture.category] and ashfall then table.insert(buttons, ashfallOnlyCategory[furniture.category]) end
 	return buttons
 end
 
 ---@param furniture furnitureCatalogue.furniture
 ---@return number
-local function goldCount(furniture)
-	return furniture.cost
-end
+local function goldCount(furniture) return furniture.cost end
 
 ---@param ref tes3reference
 local function getNewStock(ref)
@@ -52,9 +41,7 @@ local function getNewStock(ref)
 	local picked = {}
 	local stockAmount = config.stockAmount
 	--- From the list of furniture, we randomly pick 50
-	for i = 1, stockAmount do
-		picked[math.random(1, table.size(furnConfig.furniture))] = true
-	end
+	for i = 1, stockAmount do picked[math.random(1, table.size(furnConfig.furniture))] = true end
 	local j = 1
 	-- Faction specific furniture feature is still in development
 	-- local isAshlander = common.isAshlander(ref)
@@ -90,9 +77,7 @@ local customRequirements = {
 	---@param furniture furnitureCatalogue.furniture
 	inStock = function(furniture)
 		return {
-			getLabel = function()
-				return "In-Stock"
-			end,
+			getLabel = function() return "In-Stock" end,
 			check = function()
 				local today = tes3.findGlobal("DaysPassed").value
 				tes3.player.data.furnitureCatalogue = tes3.player.data.furnitureCatalogue or {}
@@ -129,24 +114,18 @@ local soundType = "spendMoney" ---@cast soundType CraftingFramework.Craftable.So
 ---@param self CraftingFramework.Craftable
 ---@param e CraftingFramework.Craftable.SuccessMessageCallback.params
 ---@return string successMessage
-local function successMessageCallback(self, e)
-	return string.format("%s has been added to your inventory.", self.name)
-end
+local function successMessageCallback(self, e) return string.format("%s has been added to your inventory.", self.name) end
 
 ---@param recipes CraftingFramework.Recipe.data[]
 ---@param index string
 ---@param furniture furnitureCatalogue.furniture
 local function addRecipe(recipes, index, furniture)
 	local furnitureObj = tes3.getObject(furniture.id)
-	if not furnitureObj then
-		return
-	end
+	if not furnitureObj then return end
 	-- Only register beds if Ashfall is installed
-	if furniture.category == "Beds" then
-		if not ashfall then
-			return
-		end
-	end
+	if furniture.category == "Beds" then if not ashfall then return end end
+	-- Only register alternative recipe if the base recipe does not exist
+	if furniture.base then if tes3.getObject(furniture.base) then return end end
 	--- The recipe for the furniture
 	---@type CraftingFramework.Recipe 
 	local recipe = {
@@ -155,36 +134,30 @@ local function addRecipe(recipes, index, furniture)
 		additionalMenuOptions = additionalMenuOptions(index, furniture),
 		description = furniture.description,
 		materials = { { material = "gold_001", count = goldCount(furniture) } }, --- It would be cool if the count parameter here can accept function
-		knownByDefault = not furniture.notForSale, --- this is for duplicate furniture
+		knowledgeRequirement = function() return not (furniture.notForSale or (furniture.category == "Debug" and not config.debugMode)) end, --- this is for duplicate or debug furniture
 		customRequirements = { customRequirements.inStock(furniture) },
 		category = furniture.category,
 		name = furniture.name,
 		soundType = soundType,
 		scale = furniture.scale,
 		previewMesh = furnitureObj.mesh,
-		successMessageCallback = function(self, e)
-			return successMessageCallback(self, e)
-		end,
+		successMessageCallback = function(self, e) return successMessageCallback(self, e) end,
 	}
 	table.insert(recipes, recipe)
 end
 
 --- Registering MenuActivator
 do
-	if not MenuActivator then
-		return
-	end
-	local recipesCatalogueI = {} ---@type CraftingFramework.Recipe.data[]
+	if not MenuActivator then return end
+	local recipesCatalogue = {} ---@type CraftingFramework.Recipe.data[]
 	---@param index string 
 	---@param furniture furnitureCatalogue.furniture
-	for index, furniture in pairs(furnConfig.furniture) do
-		addRecipe(recipesCatalogueI, index, furniture)
-	end
+	for index, furniture in pairs(furnConfig.furniture) do addRecipe(recipesCatalogue, index, furniture) end
 	MenuActivator:new({
-		name = "Furniture Catalogue: Standard",
-		id = "FurnitureCatalogueI",
+		name = "Furniture Catalogue",
+		id = "FurnitureCatalogue",
 		type = "event",
-		recipes = recipesCatalogueI,
+		recipes = recipesCatalogue,
 		defaultSort = "name",
 		defaultFilter = "canCraft",
 		defaultShowCategories = true,
