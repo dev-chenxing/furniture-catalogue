@@ -14,7 +14,7 @@ local log = common.createLogger("recipes")
 --- Returns the recipe id of the furniture recipe
 ---@param furniture furnitureCatalogue.furniture
 ---@return string id
-local function recipeId(furniture) return "FurnitureCatalogue:" .. furniture.id end
+local function recipeId(furniture) return "FurnitureCatalogue:" .. furniture.newId end
 
 local ashfallOnlyCategory = {
 	["Beds"] = bedroll and bedroll.buttons.sleep,
@@ -120,8 +120,9 @@ local function successMessageCallback(self, e) return string.format("%s has been
 ---@param index string
 ---@param furniture furnitureCatalogue.furniture
 local function addRecipe(recipes, index, furniture)
-	local furnitureObj = tes3.getObject(furniture.id)
+	local furnitureObj = tes3.getObject(furniture.id) ---@cast furnitureObj tes3activator|tes3container|tes3static
 	if not furnitureObj then return end
+	furnitureObj = furnitureObj:createCopy({ id = furniture.newId })
 	-- Only register beds if Ashfall is installed
 	if furniture.category == "Beds" then if not ashfall then return end end
 	-- Only register alternative recipe if the base recipe does not exist
@@ -130,7 +131,7 @@ local function addRecipe(recipes, index, furniture)
 	---@type CraftingFramework.Recipe 
 	local recipe = {
 		id = recipeId(furniture),
-		craftableId = furniture.id,
+		craftableId = furniture.newId,
 		additionalMenuOptions = additionalMenuOptions(index, furniture),
 		description = furniture.description,
 		materials = { { material = "gold_001", count = goldCount(furniture) } }, --- It would be cool if the count parameter here can accept function

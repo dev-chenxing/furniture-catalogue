@@ -461,7 +461,6 @@ this.furniture = {
 	["423"] = { id = "ab_o_cratehlaalu", newId = "jsmk_fc_", name = "Crate, Hlaalu", category = "Containers", cost = 100, weight = 5 }, -- OAAB
 	["424"] = { id = "ab_o_cratefg", newId = "jsmk_fc_", name = "Crate, Fighters' Guild", category = "Containers", cost = 100, weight = 5 }, -- OAAB
 	["425"] = { id = "ab_light_delantpaper02_256", newId = "jsmk_fc_", name = "Paper Lantern, Orange", category = "Lights", cost = 12, weight = 2 }, -- OAAB
-	["426"] = { id = "ab_furn_deplnrug03", newId = "jsmk_fc_", name = "Rug", category = "Rugs", cost = 30, weight = 3 }, -- OAAB
 	["427"] = { id = "ab_furn_deplnrug01", newId = "jsmk_fc_", name = "Rug", category = "Rugs", cost = 30, weight = 3 }, -- OAAB
 	["428"] = { id = "ab_light_telexballlamp01_256", newId = "jsmk_fc_", name = "Lamp, Telvanni Ball", category = "Lights", cost = 100, weight = 3 }, -- OAAB
 	["429"] = { id = "ab_light_telexballspike_300", newId = "jsmk_fc_", name = "Lamp, Telvanni Ball Spike", category = "Lights", cost = 100, weight = 3 }, -- OAAB
