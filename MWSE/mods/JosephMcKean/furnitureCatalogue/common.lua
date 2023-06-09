@@ -26,16 +26,4 @@ function common.getFurniture(obj)
 	end
 end
 
----@param ref tes3reference
----@return boolean
-function common.isAshlander(ref)
-	local faction = ref.object.faction
-	if faction and faction.id == "Ashlanders" then
-		common.log:debug("%s is an Ashlander", ref.id)
-		return true
-	end
-	common.log:debug("%s is not an Ashlander", ref.id)
-	return false
-end
-
 return common

@@ -44,10 +44,7 @@ end
 --- Returns the recipe id of the furniture recipe
 ---@param furniture furnitureCatalogue.furniture
 ---@return string id
-local function recipeId(furniture)
-	if not furniture.newId then furniture.newId = generateNewId(furniture.id) end
-	return "FurnitureCatalogue:" .. furniture.newId
-end
+local function recipeId(furniture) return "FurnitureCatalogue:" .. furniture.newId end
 
 local ashfallOnlyCategory = { ["Beds"] = bedroll and bedroll.buttons.sleep, ["Water"] = { text = "Ashfall: Water Menu", callback = function(e) event.trigger("Ashfall:WaterMenu") end } }
 
@@ -73,31 +70,10 @@ local function getNewStock(ref)
 	--- From the list of furniture, we randomly pick 50
 	for i = 1, stockAmount do picked[math.random(1, table.size(furnConfig.furniture))] = true end
 	local j = 1
-	-- Faction specific furniture feature is still in development
-	-- local isAshlander = common.isAshlander(ref)
 	--- Loop through the list of furniture again
 	for index, furniture in pairs(furnConfig.furniture) do
 		--- if it should always be in stock, or is one of the picked ones
-		if furniture.alwaysInStock or picked[j] then
-			--- if the player or the merchant selling the furniture is an Ashlander
-			--[[if isAshlander then
-				--- and the furniture is available at Ashlander merchant
-				if furniture.ashlandersAvailable or furniture.ashlandersOnly then
-					log:debug("%s is %s, adding to todayStock", furniture.id,
-					          (furniture.ashlandersAvailable and "ashlandersAvailable") or (furniture.ashlandersOnly and "ashlandersOnly") or "not available")
-					--- add the furniture to today's list of available furniture
-					ref.data.furnitureCatalogue.todayStock[furniture.id] = true
-				end
-			else
-				--- if the player or the merchant is not an Ashlander though, check if the furniture can only be sold at Ashlander.
-				--- if not, add the furniture to today's list of available furniture
-				if not furniture.ashlandersOnly then
-					log:debug("%s is %s, adding to todayStock", furniture.id, (furniture.ashlandersOnly and "ashlandersOnly") or "not ashlandersOnly")
-					ref.data.furnitureCatalogue.todayStock[furniture.id] = true
-				end
-			end]]
-			ref.data.furnitureCatalogue.todayStock[furniture.id] = true
-		end
+		if furniture.alwaysInStock or picked[j] then ref.data.furnitureCatalogue.todayStock[furniture.id] = true end
 		j = j + 1
 	end
 end
@@ -146,7 +122,11 @@ local function successMessageCallback(self, e) return string.format("%s has been
 local function addRecipe(recipes, index, furniture)
 	local furnitureObj = tes3.getObject(furniture.id) ---@cast furnitureObj tes3activator|tes3container|tes3static
 	if not furnitureObj then return end
-	if furnitureObj.objectType ~= tes3.objectType.light then -- tes3light doesn't have createCopy method sadly
+	if furnitureObj.objectType == tes3.objectType.light then -- tes3light doesn't have createCopy method sadly
+		furniture.newId = furniture.id
+		log:debug("%s is a light", furniture.id)
+	else
+		furniture.newId = furniture.newId or generateNewId(furniture.id)
 		log:debug("%s:createCopy({ id = %s })", furniture.id, furniture.newId)
 		furnitureObj = furnitureObj:createCopy({ id = furniture.newId })
 	end

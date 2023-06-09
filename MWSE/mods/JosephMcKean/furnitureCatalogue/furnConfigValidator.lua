@@ -8,8 +8,6 @@
 --      Check if the newId is shorter than 32 characters
 --  Check if there is any carryable object included
 --
--- delete the legacy parameters: weight, ashlandersAvailable, ashlandersOnly
---
 -- then returns the total recipe count
 --
 -- This can be run directly from the terminal: 
@@ -102,7 +100,7 @@ while true do
 	-- Typically a line of furnConfig looks like this
 	--
 	-- ```Lua
-	-- ["067"] = { id = "barrel_02", newId = "jsmk_fc_barrel_02", name = "Barrel", category = "Containers", cost = 40, weight = 15 }, -- MW
+	-- ["067"] = { id = "barrel_02", newId = "jsmk_fc_barrel_02", name = "Barrel", category = "Containers", cost = 40 }, -- MW
 	-- ```
 	local line = io.read()
 	if not line then break end
