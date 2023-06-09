@@ -11,15 +11,45 @@ local furnConfig = require("JosephMcKean.furnitureCatalogue.furnConfig")
 
 local log = common.createLogger("recipes")
 
+---@param id string
+---@return string newId
+local function generateNewId(id)
+	local idLen = id:len()
+	local prefix = "jsmk_fc_"
+	local prefixLen = prefix:len()
+	local maxLen = 31
+	local subLen = idLen + prefixLen - maxLen
+	local subbedId = ""
+	local subbedLen = 0
+	local newId = prefix .. id
+
+	---@return string
+	local function subUnderScore()
+		subbedId, subbedLen = id:gsub("_", "", subLen)
+		newId = prefix .. subbedId
+		if subbedLen < subLen then
+			subLen = subLen - subbedLen
+			newId = prefix:sub(1, prefixLen - subLen) .. subbedId
+		end
+		return newId
+	end
+
+	if newId:len() > maxLen then
+		newId = subUnderScore()
+		if newId:len() > maxLen then log:error("newId %s too long", newId) end
+	end
+	return newId
+end
+
 --- Returns the recipe id of the furniture recipe
 ---@param furniture furnitureCatalogue.furniture
 ---@return string id
-local function recipeId(furniture) return "FurnitureCatalogue:" .. furniture.newId end
+local function recipeId(furniture)
+	if not furniture.newId then furniture.newId = generateNewId(furniture.id) end
+	return "FurnitureCatalogue:" .. furniture.newId
+end
 
-local ashfallOnlyCategory = {
-	["Beds"] = bedroll and bedroll.buttons.sleep,
-	["Water"] = { text = "Ashfall: Water Menu", callback = function(e) event.trigger("Ashfall:WaterMenu") end },
-}
+local ashfallOnlyCategory = { ["Beds"] = bedroll and bedroll.buttons.sleep, ["Water"] = { text = "Ashfall: Water Menu", callback = function(e) event.trigger("Ashfall:WaterMenu") end } }
 
 --- Returns the additionalMenuOptions for furniture recipes
 ---@param index string
@@ -99,13 +129,7 @@ local customRequirements = {
 --- Thanks Merlord for adding this register soundType feature
 CraftingFramework.SoundType.register({
 	id = "spendMoney",
-	soundPaths = {
-		"jsmk\\fc\\spendMoneyCoin1.wav",
-		"jsmk\\fc\\spendMoneyCoin2.wav",
-		"jsmk\\fc\\spendMoneyCoin3.wav",
-		"jsmk\\fc\\spendMoneyCoin4.wav",
-		"jsmk\\fc\\spendMoneyCoinBag1.wav",
-	},
+	soundPaths = { "jsmk\\fc\\spendMoneyCoin1.wav", "jsmk\\fc\\spendMoneyCoin2.wav", "jsmk\\fc\\spendMoneyCoin3.wav", "jsmk\\fc\\spendMoneyCoin4.wav", "jsmk\\fc\\spendMoneyCoinBag1.wav" },
 })
 --- I am doing this cast because the soundType parameter accepts CraftingFramework.Craftable.SoundType
 --- But "spendMoney" is not one of the alias
@@ -122,7 +146,10 @@ local function successMessageCallback(self, e) return string.format("%s has been
 local function addRecipe(recipes, index, furniture)
 	local furnitureObj = tes3.getObject(furniture.id) ---@cast furnitureObj tes3activator|tes3container|tes3static
 	if not furnitureObj then return end
-	furnitureObj = furnitureObj:createCopy({ id = furniture.newId })
+	if furnitureObj.objectType ~= tes3.objectType.light then -- tes3light doesn't have createCopy method sadly
+		log:debug("%s:createCopy({ id = %s })", furniture.id, furniture.newId)
+		furnitureObj = furnitureObj:createCopy({ id = furniture.newId })
+	end
 	-- Only register beds if Ashfall is installed
 	if furniture.category == "Beds" then if not ashfall then return end end
 	-- Only register alternative recipe if the base recipe does not exist
