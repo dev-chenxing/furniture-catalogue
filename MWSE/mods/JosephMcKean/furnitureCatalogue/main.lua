@@ -17,6 +17,6 @@ end
 event.register("initialized", onInit)
 
 -- to make sure to get the interop furniture indices
-event.register("initialized", function() require("JosephMcKean.furnitureCatalogue.furnConfig").getFurnitureIndices() end, { priority = -10 })
+event.register("initialized", function() require("JosephMcKean.furnitureCatalogue.furnConfig").getValidFurniture() end, { priority = -10 })
 
 require("JosephMcKean.furnitureCatalogue.mcm")

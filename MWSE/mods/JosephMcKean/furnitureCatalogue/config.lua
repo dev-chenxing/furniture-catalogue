@@ -46,4 +46,9 @@ local defaultConfig = {
 	},
 }
 
-return mwse.loadConfig(configPath, defaultConfig)
+---@class furnitureCatalogue.config
+---@field stockAmount integer
+---@field debugMode boolean
+---@field furnitureMerchants table<string, boolean>
+local config = mwse.loadConfig(configPath, defaultConfig)
+return config

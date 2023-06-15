@@ -26,4 +26,17 @@ function common.getFurniture(obj)
 	end
 end
 
+-- Shuffle the table by performing Fisher-Yates twice
+---@param x table
+function common.shuffle(x)
+	for _ = 1, 2 do
+		for i = #x, 2, -1 do
+			-- pick an element in x[:i+1] with which to exchange x[i]
+			local j = math.random(i - 1)
+			x[i], x[j] = x[j], x[i]
+		end
+	end
+	return x
+end
+
 return common

@@ -4,15 +4,15 @@ local this = {}
 ---@field id string The id of the furniture
 ---@field newId string The new id of the furniture copy
 ---@field name string The name of the furniture
----@field description string?
 ---@field category string
 ---@field cost number
----@field alwaysInStock boolean?
 ---@field scale number?
+---@field alwaysInStock boolean?
 ---@field notForSale boolean?
 ---@field base string?
 ---@field deprecated boolean?
 
+---@type table<string,furnitureCatalogue.furniture>
 this.furniture = {
 	-- Oldwood pack
 	["001"] = { id = "active_de_p_bed_04", newId = "jsmk_fc_active_de_p_bed_04", name = "Single Bed, Olive", category = "Beds", cost = 60 }, -- MW
@@ -321,8 +321,8 @@ this.furniture = {
 	["286"] = { id = "aatl_furn_redoranaltar", newId = "jsmk_fc_aatl_furn_redoranaltar", name = "Redoran Altar", category = "Other", cost = 10 }, -- AATL
 	["287"] = { id = "ab_ex_derack02", newId = "jsmk_fc_ab_ex_derack02", name = "Rack, Wooden", category = "Other", cost = 20 }, -- OAAB
 	["288"] = { id = "ab_ex_velchimney", newId = "jsmk_fc_ab_ex_velchimney", name = "Chimney, Velothi", category = "Structures", cost = 20 }, -- OAAB
-	["289"] = { id = "ab_f_dustcap_04", newId = "jsmk_fc_ab_f_dustcap_04", name = "Dustcap", category = "Plants", cost = 100, scale = 0.78 }, -- OAAB
-	["291"] = { id = "ab_f_glowingmuscaria_02", newId = "jsmk_fc_ab_f_glowingmuscaria_02", name = "Glowing Chanterelle", category = "Plants", cost = 100, scale = 0.87 }, -- OAAB
+	["289"] = { id = "ab_f_dustcap_04", newId = "jsmk_fc_ab_f_dustcap_04", name = "Dustcap", category = "Plants", cost = 100, scale = 0.78, deprecated = true }, -- OAAB
+	["291"] = { id = "ab_f_glowingmuscaria_02", newId = "jsmk_fc_ab_f_glowingmuscaria_02", name = "Glowing Chanterelle", category = "Plants", cost = 100, scale = 0.87, deprecated = true }, -- OAAB
 	["292"] = { id = "ab_f_hacklelo3_o", newId = "jsmk_fc_ab_f_hacklelo3_o", name = "Hackle-lo", category = "Plants", cost = 100, scale = 0.54 }, -- OAAB
 	["293"] = { id = "ab_f_urnula_03", newId = "jsmk_fc_ab_f_urnula_03", name = "Veiled Urnula", category = "Plants", cost = 100 }, -- OAAB
 	["294"] = { id = "ab_f_viciousmuscaria_02", newId = "jsmk_fc_ab_f_viciousmuscaria_02", name = "Vicious Chanterelle", category = "Plants", cost = 100 }, -- OAAB
@@ -342,7 +342,7 @@ this.furniture = {
 	["309"] = { id = "ab_o_velothicoffer_01", newId = "jsmk_fc_ab_o_velothicoffer_01", name = "Coffer, Velothi", category = "Containers", cost = 100 }, -- OAAB
 	["312"] = { id = "active_de_r_bed_20", newId = "jsmk_fc_active_de_r_bed_20", name = "Double Bed, Red", category = "Beds", cost = 300 }, -- MW
 	["313"] = { id = "flora_bc_shelffungus_03", newId = "jsmk_fc_flora_bc_shelffungus_03", name = "Hypha Facia", category = "Plants", cost = 100, scale = 0.55 }, -- MW
-	["314"] = { id = "flora_black_lichen_02", newId = "jsmk_fc_flora_black_lichen_02", name = "Black Lichen", category = "Plants", cost = 100 }, -- MW
+	["314"] = { id = "flora_black_lichen_02", newId = "jsmk_fc_flora_black_lichen_02", name = "Black Lichen", category = "Plants", cost = 100, deprecated = true }, -- MW
 	["315"] = { id = "flora_gold_kanet_01", newId = "jsmk_fc_flora_gold_kanet_01", name = "Gold Kanet Flower", category = "Plants", cost = 100 }, -- MW
 	["316"] = { id = "flora_heather_01", newId = "jsmk_fc_flora_heather_01", name = "Heather", category = "Plants", cost = 100 }, -- MW
 	["317"] = { id = "furn_com_planter", newId = "jsmk_fc_furn_com_planter", name = "Planter, Redware", category = "Planters", cost = 40 }, -- MW
@@ -393,7 +393,7 @@ this.furniture = {
 	["365"] = { id = "flora_black_anther_01", newId = "jsmk_fc_flora_black_anther_01", name = "Black Anther", category = "Plants", cost = 100 }, -- MW
 	["366"] = { id = "flora_muckspunge_01", newId = "jsmk_fc_flora_muckspunge_01", name = "Muckspunge", category = "Plants", cost = 100 }, -- MW
 	["367"] = { id = "furn_com_cauldron_02", newId = "jsmk_fc_furn_com_cauldron_02", name = "Cauldron", category = "Other", cost = 100 }, -- MW
-	["368"] = { id = "t_mw_flora_bluefoot02", newId = "jsmk_fc_t_mw_flora_bluefoot02", name = "Bluefoot", category = "Plants", cost = 100 }, -- TR
+	["368"] = { id = "t_mw_flora_bluefoot02", newId = "jsmk_fc_t_mw_flora_bluefoot02", name = "Bluefoot", category = "Plants", cost = 100, deprecated = true }, -- TR
 	["369"] = { id = "t_mw_flora_munzur_01", newId = "jsmk_fc_t_mw_flora_munzur_01", name = "Munzur", category = "Plants", cost = 100 }, -- TR
 	["371"] = { id = "t_mw_flora_terrastree_02", newId = "jsmk_fc_tmw_flora_terrastree_02", name = "Terras Tree", category = "Plants", cost = 100, scale = 1.4 }, -- TR
 	["372"] = { id = "t_mw_flora_treecine_05", newId = "jsmk_fc_t_mw_flora_treecine_05", name = "Cine Tree", category = "Plants", cost = 100, scale = 1.4 }, -- TR
@@ -470,28 +470,37 @@ this.furniture = {
 	["446"] = { id = "ab_o_comrchdeskempty", newId = "jsmk_fc_ab_o_comrchdeskempty", name = "Desk, Cherry Wood", category = "Containers", cost = 2005 }, -- OAAB
 }
 
-this.furnitureIndices = {}
+---@type string[]
+this.validFurniture = {}
 
 local nonCarryableObjectType = { [tes3.objectType.static] = true, [tes3.objectType.container] = true, [tes3.objectType.activator] = true, [tes3.objectType.light] = true }
 
-function this.getFurnitureIndices()
+function this.getValidFurniture()
 	for index, furniture in pairs(this.furniture) do
-		this.furnitureIndices[furniture.id] = index
-		if furniture.id ~= furniture.id:lower() then mwse.log("[Furniture Catalogue: ERROR] Not lowercase: %s %s", index, furniture.id) end
-		local furnitureObj = tes3.getObject(furniture.id)
-		if furnitureObj then
-			if nonCarryableObjectType[furnitureObj.objectType] then
-				if furnitureObj.objectType == tes3.objectType.light and furnitureObj.canCarry then
-					if not furniture.deprecated then mwse.log("[Furniture Catalogue: ERROR] Can Carry: %s %s", index, furniture.id) end
+		if not (furniture.notForSale or furniture.deprecated) then
+			local valid = true
+			furniture.id = furniture.id:lower()
+			local furnitureObj = tes3.getObject(furniture.id)
+			if furnitureObj then
+				if nonCarryableObjectType[furnitureObj.objectType] then
+					if furnitureObj.objectType == tes3.objectType.light and furnitureObj.canCarry then
+						if not furniture.deprecated then
+							valid = false
+							mwse.log("[Furniture Catalogue: ERROR] Can Carry: %s %s", index, furniture.id)
+						end
+					end
+				elseif not furniture.deprecated then
+					valid = false
+					mwse.log("[Furniture Catalogue: ERROR] Can Carry: %s %s", index, furniture.id)
 				end
-			elseif not furniture.deprecated then
-				mwse.log("[Furniture Catalogue: ERROR] Can Carry: %s %s", index, furniture.id)
+			else
+				valid = false
+				mwse.log("[Furniture Catalogue: ERROR] Not Found: %s %s", index, furniture.id)
 			end
-		else
-			mwse.log("[Furniture Catalogue: ERROR] Not Found: %s %s", index, furniture.id)
+			if valid then table.insert(this.validFurniture, furniture.id) end
 		end
 	end
-	mwse.log("[Furniture Catalogue: INFO] Registered %s recipes", table.size(this.furnitureIndices))
+	mwse.log("[Furniture Catalogue: INFO] Registered %s recipes", table.size(this.validFurniture))
 end
 
 return this

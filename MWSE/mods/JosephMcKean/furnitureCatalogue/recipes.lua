@@ -1,7 +1,6 @@
 local ashfall = include("mer.ashfall.interop")
 local bedroll = include("mer.ashfall.items.bedroll")
 local CraftingFramework = require("CraftingFramework")
-local Craftable = CraftingFramework.Craftable
 local MenuActivator = CraftingFramework.MenuActivator
 
 local catalogue = require("JosephMcKean.furnitureCatalogue.catalogue")
@@ -65,16 +64,12 @@ local function goldCount(furniture) return furniture.cost end
 ---@param ref tes3reference
 local function getNewStock(ref)
 	ref.data.furnitureCatalogue.todayStock = {}
-	local picked = {}
-	local stockAmount = config.stockAmount
-	--- From the list of furniture, we randomly pick 50
-	for i = 1, stockAmount do picked[math.random(1, table.size(furnConfig.furniture))] = true end
-	local j = 1
-	--- Loop through the list of furniture again
-	for index, furniture in pairs(furnConfig.furniture) do
-		--- if it should always be in stock, or is one of the picked ones
-		if furniture.alwaysInStock or picked[j] then ref.data.furnitureCatalogue.todayStock[furniture.id] = true end
-		j = j + 1
+	local validFurniture = table.copy(furnConfig.validFurniture, {}) ---@type string[]
+	common.shuffle(validFurniture)
+	for i = 1, config.stockAmount do
+		local furniture = table.remove(validFurniture) ---@type string
+		if not furniture then break end
+		ref.data.furnitureCatalogue.todayStock[furniture] = true
 	end
 end
 
@@ -92,7 +87,7 @@ local customRequirements = {
 					getNewStock(tes3.player)
 					tes3.player.data.furnitureCatalogue.today = today
 				end
-				if tes3.player.data.furnitureCatalogue.todayStock[furniture.id] then
+				if tes3.player.data.furnitureCatalogue.todayStock[furniture.id] or furniture.alwaysInStock then
 					return true
 				else
 					return false, string.format("Unfortunately, this product is out of stock.")
@@ -140,7 +135,6 @@ local function addRecipe(recipes, index, furniture)
 		id = recipeId(furniture),
 		craftableId = furniture.newId,
 		additionalMenuOptions = additionalMenuOptions(index, furniture),
-		description = furniture.description,
 		materials = { { material = "gold_001", count = goldCount(furniture) } }, --- It would be cool if the count parameter here can accept function
 		knowledgeRequirement = function() return not (furniture.notForSale or furniture.deprecated or (furniture.category == "Debug" and not config.debugMode)) end, --- this is for duplicate or debug furniture
 		customRequirements = { customRequirements.inStock(furniture) },
@@ -169,6 +163,7 @@ do
 		defaultSort = "name",
 		defaultFilter = "canCraft",
 		defaultShowCategories = true,
+		collapseCategories = true,
 		craftButtonText = "Purchase",
 		materialsHeaderText = "Cost",
 	})
