@@ -52,6 +52,23 @@ local ashfallOnlyCategory = { ["Beds"] = bedroll and bedroll.buttons.sleep, ["Wa
 ---@param furniture furnitureCatalogue.furniture
 local function additionalMenuOptions(index, furniture)
 	local buttons = {}
+	local anotherOne = {
+		text = "Reorder",
+		callback = function(e)
+			local id = recipeId(furniture):lower() -- all CF recipe id is lowercased
+			local recipe = CraftingFramework.interop.getRecipe(id)
+			if recipe then
+				log:debug("Found recipe of %s, crafting...", id)
+				recipe:craft()
+			end
+		end,
+		enableRequirements = function(e)
+			if tes3.getItemCount({ reference = tes3.player, item = "gold_001" }) >= furniture.cost then return true end
+			return false
+		end,
+		tooltipDisabled = function() return { text = "Can't afford another one." } end,
+	}
+	table.insert(buttons, anotherOne)
 	-- Only register beds if Ashfall is installed
 	if ashfallOnlyCategory[furniture.category] and ashfall then table.insert(buttons, ashfallOnlyCategory[furniture.category]) end
 	return buttons
@@ -106,6 +123,10 @@ CraftingFramework.SoundType.register({
 --- But "spendMoney" is not one of the alias
 local soundType = "spendMoney" ---@cast soundType CraftingFramework.Craftable.SoundType
 
+---@param furniture furnitureCatalogue.furniture
+---@return craftingFrameworkRotationAxis
+local function rotationAxis(furniture) return furniture.category == "Rugs" and "y" or "z" end
+
 ---@param self CraftingFramework.Craftable
 ---@param e CraftingFramework.Craftable.SuccessMessageCallback.params
 ---@return string successMessage
@@ -143,6 +164,7 @@ local function addRecipe(recipes, index, furniture)
 		soundType = soundType,
 		scale = furniture.scale,
 		previewMesh = furnitureObj.mesh,
+		rotationAxis = rotationAxis(furniture),
 		successMessageCallback = function(self, e) return successMessageCallback(self, e) end,
 	}
 	table.insert(recipes, recipe)
