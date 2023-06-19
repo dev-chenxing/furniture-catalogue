@@ -52,6 +52,8 @@ local ashfallOnlyCategory = { ["Beds"] = bedroll and bedroll.buttons.sleep, ["Wa
 ---@param furniture furnitureCatalogue.furniture
 local function additionalMenuOptions(index, furniture)
 	local buttons = {}
+	-- Only register beds if Ashfall is installed
+	if ashfallOnlyCategory[furniture.category] and ashfall then table.insert(buttons, ashfallOnlyCategory[furniture.category]) end
 	local anotherOne = {
 		text = "Reorder",
 		callback = function(e)
@@ -69,8 +71,6 @@ local function additionalMenuOptions(index, furniture)
 		tooltipDisabled = function() return { text = "Can't afford another one." } end,
 	}
 	table.insert(buttons, anotherOne)
-	-- Only register beds if Ashfall is installed
-	if ashfallOnlyCategory[furniture.category] and ashfall then table.insert(buttons, ashfallOnlyCategory[furniture.category]) end
 	return buttons
 end
 
@@ -162,6 +162,7 @@ local function addRecipe(recipes, index, furniture)
 		category = furniture.category,
 		name = furniture.name,
 		soundType = soundType,
+		materialRecovery = 100, -- Reorder misclick happens too often, might as well full refund
 		scale = furniture.scale,
 		previewMesh = furnitureObj.mesh,
 		rotationAxis = rotationAxis(furniture),

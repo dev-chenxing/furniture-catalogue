@@ -41,10 +41,10 @@ this.furniture = {
 	-- Metal Iron Rusty pack
 	["025"] = { id = "light_com_lamp_01", newId = "jsmk_fc_light_com_lamp_01", name = "Lamp, Iron", category = "Lights", cost = 20 }, -- MW
 	["026"] = { id = "light_com_lamp_02", newId = "jsmk_fc_light_com_lamp_02", name = "Lamp, Iron", category = "Lights", cost = 20 }, -- MW
-	["030"] = { id = "ab_furn_dnghook", newId = "jsmk_fc_ab_furn_dnghook", name = "Iron Hook", category = "Other", cost = 10, scale = 0.5 }, -- OAAB
+	["030"] = { id = "ab_furn_dnghook", newId = "jsmk_fc_ab_furn_dnghook", name = "Hook, Iron", category = "Other", cost = 10, scale = 0.5 }, -- OAAB
 
 	-- Khaki Wood pack
-	["031"] = { id = "active_com_bed_03", newId = "jsmk_fc_active_com_bed_03", name = "Single Bed, Brown", category = "Beds", cost = 60 }, -- MW
+	["031"] = { id = "active_com_bed_03", newId = "jsmk_fc_active_com_bed_03", name = "Single Bed, Khaki Red", category = "Beds", cost = 60 }, -- MW
 	["032"] = { id = "furn_com_p_bench_01", newId = "jsmk_fc_furn_com_p_bench_01", name = "Bench, Khaki", category = "Seats", cost = 15 }, -- MW
 	["033"] = { id = "active_com_bunk_02", newId = "jsmk_fc_active_com_bunk_02", name = "Bunk Bed, Grey", category = "Beds", cost = 120 }, -- MW
 	["034"] = { id = "furn_com_p_shelf_03", newId = "jsmk_fc_furn_com_p_shelf_03", name = "Shelf, Khaki", category = "Shelves", cost = 10 }, -- MW
@@ -78,8 +78,8 @@ this.furniture = {
 
 	-- Wood Brown pack
 	["058"] = { id = "furn_com_rm_shelf_02", newId = "jsmk_fc_furn_com_rm_shelf_02", name = "Shelf", category = "Shelves", cost = 20 }, -- MW
-	["059"] = { id = "com_chest_02_empty", newId = "jsmk_fc_com_chest_02_empty", name = "Chest", category = "Containers", cost = 35 }, -- MW
-	["060"] = { id = "com_chest_11_empty", newId = "jsmk_fc_com_chest_11_empty", name = "Chest", category = "Containers", cost = 25 }, -- MW
+	["059"] = { id = "com_chest_02_empty", newId = "jsmk_fc_com_chest_02_empty", name = "Chest, Cheap", category = "Containers", cost = 35 }, -- MW
+	["060"] = { id = "com_chest_11_empty", newId = "jsmk_fc_com_chest_11_empty", name = "Chest, Brown Wood", category = "Containers", cost = 25 }, -- MW
 	["061"] = { id = "crate_01_empty", newId = "jsmk_fc_crate_01_empty", name = "Crate", category = "Containers", cost = 6 }, -- MW
 	["062"] = { id = "furn_com_rm_bookshelf_02", newId = "jsmk_fc_furncom_rm_bookshelf_02", name = "Bookshelf", category = "Shelves", cost = 500 }, -- MW
 	["063"] = { id = "furn_com_rm_table_03", newId = "jsmk_fc_furn_com_rm_table_03", name = "Round Table", category = "Tables", cost = 150 }, -- MW
@@ -94,15 +94,15 @@ this.furniture = {
 	["072"] = { id = "t_imp_furnm_bookshelf_04", newId = "jsmk_fc_timp_furnm_bookshelf_04", name = "Bookshelf", category = "Shelves", cost = 250 }, -- PC
 
 	-- Wood Wethered pack
-	["073"] = { id = "furn_de_ex_bench_01", newId = "jsmk_fc_furn_de_ex_bench_01", name = "Bench", category = "Seats", cost = 25 }, -- MW
-	["074"] = { id = "furn_de_ex_stool_02", newId = "jsmk_fc_furn_de_ex_stool_02", name = "Stool", category = "Seats", cost = 15 }, -- MW
-	["075"] = { id = "furn_de_ex_table_02", newId = "jsmk_fc_furn_de_ex_table_02", name = "Small Cheap Table", category = "Tables", cost = 355 }, -- MW  
-	["076"] = { id = "furn_de_ex_table_03", newId = "jsmk_fc_furn_de_ex_table_03", name = "Large Cheap Table", category = "Tables", cost = 50 }, -- MW
+	["073"] = { id = "furn_de_ex_bench_01", newId = "jsmk_fc_furn_de_ex_bench_01", name = "Bench, Wethered Wood", category = "Seats", cost = 25 }, -- MW
+	["074"] = { id = "furn_de_ex_stool_02", newId = "jsmk_fc_furn_de_ex_stool_02", name = "Stool, Wethered Wood", category = "Seats", cost = 15 }, -- MW
+	["075"] = { id = "furn_de_ex_table_02", newId = "jsmk_fc_furn_de_ex_table_02", name = "Table, Wethered Wood Small", category = "Tables", cost = 355 }, -- MW  
+	["076"] = { id = "furn_de_ex_table_03", newId = "jsmk_fc_furn_de_ex_table_03", name = "Table, Wethered Wood Large", category = "Tables", cost = 50 }, -- MW
 	["077"] = { id = "furn_de_lightpost_01", newId = "jsmk_fc_furn_de_lightpost_01", name = "Lightpost", category = "Other", cost = 25 }, -- MW
 	["078"] = { id = "light_torch_01", newId = "jsmk_fc_light_torch_01", name = "Torch, Large", category = "Lights", cost = 12 }, -- MW
-	["079"] = { id = "de_p_chest_02_empty", newId = "jsmk_fc_de_p_chest_02_empty", name = "Chest", category = "Containers", cost = 35 }, -- MW
-	["080"] = { id = "ab_furn_deexdisplay01", newId = "jsmk_fc_ab_furn_deexdisplay01", name = "Display Shelf", category = "Shelves", cost = 50 }, -- OAAB
-	["081"] = { id = "ab_furn_deexdisplay02", newId = "jsmk_fc_ab_furn_deexdisplay02", name = "Display Shelf", category = "Shelves", cost = 75 }, -- OAAB
+	["079"] = { id = "de_p_chest_02_empty", newId = "jsmk_fc_de_p_chest_02_empty", name = "Chest, Wethered Wood", category = "Containers", cost = 35 }, -- MW
+	["080"] = { id = "ab_furn_deexdisplay01", newId = "jsmk_fc_ab_furn_deexdisplay01", name = "Display Shelf, Wethered Wood", category = "Shelves", cost = 50 }, -- OAAB
+	["081"] = { id = "ab_furn_deexdisplay02", newId = "jsmk_fc_ab_furn_deexdisplay02", name = "Display Shelf, Wethered Wood", category = "Shelves", cost = 75 }, -- OAAB
 	["082"] = { id = "ab_o_boxflour", newId = "jsmk_fc_ab_o_boxflour", name = "Box of Flour", category = "Containers", cost = 100 }, -- OAAB
 
 	-- Rug pack
@@ -112,7 +112,7 @@ this.furniture = {
 	["086"] = { id = "furn_de_rug_big_02", newId = "jsmk_fc_furn_de_rug_big_02", name = "Rug, Large Oval Red", category = "Rugs", cost = 120, scale = 0.8 }, -- MW
 	["087"] = { id = "furn_de_rug_big_03", newId = "jsmk_fc_furn_de_rug_big_03", name = "Rug, Large Oval Green", category = "Rugs", cost = 120 }, -- MW       
 	["088"] = { id = "furn_de_rug_big_05", newId = "jsmk_fc_furn_de_rug_big_05", name = "Rug, Large Rectangular Red", category = "Rugs", cost = 120 }, -- MW
-	["089"] = { id = "furn_de_rug_big_06", newId = "jsmk_fc_furn_de_rug_big_06", name = "Rug, Large Rectangular, Green", category = "Rugs", cost = 120, scale = 0.7 }, -- MW
+	["089"] = { id = "furn_de_rug_big_06", newId = "jsmk_fc_furn_de_rug_big_06", name = "Rug, Large Rectangular Green", category = "Rugs", cost = 120, scale = 0.7 }, -- MW
 	["090"] = { id = "furn_de_rug_big_07", newId = "jsmk_fc_furn_de_rug_big_07", name = "Rug, Large Rectangular Blue", category = "Rugs", cost = 120 }, -- MW
 	["091"] = { id = "furn_de_rug_big_08", newId = "jsmk_fc_furn_de_rug_big_08", name = "Rug, Large Oval Blue", category = "Rugs", cost = 120 }, -- MW       
 	["092"] = { id = "furn_de_rug_big_09", newId = "jsmk_fc_furn_de_rug_big_09", name = "Rug, Large Rectangular Blue", category = "Rugs", cost = 120 }, -- MW
@@ -160,13 +160,13 @@ this.furniture = {
 	-- TR Wood Dunmer rm
 	["129"] = { id = "ab_furn_demidbench", newId = "jsmk_fc_ab_furn_demidbench", name = "Bench", category = "Seats", cost = 50 }, -- OAAB
 	["130"] = { id = "ab_furn_demidscrollrack", newId = "jsmk_fc_ab_furn_demidscrollrack", name = "Scroll Rack", category = "Shelves", cost = 300 }, -- OAAB
-	["131"] = { id = "ab_furn_demidshelf", newId = "jsmk_fc_ab_furn_demidshelf", name = "Shelf", category = "Shelves", cost = 50 }, -- OAAB
+	["131"] = { id = "ab_furn_demidshelf", newId = "jsmk_fc_ab_furn_demidshelf", name = "Shelf, Expensive", category = "Shelves", cost = 50 }, -- OAAB
 	["132"] = { id = "ab_furn_demidtable01", newId = "jsmk_fc_ab_furn_demidtable01", name = "Large Table", category = "Tables", cost = 100 }, -- OAAB
 	["133"] = { id = "t_de_furnm_bed_b_01", newId = "jsmk_fc_t_de_furnm_bed_b_01", name = "Bunk Bed, Green", category = "Beds", cost = 300 }, -- TR
 	["134"] = { id = "t_de_furnm_bed_d_02", newId = "jsmk_fc_t_de_furnm_bed_d_02", name = "Double Bed, Brown", category = "Beds", cost = 300 }, -- TR
-	["135"] = { id = "t_de_furnm_bed_s_03", newId = "jsmk_fc_t_de_furnm_bed_s_03", name = "Single Bed, Olive", category = "Beds", cost = 150 }, -- TR
+	["135"] = { id = "t_de_furnm_bed_s_03", newId = "jsmk_fc_t_de_furnm_bed_s_03", name = "Single Bed, Brown", category = "Beds", cost = 150 }, -- TR
 	["136"] = { id = "t_de_furnm_bookshelf_01", newId = "jsmk_fc_t_de_furnm_bookshelf_01", name = "Bookshelf", category = "Shelves", cost = 600 }, -- TR
-	["137"] = { id = "t_de_furnm_chair_01", newId = "jsmk_fc_t_de_furnm_chair_01", name = "Chair", category = "Seats", cost = 30 }, -- TR
+	["137"] = { id = "t_de_furnm_chair_01", newId = "jsmk_fc_t_de_furnm_chair_01", name = "Chair, Expensive", category = "Seats", cost = 60 }, -- TR
 	["138"] = { id = "t_de_furnm_bench_01", newId = "jsmk_fc_t_de_furnm_bench_01", name = "Bench", category = "Seats", cost = 50 }, -- TR
 	["139"] = { id = "t_de_furnm_table_01", newId = "jsmk_fc_t_de_furnm_table_01", name = "Table", category = "Tables", cost = 100 }, -- TR
 	["140"] = { id = "t_de_furnm_table_03", newId = "jsmk_fc_t_de_furnm_table_03", name = "Table", category = "Tables", cost = 50 }, -- TR
@@ -179,7 +179,7 @@ this.furniture = {
 	["145"] = { id = "t_nor_furnm_table_01", newId = "jsmk_fc_t_nor_furnm_table_01", name = "Table", category = "Tables", cost = 100 }, -- SKY
 	["146"] = { id = "t_imp_furnsky_table_01", newId = "jsmk_fc_t_imp_furnsky_table_01", name = "Table", category = "Tables", cost = 100 }, -- SKY
 	["147"] = { id = "t_imp_furnsky_table_03", newId = "jsmk_fc_t_imp_furnsky_table_03", name = "Table", category = "Tables", cost = 100 }, -- SKY
-	["148"] = { id = "t_skycom_var_cr6empty", newId = "jsmk_fc_t_skycom_var_cr6empty", name = "Crate", category = "Containers", cost = 10 }, -- SKY
+	["148"] = { id = "t_skycom_var_cr6empty", newId = "jsmk_fc_t_skycom_var_cr6empty", name = "Crate, Nordic Large", category = "Containers", cost = 10 }, -- SKY
 	["149"] = { id = "t_skynor_furnm_cb1empty", newId = "jsmk_fc_t_skynor_furnm_cb1empty", name = "Cupboard", category = "Containers", cost = 100 }, -- SKY
 	["150"] = { id = "t_skynor_furnm_cl1empty", newId = "jsmk_fc_t_skynor_furnm_cl1empty", name = "Closet", category = "Containers", cost = 400 }, -- SKY
 
@@ -247,7 +247,7 @@ this.furniture = {
 
 	-- Unorganized
 	["211"] = { id = "chest_small_02", newId = "jsmk_fc_chest_small_02", name = "Chest, Small", category = "Containers", cost = 30 }, -- MW
-	["212"] = { id = "com_chest_01", newId = "jsmk_fc_com_chest_01", name = "Chest", category = "Containers", cost = 15 }, -- MW
+	["212"] = { id = "com_chest_01", newId = "jsmk_fc_com_chest_01", name = "Chest, Wooden", category = "Containers", cost = 15 }, -- MW
 	["213"] = { id = "furn_com_coatofarms_01", newId = "jsmk_fc_furn_com_coatofarms_01", name = "Coat of Arms, Eagles", category = "Other", cost = 200 }, -- MW
 	["214"] = { id = "furn_com_coatofarms_02", newId = "jsmk_fc_furn_com_coatofarms_02", name = "Coat of Arms, Beasts", category = "Other", cost = 200 }, -- MW
 	["215"] = { id = "furn_com_lantern_hook_02", newId = "jsmk_fc_furncom_lantern_hook_02", name = "Lantern Hook", category = "Other", cost = 10 }, -- MW
@@ -257,9 +257,9 @@ this.furniture = {
 	["219"] = { id = "ab_furn_pracmarkstarget02", newId = "jsmk_fc_abfurnpracmarkstarget02", name = "Marksman Pratice Target", category = "Other", cost = 200 }, -- OAAB
 	["220"] = { id = "active_de_p_bed_28", newId = "jsmk_fc_active_de_p_bed_28", name = "Hammock", category = "Beds", cost = 50 }, -- MW
 	["221"] = { id = "furn_de_rope_03", newId = "jsmk_fc_furn_de_rope_03", name = "Rope", category = "Ropes", cost = 10 }, -- MW
-	["222"] = { id = "furn_de_shack_basket_01", newId = "jsmk_fc_furn_de_shack_basket_01", name = "Basket", category = "Other", cost = 20 }, -- MW
-	["223"] = { id = "furn_de_shack_basket_02", newId = "jsmk_fc_furn_de_shack_basket_02", name = "Basket", category = "Other", cost = 20 }, -- MW
-	["224"] = { id = "furn_de_shack_hook", newId = "jsmk_fc_furn_de_shack_hook", name = "Iron Hook", category = "Other", cost = 10 }, -- MW
+	["222"] = { id = "furn_de_shack_basket_01", newId = "jsmk_fc_furn_de_shack_basket_01", name = "Basket, Large", category = "Other", cost = 20 }, -- MW
+	["223"] = { id = "furn_de_shack_basket_02", newId = "jsmk_fc_furn_de_shack_basket_02", name = "Basket, Small", category = "Other", cost = 20 }, -- MW
+	["224"] = { id = "furn_de_shack_hook", newId = "jsmk_fc_furn_de_shack_hook", name = "Hook, Iron", category = "Other", cost = 10 }, -- MW
 	["225"] = { id = "light_de_candle_07", newId = "jsmk_fc_light_de_candle_07", name = "Candle, Orange", category = "Lights", cost = 12 }, -- MW
 	["226"] = { id = "t_nor_furnp_table_01", newId = "jsmk_fc_t_nor_furnp_table_01", name = "Table, Nordic", category = "Tables", cost = 1205 }, -- SKY
 	["227"] = { id = "furn_rug_bearskin", newId = "jsmk_fc_furn_rug_bearskin", name = "Rug, Bearskin", category = "Rugs", cost = 100, scale = 1.5 }, -- MW
@@ -267,8 +267,8 @@ this.furniture = {
 	["229"] = { id = "ex_siltstrider_02", newId = "jsmk_fc_ex_siltstrider_02", name = "Silt Strider Shell", category = "Other", cost = 1205, scale = 0.82 }, -- MW
 	["230"] = { id = "flora_ash_grass_r_01", newId = "jsmk_fc_flora_ash_grass_r_01", name = "Grass, Ashland", category = "Plants", cost = 10, scale = 0.9 }, -- MW
 	["231"] = { id = "active_de_bedroll", newId = "jsmk_fc_active_de_bedroll", name = "Bedroll", category = "Beds", cost = 50 }, -- MW
-	["232"] = { id = "light_ashl_lantern_03", newId = "jsmk_fc_light_ashl_lantern_03", name = "Lantern, Ashlanders", category = "Lights", cost = 12 }, -- MW   
-	["233"] = { id = "com_basket_01_empty", newId = "jsmk_fc_com_basket_01_empty", name = "Basket", category = "Containers", cost = 20 }, -- MW
+	["232"] = { id = "light_ashl_lantern_03", newId = "jsmk_fc_light_ashl_lantern_03", name = "Lantern, Ashlanders Red", category = "Lights", cost = 12 }, -- MW   
+	["233"] = { id = "com_basket_01_empty", newId = "jsmk_fc_com_basket_01_empty", name = "Basket, Tall", category = "Containers", cost = 20 }, -- MW
 	["234"] = { id = "furn_de_basket_01", newId = "jsmk_fc_furn_de_basket_01", name = "Basket", category = "Other", cost = 20 }, -- MW
 	["235"] = { id = "in_ashl_tent_banner_02", newId = "jsmk_fc_in_ashl_tent_banner_02", name = "Banner, Ashlanders", category = "Tapestries", cost = 120 }, -- MW
 	["236"] = { id = "in_ashl_tent_banner_08", newId = "jsmk_fc_in_ashl_tent_banner_08", name = "Banner, Ashlanders", category = "Tapestries", cost = 120 }, -- MW
@@ -276,7 +276,7 @@ this.furniture = {
 	["238"] = { id = "t_de_var_guarskin_01", newId = "jsmk_fc_t_de_var_guarskin_01", name = "Guar Skin", category = "Tapestries", cost = 120 }, -- TR     
 	["239"] = { id = "furn_de_cushion_square_03", newId = "jsmk_fc_furndecushion_square_03", name = "Cushion", category = "Seats", cost = 30 }, -- MW       
 	["240"] = { id = "in_ashl_tent_banner_09", newId = "jsmk_fc_in_ashl_tent_banner_09", name = "Banner, Ashlanders", category = "Tapestries", cost = 120 }, -- MW
-	["241"] = { id = "light_ashl_lantern_02", newId = "jsmk_fc_light_ashl_lantern_02", name = "Lantern, Ashlanders", category = "Lights", cost = 12 }, -- MW   
+	["241"] = { id = "light_ashl_lantern_02", newId = "jsmk_fc_light_ashl_lantern_02", name = "Lantern, Ashlanders Orange", category = "Lights", cost = 12 }, -- MW   
 	["242"] = { id = "light_de_candle_02", newId = "jsmk_fc_light_de_candle_02", name = "Candle, White", category = "Lights", cost = 12 }, -- MW
 	["243"] = { id = "t_mwde_furn_vs1empty", newId = "jsmk_fc_t_mwde_furn_vs1empty", name = "Vase", category = "Containers", cost = 60, scale = 0.8 }, -- TR
 	["244"] = { id = "t_mwde_furn_vs2empty", newId = "jsmk_fc_t_mwde_furn_vs2empty", name = "Vase", category = "Containers", cost = 60, scale = 0.7 }, -- TR
@@ -286,7 +286,7 @@ this.furniture = {
 	["248"] = { id = "furn_de_cushion_round_06", newId = "jsmk_fc_furnde_cushion_round_06", name = "Cushion", category = "Seats", cost = 30, scale = 0.8 }, -- MW
 	["249"] = { id = "furn_de_p_bench_04", newId = "jsmk_fc_furn_de_p_bench_04", name = "Bench", category = "Seats", cost = 30 }, -- MW
 	["250"] = { id = "light_de_candle_08", newId = "jsmk_fc_light_de_candle_08", name = "Candle, White", category = "Lights", cost = 12 }, -- MW
-	["252"] = { id = "t_mwcom_var_bss1empty", newId = "jsmk_fc_t_mwcom_var_bss1empty", name = "Basket", category = "Containers", cost = 20 }, -- TR       
+	["252"] = { id = "t_mwcom_var_bss1empty", newId = "jsmk_fc_t_mwcom_var_bss1empty", name = "Basket, Short", category = "Containers", cost = 20 }, -- TR       
 	["253"] = { id = "t_mwde_furn_vs4food", newId = "jsmk_fc_t_mwde_furn_vs4food", name = "Vase", category = "Containers", cost = 60, scale = 0.6 }, -- TR
 	["254"] = { id = "ab_furn_ashlincense", newId = "jsmk_fc_ab_furn_ashlincense", name = "Incense, Ashlanders", category = "Other", cost = 100 }, -- OAAB   
 	["255"] = { id = "ab_furn_ashlskull_02", newId = "jsmk_fc_ab_furn_ashlskull_02", name = "Skulls, Ashlanders", category = "Other", cost = 100 }, -- OAAB   
@@ -296,14 +296,14 @@ this.furniture = {
 	["259"] = { id = "furn_de_rope_05", newId = "jsmk_fc_furn_de_rope_05", name = "Rope", category = "Ropes", cost = 10, scale = 1.08 }, -- MW      
 	["260"] = { id = "light_de_candle_01", newId = "jsmk_fc_light_de_candle_01", name = "Candle, White", category = "Lights", cost = 12 }, -- MW
 	["261"] = { id = "t_rga_furn_mat_02", newId = "jsmk_fc_t_rga_furn_mat_02", name = "Mat, Red", category = "Rugs", cost = 120 }, -- PC
-	["262"] = { id = "light_ashl_lantern_01", newId = "jsmk_fc_light_ashl_lantern_01", name = "Lantern, Ashlanders", category = "Lights", cost = 12 }, -- MW   
-	["263"] = { id = "light_ashl_lantern_07", newId = "jsmk_fc_light_ashl_lantern_07", name = "Lantern, Ashlanders", category = "Lights", cost = 12 }, -- MW 
+	["262"] = { id = "light_ashl_lantern_01", newId = "jsmk_fc_light_ashl_lantern_01", name = "Lantern, Ashlanders Blue", category = "Lights", cost = 12 }, -- MW   
+	["263"] = { id = "light_ashl_lantern_07", newId = "jsmk_fc_light_ashl_lantern_07", name = "Lantern, Ashlanders Indigo", category = "Lights", cost = 12 }, -- MW 
 	["265"] = { id = "t_de_furn_rug_06", newId = "jsmk_fc_t_de_furn_rug_06", name = "Rug, Red", category = "Rugs", cost = 120, scale = 0.5 }, -- TR
-	["266"] = { id = "furn_ashl_bugbowl", newId = "jsmk_fc_furn_ashl_bugbowl", name = "Bug Bowl, Ashlanders", category = "Other", cost = 40 }, -- MW       
+	["266"] = { id = "furn_ashl_bugbowl", newId = "jsmk_fc_furn_ashl_bugbowl", name = "Bug Bowl, Ashlanders Orange", category = "Other", cost = 40 }, -- MW       
 	["267"] = { id = "ab_furn_debasket_01", newId = "jsmk_fc_ab_furn_debasket_01", name = "Basket", category = "Other", cost = 20 }, -- OAAB
 	["268"] = { id = "ab_o_ashltrinketbox", newId = "jsmk_fc_ab_o_ashltrinketbox", name = "Trinket Box", category = "Containers", cost = 340, scale = 0.6 }, -- OAAB
 	["269"] = { id = "flora_wickwheat_01", newId = "jsmk_fc_flora_wickwheat_01", name = "Wickwheat", category = "Plants", cost = 100, scale = 0.6 }, -- MW
-	["270"] = { id = "furn_ashl_bugbowl_02", newId = "jsmk_fc_furn_ashl_bugbowl_02", name = "Bug Bowl, Ashlanders", category = "Other", cost = 40 }, -- MW
+	["270"] = { id = "furn_ashl_bugbowl_02", newId = "jsmk_fc_furn_ashl_bugbowl_02", name = "Bug Bowl, Ashlanders Green", category = "Other", cost = 40 }, -- MW
 	["272"] = { id = "t_de_furn_rugsmall_01", newId = "jsmk_fc_t_de_furn_rugsmall_01", name = "Rug, Ropes", category = "Rugs", cost = 60, scale = 0.5 }, -- TR
 	["273"] = { id = "ab_furn_barrel01water", newId = "jsmk_fc_ab_furn_barrel01water", name = "Barrel of Water", category = "Water", cost = 40 }, -- OAAB
 	["274"] = { id = "ab_furn_ropecoilhang", newId = "jsmk_fc_ab_furn_ropecoilhang", name = "Coil of Rope", category = "Ropes", cost = 30 }, -- OAAB
@@ -316,7 +316,7 @@ this.furniture = {
 	["281"] = { id = "active_de_bed_30", newId = "jsmk_fc_active_de_bed_30", name = "Hammock", category = "Beds", cost = 50 }, -- MW
 	["282"] = { id = "chest_small_01_empty", newId = "jsmk_fc_chest_small_01_empty", name = "Chest, Small", category = "Containers", cost = 30 }, -- MW
 	["283"] = { id = "furn_de_ex_stool_01", newId = "jsmk_fc_furn_de_ex_stool_01", name = "Stool, Cheap", category = "Seats", cost = 10 }, -- MW
-	["284"] = { id = "furn_de_r_chair_03", newId = "jsmk_fc_furn_de_r_chair_03", name = "Chair, Swirlwood", category = "Seats", cost = 10 }, -- MW
+	["284"] = { id = "furn_de_r_chair_03", newId = "jsmk_fc_furn_de_r_chair_03", name = "Chair, Swirlwood", category = "Seats", cost = 50 }, -- MW
 	["285"] = { id = "aatl_furn_com_haypile", newId = "jsmk_fc_aatl_furn_com_haypile", name = "Hay Pile", category = "Other", cost = 10, scale = 1.56 }, -- AATL
 	["286"] = { id = "aatl_furn_redoranaltar", newId = "jsmk_fc_aatl_furn_redoranaltar", name = "Redoran Altar", category = "Other", cost = 10 }, -- AATL
 	["287"] = { id = "ab_ex_derack02", newId = "jsmk_fc_ab_ex_derack02", name = "Rack, Wooden", category = "Other", cost = 20 }, -- OAAB
@@ -324,12 +324,12 @@ this.furniture = {
 	["289"] = { id = "ab_f_dustcap_04", newId = "jsmk_fc_ab_f_dustcap_04", name = "Dustcap", category = "Plants", cost = 100, scale = 0.78, deprecated = true }, -- OAAB
 	["291"] = { id = "ab_f_glowingmuscaria_02", newId = "jsmk_fc_ab_f_glowingmuscaria_02", name = "Glowing Chanterelle", category = "Plants", cost = 100, scale = 0.87, deprecated = true }, -- OAAB
 	["292"] = { id = "ab_f_hacklelo3_o", newId = "jsmk_fc_ab_f_hacklelo3_o", name = "Hackle-lo", category = "Plants", cost = 100, scale = 0.54 }, -- OAAB
-	["293"] = { id = "ab_f_urnula_03", newId = "jsmk_fc_ab_f_urnula_03", name = "Veiled Urnula", category = "Plants", cost = 100 }, -- OAAB
-	["294"] = { id = "ab_f_viciousmuscaria_02", newId = "jsmk_fc_ab_f_viciousmuscaria_02", name = "Vicious Chanterelle", category = "Plants", cost = 100 }, -- OAAB
+	["293"] = { id = "ab_f_urnula_03", newId = "jsmk_fc_ab_f_urnula_03", name = "Veiled Urnula", category = "Plants", cost = 100, deprecated = true }, -- OAAB
+	["294"] = { id = "ab_f_viciousmuscaria_02", newId = "jsmk_fc_ab_f_viciousmuscaria_02", name = "Vicious Chanterelle", category = "Plants", cost = 100, deprecated = true }, -- OAAB
 	["295"] = { id = "ab_flora_ashknee_01", newId = "jsmk_fc_ab_flora_ashknee_01", name = "Ash Knee", category = "Plants", cost = 10 }, -- OAAB
 	["296"] = { id = "ab_furn_comarmorstandiron01", newId = "jsmk_fabfurncomarmorstandiron01", name = "Armor Stand, Iron", category = "Other", cost = 400 }, -- OAAB
 	["297"] = { id = "ab_furn_combucket02hang", newId = "jsmk_fc_ab_furn_combucket02hang", name = "Bucket", category = "Other", cost = 20 }, -- OAAB
-	["298"] = { id = "ab_furn_demidchair", newId = "jsmk_fc_ab_furn_demidchair", name = "Chair", category = "Seats", cost = 50 }, -- OAAB
+	["298"] = { id = "ab_furn_demidchair", newId = "jsmk_fc_ab_furn_demidchair", name = "Chair, Expensive", category = "Seats", cost = 60 }, -- OAAB
 	["299"] = { id = "ab_furn_demidwallscreen", newId = "jsmk_fc_ab_furn_demidwallscreen", name = "Wallscreen, Middle Class", category = "Other", cost = 100 }, -- OAAB
 	["300"] = { id = "ab_furn_deplnloom04", newId = "jsmk_fc_ab_furn_deplnloom04", name = "Loom", category = "Other", cost = 200 }, -- OAAB
 	["301"] = { id = "ab_furn_deplntable05", newId = "jsmk_fc_ab_furn_deplntable05", name = "Small Table, Cheap", category = "Tables", cost = 50, notForSale = true }, -- OAAB, dupe for furn_de_p_table_05
@@ -344,7 +344,7 @@ this.furniture = {
 	["313"] = { id = "flora_bc_shelffungus_03", newId = "jsmk_fc_flora_bc_shelffungus_03", name = "Hypha Facia", category = "Plants", cost = 100, scale = 0.55 }, -- MW
 	["314"] = { id = "flora_black_lichen_02", newId = "jsmk_fc_flora_black_lichen_02", name = "Black Lichen", category = "Plants", cost = 100, deprecated = true }, -- MW
 	["315"] = { id = "flora_gold_kanet_01", newId = "jsmk_fc_flora_gold_kanet_01", name = "Gold Kanet Flower", category = "Plants", cost = 100 }, -- MW
-	["316"] = { id = "flora_heather_01", newId = "jsmk_fc_flora_heather_01", name = "Heather", category = "Plants", cost = 100 }, -- MW
+	["316"] = { id = "flora_heather_01", newId = "jsmk_fc_flora_heather_01", name = "Heather", category = "Plants", cost = 100, deprecated = true }, -- MW
 	["317"] = { id = "furn_com_planter", newId = "jsmk_fc_furn_com_planter", name = "Planter, Redware", category = "Planters", cost = 40 }, -- MW
 	["318"] = { id = "furn_de_tapestry_05", newId = "jsmk_fc_furn_de_tapestry_05", name = "Tapestry, Red", category = "Tapestries", cost = 120 }, -- MW
 	["319"] = { id = "furn_de_tapestry_08", newId = "jsmk_fc_furn_de_tapestry_08", name = "Tapestry, Checker", category = "Tapestries", cost = 120 }, -- MW
@@ -389,9 +389,9 @@ this.furniture = {
 	["361"] = { id = "flora_fire_fern_02", newId = "jsmk_fc_flora_fire_fern_02", name = "Fire Fern", category = "Plants", cost = 100, scale = 0.5 }, -- MW
 	["362"] = { id = "nm_red_banner_s", newId = "jsmk_fc_nm_red_banner_s", name = "Banner, Redoran", category = "Tapestries", cost = 100 }, -- N'Wah and Mushroom Team
 	["363"] = { id = "ab_furn_comcandlered02", newId = "jsmk_fc_ab_furn_comcandlered02", name = "Candle, Red", category = "Lights", cost = 12 }, -- OAAB
-	["364"] = { id = "com_sack_02", newId = "jsmk_fc_com_sack_02", name = "Sack", category = "Containers", cost = 6 }, -- MW
+	["364"] = { id = "com_sack_02", newId = "jsmk_fc_com_sack_02", name = "Sack, Round", category = "Containers", cost = 6 }, -- MW
 	["365"] = { id = "flora_black_anther_01", newId = "jsmk_fc_flora_black_anther_01", name = "Black Anther", category = "Plants", cost = 100 }, -- MW
-	["366"] = { id = "flora_muckspunge_01", newId = "jsmk_fc_flora_muckspunge_01", name = "Muckspunge", category = "Plants", cost = 100 }, -- MW
+	["366"] = { id = "flora_muckspunge_01", newId = "jsmk_fc_flora_muckspunge_01", name = "Muckspunge", category = "Plants", cost = 100, scale = 0.5 }, -- MW
 	["367"] = { id = "furn_com_cauldron_02", newId = "jsmk_fc_furn_com_cauldron_02", name = "Cauldron", category = "Other", cost = 100 }, -- MW
 	["368"] = { id = "t_mw_flora_bluefoot02", newId = "jsmk_fc_t_mw_flora_bluefoot02", name = "Bluefoot", category = "Plants", cost = 100, deprecated = true }, -- TR
 	["369"] = { id = "t_mw_flora_munzur_01", newId = "jsmk_fc_t_mw_flora_munzur_01", name = "Munzur", category = "Plants", cost = 100 }, -- TR
@@ -402,7 +402,7 @@ this.furniture = {
 	["375"] = { id = "ex_hlaalu_pole_01", newId = "jsmk_fc_ex_hlaalu_pole_01", name = "Pole, Horizontal", category = "Structures", cost = 10 }, -- MW
 	["376"] = { id = "ex_hlaalu_pole_02", newId = "jsmk_fc_ex_hlaalu_pole_02", name = "Pole, Vertical", category = "Structures", cost = 10 }, -- MW
 	["377"] = { id = "flora_emp_parasol_03", newId = "jsmk_fc_flora_emp_parasol_03", name = "Emperpr Parasol", category = "Plants", cost = 100 }, -- MW
-	["379"] = { id = "t_com_setfarm_box_01", newId = "jsmk_fc_t_com_setfarm_box_01", name = "Box", category = "Other", cost = 5 }, -- PC
+	["379"] = { id = "t_com_setfarm_box_01", newId = "jsmk_fc_t_com_setfarm_box_01", name = "Box, Farmer's", category = "Other", cost = 5 }, -- PC
 	["380"] = { id = "t_com_var_cauldron_02", newId = "jsmk_fc_t_com_var_cauldron_02", name = "Cauldron", category = "Other", cost = 100 }, -- SKY
 	["381"] = { id = "t_com_var_nail_01", newId = "jsmk_fc_t_com_var_nail_01", name = "Nail", category = "Other", cost = 1, scale = 1.35 }, -- TR
 	["382"] = { id = "t_cyr_flora_aloevera02", newId = "jsmk_fc_t_cyr_flora_aloevera02", name = "Aloe Vera", category = "Plants", cost = 100 }, -- PC
@@ -415,9 +415,9 @@ this.furniture = {
 	["389"] = { id = "t_de_furn_tapestry_05", newId = "jsmk_fc_t_de_furn_tapestry_05", name = "Tapestry", category = "Tapestries", cost = 120 }, -- TR
 	["390"] = { id = "t_de_furn_tapestry_21", newId = "jsmk_fc_t_de_furn_tapestry_21", name = "Tapestry", category = "Tapestries", cost = 120 }, -- TR
 	["391"] = { id = "t_mw_flora_blackrose02", newId = "jsmk_fc_t_mw_flora_blackrose02", name = "Black Rose", category = "Plants", cost = 100 }, -- TR
-	["392"] = { id = "t_mw_flora_hornlilly01", newId = "jsmk_fc_t_mw_flora_hornlilly01", name = "Horn Lily", category = "Plants", cost = 100 }, -- TR
-	["393"] = { id = "t_mw_flora_nirthfly01", newId = "jsmk_fc_t_mw_flora_nirthfly01", name = "Nirthfly Stalks", category = "Plants", cost = 100 }, -- TR
-	["394"] = { id = "de_r_chest_01", newId = "jsmk_fc_de_r_chest_01", name = "Chest", category = "Containers", cost = 200 }, -- MW
+	["392"] = { id = "t_mw_flora_hornlilly01", newId = "jsmk_fc_t_mw_flora_hornlilly01", name = "Horn Lily", category = "Plants", cost = 100, deprecated = true }, -- TR
+	["393"] = { id = "t_mw_flora_nirthfly01", newId = "jsmk_fc_t_mw_flora_nirthfly01", name = "Nirthfly Stalks", category = "Plants", cost = 100, deprecated = true }, -- TR
+	["394"] = { id = "de_r_chest_01", newId = "jsmk_fc_de_r_chest_01", name = "Chest, Expensive", category = "Containers", cost = 200 }, -- MW
 	["395"] = { id = "ab_o_comchestironempty", newId = "jsmk_fc_ab_o_comchestironempty", name = "Small Iron Box", category = "Containers", cost = 100 }, -- OAAB
 	["399"] = { id = "ab_light_delantpaperred03_256", newId = "jsmk_ablightdelantpaperred03256", name = "Paper Lantern, Red", category = "Lights", cost = 12 }, -- OAAB
 	["400"] = { id = "ab_light_delantpaperblu03_256", newId = "jsmk_ablightdelantpaperblu03256", name = "Paper Lantern, Blue", category = "Lights", cost = 12 }, -- OAAB
@@ -468,16 +468,55 @@ this.furniture = {
 	["444"] = { id = "rpnr_dr_asrt_p_f_bookcase_02", newId = "jsmk_fc_rpnrdrasrtpfbookcase_02", name = "Shelves", category = "Other", cost = 100 }, -- BCOM
 	["445"] = { id = "t_imp_furnm_weaponrack_01", newId = "jsmk_fc_timpfurnm_weaponrack_01", name = "Weapon Rack", category = "Other", cost = 100 }, -- TR
 	["446"] = { id = "ab_o_comrchdeskempty", newId = "jsmk_fc_ab_o_comrchdeskempty", name = "Desk, Cherry Wood", category = "Containers", cost = 2005 }, -- OAAB
-	["447"] = { id = "active_de_r_bed_19", newId = "jsmk_fc_active_de_r_bed_19", name = "Single Bed, Red", category = "Beds", cost = 150 }, -- MW
+	["447"] = { id = "active_de_r_bed_19", newId = "jsmk_fc_active_de_r_bed_19", name = "Single Bed, Swirlwood Red", category = "Beds", cost = 150 }, -- MW
 	["448"] = { id = "furn_de_r_shelf_01", newId = "jsmk_fc_furn_de_r_shelf_01", name = "Shelf, Cherry Wood", category = "Shelves", cost = 60 }, -- MW
 	["449"] = { id = "furn_de_r_wallscreen_01", newId = "jsmk_fc_furn_de_r_wallscreen_01", name = "Wallscreen, Oldwood", category = "Other", cost = 100 }, -- MW
-	["450"] = { id = "furn_hook_01", newId = "jsmk_fc_furn_hook_01", name = "Iron Hook", category = "Other", cost = 10 }, -- MW
+	["450"] = { id = "furn_hook_01", newId = "jsmk_fc_furn_hook_01", name = "Hook, Iron", category = "Other", cost = 10 }, -- MW
 	["451"] = { id = "light_de_candle_09", newId = "jsmk_fc_light_de_candle_09", name = "Candle, White", category = "Lights", cost = 12 }, -- MW
 	["452"] = { id = "light_de_lamp_01", newId = "jsmk_fc_light_de_lamp_01", name = "Lamp, White", category = "Lights", cost = 20 }, -- MW
 	["453"] = { id = "light_de_lantern_05_s", newId = "jsmk_fc_light_de_lantern_05_s", name = "Paper Lantern, Orange", category = "Lights", cost = 12 }, -- MW
 	["454"] = { id = "nb_hla_01_big", newId = "jsmk_fc_nb_hla_01_big", name = "Rug, Hlaalu Big", category = "Rugs", cost = 60, scale = 1.3 }, -- BCOM
 	["455"] = { id = "nb_hla_03_sm", newId = "jsmk_fc_nb_hla_03_sm", name = "Rug, Hlaalu Small", category = "Rugs", cost = 60 }, -- BCOM
 	["456"] = { id = "t_de_furn_rugsmall_06", newId = "jsmk_fc_t_de_furn_rugsmall_06", name = "Rug, Bug", category = "Rugs", cost = 60 }, -- TR
+	["457"] = { id = "t_com_furn_bedstraw_01", newId = "jsmk_fc_t_com_furn_bedstraw_01", name = "Straw Bed, Nordic", category = "Beds", cost = 100 }, -- SKY
+	["458"] = { id = "t_skycom_var_cr7empty", newId = "jsmk_fc_t_skycom_var_cr7empty", name = "Crate, Nordic Small", category = "Containers", cost = 10 }, -- SKY
+	["459"] = { id = "t_skycom_var_cr2empty", newId = "jsmk_fc_t_skycom_var_cr2empty", name = "Crate, Nordic Large", category = "Containers", cost = 10 }, -- SKY
+	["460"] = { id = "t_skyrea_furn_ch1empty", newId = "jsmk_fc_t_skyrea_furn_ch1empty", name = "Chest, Wicher Reachman", category = "Containers", cost = 50 }, -- SKY
+	["461"] = { id = "t_skycom_var_sk3empty", newId = "jsmk_fc_t_skycom_var_sk3empty", name = "Sack, Nordic Round", category = "Containers", cost = 6 }, -- SKY
+	["462"] = { id = "t_skycom_var_sk2empty", newId = "jsmk_fc_t_skycom_var_sk2empty", name = "Sack, Nordic", category = "Containers", cost = 6 }, -- SKY
+	["463"] = { id = "t_skycom_var_sk4empty", newId = "jsmk_fc_t_skycom_var_sk4empty", name = "Sack, Nordic Vertical", category = "Containers", cost = 6 }, -- SKY
+	["464"] = { id = "t_com_furn_peltbristleback_01", newId = "jsmk_ftcomfurnpeltbristleback01", name = "Pelt, Faux Bristleback", category = "Tapestries", cost = 120 }, -- SKY
+	["465"] = { id = "t_rea_set_i_ladder_01", newId = "jsmk_fc_t_rea_set_i_ladder_01", name = "Ladder, Reachman", category = "Structures", cost = 100, scale = 0.98 }, -- SKY
+	["466"] = { id = "t_rea_set_i_planks_01", newId = "jsmk_fc_t_rea_set_i_planks_01", name = "Planks, Reachman", category = "Structures", cost = 100 }, -- SKY
+	["467"] = { id = "t_rea_furn_rug_01", newId = "jsmk_fc_t_rea_furn_rug_01", name = "Rug, Ropes Long", category = "Rugs", cost = 60 }, -- SKY
+	["468"] = { id = "t_rea_furn_rugwormmouth_01", newId = "jsmk_fc_t_reafurnrugwormmouth01", name = "Rug, Faux Wormmouth", category = "Rugs", cost = 60 }, -- SKY
+	["469"] = { id = "t_rea_set_f_rope_01", newId = "jsmk_fc_t_rea_set_f_rope_01", name = "Rope, Reachman", category = "Ropes", cost = 10 }, -- SKY
+	["470"] = { id = "t_rea_set_x_ropedpole_02", newId = "jsmk_fc_t_rea_set_x_ropedpole02", name = "Roped Pole", category = "Ropes", cost = 50 }, -- SKY
+	["471"] = { id = "t_rea_set_x_fence_02", newId = "jsmk_fc_t_rea_set_x_fence_02", name = "Fence", category = "Structures", cost = 50 }, -- SKY
+	["472"] = { id = "t_nor_furn_dreamcatcher_06", newId = "jsmk_fc_t_norfurndreamcatcher06", name = "Dreamcatcher, Nordic", category = "Other", cost = 50 }, -- SKY
+	["473"] = { id = "t_nor_var_traywooden_03", newId = "jsmk_fc_t_nor_var_traywooden_03", name = "Wooden Tray, Nordic", category = "Other", cost = 10 }, -- SKY
+	["474"] = { id = "t_com_furn_peltgoat_01", newId = "jsmk_ftcomfurnpeltgoat01", name = "Pelt, Faux Goat", category = "Tapestries", cost = 120 }, -- SKY
+	["475"] = { id = "t_com_furn_peltcowtattered_01", newId = "jsmk_ftcomfurnpeltcowtattered01", name = "Pelt, Faux Cow", category = "Tapestries", cost = 120 }, -- SKY
+	["476"] = { id = "t_rea_set_x_basketmagic_01", newId = "jsmk_fc_t_rea_setxbasketmagic01", name = "Magic Basket, Reachman", category = "Other", cost = 100 }, -- SKY
+	["477"] = { id = "t_nor_var_woodhook_01", newId = "jsmk_fc_t_nor_var_woodhook_01", name = "Hook, Wooden", category = "Other", cost = 10 }, -- SKY
+	["478"] = { id = "t_nor_var_basket_02", newId = "jsmk_fc_t_nor_var_basket_02", name = "Basket, Nordic Wicker Small", category = "Other", cost = 60 }, -- SKY
+	["479"] = { id = "t_glb_var_skeletoncattlebone_02", newId = "jsmktglbvarskeletoncattlebone02", name = "Bone, Cattle", category = "Other", cost = 10 }, -- SKY
+	["480"] = { id = "t_glb_var_skeletoncattleskul_01", newId = "jsmktglbvarskeletoncattleskul01", name = "Skull, Cattle", category = "Other", cost = 100 }, -- SKY
+	["481"] = { id = "t_nor_var_basket_03", newId = "jsmk_fc_t_nor_var_basket_03", name = "Basket, Nordic Wicker Large", category = "Other", cost = 80 }, -- SKY
+	["482"] = { id = "t_nor_var_basketwood_01", newId = "jsmk_fc_t_nor_var_basketwood_01", name = "Basket, Nordic Wooden", category = "Other", cost = 80 }, -- SKY
+	["483"] = { id = "t_rea_furn_tapestry_01", newId = "jsmk_fc_t_rea_furn_tapestry_01", name = "Tapestry, Reachman Blue", category = "Tapestries", cost = 120 }, -- SKY
+	["484"] = { id = "t_rea_furn_tapestry_02", newId = "jsmk_fc_t_rea_furn_tapestry_02", name = "Tapestry, Reachman Red", category = "Tapestries", cost = 120 }, -- SKY
+	["485"] = { id = "t_mwde_furnm_ch1empty", newId = "jsmk_fc_t_mwde_furnm_ch1empty", name = "Chest, Expensive", category = "Containers", cost = 15 }, -- TR
+	["486"] = { id = "t_de_furnm_shelf_01", newId = "jsmk_fc_t_de_furnm_shelf_01", name = "Shelf, Expensive", category = "Shelves", cost = 60 }, -- TR
+	["487"] = { id = "t_de_furn_rug_18", newId = "jsmk_fc_t_de_furn_rug_18", name = "Rug, Large Oval Red", category = "Rugs", cost = 120 }, -- MW
+	["488"] = { id = "pot_01", newId = "jsmk_fc_pot_01", name = "Pot", category = "Containers", cost = 60 }, -- MW
+	["489"] = { id = "t_de_furn_bed_10", newId = "jsmk_fc_t_de_furn_bed_10", name = "Double Bed, Aqua", category = "Beds", cost = 300 }, -- TR
+	["490"] = { id = "de_r_closet_01", newId = "jsmk_fc_de_r_closet_01", name = "Closet, Swirlwood", category = "Containers", cost = 400 }, -- MW
+	["491"] = { id = "flora_plant_03", newId = "jsmk_fc_flora_plant_03", name = "Timsa-Come-By Flowers", category = "Plants", cost = 100, scale = 0.63 }, -- MW
+	["492"] = { id = "flora_sedge_02", newId = "jsmk_fc_flora_sedge_02", name = "Noble Sedge", category = "Plants", cost = 100 }, -- MW
+	["493"] = { id = "furn_de_tapestry_04", newId = "jsmk_fc_furn_de_tapestry_04", name = "Tapestry, Red", category = "Tapestries", cost = 120 }, -- MW
+	["494"] = { id = "light_ashl_lantern_04", newId = "jsmk_fc_light_ashl_lantern_04", name = "Lantern, Ashlanders Purple", category = "Lights", cost = 12 }, -- MW 
+	["495"] = { id = "furn_ashl_bugbowl_01", newId = "jsmk_fc_furn_ashl_bugbowl_01", name = "Bug Bowl, Ashlanders Blue", category = "Other", cost = 40 }, -- MW
 }
 
 ---@type string[]
@@ -514,3 +553,9 @@ function this.getValidFurniture()
 end
 
 return this
+
+--[[
+	deprecated plants:
+	Flora_plant_01
+	T_Mw_Flora_Hornlilly01
+]]
