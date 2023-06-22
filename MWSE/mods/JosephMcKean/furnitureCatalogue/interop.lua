@@ -1,7 +1,8 @@
 local common = require("JosephMcKean.furnitureCatalogue.common")
 local furnConfig = require("JosephMcKean.furnitureCatalogue.furnConfig")
 
-local log = common.createLogger("interop")
+local logging = require("JosephMcKean.furnitureCatalogue.logging")
+local log = logging.createLogger("interop")
 
 --[[
 
