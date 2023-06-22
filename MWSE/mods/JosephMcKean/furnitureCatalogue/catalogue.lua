@@ -1,9 +1,9 @@
 local MerchantManager = require("CraftingFramework").MerchantManager
 
-local common = require("JosephMcKean.furnitureCatalogue.common")
 local config = require("JosephMcKean.furnitureCatalogue.config")
 
-local log = common.createLogger("catalogue")
+local logging = require("JosephMcKean.furnitureCatalogue.logging")
+local log = logging.createLogger("catalogue")
 
 local catalogue = "jsmk_fc_catalogue_01" -- the id of the Furniture Catalogue
 local catalogueType = { [catalogue] = "catalogue" }

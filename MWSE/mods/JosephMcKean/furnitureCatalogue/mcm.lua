@@ -1,8 +1,7 @@
 local common = require("JosephMcKean.furnitureCatalogue.common")
 local config = require("JosephMcKean.furnitureCatalogue.config")
-local furnConfig = require("JosephMcKean.furnitureCatalogue.furnConfig")
 
-local log = common.createLogger("mcm")
+local logging = require("JosephMcKean.furnitureCatalogue.logging")
 
 local function registerModConfig()
 	local template = mwse.mcm.createTemplate({ name = common.mod })
@@ -19,9 +18,7 @@ local function registerModConfig()
 	settings:createOnOffButton({
 		label = "Debug mode",
 		variable = mwse.mcm.createTableVariable { id = "debugMode", table = config },
-		callback = function(self)
-			log:setLogLevel(self.variable.value and "DEBUG" or "INFO")
-		end,
+		callback = function(self) for _, log in ipairs(logging.loggers) do log:setLogLevel(self.variable.value and "DEBUG" or "INFO") end end,
 	})
 	template:register()
 end

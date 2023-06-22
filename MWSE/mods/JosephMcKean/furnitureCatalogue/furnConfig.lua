@@ -1,5 +1,8 @@
 local this = {}
 
+local logging = require("JosephMcKean.furnitureCatalogue.logging")
+local log = logging.createLogger("furnConfig")
+
 ---@class furnitureCatalogue.furniture
 ---@field id string The id of the furniture
 ---@field newId string The new id of the furniture copy
@@ -34,13 +37,13 @@ this.furniture = {
 	["018"] = { id = "mwg_vivec_market_05", newId = "jsmk_fc_mwg_vivec_market_05", name = "Market Stand", category = "Shelves", cost = 30 }, -- MwG
 	["019"] = { id = "de_p_desk_01", newId = "jsmk_fc_de_p_desk_01", name = "Desk, Cheap", category = "Containers", cost = 140 }, -- MW
 	["020"] = { id = "de_drawers_02", newId = "jsmk_fc_de_drawers_02", name = "Chest of Drawers, Cheap", category = "Containers", cost = 140 }, -- MW
-	["021"] = { id = "ab_o_deplntable01", newId = "jsmk_fc_ab_o_deplntable01", name = "End Table, Cheap", category = "Tables", cost = 130 }, -- OAAB
+	["021"] = { id = "ab_o_deplntable01", newId = "jsmk_fc_ab_o_deplntable01", name = "End Table, Cheap", category = "Containers", cost = 130, deprecated = true }, -- OAAB
 	["022"] = { id = "ab_furn_deplnscrollrack1", newId = "jsmk_fc_abfurn_deplnscrollrack1", name = "Scroll Rack, Cheap", category = "Shelves", cost = 175 }, -- OAAB
 	["023"] = { id = "ab_furn_deplnscrollrack2", newId = "jsmk_fc_abfurn_deplnscrollrack2", name = "Scroll Rack, Cheap", category = "Shelves", cost = 175 }, -- OAAB
 
 	-- Metal Iron Rusty pack
 	["025"] = { id = "light_com_lamp_01", newId = "jsmk_fc_light_com_lamp_01", name = "Lamp, Iron", category = "Lights", cost = 20 }, -- MW
-	["026"] = { id = "light_com_lamp_02", newId = "jsmk_fc_light_com_lamp_02", name = "Lamp, Iron", category = "Lights", cost = 20 }, -- MW
+	["026"] = { id = "light_com_lamp_02", newId = "jsmk_fc_light_com_lamp_02", name = "Lamp, White", category = "Lights", cost = 20 }, -- MW
 	["030"] = { id = "ab_furn_dnghook", newId = "jsmk_fc_ab_furn_dnghook", name = "Hook, Iron", category = "Other", cost = 10, scale = 0.5 }, -- OAAB
 
 	-- Khaki Wood pack
@@ -59,7 +62,7 @@ this.furniture = {
 	["041"] = { id = "com_sack_01", newId = "jsmk_fc_com_sack_01", name = "Sack", category = "Containers", cost = 6 }, -- MW
 	["042"] = { id = "com_sack_03", newId = "jsmk_fc_com_sack_03", name = "Sack, Vertical", category = "Containers", cost = 6 }, -- MW
 	["043"] = { id = "furn_com_pm_chair_02", newId = "jsmk_fc_furn_com_pm_chair_02", name = "Chair, Foldable", category = "Seats", cost = 15 }, -- MW
-	["044"] = { id = "furn_de_cushion_round_03", newId = "jsmk_fc_furnde_cushion_round_03", name = "Cushion, Round", category = "Seats", cost = 30 }, -- MW
+	["044"] = { id = "furn_de_cushion_round_03", newId = "jsmk_fc_furnde_cushion_round_03", name = "Cushion, Round", category = "Cushions", cost = 30 }, -- MW
 	["045"] = { id = "furn_de_practice_mat", newId = "jsmk_fc_furn_de_practice_mat", name = "Practice Mat", category = "Rugs", cost = 30 }, -- MW
 
 	-- Skyrim Wood Furniture 01 pack
@@ -148,14 +151,14 @@ this.furniture = {
 	["120"] = { id = "t_imp_furn_tapestry_29", newId = "jsmk_fc_t_imp_furn_tapestry_29", name = "Tapestry, Indigo", category = "Tapestries", cost = 120 }, -- TR
 
 	-- Cushion pack: All Cushion needs to be named exactly "Cushion"
-	["121"] = { id = "furn_de_cushion_round_01", newId = "jsmk_fc_furnde_cushion_round_01", name = "Cushion, Round", category = "Seats", cost = 30, scale = 0.9 }, -- MW
-	["122"] = { id = "furn_de_cushion_round_02", newId = "jsmk_fc_furnde_cushion_round_02", name = "Cushion, Round", category = "Seats", cost = 30 }, -- MW
-	["123"] = { id = "furn_de_cushion_round_04", newId = "jsmk_fc_furnde_cushion_round_04", name = "Cushion, Round", category = "Seats", cost = 30, scale = 0.9 }, -- MW
-	["124"] = { id = "furn_de_cushion_round_07", newId = "jsmk_fc_furnde_cushion_round_07", name = "Cushion, Round", category = "Seats", cost = 30, scale = 0.89 }, -- MW
-	["125"] = { id = "furn_de_cushion_square_01", newId = "jsmk_fc_furndecushion_square_01", name = "Cushion, Square", category = "Seats", cost = 30 }, -- MW       
-	["126"] = { id = "furn_de_cushion_square_02", newId = "jsmk_fc_furndecushion_square_02", name = "Cushion, Square", category = "Seats", cost = 30, scale = 0.667 }, -- MW
-	["127"] = { id = "furn_de_cushion_square_05", newId = "jsmk_fc_furndecushion_square_05", name = "Cushion, Square", category = "Seats", cost = 30 }, -- MW       
-	["128"] = { id = "furn_de_cushion_square_06", newId = "jsmk_fc_furndecushion_square_06", name = "Cushion, Square", category = "Seats", cost = 30 }, -- MW
+	["121"] = { id = "furn_de_cushion_round_01", newId = "jsmk_fc_furnde_cushion_round_01", name = "Cushion, Round", category = "Cushions", cost = 30, scale = 0.9 }, -- MW
+	["122"] = { id = "furn_de_cushion_round_02", newId = "jsmk_fc_furnde_cushion_round_02", name = "Cushion, Round", category = "Cushions", cost = 30 }, -- MW
+	["123"] = { id = "furn_de_cushion_round_04", newId = "jsmk_fc_furnde_cushion_round_04", name = "Cushion, Round", category = "Cushions", cost = 30, scale = 0.9 }, -- MW
+	["124"] = { id = "furn_de_cushion_round_07", newId = "jsmk_fc_furnde_cushion_round_07", name = "Cushion, Round", category = "Cushions", cost = 30, scale = 0.89 }, -- MW
+	["125"] = { id = "furn_de_cushion_square_01", newId = "jsmk_fc_furndecushion_square_01", name = "Cushion, Square", category = "Cushions", cost = 30 }, -- MW       
+	["126"] = { id = "furn_de_cushion_square_02", newId = "jsmk_fc_furndecushion_square_02", name = "Cushion, Square", category = "Cushions", cost = 30, scale = 0.667 }, -- MW
+	["127"] = { id = "furn_de_cushion_square_05", newId = "jsmk_fc_furndecushion_square_05", name = "Cushion, Square", category = "Cushions", cost = 30 }, -- MW       
+	["128"] = { id = "furn_de_cushion_square_06", newId = "jsmk_fc_furndecushion_square_06", name = "Cushion, Square", category = "Cushions", cost = 30 }, -- MW
 
 	-- TR Wood Dunmer rm
 	["129"] = { id = "ab_furn_demidbench", newId = "jsmk_fc_ab_furn_demidbench", name = "Bench", category = "Seats", cost = 50 }, -- OAAB
@@ -199,11 +202,11 @@ this.furniture = {
 
 	-- Swirlwood pack
 	["170"] = { id = "active_de_r_bed_01", newId = "jsmk_fc_active_de_r_bed_01", name = "Single Bed, Aqua", category = "Beds", cost = 150 }, -- MW
-	["171"] = { id = "furn_de_r_bench_01", newId = "jsmk_fc_furn_de_r_bench_01", name = "Bench, Swirlwood", category = "Seats", cost = 55 }, -- MW
+	["171"] = { id = "furn_de_r_bench_01", newId = "jsmk_fc_furn_de_r_bench_01", name = "Bench, Swirlwood Large", category = "Seats", cost = 55 }, -- MW
 	["172"] = { id = "furn_de_r_bookshelf_02", newId = "jsmk_fc_furn_de_r_bookshelf_02", name = "Bookshelf, Swirlwood", category = "Shelves", cost = 120 }, -- MW
-	["173"] = { id = "furn_de_r_table_03", newId = "jsmk_fc_furn_de_r_table_03", name = "Table, Oval Swirlwood", category = "Tables", cost = 150 }, -- MW
-	["174"] = { id = "furn_de_r_table_07", newId = "jsmk_fc_furn_de_r_table_07", name = "Large Table, Swirlwood", category = "Tables", cost = 140 }, -- MW
-	["175"] = { id = "furn_de_r_table_09", newId = "jsmk_fc_furn_de_r_table_09", name = "Table, Swirlwood", category = "Tables", cost = 70 }, -- MW
+	["173"] = { id = "furn_de_r_table_03", newId = "jsmk_fc_furn_de_r_table_03", name = "Table, Swirlwood Oval", category = "Tables", cost = 150 }, -- MW
+	["174"] = { id = "furn_de_r_table_07", newId = "jsmk_fc_furn_de_r_table_07", name = "Table, Swirlwood Large Rectangular", category = "Tables", cost = 140 }, -- MW
+	["175"] = { id = "furn_de_r_table_09", newId = "jsmk_fc_furn_de_r_table_09", name = "Table, Swirlwood Small Rectangular", category = "Tables", cost = 70 }, -- MW
 	["176"] = { id = "de_r_drawers_01_empty", newId = "jsmk_fc_de_r_drawers_01_empty", name = "Drawers, Swirlwood", category = "Containers", cost = 180 }, -- MW
 	["177"] = { id = "ab_furn_derchbookshelftall", newId = "jsmk_fcabfurnderchbookshelftall", name = "Bookshelf, Swirlwood", category = "Shelves", cost = 200 }, -- OAAB
 	["178"] = { id = "t_de_furnr_bookstand_01", newId = "jsmk_fc_t_de_furnr_bookstand_01", name = "Bookstand, Swirlwood", category = "Other", cost = 100 }, -- TR
@@ -274,7 +277,7 @@ this.furniture = {
 	["236"] = { id = "in_ashl_tent_banner_08", newId = "jsmk_fc_in_ashl_tent_banner_08", name = "Banner, Ashlanders", category = "Tapestries", cost = 120 }, -- MW
 	["237"] = { id = "in_ashl_tent_banner_12", newId = "jsmk_fc_in_ashl_tent_banner_12", name = "Banner, Ashlanders", category = "Tapestries", cost = 120 }, -- MW
 	["238"] = { id = "t_de_var_guarskin_01", newId = "jsmk_fc_t_de_var_guarskin_01", name = "Guar Skin", category = "Tapestries", cost = 120 }, -- TR     
-	["239"] = { id = "furn_de_cushion_square_03", newId = "jsmk_fc_furndecushion_square_03", name = "Cushion", category = "Seats", cost = 30 }, -- MW       
+	["239"] = { id = "furn_de_cushion_square_03", newId = "jsmk_fc_furndecushion_square_03", name = "Cushion", category = "Cushions", cost = 30 }, -- MW       
 	["240"] = { id = "in_ashl_tent_banner_09", newId = "jsmk_fc_in_ashl_tent_banner_09", name = "Banner, Ashlanders", category = "Tapestries", cost = 120 }, -- MW
 	["241"] = { id = "light_ashl_lantern_02", newId = "jsmk_fc_light_ashl_lantern_02", name = "Lantern, Ashlanders Orange", category = "Lights", cost = 12 }, -- MW   
 	["242"] = { id = "light_de_candle_02", newId = "jsmk_fc_light_de_candle_02", name = "Candle, White", category = "Lights", cost = 12 }, -- MW
@@ -283,7 +286,7 @@ this.furniture = {
 	["245"] = { id = "t_mwde_furn_vs3empty", newId = "jsmk_fc_t_mwde_furn_vs3empty", name = "Vase", category = "Containers", cost = 60, scale = 0.5 }, -- TR
 	["246"] = { id = "urn_03", newId = "jsmk_fc_urn_03", name = "Urn", category = "Containers", cost = 30 }, -- MW
 	["247"] = { id = "urn_05", newId = "jsmk_fc_urn_05", name = "Urn", category = "Containers", cost = 30, scale = 0.5 }, -- MW
-	["248"] = { id = "furn_de_cushion_round_06", newId = "jsmk_fc_furnde_cushion_round_06", name = "Cushion", category = "Seats", cost = 30, scale = 0.8 }, -- MW
+	["248"] = { id = "furn_de_cushion_round_06", newId = "jsmk_fc_furnde_cushion_round_06", name = "Cushion", category = "Cushions", cost = 30, scale = 0.8 }, -- MW
 	["249"] = { id = "furn_de_p_bench_04", newId = "jsmk_fc_furn_de_p_bench_04", name = "Bench", category = "Seats", cost = 30 }, -- MW
 	["250"] = { id = "light_de_candle_08", newId = "jsmk_fc_light_de_candle_08", name = "Candle, White", category = "Lights", cost = 12 }, -- MW
 	["252"] = { id = "t_mwcom_var_bss1empty", newId = "jsmk_fc_t_mwcom_var_bss1empty", name = "Basket, Short", category = "Containers", cost = 20 }, -- TR       
@@ -292,7 +295,7 @@ this.furniture = {
 	["255"] = { id = "ab_furn_ashlskull_02", newId = "jsmk_fc_ab_furn_ashlskull_02", name = "Skulls, Ashlanders", category = "Other", cost = 100 }, -- OAAB   
 	["256"] = { id = "furn_de_rope_07", newId = "jsmk_fc_furn_de_rope_07", name = "Rope", category = "Ropes", cost = 10 }, -- MW
 	["257"] = { id = "ab_furn_ashlskull_03", newId = "jsmk_fc_ab_furn_ashlskull_03", name = "Skulls, Ashlanders", category = "Other", cost = 150 }, -- OAAB   
-	["258"] = { id = "furn_de_cushion_square_08", newId = "jsmk_fc_furndecushion_square_08", name = "Cushion", category = "Seats", cost = 30, scale = 0.8 }, -- MW
+	["258"] = { id = "furn_de_cushion_square_08", newId = "jsmk_fc_furndecushion_square_08", name = "Cushion", category = "Cushions", cost = 30, scale = 0.8 }, -- MW
 	["259"] = { id = "furn_de_rope_05", newId = "jsmk_fc_furn_de_rope_05", name = "Rope", category = "Ropes", cost = 10, scale = 1.08 }, -- MW      
 	["260"] = { id = "light_de_candle_01", newId = "jsmk_fc_light_de_candle_01", name = "Candle, White", category = "Lights", cost = 12 }, -- MW
 	["261"] = { id = "t_rga_furn_mat_02", newId = "jsmk_fc_t_rga_furn_mat_02", name = "Mat, Red", category = "Rugs", cost = 120 }, -- PC
@@ -517,6 +520,70 @@ this.furniture = {
 	["493"] = { id = "furn_de_tapestry_04", newId = "jsmk_fc_furn_de_tapestry_04", name = "Tapestry, Red", category = "Tapestries", cost = 120 }, -- MW
 	["494"] = { id = "light_ashl_lantern_04", newId = "jsmk_fc_light_ashl_lantern_04", name = "Lantern, Ashlanders Purple", category = "Lights", cost = 12 }, -- MW 
 	["495"] = { id = "furn_ashl_bugbowl_01", newId = "jsmk_fc_furn_ashl_bugbowl_01", name = "Bug Bowl, Ashlanders Blue", category = "Other", cost = 40 }, -- MW
+
+	["496"] = { id = "st_bed_p05", newId = "jsmk_fc_st_bed_p05", name = "Single Bed, Oldwood Baige", category = "Beds", cost = 400 }, -- Pillow Mage Manor 
+	["497"] = { id = "active_de_r_bed_17", newId = "jsmk_fc_active_de_r_bed_17", name = "Single Bed, Swirlwood Blue", category = "Beds", cost = 150 }, -- MW
+	["498"] = { id = "furn_com_kegstand", newId = "jsmk_fc_furn_com_kegstand", name = "Kegstand", category = "Water", cost = 100 }, -- MW
+	["499"] = { id = "furn_de_r_bench_02", newId = "jsmk_fc_furn_de_r_bench_02", name = "Bench, Swirlwood Small", category = "Seats", cost = 35 }, -- MW
+	["500"] = { id = "st_furn_de_r_chair_02", newId = "jsmk_fc_st_furn_de_r_chair_02", name = "Chair, Swirlwood", category = "Seats", cost = 120 }, -- Pillow Mage Manor
+	["501"] = { id = "st_waterbarrel_half", newId = "jsmk_fc_st_waterbarrel_half", name = "Basin", category = "Water", cost = 40 }, -- Pillow Mage Manor, PlaySound "FootWaterRight"
+	["502"] = { id = "de_p_table_01", newId = "jsmk_fc_de_p_table_01", name = "End Table, Cheap", category = "Containers", cost = 75 }, -- MW
+	["503"] = { id = "st_ac_de_r_sideboard", newId = "jsmk_fc_st_ac_de_r_sideboard", name = "Sideboard, Swirlwood", category = "Containers", cost = 240 }, -- MW
+	["504"] = { id = "com_hutch_01_placemats", newId = "jsmk_fc_com_hutch_01_placemats", name = "Hutch, Cheap", category = "Containers", cost = 240 }, -- MW 
+	["505"] = { id = "com_cupboard_01", newId = "jsmk_fc_com_cupboard_01", name = "Cupboard", category = "Containers", cost = 120 }, -- MW 
+	["506"] = { id = "st_ac_kb_sewtable_de_p", newId = "jsmk_fc_st_ac_kb_sewtable_de_p", name = "Sewing Table", category = "Containers", cost = 300 }, -- Pillow Mage Manor 
+	["507"] = { id = "light_com_chandelier_03", newId = "jsmk_fc_light_com_chandelier_03", name = "Chandelier, Brown Wood", category = "Lights", cost = 100 }, -- MW
+	["508"] = { id = "light_de_candle_04", newId = "jsmk_fc_light_de_candle_04", name = "Candle, White", category = "Lights", cost = 12 }, -- MW
+	["509"] = { id = "light_de_lamp_02", newId = "jsmk_fc_light_de_lamp_02", name = "Lamp, Blue", category = "Lights", cost = 20 }, -- MW
+	["510"] = { id = "light_de_lantern_08", newId = "jsmk_fc_light_de_lantern_08", name = "Paper Lantern, Blue", category = "Lights", cost = 12 }, -- MW
+	["511"] = { id = "furn_com_rm_bench_02", newId = "jsmk_fc_furn_com_rm_bench_02", name = "Bench", category = "Seats", cost = 40 }, -- MW
+	["512"] = { id = "furn_de_r_table_08", newId = "jsmk_fc_furn_de_r_table_08", name = "Table, Swirlwood Round", category = "Tables", cost = 140 }, -- MW
+	["513"] = { id = "furn_de_r_winerack", newId = "jsmk_fc_furn_de_r_winerack", name = "Winerack, Swirlwood", category = "Shelves", cost = 300 }, -- MW
+	["514"] = { id = "st_cushion_rnd_01_stat", newId = "jsmk_fc_st_cushion_rnd_01_stat", name = "Cushion, Tan Quilted Round", category = "Cushions", cost = 30 }, -- Pillow Mage Manor
+	["515"] = { id = "st_cushion_rnd_02_stat", newId = "jsmk_fc_st_cushion_rnd_02_stat", name = "Cushion, Green Damask Round", category = "Cushions", cost = 30 }, -- Pillow Mage Manor
+	["516"] = { id = "st_cushion_rnd_03_stat", newId = "jsmk_fc_st_cushion_rnd_03_stat", name = "Cushion, Red Brocade Round", category = "Cushions", cost = 30 }, -- Pillow Mage Manor
+	["517"] = { id = "st_cushion_rnd_04_stat", newId = "jsmk_fc_st_cushion_rnd_04_stat", name = "Cushion, Red Ghiordes Round", category = "Cushions", cost = 30 }, -- Pillow Mage Manor
+	["518"] = { id = "st_cushion_rnd_05_stat", newId = "jsmk_fc_st_cushion_rnd_05_stat", name = "Cushion, Teal Damask Round", category = "Cushions", cost = 30 }, -- Pillow Mage Manor
+	["519"] = { id = "st_cushion_rnd_06_stat", newId = "jsmk_fc_st_cushion_rnd_06_stat", name = "Cushion, Tan Diamond Round", category = "Cushions", cost = 30 }, -- Pillow Mage Manor
+	["520"] = { id = "st_cushion_rnd_07_stat", newId = "jsmk_fc_st_cushion_rnd_07_stat", name = "Cushion, Tan Medallion Round", category = "Cushions", cost = 30 }, -- Pillow Mage Manor
+	["521"] = { id = "st_cushion_rnd_08_stat", newId = "jsmk_fc_st_cushion_rnd_08_stat", name = "Cushion, Blue Shell Round", category = "Cushions", cost = 30 }, -- Pillow Mage Manor
+	["522"] = { id = "st_cushion_rnd_09_stat", newId = "jsmk_fc_st_cushion_rnd_09_stat", name = "Cushion, Blue Floral Round", category = "Cushions", cost = 30 }, -- Pillow Mage Manor
+	["523"] = { id = "st_cushion_rnd_10_stat", newId = "jsmk_fc_st_cushion_rnd_10_stat", name = "Cushion, Red Suzani Round", category = "Cushions", cost = 30 }, -- Pillow Mage Manor
+	["524"] = { id = "st_cushion_rnd_11_stat", newId = "jsmk_fc_st_cushion_rnd_11_stat", name = "Cushion, Green Nrocade Round", category = "Cushions", cost = 30 }, -- Pillow Mage Manor
+	["525"] = { id = "st_cushion_rnd_12_stat", newId = "jsmk_fc_st_cushion_rnd_12_stat", name = "Cushion, Brown Quilted Round", category = "Cushions", cost = 30 }, -- Pillow Mage Manor
+	["526"] = { id = "st_cushion_sq_01_stat", newId = "jsmk_fc_st_cushion_sq_01_stat", name = "Cushion, Tan Quilted Square", category = "Cushions", cost = 30 }, -- Pillow Mage Manor
+	["527"] = { id = "st_cushion_sq_02_stat", newId = "jsmk_fc_st_cushion_sq_02_stat", name = "Cushion, Green Damask Square", category = "Cushions", cost = 30 }, -- Pillow Mage Manor
+	["528"] = { id = "st_cushion_sq_03_stat", newId = "jsmk_fc_st_cushion_sq_03_stat", name = "Cushion, Red Brocade Square", category = "Cushions", cost = 30 }, -- Pillow Mage Manor
+	["529"] = { id = "st_cushion_sq_04_stat", newId = "jsmk_fc_st_cushion_sq_04_stat", name = "Cushion, Red Ghiordes Square", category = "Cushions", cost = 30 }, -- Pillow Mage Manor
+	["530"] = { id = "st_cushion_sq_05_stat", newId = "jsmk_fc_st_cushion_sq_05_stat", name = "Cushion, Teal Damask Square", category = "Cushions", cost = 30 }, -- Pillow Mage Manor
+	["531"] = { id = "st_cushion_sq_06_stat", newId = "jsmk_fc_st_cushion_sq_06_stat", name = "Cushion, Tan Diamond Square", category = "Cushions", cost = 30 }, -- Pillow Mage Manor
+	["532"] = { id = "st_cushion_sq_07_stat", newId = "jsmk_fc_st_cushion_sq_07_stat", name = "Cushion, Tan Medallion Square", category = "Cushions", cost = 30 }, -- Pillow Mage Manor
+	["533"] = { id = "st_cushion_sq_08_stat", newId = "jsmk_fc_st_cushion_sq_08_stat", name = "Cushion, Blue Shell Square", category = "Cushions", cost = 30 }, -- Pillow Mage Manor
+	["534"] = { id = "st_cushion_sq_09_stat", newId = "jsmk_fc_st_cushion_sq_09_stat", name = "Cushion, Blue Floral Square", category = "Cushions", cost = 30 }, -- Pillow Mage Manor
+	["535"] = { id = "st_cushion_sq_10_stat", newId = "jsmk_fc_st_cushion_sq_10_stat", name = "Cushion, Red Suzani Square", category = "Cushions", cost = 30 }, -- Pillow Mage Manor
+	["536"] = { id = "st_cushion_sq_11_stat", newId = "jsmk_fc_st_cushion_sq_11_stat", name = "Cushion, Green Nrocade Square", category = "Cushions", cost = 30 }, -- Pillow Mage Manor
+	["537"] = { id = "st_cushion_sq_12_stat", newId = "jsmk_fc_st_cushion_sq_12_stat", name = "Cushion, Brown Quilted Square", category = "Cushions", cost = 30 }, -- Pillow Mage Manor
+	["538"] = { id = "st_furn_de_r_barstool", newId = "jsmk_fc_st_furn_de_r_barstool", name = "Barstool, Swirlwood", category = "Seats", cost = 60 }, -- Pillow Mage Manor
+	["539"] = { id = "st_furn_de_r_stool_02", newId = "jsmk_fc_st_furn_de_r_stool_02", name = "Stool, Swirlwood", category = "Seats", cost = 50 }, -- Pillow Mage Manor
+	["540"] = { id = "st_furn_de_r_table_02", newId = "jsmk_fc_st_furn_de_r_table_02", name = "End Table, Swirlwood", category = "Tables", cost = 70 }, -- Pillow Mage Manor
+	["541"] = { id = "st_pillow_r08_stat", newId = "jsmk_fc_st_pillow_r08_stat", name = "Pillow, Green", category = "Pillows", cost = 30 }, -- Pillow Mage Manor
+	["542"] = { id = "st_pillow_r09_stat", newId = "jsmk_fc_st_pillow_r09_stat", name = "Pillow, Tan", category = "Pillows", cost = 30 }, -- Pillow Mage Manor
+	["543"] = { id = "st_pillow_r10_stat", newId = "jsmk_fc_st_pillow_r10_stat", name = "Pillow, Green", category = "Pillows", cost = 30 }, -- Pillow Mage Manor
+	["544"] = { id = "st_pillow_r11_stat", newId = "jsmk_fc_st_pillow_r11_stat", name = "Pillow, Red", category = "Pillows", cost = 30 }, -- Pillow Mage Manor
+	["545"] = { id = "st_pillow_r12_stat", newId = "jsmk_fc_st_pillow_r12_stat", name = "Pillow, Blue", category = "Pillows", cost = 30 }, -- Pillow Mage Manor
+	["546"] = { id = "st_rug_02_stat", newId = "jsmk_fc_st_rug_02_stat", name = "Rug, Green Floral", category = "Rugs", cost = 60 }, -- Pillow Mage Manor
+	["547"] = { id = "st_rug_04_stat", newId = "jsmk_fc_st_rug_04_stat", name = "Rug, Blue Shell", category = "Rugs", cost = 60 }, -- Pillow Mage Manor
+	["548"] = { id = "st_rug_05_stat", newId = "jsmk_fc_st_rug_05_stat", name = "Rug, Blue Floral", category = "Rugs", cost = 60 }, -- Pillow Mage Manor
+	["549"] = { id = "st_rug_08_stat", newId = "jsmk_fc_st_rug_08_stat", name = "Rug, Grey Floral", category = "Rugs", cost = 60 }, -- Pillow Mage Manor
+	["550"] = { id = "st_rug_07_stat", newId = "jsmk_fc_st_rug_07_stat", name = "Rug, Gold Floral", category = "Rugs", cost = 60 }, -- Pillow Mage Manor
+	["551"] = { id = "st_rug_13_stat", newId = "jsmk_fc_st_rug_13_stat", name = "Rug, Gold Floral", category = "Rugs", cost = 60 }, -- Pillow Mage Manor
+	["552"] = { id = "st_rug_14_stat", newId = "jsmk_fc_st_rug_14_stat", name = "Rug, Blue Floral", category = "Rugs", cost = 60 }, -- Pillow Mage Manor
+	["553"] = { id = "st_rug_18_stat", newId = "jsmk_fc_st_rug_18_stat", name = "Rug, Gold Brocade", category = "Rugs", cost = 60 }, -- Pillow Mage Manor
+	["554"] = { id = "st_tapestry_01", newId = "jsmk_fc_st_tapestry_01", name = "Tapestry, Tan Quilted", category = "Tapestries", cost = 120 }, -- Pillow Mage Manor
+	["555"] = { id = "st_tapestry_04", newId = "jsmk_fc_st_tapestry_04", name = "Tapestry, Blue Floral", category = "Tapestries", cost = 120 }, -- Pillow Mage Manor
+	["556"] = { id = "st_tapestry_10", newId = "jsmk_fc_st_tapestry_10", name = "Tapestry, Red Floral", category = "Tapestries", cost = 120 }, -- Pillow Mage Manor
+	["557"] = { id = "st_tapestry_11", newId = "jsmk_fc_st_tapestry_11", name = "Tapestry, Green Floral", category = "Tapestries", cost = 120 }, -- Pillow Mage Manor
+	["558"] = { id = "st_tapestry_15", newId = "jsmk_fc_st_tapestry_15", name = "Tapestry, Gold Floral", category = "Tapestries", cost = 120 }, -- Pillow Mage Manor
 }
 
 ---@type string[]
@@ -535,21 +602,21 @@ function this.getValidFurniture()
 					if furnitureObj.objectType == tes3.objectType.light and furnitureObj.canCarry then
 						if not furniture.deprecated then
 							valid = false
-							mwse.log("[Furniture Catalogue: ERROR] Can Carry: %s %s", index, furniture.id)
+							log:error("Can Carry: %s %s", index, furniture.id)
 						end
 					end
 				elseif not furniture.deprecated then
 					valid = false
-					mwse.log("[Furniture Catalogue: ERROR] Can Carry: %s %s", index, furniture.id)
+					log:error("Can Carry: %s %s", index, furniture.id)
 				end
 			else
 				valid = false
-				mwse.log("[Furniture Catalogue: INFO] Not Found: %s %s", index, furniture.id)
+				log:info("Not Found: %s %s", index, furniture.id)
 			end
 			if valid then table.insert(this.validFurniture, furniture.id) end
 		end
 	end
-	mwse.log("[Furniture Catalogue: INFO] Registered %s recipes", table.size(this.validFurniture))
+	log:info("Registered %s recipes", table.size(this.validFurniture))
 end
 
 return this

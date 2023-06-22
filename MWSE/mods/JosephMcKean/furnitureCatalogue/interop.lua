@@ -42,29 +42,16 @@ local function registerFurniture(e)
 		assert(type(furnitureData.name) == 'string', "name must be a string")
 		assert(type(furnitureData.category) == 'string', "category must be a string")
 		assert(type(furnitureData.cost) == 'number', "cost must be a number")
-		if furnitureData.description then
-			assert(type(furnitureData.description) == 'string', "description must be a string")
-		end
-		if furnitureData.alwaysInStock then
-			assert(type(furnitureData.alwaysInStock) == 'boolean', "alwaysInStock must be a boolean")
-		end
-		if furnitureData.scale then
-			assert(type(furnitureData.scale) == 'number', "size must be a number")
-		end
+		if furnitureData.alwaysInStock then assert(type(furnitureData.alwaysInStock) == 'boolean', "alwaysInStock must be a boolean") end
+		if furnitureData.scale then assert(type(furnitureData.scale) == 'number', "size must be a number") end
 		--- Warning the users that the furniture is getting overwritten
-		if furnConfig.furniture[index] then
-			log:info("registerFurniture overwriting furniture[%s] %s with %s", index, furnConfig.furniture[index].id, furnitureData.id)
-		end
+		if furnConfig.furniture[index] then log:info("registerFurniture overwriting furniture[%s] %s with %s", index, furnConfig.furniture[index].id, furnitureData.id) end
 		furnConfig.furniture[index] = furnitureData
 	end
 	return true
 end
 
 ---@class furnitureCatalogue.Interop
-local Interop = {
-	registerFurniture = function(data)
-		return registerFurniture({ data = data })
-	end,
-}
+local Interop = { registerFurniture = function(data) return registerFurniture({ data = data }) end }
 
 return Interop

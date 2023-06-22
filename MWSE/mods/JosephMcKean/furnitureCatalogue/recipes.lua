@@ -8,7 +8,8 @@ local common = require("JosephMcKean.furnitureCatalogue.common")
 local config = require("JosephMcKean.furnitureCatalogue.config")
 local furnConfig = require("JosephMcKean.furnitureCatalogue.furnConfig")
 
-local log = common.createLogger("recipes")
+local logging = require("JosephMcKean.furnitureCatalogue.logging")
+local log = logging.createLogger("recipes")
 
 ---@param id string
 ---@return string newId
