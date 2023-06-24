@@ -617,7 +617,7 @@ this.furniture = {
 	["589"] = { id = "furn_s_tapestry", newId = "jsmk_fc_furn_s_tapestry", name = "Tapestry, Skaal", category = "Tapestries", cost = 120 }, -- MW
 	["590"] = { id = "furn_s_tapestry02", newId = "jsmk_fc_furn_s_tapestry02", name = "Tapestry, Skaal", category = "Tapestries", cost = 120 }, -- MW
 	["591"] = { id = "furn_s_tapestry03", newId = "jsmk_fc_furn_s_tapestry03", name = "Tapestry, Skaal", category = "Tapestries", cost = 120 }, -- MW
-	["592"] = { id = "in_nord_fireplace_01", newId = "in_nord_fireplace_01", name = "Fireplace, Nordic", category = "Fireplace", cost = 120 }, -- MW
+	-- ["592"] = { id = "in_nord_fireplace_01", newId = "in_nord_fireplace_01", name = "Fireplace, Nordic", category = "Fireplace", cost = 120 }, -- MW
 	["593"] = { id = "t_com_furn_fireplacestand_01", newId = "jsmk_fctcomfurnfireplacestand01", name = "Fireplace Stand", category = "Other", cost = 10 }, -- TR
 	["594"] = { id = "t_com_set_planterhanging_01", newId = "jsmk_fc_tcomsetplanterhanging01", name = "Planter, Wall Hanging", category = "Planters", cost = 50 }, -- PC
 	["595"] = { id = "t_nor_furn_planter_01", newId = "jsmk_fc_t_nor_furn_planter_01", name = "Planter, Nordic", category = "Planters", cost = 50 }, -- MW
