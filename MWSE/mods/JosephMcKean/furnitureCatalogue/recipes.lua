@@ -142,6 +142,8 @@ local function addRecipe(recipes, index, furniture)
 	if furnitureObj.objectType == tes3.objectType.light then -- tes3light doesn't have createCopy method sadly
 		furniture.newId = furniture.id
 		log:debug("%s is a light", furniture.id)
+	elseif furniture.newId == furniture.id then
+		log:debug("furniture.newId == furniture.id = %s", furniture.id)
 	else
 		furniture.newId = furniture.newId or generateNewId(furniture.id)
 		log:debug("%s:createCopy({ id = %s })", furniture.id, furniture.newId)
