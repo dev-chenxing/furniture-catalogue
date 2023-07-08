@@ -617,7 +617,6 @@ this.furniture = {
 	["589"] = { id = "furn_s_tapestry", newId = "jsmk_fc_furn_s_tapestry", name = "Tapestry, Skaal", category = "Tapestries", cost = 120 }, -- MW
 	["590"] = { id = "furn_s_tapestry02", newId = "jsmk_fc_furn_s_tapestry02", name = "Tapestry, Skaal", category = "Tapestries", cost = 120 }, -- MW
 	["591"] = { id = "furn_s_tapestry03", newId = "jsmk_fc_furn_s_tapestry03", name = "Tapestry, Skaal", category = "Tapestries", cost = 120 }, -- MW
-	-- ["592"] = { id = "in_nord_fireplace_01", newId = "in_nord_fireplace_01", name = "Fireplace, Nordic", category = "Fireplace", cost = 120 }, -- MW
 	["593"] = { id = "t_com_furn_fireplacestand_01", newId = "jsmk_fctcomfurnfireplacestand01", name = "Fireplace Stand", category = "Other", cost = 10 }, -- TR
 	["594"] = { id = "t_com_set_planterhanging_01", newId = "jsmk_fc_tcomsetplanterhanging01", name = "Planter, Wall Hanging", category = "Planters", cost = 50 }, -- PC
 	["595"] = { id = "t_nor_furn_planter_01", newId = "jsmk_fc_t_nor_furn_planter_01", name = "Planter, Nordic", category = "Planters", cost = 50 }, -- MW
@@ -641,6 +640,15 @@ this.furniture = {
 	["613"] = { id = "t_nor_furnr_tableround_01", newId = "jsmk_fct_nor_furnr_tableround01", name = "Table, Nordic Expensive Round", category = "Tables", cost = 240 }, -- SKY
 	["614"] = { id = "t_nor_furnr_wallscreen_01", newId = "jsmk_fct_nor_furnr_wallscreen01", name = "Wallscreen, Nordic Expensive", category = "Other", cost = 150 }, -- SKY
 	["615"] = { id = "ab_light_comcandleblckbf04_128", newId = "jsmkablightcomcandleblckbf04128", name = "Candle Black Slim, Blue Flame", category = "Lights", cost = 12 }, -- OAAB
+	["592"] = { id = "in_nord_fireplace_01", newId = "jsmk_fc_in_nord_fireplace_01", name = "Fireplace, Nordic", category = "Fireplaces", cost = 120 }, -- MW
+	["616"] = { id = "furn_de_firepit_f", newId = "jsmk_fc_furn_de_firepit_f", name = "Campfire", category = "Fireplaces", cost = 30 }, -- MW
+	["617"] = { id = "furn_redoran_hearth_02", newId = "jsmk_fc_furn_redoran_hearth_02", name = "Hearth, Redoran", category = "Fireplaces", cost = 120 }, -- MW
+	["618"] = { id = "furn_fireplace10", newId = "jsmk_fc_furn_fireplace10", name = "Fireplace", category = "Fireplaces", cost = 120 }, -- MW
+	["619"] = { id = "in_imp_fireplace_grand", newId = "jsmk_fc_in_imp_fireplace_grand", name = "Fireplace, Imperial", category = "Fireplaces", cost = 240 }, -- MW
+	["620"] = { id = "t_imp_setsky_i_fireplace_01", newId = "jsmk_fc_t_impsetskyifireplace01", name = "Fireplace, Nordic", category = "Fireplaces", cost = 120 }, -- SKY
+	["621"] = { id = "t_imp_setsky_i_fireplace_02", newId = "jsmk_fc_t_impsetskyifireplace02", name = "Fireplace, Nordic", category = "Fireplaces", cost = 120 }, -- SKY
+	["622"] = { id = "ab_in_velhearthsmall", newId = "jsmk_fc_ab_in_velhearthsmall", name = "Hearth, Velothi", category = "Fireplaces", cost = 120 }, -- OAAB
+	["623"] = { id = "furn_dwrv_stove00", newId = "jsmk_fc_furn_dwrv_stove00", name = "Stove, Dwemer", category = "Fireplaces", cost = 360 }, -- MW
 }
 
 ---@type string[]

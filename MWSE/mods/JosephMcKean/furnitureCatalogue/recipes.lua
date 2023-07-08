@@ -46,7 +46,29 @@ end
 ---@return string id
 local function recipeId(furniture) return "FurnitureCatalogue:" .. furniture.newId end
 
-local ashfallOnlyCategory = { ["Beds"] = bedroll and bedroll.buttons.sleep, ["Water"] = { text = "Ashfall: Water Menu", callback = function(e) event.trigger("Ashfall:WaterMenu") end } }
+local cell ---@type tes3cell
+local previousCell ---@type tes3cell
+
+---@param e cellChangedEventData
+event.register("cellChanged", function(e)
+	cell = e.cell
+	previousCell = e.previousCell
+end)
+
+--- This is a hack lol
+local function replaceFireplace(e)
+	local reference = e.reference ---@type tes3reference
+	local furnitureId = reference.data.furnitureId ---@type string
+	reference:disable()
+	tes3.createReference({ object = furnitureId, position = reference.position, orientation = reference.orientation, cell = reference.cell, scale = reference.scale })
+	event.trigger("cellChanged", { cell = cell, previousCell = previousCell })
+end
+
+local ashfallOnlyCategory = {
+	["Beds"] = bedroll and bedroll.buttons.sleep,
+	["Water"] = { text = "Use", callback = function(e) event.trigger("Ashfall:WaterMenu") end },
+	["Fireplaces"] = { text = "Install", tooltip = { text = "Installing the fireplace will make it usable but permanently lock it in place" }, callback = replaceFireplace },
+}
 
 --- Returns the additionalMenuOptions for furniture recipes
 ---@param index string
@@ -128,6 +150,10 @@ local soundType = "spendMoney" ---@cast soundType CraftingFramework.Craftable.So
 ---@return craftingFrameworkRotationAxis
 local function rotationAxis(furniture) return furniture.category == "Rugs" and "y" or "z" end
 
+---@param furniture furnitureCatalogue.furniture
+---@param e CraftingFramework.Craftable.craftCallback.params
+local function craftCallback(furniture, e) e.reference.data.furnitureId = furniture.id end
+
 ---@param self CraftingFramework.Craftable
 ---@param e CraftingFramework.Craftable.SuccessMessageCallback.params
 ---@return string successMessage
@@ -169,6 +195,7 @@ local function addRecipe(recipes, index, furniture)
 		scale = furniture.scale,
 		previewMesh = furnitureObj.mesh,
 		rotationAxis = rotationAxis(furniture),
+		craftCallback = function(self, e) craftCallback(furniture, e) end,
 		successMessageCallback = function(self, e) return successMessageCallback(self, e) end,
 	}
 	table.insert(recipes, recipe)
