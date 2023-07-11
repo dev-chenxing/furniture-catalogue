@@ -46,22 +46,13 @@ end
 ---@return string id
 local function recipeId(furniture) return "FurnitureCatalogue:" .. furniture.newId end
 
-local cell ---@type tes3cell
-local previousCell ---@type tes3cell
-
----@param e cellChangedEventData
-event.register("cellChanged", function(e)
-	cell = e.cell
-	previousCell = e.previousCell
-end)
-
---- This is a hack lol
+--- This is not a hack lol
 local function replaceFireplace(e)
 	local reference = e.reference ---@type tes3reference
 	local furnitureId = reference.data.furnitureId ---@type string
 	reference:disable()
-	tes3.createReference({ object = furnitureId, position = reference.position, orientation = reference.orientation, cell = reference.cell, scale = reference.scale })
-	event.trigger("cellChanged", { cell = cell, previousCell = previousCell })
+	local campfire = tes3.createReference({ object = furnitureId, position = reference.position, orientation = reference.orientation, cell = reference.cell, scale = reference.scale })
+	event.trigger("Ashfall:UpdateAttachNodes", { reference = campfire })
 end
 
 local ashfallOnlyCategory = {
