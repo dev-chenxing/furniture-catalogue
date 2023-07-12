@@ -49,9 +49,9 @@ local function recipeId(furniture) return "FurnitureCatalogue:" .. furniture.new
 --- This is not a hack lol
 local function replaceFireplace(e)
 	local reference = e.reference ---@type tes3reference
-	local furnitureId = reference.data.furnitureId ---@type string
+	local campfireId = reference.data.campfireId ---@type string
 	reference:disable()
-	local campfire = tes3.createReference({ object = furnitureId, position = reference.position, orientation = reference.orientation, cell = reference.cell, scale = reference.scale })
+	local campfire = tes3.createReference({ object = campfireId, position = reference.position, orientation = reference.orientation, cell = reference.cell, scale = reference.scale })
 	event.trigger("Ashfall:UpdateAttachNodes", { reference = campfire })
 end
 
@@ -143,7 +143,7 @@ local function rotationAxis(furniture) return furniture.category == "Rugs" and "
 
 ---@param furniture furnitureCatalogue.furniture
 ---@param e CraftingFramework.Craftable.craftCallback.params
-local function craftCallback(furniture, e) e.reference.data.furnitureId = furniture.id end
+local function craftCallback(furniture, e) e.reference.data.campfireId = furniture.campfireId end
 
 ---@param self CraftingFramework.Craftable
 ---@param e CraftingFramework.Craftable.SuccessMessageCallback.params
