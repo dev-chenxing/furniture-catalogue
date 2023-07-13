@@ -156,10 +156,7 @@ local function successMessageCallback(self, e) return string.format("%s has been
 local function addRecipe(recipes, index, furniture)
 	local furnitureObj = tes3.getObject(furniture.id) ---@cast furnitureObj tes3activator|tes3container|tes3static
 	if not furnitureObj then return end
-	if furnitureObj.objectType == tes3.objectType.light then -- tes3light doesn't have createCopy method sadly
-		furniture.newId = furniture.id
-		log:debug("%s is a light", furniture.id)
-	elseif furniture.newId == furniture.id then
+	if furniture.newId == furniture.id then
 		log:debug("furniture.newId == furniture.id = %s", furniture.id)
 	else
 		furniture.newId = furniture.newId or generateNewId(furniture.id)
@@ -170,6 +167,8 @@ local function addRecipe(recipes, index, furniture)
 	if furniture.category == "Beds" then if not ashfall then return end end
 	-- Only register alternative recipe if the base recipe does not exist
 	if furniture.base then if tes3.getObject(furniture.base) then return end end
+	local quickActivateCallback = nil
+	if furniture.category == "Lights" then quickActivateCallback = function() end end
 	--- The recipe for the furniture
 	---@type CraftingFramework.Recipe 
 	local recipe = {
@@ -187,6 +186,7 @@ local function addRecipe(recipes, index, furniture)
 		previewMesh = furnitureObj.mesh,
 		rotationAxis = rotationAxis(furniture),
 		craftCallback = function(self, e) craftCallback(furniture, e) end,
+		quickActivateCallback = quickActivateCallback,
 		successMessageCallback = function(self, e) return successMessageCallback(self, e) end,
 	}
 	table.insert(recipes, recipe)
